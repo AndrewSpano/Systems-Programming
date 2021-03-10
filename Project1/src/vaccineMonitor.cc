@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
+#include <memory>
 
 #include "../include/data_structures/index.hpp"
 #include "../include/utils/parsing.hpp"
+#include "../include/data_structures/bloom_filter.hpp"
 
 
 int main(int argc, char* argv[])
@@ -41,7 +43,6 @@ int main(int argc, char* argv[])
 
   /* index struct that will contain all the data structures grouped together */
   Index index;
-
   parsing::dataset::parse_dataset(argv[2], index);
 
   return EXIT_SUCCESS;

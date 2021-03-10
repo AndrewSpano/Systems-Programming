@@ -8,27 +8,27 @@
 typedef struct Record
 {
 
-  uint64_t id = 0;
+  std::string id = "";
   std::string name = "";
   std::string surname = "";
   std::string country = "";
   uint8_t age = 0;
 
 
-  Record(const uint64_t& _id, const std::string& _name, const std::string& _surname,
-         const std::string& _country, const int& _age): id(_id), name(_name), surname(_surname),
-                                                        country(_country), age(_age)
+  Record(const std::string& _id, const std::string& _name, const std::string& _surname,
+         const std::string& _country, const int& _age):
+  id(_id), name(_name), surname(_surname), country(_country), age(_age)
   { }
 
   ~Record(void)
   { }
 
-  bool operator < (const uint64_t& _id)
+  bool operator < (const std::string& _id)
   {
     return id < _id;
   }
 
-  bool operator == (const uint64_t& _id)
+  bool operator == (const std::string& _id)
   {
     return id == _id;
   }

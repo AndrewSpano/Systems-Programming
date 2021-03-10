@@ -11,12 +11,11 @@ void parsing::parse_record_line(const std::string& line, Index& index)
 
   /* parse the ID, skip the record if an error occurrs */
   parsing::utils::parse_next_substring(line, start, end);
-  std::string _id = line.substr(start, end - start);
-  if (end == 0 || !parsing::utils::is_valid_numerical(_id))
+  std::string id = line.substr(start, end - start);
+  if (end == 0 || !parsing::utils::is_valid_numerical(id))
   {
     LOG_AND_RETURN(line)
   }
-  uint64_t id = stoi(_id);
   start = end;
 
   /* parse the name, skip the record if an error occurrs */
@@ -63,13 +62,12 @@ void parsing::parse_record_line(const std::string& line, Index& index)
 
   /*
   CASES:
-
-    1. Record with the same ID but a different field exists -> ERROR, ignore it
-    2. Input after (virus, yes/no, data) is incorrect -> ERROR, ignore it
-    3. Same Record exists, vaccination data is contradictory to existing data -> ERROR, ignore it
+    1. A Record with the same ID but a different field exists -> ERROR, continue
+    2. Input after Record (virus, YES/NO, date) is incorrect -> ERROR, continue
+    3. Same Record exists, vaccination data is contradictory to new data -> ERROR, continue
   */
 
-  /* 1. if a record with the same ID exists, and the new record is incompatible with it, skip */
+  /* 1. if a record with the same ID exists, and the new record is incompatible with it, continue */
   if (same_id_record && !parsing::utils::is_valid_new_record(new_record, same_id_record))
   {
     delete new_record;
@@ -115,11 +113,8 @@ void parsing::parse_record_line(const std::string& line, Index& index)
     }
 
     /* if we get here the Record is legit, add it to the data structures */
-    if (!same_id_record)
-    {
-      index.records->insert(new_record);
-    }
-    // other data structures
+    /* ToDo: function below */
+    index.insert(same_id_record, new_record, disease, status);
   }
 
   /* 2. if the status is "YES", parse the data and make sure that it is the last string */
@@ -145,11 +140,8 @@ void parsing::parse_record_line(const std::string& line, Index& index)
     }
 
     /* if we get here the Record is legit, add it to the data structures */
-    if (!same_id_record)
-    {
-      index.records->insert(new_record);
-    }
-    // other data structures
+    /* ToDo: function below */
+    index.insert(same_id_record, new_record, disease, status, date);
   }
 }
 
