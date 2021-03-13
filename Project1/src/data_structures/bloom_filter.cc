@@ -5,13 +5,14 @@
 BloomFilter::BloomFilter(const uint64_t& number_of_bytes, const uint16_t& K):
 size(number_of_bytes), num_hashes(K)
 {
-  bits = std::make_unique<uint8_t[]>(number_of_bytes);
-  std::memset(bits.get(), 0, number_of_bytes);
+  bits = new uint8_t[number_of_bytes];
+  std::memset(bits, 0, number_of_bytes);
 }
 
 
 BloomFilter::~BloomFilter(void)
 {
+  delete[] bits;
   bits = NULL;
 }
 

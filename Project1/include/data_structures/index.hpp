@@ -3,48 +3,60 @@
 
 #include "record.hpp"
 #include "record_list.hpp"
-#include "skip_list.hpp"
 #include "disease_list.hpp"
+#include "hash_table.hpp"
 
 
 typedef struct Index
 {
-  RecordList* records = NULL;
+  RecordList* records_list = NULL;
+  HashTable* countries_hash_table = NULL;
+  DiseaseList* disease_list = NULL;
 
-  /* skips lists */
-  /* bloom filters */
-
-  Index(void)
+  Index(const uint32_t& hash_table_num_buckets)
   {
-    records = new RecordList();
+    records_list = new RecordList();
+    countries_hash_table = new HashTable(hash_table_num_buckets);
+    disease_list = new DiseaseList();
   }
 
   ~Index(void)
   {
-    if (records)
-    {
-      delete records;
-      records = NULL;
-    }
+    delete records_list;
+    records_list = NULL;
+
+    delete countries_hash_table;
+    countries_hash_table = NULL;
+
+    delete disease_list;
+    disease_list = NULL;
   }
 
   void insert(Record* existing_record, Record* new_record, const std::string& disease="",
-              const std::string& status="", const std::string& date="")
+              const std::string& _status="", const std::string& date="")
   {
     /* if the record has not been seen before, insert it in the list with records */
     if (!existing_record)
     {
-      records->insert(new_record);
-      existing_record = new_record;
+      records_list->insert(new_record);
     }
     else
     {
       delete new_record;
+      new_record = existing_record;
     }
 
+    /* insert the new entry in the specified disease list */
+    bool status = _status == "YES";
+    disease_list->insert(new_record, disease, status, date);
 
+    /* insert the country to the hast table with the countries, if it does not exist already */
+    countries_hash_table->insert_if_not_exists(new_record->country);
+  }
 
-
+  bool record_exists_in_disease(Record* existing_record, const std::string& disease)
+  {
+    return disease_list->exists_in_disease(existing_record, disease);
   }
 
 } Index;

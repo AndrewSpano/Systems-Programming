@@ -7,7 +7,6 @@
 
 
 typedef struct DiseaseNode* DiseaseNodePtr;
-
 typedef struct DiseaseNode
 {
   std::string disease = "";
@@ -26,7 +25,6 @@ typedef struct DiseaseNode
 
   ~DiseaseNode(void)
   {
-    /* delete skip lists and bloom filter - clear memory */
     delete bloom_filter;
     delete vaccinated;
     delete non_vaccinated;
@@ -57,12 +55,16 @@ class DiseaseList
     DiseaseNodePtr head;
     uint32_t size;
 
+    void _delete_data(void);
+
   public:
 
     DiseaseList(void);
     ~DiseaseList(void);
-    void insert(Record* record, const std::string& disease, const bool& status,
-                const std::string& date);
+
+    void insert(Record* record, const std::string& disease, const bool& status, const std::string& date);
+    bool exists_in_disease(Record* record, const std::string& disease);
+
 };
 
 

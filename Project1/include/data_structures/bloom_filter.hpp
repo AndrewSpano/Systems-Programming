@@ -12,7 +12,7 @@ class BloomFilter
 
     uint64_t size;
     uint16_t num_hashes;
-    std::unique_ptr<uint8_t[]> bits;
+    uint8_t* bits;
 
   public:
 

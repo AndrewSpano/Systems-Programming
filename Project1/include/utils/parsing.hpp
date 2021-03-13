@@ -10,6 +10,13 @@
   return;                                                \
 }
 
+#define DELETE_LOG_AND_RETURN(record, line)              \
+{                                                        \
+  std::cout << "ERROR IN RECORD " << line << std::endl;  \
+  delete record;                                         \
+  return;                                                \
+}
+
 
 namespace parsing
 {
@@ -35,6 +42,12 @@ namespace parsing
   namespace dataset
   {
     void parse_dataset(const std::string& dataset_path, Index& index);
+  }
+
+  namespace arguments
+  {
+    bool parse_arguments(const int& argc, const char* argv[], std::string& dataset_path, uint64_t& bloom_filter_size);
+    void print_help(void);
   }
 }
 
