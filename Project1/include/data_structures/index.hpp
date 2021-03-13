@@ -13,11 +13,11 @@ typedef struct Index
   HashTable* countries_hash_table = NULL;
   DiseaseList* disease_list = NULL;
 
-  Index(const uint32_t& hash_table_num_buckets)
+  Index(const uint64_t& _bloom_filter_size, const uint32_t& hash_table_num_buckets)
   {
     records_list = new RecordList();
     countries_hash_table = new HashTable(hash_table_num_buckets);
-    disease_list = new DiseaseList();
+    disease_list = new DiseaseList(_bloom_filter_size);
   }
 
   ~Index(void)

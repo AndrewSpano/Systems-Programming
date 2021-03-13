@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sys/stat.h>
 #include "../../include/utils/parsing.hpp"
 
 
@@ -109,4 +110,23 @@ bool parsing::utils::is_valid_new_record(Record* new_record, Record* existing_re
   new_record->surname == existing_record->surname &&
   new_record->country == existing_record->country &&
   new_record->age == existing_record->age;
+}
+
+
+/* true if the file specified by the path exists */
+bool parsing::utils::file_exists(const std::string& path)
+{
+  /* create a path variable */
+  struct stat buffer;
+  /* check if the exists by trying access its stats */
+  return (stat (path.c_str(), &buffer) == 0);
+}
+
+
+/* print some information regarding the format of the command line parameters */
+void parsing::arguments::print_help(void)
+{
+  std::cout << "Usage: ./vaccineMonitor -c citizenRecordsFile -b bloomSize\n\n"
+            << "\twhere, citizenRecordsFile = The path to the Records Dataset\n"
+            << "\t       bloomSize = The size of the Bloom Filter in bytes.";
 }

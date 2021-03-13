@@ -52,14 +52,16 @@ typedef struct DiseaseNode
 class DiseaseList
 {
   private:
+
     DiseaseNodePtr head;
     uint32_t size;
+    const uint64_t bloom_filter_size;
 
     void _delete_data(void);
 
   public:
 
-    DiseaseList(void);
+    DiseaseList(const uint64_t& _bloom_filter_size);
     ~DiseaseList(void);
 
     void insert(Record* record, const std::string& disease, const bool& status, const std::string& date);

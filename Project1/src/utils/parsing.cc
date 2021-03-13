@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <fstream>
 #include "../../include/utils/parsing.hpp"
 
@@ -145,26 +146,74 @@ void parsing::dataset::parse_dataset(const std::string& dataset_path, Index& ind
 
 
 /* parse the command-line arguments and store them in the 'dataset_path' and 'bloom_filter_size' variables */
-bool parsing::arguments::parse_arguments(const int& argc, const char* argv[], std::string& dataset_path, uint64_t& bloom_filter_size)
+bool parsing::arguments::parse_arguments(const int& argc, char* argv[], std::string& dataset_path, uint64_t& bloom_filter_size)
 {
   if (argc != 5)
   {
     if (argc == 2 && (!strcmp(argv[1], "--help") || !strcmp(argv[1], "-h")))
       parsing::arguments::print_help();
     else
-      std::cout << "Incorrect number of arguments. Run with the parameter \"-h\" for more "
+      std::cout << "ERROR: Incorrect number of arguments. Run with flag \"-h\" for more "
                 << "information. Aborting .." << std::endl;
-
     return false;
   }
 
+  bool flag_c = false;
+  bool flag_b = false;
+
+  for (size_t i = 1; i < 5; i += 2)
+  {
+    std::string flag(argv[i]);
+    std::string value(argv[i + 1]);
+
+    if (flag == "-c")
+    {
+      if (!parsing::utils::file_exists(value))
+      {
+        std::cout << "ERROR: Dataset path \"" << value << "\" does not correspond to an existing "
+                  << "file. Run with flag \"-h\" for more information. Aborting .." << std::endl;
+        return false;
+      }
+      dataset_path = value;
+      flag_c = true;
+    }
+    else if (flag == "-b")
+    {
+      if (!parsing::utils::is_valid_numerical(value))
+      {
+        std::cout << "ERROR: Bloom Filter size \"" << value << "\" is not a valid integer positive "
+                  << "value. Run with flag \"-h\" for more information. Aborting .." << std::endl;
+        return false;
+      }
+      bloom_filter_size = stoi(value);
+      if (bloom_filter_size == 0)
+      {
+        std::cout << "ERROR: Bloom Filter size can't be equal to 0. Run with flag \"-h\" for more "
+                  << "information. Aborting .." << std::endl;
+        return false;
+      }
+      flag_b = true;
+    }
+    else
+    {
+      std::cout << "ERROR: Unrecognized argument " << flag << ". Run with flag \"-h\" for more "
+                << "information. Aborting .." << std::endl;
+      return false;
+    }
+  }
+
+  if (!flag_c)
+  {
+    std::cout << "ERROR: Flag -c (citizenRecordsFile) was not provided. Run with flag \"-h\" for "
+              << "more information. Aborting .." << std::endl;
+    return false;
+  }
+  else if (!flag_b)
+  {
+    std::cout << "ERROR: Flag -b (bloomSize) was not provided. Run with flag \"-h\" for more "
+              << "information. Aborting .." << std::endl;
+    return false;
+  }
 
   return true;
-}
-
-
-/* print some information regarding the format of the command line parameters */
-void parsing::arguments::print_help(void)
-{
-  
 }

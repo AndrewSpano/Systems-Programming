@@ -35,6 +35,9 @@ namespace parsing
     bool is_valid_status(const std::string& status);
 
     bool is_valid_new_record(Record* new_record, Record* existing_record);
+
+    bool file_exists(const std::string& path);
+
   }
 
   void parse_record_line(const std::string& line, Index& index);
@@ -46,7 +49,7 @@ namespace parsing
 
   namespace arguments
   {
-    bool parse_arguments(const int& argc, const char* argv[], std::string& dataset_path, uint64_t& bloom_filter_size);
+    bool parse_arguments(const int& argc, char* argv[], std::string& dataset_path, uint64_t& bloom_filter_size);
     void print_help(void);
   }
 }

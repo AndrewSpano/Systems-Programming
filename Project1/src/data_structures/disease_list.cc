@@ -1,7 +1,8 @@
 #include "../../include/data_structures/disease_list.hpp"
 
 
-DiseaseList::DiseaseList(void): head(NULL), size(0)
+DiseaseList::DiseaseList(const uint64_t& _bloom_filter_size):
+head(NULL), size(0), bloom_filter_size(_bloom_filter_size)
 { }
 
 
@@ -28,7 +29,7 @@ void DiseaseList::insert(Record* record, const std::string& disease, const bool&
 {
   if (size == 0 || disease < head->disease)
   {
-    head = new DiseaseNode(disease, head, 10);
+    head = new DiseaseNode(disease, head, bloom_filter_size);
     head->insert(status, record, date);
   }
   else
@@ -38,7 +39,7 @@ void DiseaseList::insert(Record* record, const std::string& disease, const bool&
       temp = temp->next;
 
     if (!temp->next || temp->next->disease != disease)
-      temp->next = new DiseaseNode(disease, temp->next, 10);
+      temp->next = new DiseaseNode(disease, temp->next, bloom_filter_size);
     temp->next->insert(status, record, date);
   }
   size++;
