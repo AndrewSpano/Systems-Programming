@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-O3
 
-vaccineMonitor: vaccineMonitorMain parsing.o parsing_utils.o record_list.o disease_list.o bloom_filter.o skip_list.o hash_table.o
+vaccineMonitor: vaccineMonitorMain parsing.o parsing_utils.o record_list.o virus_list.o bloom_filter.o skip_list.o hash_table.o
 	$(CC) -o bin/vaccineMonitor object/*.o $(CFLAGS)
 
 vaccineMonitorMain:
@@ -16,8 +16,8 @@ parsing_utils.o:
 record_list.o:
 	$(CC) -c -o object/record_list.o src/data_structures/record_list.cc $(CFLAGS)
 
-disease_list.o:
-	$(CC) -c -o object/disease_list.o src/data_structures/disease_list.cc $(CFLAGS)
+virus_list.o:
+	$(CC) -c -o object/virus_list.o src/data_structures/virus_list.cc $(CFLAGS)
 
 bloom_filter.o:
 	$(CC) -c -o object/bloom_filter.o src/data_structures/bloom_filter.cc $(CFLAGS)

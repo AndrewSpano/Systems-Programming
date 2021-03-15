@@ -6,30 +6,30 @@
 #include "bloom_filter.hpp"
 
 
-typedef struct DiseaseNode* DiseaseNodePtr;
-typedef struct DiseaseNode
+typedef struct VirusNode* VirusNodePtr;
+typedef struct VirusNode
 {
-  std::string disease = "";
+  std::string virus_name = "";
   SkipList* vaccinated = NULL;
   SkipList* non_vaccinated = NULL;
   BloomFilter* bloom_filter = NULL;
-  DiseaseNodePtr next = NULL;
+  VirusNodePtr next = NULL;
 
-  DiseaseNode(const std::string& _disease, DiseaseNodePtr _next, const uint64_t& bloom_filter_size):
-  disease(_disease), next(_next)
+  VirusNode(const std::string& _virus_name, VirusNodePtr _next, const uint64_t& bloom_filter_size):
+  virus_name(_virus_name), next(_next)
   {
     vaccinated = new SkipList(DEFAULT_MAX_LEVEL, DEFAULT_PROBABILITY);
     non_vaccinated = new SkipList(DEFAULT_MAX_LEVEL, DEFAULT_PROBABILITY);
     bloom_filter = new BloomFilter(bloom_filter_size, DEFAULT_K);
   }
 
-  ~DiseaseNode(void)
+  ~VirusNode(void)
   {
     delete bloom_filter;
     delete vaccinated;
     delete non_vaccinated;
 
-    disease = "";
+    virus_name = "";
     next = NULL;
   }
 
@@ -46,14 +46,14 @@ typedef struct DiseaseNode
     }
   }
 
-} DiseaseNode;
+} VirusNode;
 
 
-class DiseaseList
+class VirusList
 {
   private:
 
-    DiseaseNodePtr head;
+    VirusNodePtr head;
     uint32_t size;
     const uint64_t bloom_filter_size;
 
@@ -61,12 +61,14 @@ class DiseaseList
 
   public:
 
-    DiseaseList(const uint64_t& _bloom_filter_size);
-    ~DiseaseList(void);
+    VirusList(const uint64_t& _bloom_filter_size);
+    ~VirusList(void);
 
-    void insert(Record* record, const std::string& disease, const bool& status, const std::string& date);
-    bool exists_in_disease(Record* record, const std::string& disease);
+    void insert(Record* record, const std::string& virus_name, const bool& status, const std::string& date);
+    bool exists_in_virus_name(Record* record, const std::string& virus_name);
 
+    bool probably_in_bloom_filter_of_virus(const std::string& id, const std::string& virus_name);
+    void vaccine_status(const std::string& id, const std::string& virus_name);
 };
 
 

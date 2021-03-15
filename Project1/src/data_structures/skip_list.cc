@@ -126,7 +126,7 @@ void SkipList::insert(Record* data, const std::string& date)
 }
 
 
-Record* SkipList::get(const std::string& id)
+Record* SkipList::get(const std::string& id, std::string& date)
 {
   int current_level = max_level - 2;
   /* skip not initialized levels and those where the first skip data item exceeds the search data */
@@ -161,7 +161,10 @@ Record* SkipList::get(const std::string& id)
     data_node = data_node->next;
 
   if (data_node && *data_node->data == id)
+  {
+    date = *data_node->date;
     return data_node->data;
+  }
   else
     return NULL;
 }
@@ -169,7 +172,8 @@ Record* SkipList::get(const std::string& id)
 
 bool SkipList::in(const std::string& id)
 {
-  return get(id) != NULL;
+  std::string dummy_date = "";
+  return get(id, dummy_date) != NULL;
 }
 
 

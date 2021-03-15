@@ -64,7 +64,7 @@ class SkipList
     ~SkipList(void);
 
     void insert(Record* data, const std::string& date);
-    Record* get(const std::string& id);
+    Record* get(const std::string& id, std::string& date);
     bool in(const std::string& id);
 
     void print(void);

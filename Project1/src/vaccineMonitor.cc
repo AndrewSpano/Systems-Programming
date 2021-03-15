@@ -32,11 +32,12 @@ int main(int argc, char* argv[])
 
   /* get an option from the user for which command to execute */
   std::string line = "";
-  int command = parsing::user_input::get_option(line);
+  int command = parsing::user_input::get_option(line, true);
 
   /* iterate until user gives the "/exit" command */
   while (command)
   {
+    std::cout << std::endl;
     /* distinguish which command the user wants to use, and execute it if it's format is correct */
     if (command == 1)
     {
@@ -44,9 +45,9 @@ int main(int argc, char* argv[])
       std::string virus_name = "";
 
       if (parsing::user_input::parse_vaccine_status(line, citizen_id, virus_name, true))
-      {
-        std::cout << "COMMAND 1 VALUES ARE: " << citizen_id << ", " << virus_name << '\n';
-      }
+        index.virus_list->probably_in_bloom_filter_of_virus(citizen_id, virus_name)
+          ? std::cout << "MAYBE" << std::endl
+          : std::cout << "NOT VACCINATED" << std::endl;
 
     }
     else if (command == 2)
@@ -55,10 +56,7 @@ int main(int argc, char* argv[])
       std::string virus_name = "";
 
       if (parsing::user_input::parse_vaccine_status(line, citizen_id, virus_name, false))
-      {
-        std::cout << "COMMAND 2 VALUES ARE: " << citizen_id << ", " << virus_name << '\n';
-
-      }
+        index.virus_list->vaccine_status(citizen_id, virus_name);
     }
     else if (command == 3)
     {
@@ -137,10 +135,9 @@ int main(int argc, char* argv[])
       }
     }
 
-    exit(0);
-
     /* get the next command */
-    command = parsing::user_input::get_option(line);
+    std::cout << std::endl;
+    command = parsing::user_input::get_option(line, false);
   }
 
   std::cout << "records list:" << '\n';

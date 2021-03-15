@@ -66,7 +66,7 @@ namespace parsing
 
   namespace user_input
   {
-    int get_option(std::string& line);
+    int get_option(std::string& line, const bool& _print_help);
     void print_options(void);
 
     bool parse_vaccine_status(const std::string& line,

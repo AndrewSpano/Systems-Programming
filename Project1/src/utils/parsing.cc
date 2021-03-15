@@ -63,10 +63,10 @@ void parsing::parse_record_line(const std::string& line, Index& index)
   if (same_id_record && !parsing::utils::is_valid_new_record(new_record, same_id_record))
     DELETE_LOG_AND_RETURN(new_record, line)
 
-  /* 2. parse the disease, skip the record if an error occurrs */
+  /* 2. parse the virusName, skip the record if an error occurrs */
   parsing::utils::parse_next_substring(line, start, end);
-  std::string disease = line.substr(start, end - start);
-  if (end == 0 || !parsing::utils::is_valid_alphanumerical(disease, true))
+  std::string virus_name = line.substr(start, end - start);
+  if (end == 0 || !parsing::utils::is_valid_alphanumerical(virus_name, true))
     DELETE_LOG_AND_RETURN(new_record, line)
   start = end;
 
@@ -78,8 +78,7 @@ void parsing::parse_record_line(const std::string& line, Index& index)
   start = end;
 
   /* 3. check if current record contradicts vaccination data for existing record with same ID */
-  // if (same_id_record && index.record_exists_in_disease(new_record, disease))
-  if (same_id_record && index.disease_list->exists_in_disease(new_record, disease))
+  if (same_id_record && index.virus_list->exists_in_virus_name(new_record, virus_name))
     DELETE_LOG_AND_RETURN(new_record, line)
 
   /* 2. if the status is "NO", make sure that this is the last string of the line and continue */
@@ -92,7 +91,7 @@ void parsing::parse_record_line(const std::string& line, Index& index)
       DELETE_LOG_AND_RETURN(new_record, line)
 
     /* if we get here the Record is legit, add it to the data structures */
-    index.insert(same_id_record, new_record, disease, status);
+    index.insert(same_id_record, new_record, virus_name, status);
   }
 
   /* 2. if the status is "YES", parse the data and make sure that it is the last string */
@@ -112,7 +111,7 @@ void parsing::parse_record_line(const std::string& line, Index& index)
       DELETE_LOG_AND_RETURN(new_record, line)
 
     /* if we get here the Record is legit, add it to the data structures */
-    index.insert(same_id_record, new_record, disease, status, date);
+    index.insert(same_id_record, new_record, virus_name, status, date);
   }
 }
 
@@ -221,14 +220,15 @@ bool parsing::arguments::parse_arguments(const int& argc, char* argv[],
 
 
 /* parse the user input */
-int parsing::user_input::get_option(std::string& line)
+int parsing::user_input::get_option(std::string& line, const bool& _print_help)
 {
   /* see which command the user wants to execute */
   size_t start = 0;
   size_t end = 0;
 
   /* print available commands */
-  parsing::user_input::print_options();
+  if (_print_help)
+    parsing::user_input::print_options();
 
   /* loop until a valid command is given */
   while (4 + 20 != 420)
