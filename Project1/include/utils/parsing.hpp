@@ -3,6 +3,7 @@
 
 #include "../data_structures/index.hpp"
 
+#define CURRENT_YEAR 2021
 
 #define LOG_AND_RETURN(line)                             \
 {                                                        \
@@ -15,6 +16,12 @@
   std::cout << "ERROR IN RECORD " << line << std::endl;  \
   delete record;                                         \
   return;                                                \
+}
+
+#define LOG_COMMAND_AND_RETURN(line)                                                            \
+{                                                                                               \
+  std::cout << "ERROR: The format of the command \"" << line << "\" is invalid." << std::endl;  \
+  return false;                                                                                 \
 }
 
 
@@ -33,6 +40,9 @@ namespace parsing
     bool is_valid_alphabetical(const std::string& name, const bool& allow_dash=false);
     bool is_valid_alphanumerical(const std::string& str, const bool& allow_dash=false);
     bool is_valid_status(const std::string& status);
+    bool is_valid_date(const std::string& str);
+
+    bool date2_is_later_than_date1(const std::string& date1, const std::string& date2);
 
     bool is_valid_new_record(Record* new_record, Record* existing_record);
 
@@ -49,8 +59,37 @@ namespace parsing
 
   namespace arguments
   {
-    bool parse_arguments(const int& argc, char* argv[], std::string& dataset_path, uint64_t& bloom_filter_size);
+    bool parse_arguments(const int& argc, char* argv[],
+                         std::string& dataset_path, uint64_t& bloom_filter_size);
     void print_help(void);
+  }
+
+  namespace user_input
+  {
+    int get_option(std::string& line);
+    void print_options(void);
+
+    bool parse_vaccine_status(const std::string& line,
+                              std::string& citizen_id,
+                              std::string& virus_name,
+                              const bool& needs_virus_name);
+    bool parse_population_status(const std::string& line,
+                                 std::string& country,
+                                 std::string& virus_name,
+                                 std::string& date1,
+                                 std::string& date2);
+    bool parse_insert_vaccinate(const std::string& line,
+                                std::string& citizen_id,
+                                std::string& first_name,
+                                std::string& last_name,
+                                std::string& country,
+                                uint8_t& age,
+                                std::string& virus_name,
+                                const bool& needs_status_and_date,
+                                bool& status,
+                                std::string& date);
+    bool parse_non_vaccinated_persons(const std::string& line,
+                                      std::string& virus_name);
   }
 }
 

@@ -54,11 +54,6 @@ typedef struct Index
     countries_hash_table->insert_if_not_exists(new_record->country);
   }
 
-  bool record_exists_in_disease(Record* existing_record, const std::string& disease)
-  {
-    return disease_list->exists_in_disease(existing_record, disease);
-  }
-
 } Index;
 
 

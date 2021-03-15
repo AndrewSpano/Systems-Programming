@@ -78,7 +78,8 @@ void parsing::parse_record_line(const std::string& line, Index& index)
   start = end;
 
   /* 3. check if current record contradicts vaccination data for existing record with same ID */
-  if (same_id_record && index.record_exists_in_disease(new_record, disease))
+  // if (same_id_record && index.record_exists_in_disease(new_record, disease))
+  if (same_id_record && index.disease_list->exists_in_disease(new_record, disease))
     DELETE_LOG_AND_RETURN(new_record, line)
 
   /* 2. if the status is "NO", make sure that this is the last string of the line and continue */
@@ -91,7 +92,6 @@ void parsing::parse_record_line(const std::string& line, Index& index)
       DELETE_LOG_AND_RETURN(new_record, line)
 
     /* if we get here the Record is legit, add it to the data structures */
-    /* ToDo: function below */
     index.insert(same_id_record, new_record, disease, status);
   }
 
@@ -101,7 +101,7 @@ void parsing::parse_record_line(const std::string& line, Index& index)
     /* parse the date, skip the record if an error occurrs */
     parsing::utils::parse_next_substring(line, start, end);
     std::string date = line.substr(start, end - start);
-    if (end == 0 || !parsing::utils::is_valid_numerical(date, true))
+    if (end == 0 || !parsing::utils::is_valid_date(date))
       DELETE_LOG_AND_RETURN(new_record, line)
     start = end;
 
@@ -112,7 +112,6 @@ void parsing::parse_record_line(const std::string& line, Index& index)
       DELETE_LOG_AND_RETURN(new_record, line)
 
     /* if we get here the Record is legit, add it to the data structures */
-    /* ToDo: function below */
     index.insert(same_id_record, new_record, disease, status, date);
   }
 }
@@ -145,8 +144,10 @@ void parsing::dataset::parse_dataset(const std::string& dataset_path, Index& ind
 }
 
 
-/* parse the command-line arguments and store them in the 'dataset_path' and 'bloom_filter_size' variables */
-bool parsing::arguments::parse_arguments(const int& argc, char* argv[], std::string& dataset_path, uint64_t& bloom_filter_size)
+/* parse the command-line arguments and store them in the 'dataset_path' and
+  'bloom_filter_size' variables */
+bool parsing::arguments::parse_arguments(const int& argc, char* argv[],
+                                         std::string& dataset_path, uint64_t& bloom_filter_size)
 {
   if (argc != 5)
   {
@@ -214,6 +215,270 @@ bool parsing::arguments::parse_arguments(const int& argc, char* argv[], std::str
               << "information. Aborting .." << std::endl;
     return false;
   }
+
+  return true;
+}
+
+
+/* parse the user input */
+int parsing::user_input::get_option(std::string& line)
+{
+  /* see which command the user wants to execute */
+  size_t start = 0;
+  size_t end = 0;
+
+  /* print available commands */
+  parsing::user_input::print_options();
+
+  /* loop until a valid command is given */
+  while (4 + 20 != 420)
+  {
+    /* prompt the user to give a command */
+    std::cout << "Enter your command: ";
+    std::getline(std::cin, line);
+
+    /* parse the command */
+    parsing::utils::parse_next_substring(line, start, end);
+    std::string command = line.substr(start, end - start);
+
+    if (command == "/vaccineStatusBloom")
+      return 1;
+    else if (command == "/vaccineStatus")
+      return 2;
+    else if (command == "/populationStatus")
+      return 3;
+    else if (command == "/popStatusByAge")
+      return 4;
+    else if (command == "/insertCitizenRecord")
+      return 5;
+    else if (command == "/vaccinateNow")
+      return 6;
+    else if (command == "/list-nonVaccinated-Persons")
+      return 7;
+    else if (command == "/exit")
+      return 0;
+    else if (command == "/help")
+      parsing::user_input::print_options();
+    else
+      std::cout << "\nUnknown command: " << command << "\n\n";
+  }
+}
+
+
+/* parse the commands "/vaccineStatusBloom" and "/vaccineStatus" */
+bool parsing::user_input::parse_vaccine_status(const std::string& line,
+                                               std::string& citizen_id,
+                                               std::string& virus_name,
+                                               const bool& needs_virus_name=false)
+{
+  size_t start = 0;
+  size_t end = 0;
+
+  /* skip the command sub-string */
+  parsing::utils::parse_next_substring(line, start, end);
+  start = end;
+
+  /* parse the citizenID */
+  parsing::utils::parse_next_substring(line, start, end);
+  citizen_id = line.substr(start, end - start);
+  if (!end || !parsing::utils::is_valid_numerical(citizen_id))
+    LOG_COMMAND_AND_RETURN(line);
+  start = end;
+
+  /* parse the virusName (if it is not given and it is not needed, this is acceptable) */
+  parsing::utils::parse_next_substring(line, start, end);
+  if (!needs_virus_name && !end)
+    return true;
+  virus_name = line.substr(start, end - start);
+  if (!end || !parsing::utils::is_valid_alphanumerical(virus_name, true))
+    LOG_COMMAND_AND_RETURN(line);
+  start = end;
+
+  /* make sure that was the last sub-string */
+  parsing::utils::parse_next_substring(line, start, end);
+  if (end)
+    LOG_COMMAND_AND_RETURN(line);
+
+  return true;
+}
+
+
+/* parse the commands "/populationStatus" and "/popStatusByAge" */
+bool parsing::user_input::parse_population_status(const std::string& line,
+                                                 std::string& country,
+                                                 std::string& virus_name,
+                                                 std::string& date1,
+                                                 std::string& date2)
+{
+  size_t start = 0;
+  size_t end = 0;
+
+  /* skip the command sub-string */
+  parsing::utils::parse_next_substring(line, start, end);
+  start = end;
+
+  /* keep track of the arguments given */
+  uint8_t argc = 0;
+  std::string argv[5];
+
+  /* parse them one by one and store them in an array */
+  parsing::utils::parse_next_substring(line, start, end);
+  while (end && argc < 5)
+  {
+    argv[argc++] = line.substr(start, end - start);
+    start = end;
+    parsing::utils::parse_next_substring(line, start, end);
+  }
+
+  /* check for errors */
+  if (argc == 0 || argc == 5)
+    LOG_COMMAND_AND_RETURN(line);
+
+  /* determine which arguments were given by the number of arguments given */
+  switch (argc)
+  {
+    /* only virusName */
+    case 1:
+    {
+      if (!parsing::utils::is_valid_alphanumerical(argv[0], true))
+        LOG_COMMAND_AND_RETURN(line);
+      virus_name = argv[0];
+      break;
+    }
+    /* country + virusName */
+    case 2:
+    {
+      if (!parsing::utils::is_valid_alphabetical(argv[0], false) ||
+          !parsing::utils::is_valid_alphanumerical(argv[1], true))
+        LOG_COMMAND_AND_RETURN(line);
+      country = argv[0];
+      virus_name = argv[1];
+      break;
+    }
+    /* virusName + date1 + date2 */
+    case 3:
+    {
+      if (!parsing::utils::is_valid_alphanumerical(argv[0], true) ||
+          !parsing::utils::is_valid_date(argv[1]) ||
+          !parsing::utils::is_valid_date(argv[2]) ||
+          !parsing::utils::date2_is_later_than_date1(argv[1], argv[2]))
+        LOG_COMMAND_AND_RETURN(line);
+      virus_name = argv[0];
+      date1 = argv[1];
+      date2 = argv[2];
+      break;
+    }
+    /* country + virusName + date1 + date2 */
+    case 4:
+    {
+      if (!parsing::utils::is_valid_alphabetical(argv[0], false) ||
+          !parsing::utils::is_valid_alphanumerical(argv[1], true) ||
+          !parsing::utils::is_valid_date(argv[2]) ||
+          !parsing::utils::is_valid_date(argv[3]) ||
+          !parsing::utils::date2_is_later_than_date1(argv[1], argv[2]))
+        LOG_COMMAND_AND_RETURN(line);
+      country = argv[0];
+      virus_name = argv[1];
+      date1 = argv[2];
+      date2 = argv[3];
+      break;
+    }
+  }
+
+  return true;
+}
+
+
+/* parse the commands "/insertCitizenRecord" and "/vaccinateNow" */
+bool parsing::user_input::parse_insert_vaccinate(const std::string& line,
+                                                 std::string& citizen_id,
+                                                 std::string& first_name,
+                                                 std::string& last_name,
+                                                 std::string& country,
+                                                 uint8_t& age,
+                                                 std::string& virus_name,
+                                                 const bool& needs_status_and_date,
+                                                 bool& status,
+                                                 std::string& date)
+{
+  size_t start = 0;
+  size_t end = 0;
+
+  /* skip the command sub-string */
+  parsing::utils::parse_next_substring(line, start, end);
+  start = end;
+
+  /* determine the max number of arguments that the command can have */
+  uint8_t max_args = needs_status_and_date ? 8 : 6;
+
+  /* keep track of the arguments given */
+  uint8_t argc = 0;
+  std::string argv[max_args + 1];
+
+  /* parse them one by one and store them in an array */
+  parsing::utils::parse_next_substring(line, start, end);
+  while (end && argc < max_args + 1)
+  {
+    argv[argc++] = line.substr(start, end - start);
+    start = end;
+    parsing::utils::parse_next_substring(line, start, end);
+  }
+
+  /* check for errors */
+  if ((!needs_status_and_date && argc != max_args) ||
+       (needs_status_and_date && (argc < max_args - 1 && argc > max_args)))
+    LOG_COMMAND_AND_RETURN(line)
+
+  /* make sure tha arguments are legit */
+  if (!parsing::utils::is_valid_numerical(argv[0], false) ||
+      !parsing::utils::is_valid_alphabetical(argv[1], false) ||
+      !parsing::utils::is_valid_alphabetical(argv[2], false) ||
+      !parsing::utils::is_valid_alphabetical(argv[3], false) ||
+      !parsing::utils::is_valid_numerical(argv[4], false) ||
+      !parsing::utils::is_valid_alphanumerical(argv[5], true) ||
+     (needs_status_and_date &&
+     (!parsing::utils::is_valid_status(argv[6]) ||
+      !parsing::utils::is_valid_date(argv[7]))))
+    LOG_COMMAND_AND_RETURN(line)
+
+  citizen_id = argv[0];
+  first_name = argv[1];
+  last_name = argv[2];
+  country = argv[3];
+  age = stoi(argv[4]);
+  virus_name = argv[5];
+  if (needs_status_and_date)
+  {
+    status = argv[6] == "YES";
+    date = argv[7];
+  }
+
+  return true;
+}
+
+
+/* parse the command "/list-nonVaccinated-Persons" */
+bool parsing::user_input::parse_non_vaccinated_persons(const std::string& line,
+                                                       std::string& virus_name)
+{
+  size_t start = 0;
+  size_t end = 0;
+
+  /* skip the command sub-string */
+  parsing::utils::parse_next_substring(line, start, end);
+  start = end;
+
+  /* parse the virusName */
+  parsing::utils::parse_next_substring(line, start, end);
+  virus_name = line.substr(start, end - start);
+  if (!end || !parsing::utils::is_valid_alphanumerical(virus_name, true))
+    LOG_COMMAND_AND_RETURN(line);
+  start = end;
+
+  /* make sure that was the last sub-string */
+  parsing::utils::parse_next_substring(line, start, end);
+  if (end)
+    LOG_COMMAND_AND_RETURN(line);
 
   return true;
 }

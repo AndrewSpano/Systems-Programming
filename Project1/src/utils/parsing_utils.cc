@@ -103,6 +103,51 @@ bool parsing::utils::is_valid_status(const std::string& status)
 }
 
 
+/* true if the string given corresponds to a valid date of the format: dd-mm-yyyy */
+bool parsing::utils::is_valid_date(const std::string& str)
+{
+  return str.length() == 10 &&
+         is_digit(str[0]) && is_digit(str[1]) &&
+         is_dash(str[2]) &&
+         is_digit(str[3]) && is_digit(str[4]) &&
+         is_dash(str[5]) &&
+         is_digit(str[6]) && is_digit(str[7]) && is_digit(str[8]) && is_digit(str[9]) &&
+         stoi(str.substr(0, 2)) <= 30 &&
+         stoi(str.substr(3, 2)) <= 12 &&
+         stoi(str.substr(5, 4)) <= CURRENT_YEAR;
+}
+
+
+/* true if the second date is "later" than date1; else false */
+bool parsing::utils::date2_is_later_than_date1(const std::string& date1, const std::string& date2)
+{
+  uint16_t year1 = stoi(date1.substr(5, 4));
+  uint16_t year2 = stoi(date2.substr(5, 4));
+
+  if (year2 > year1)
+    return true;
+  else if (year1 > year2)
+    return false;
+  else
+  {
+    uint8_t month1 = stoi(date1.substr(3, 2));
+    uint8_t month2 = stoi(date2.substr(3, 2));
+
+    if (month2 > month1)
+      return true;
+    else if (month1 > month2)
+      return false;
+    else
+    {
+      uint8_t days1 = stoi(date1.substr(0, 2));
+      uint8_t days2 = stoi(date2.substr(0, 2));
+
+      return days2 >= days1;
+    }
+  }
+}
+
+
 /* true if the new record has the same ID with an existing record, and is valid */
 bool parsing::utils::is_valid_new_record(Record* new_record, Record* existing_record)
 {
@@ -129,4 +174,22 @@ void parsing::arguments::print_help(void)
   std::cout << "Usage: ./vaccineMonitor -c citizenRecordsFile -b bloomSize\n\n"
             << "\twhere, citizenRecordsFile = The path to the Records Dataset\n"
             << "\t       bloomSize = The size of the Bloom Filter in bytes.";
+}
+
+
+/* print some informaton regarding the available commands for the user to execute */
+void parsing::user_input::print_options(void)
+{
+  std::cout << "The available commands are:\n\n"
+            << "\t\t1. /vaccineStatusBloom citizenID virusName\n"
+            << "\t\t2. /vaccineStatus citizenID virusName\n"
+            << "\t\t3. /vaccineStatus citizenID\n"
+            << "\t\t4. /populationStatus [country] virusName [date1 date2]\n"
+            << "\t\t5. /popStatusByAge [country] virusName [date1 date2]\n"
+            << "\t\t6. /insertCitizenRecord citizenID firstName lastName country age virusName " <<
+               "YES/NO [date]\n"
+            << "\t\t7. /vaccinateNow citizenID firstName lastName country age virusName\n"
+            << "\t\t8. /list-nonVaccinated-Persons virusName\n"
+            << "\t\t9. /exit\n"
+            << "\t\t10. /help\n\n";
 }
