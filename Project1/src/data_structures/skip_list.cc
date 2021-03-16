@@ -1,5 +1,6 @@
 #include <cstring>
 #include "../../include/data_structures/skip_list.hpp"
+#include "../../include/utils/utils.hpp"
 
 
 SkipList::SkipList(const uint16_t& _max_level, const double& p): max_level(_max_level),
@@ -175,6 +176,48 @@ bool SkipList::in(const std::string& id)
   std::string dummy_date = "";
   return get(id, dummy_date) != NULL;
 }
+
+
+void SkipList::count_countries(HashTable* hash_table,
+                               uint64_t* id_to_country_count, uint64_t* id_to_country_count_dates,
+                               const std::string& country, const bool& consider_dates,
+                               const std::string& date1, const std::string& date2,
+                               const bool& by_age, uint64_t** id_to_country_count_by_age,
+                               const bool& count_vaccinated,
+                               uint64_t** total_vaccinated_count_by_age)
+{
+  int country_id = -1;
+  if (country != "")
+    country_id = hash_table->get_id(country);
+
+  SkipListDataNodePtr data_node = data_head;
+  while (data_node)
+  {
+    if (country == "" || data_node->data->country == country)
+    {
+      if (country == "")
+        country_id = hash_table->get_id(data_node->data->country);
+
+      id_to_country_count[country_id]++;
+
+      if (!by_age)
+      {
+        if (consider_dates && utils::processing::date_is_between_dates(*data_node->date, date1, date2))
+          id_to_country_count_dates[country_id]++;
+      }
+      else
+      {
+        uint8_t age_group = (data_node->data->age > 60) ? 3 : data_node->data->age / 20;
+        total_vaccinated_count_by_age[country_id][age_group]++;
+        if (count_vaccinated && (!consider_dates ||
+            utils::processing::date_is_between_dates(*data_node->date, date1, date2)))
+          id_to_country_count_by_age[country_id][age_group]++;
+      }
+    }
+    data_node = data_node->next;
+  }
+}
+
 
 
 void SkipList::print(void)

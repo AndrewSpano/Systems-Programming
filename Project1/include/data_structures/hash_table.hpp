@@ -11,7 +11,7 @@ typedef struct Bucket* BucketPtr;
 typedef struct Bucket
 {
   std::string* data = NULL;
-  int id = 0;
+  int id = -1;
   BucketPtr next = NULL;
 
   Bucket(const std::string& _data, const int& _id, BucketPtr _next): id(_id), next(_next)
@@ -47,8 +47,12 @@ class HashTable
     explicit HashTable(const uint32_t& num_buckets);
     ~HashTable(void);
 
+    uint64_t get_size(void);
+
     void insert_if_not_exists(const std::string& data);
     int get_id(const std::string& data);
+
+    std::string** build_id_to_country_lookup(void);
 
     void print_bucket_lens(void);
     void print_bucket_chains(void);

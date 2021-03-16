@@ -375,7 +375,7 @@ bool parsing::user_input::parse_population_status(const std::string& line,
           !parsing::utils::is_valid_alphanumerical(argv[1], true) ||
           !parsing::utils::is_valid_date(argv[2]) ||
           !parsing::utils::is_valid_date(argv[3]) ||
-          !parsing::utils::date2_is_later_than_date1(argv[1], argv[2]))
+          !parsing::utils::date2_is_later_than_date1(argv[2], argv[3]))
         LOG_COMMAND_AND_RETURN(line);
       country = argv[0];
       virus_name = argv[1];

@@ -54,6 +54,12 @@ typedef struct Index
     countries_hash_table->insert_if_not_exists(new_record->country);
   }
 
+  void population_status(const std::string& country, const std::string& virus_name,
+                         const std::string& date1, const std::string& date2)
+  {
+
+  }
+
 } Index;
 
 

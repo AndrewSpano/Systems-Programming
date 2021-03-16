@@ -6,6 +6,7 @@
 
 
 #include "record.hpp"
+#include "hash_table.hpp"
 
 
 typedef struct SkipListDataNode* SkipListDataNodePtr;
@@ -66,6 +67,13 @@ class SkipList
     void insert(Record* data, const std::string& date);
     Record* get(const std::string& id, std::string& date);
     bool in(const std::string& id);
+
+    void count_countries(HashTable* hash_table,
+                         uint64_t* id_to_country_count, uint64_t* id_to_country_count_dates,
+                         const std::string& country, const bool& consider_dates,
+                         const std::string& date1, const std::string& date2,
+                         const bool& by_age, uint64_t** id_to_country_count_by_age,
+                         const bool& count_vaccinated, uint64_t** total_vaccinated_count_by_age);
 
     void print(void);
 

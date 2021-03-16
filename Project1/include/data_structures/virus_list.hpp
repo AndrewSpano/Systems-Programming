@@ -4,6 +4,7 @@
 #include "record.hpp"
 #include "skip_list.hpp"
 #include "bloom_filter.hpp"
+#include "hash_table.hpp"
 
 
 typedef struct VirusNode* VirusNodePtr;
@@ -69,6 +70,11 @@ class VirusList
 
     bool probably_in_bloom_filter_of_virus(const std::string& id, const std::string& virus_name);
     void vaccine_status(const std::string& id, const std::string& virus_name);
+
+    void population_status(HashTable* hash_table,
+                           const std::string& country, const std::string& virus_name,
+                           const std::string& date1, const std::string& date2,
+                           const bool& by_age);
 };
 
 

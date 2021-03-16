@@ -66,12 +66,8 @@ int main(int argc, char* argv[])
       std::string date2 = "";
 
       if (parsing::user_input::parse_population_status(line, country, virus_name, date1, date2))
-      {
-        std::cout << "COMMAND 3 VALUES ARE: " << country << ", " << virus_name
-                  << ", " << date1 << ", " << date2 << '\n';
-
-      }
-
+        index.virus_list->population_status(index.countries_hash_table,
+                                            country, virus_name, date1, date2, false);
     }
     else if (command == 4)
     {
@@ -81,10 +77,8 @@ int main(int argc, char* argv[])
       std::string date2 = "";
 
       if (parsing::user_input::parse_population_status(line, country, virus_name, date1, date2))
-      {
-        std::cout << "COMMAND 4 VALUES ARE: " << country << ", " << virus_name
-                  << ", " << date1 << ", " << date2 << '\n';
-      }
+        index.virus_list->population_status(index.countries_hash_table,
+                                            country, virus_name, date1, date2, true);
     }
     else if (command == 5)
     {
@@ -139,9 +133,6 @@ int main(int argc, char* argv[])
     std::cout << std::endl;
     command = parsing::user_input::get_option(line, false);
   }
-
-  std::cout << "records list:" << '\n';
-  index.records_list->print();
 
   std::cout << std::endl;
   return EXIT_SUCCESS;

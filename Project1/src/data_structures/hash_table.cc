@@ -62,6 +62,12 @@ void HashTable::_print_bucket_chain(const uint32_t& bucket_id)
 }
 
 
+uint64_t HashTable::get_size(void)
+{
+  return size;
+}
+
+
 void HashTable::insert_if_not_exists(const std::string& data)
 {
   uint32_t hash = _hash_function(data) % num_buckets;
@@ -112,4 +118,25 @@ void HashTable::print_bucket_chains(void)
 {
   for (size_t i = 0; i < num_buckets; i++)
     _print_bucket_chain(i);
+}
+
+
+std::string** HashTable::build_id_to_country_lookup(void)
+{
+  if (!size)
+    return NULL;
+
+  std::string** countries = new std::string*[size];
+
+  for (size_t bucket = 0; bucket < num_buckets; bucket++)
+  {
+    BucketPtr current_bucket = buckets[bucket];
+    while (current_bucket)
+    {
+      countries[current_bucket->id] = current_bucket->data;
+      current_bucket = current_bucket->next;
+    }
+  }
+
+  return countries;
 }
