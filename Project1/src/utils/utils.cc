@@ -3,13 +3,23 @@
 #include "../../include/utils/utils.hpp"
 
 
+/* true if the new record has the same ID with an existing record, and is valid */
+bool parsing::processing::is_valid_new_record(Record* new_record, Record* existing_record)
+{
+  return new_record->name == existing_record->name &&
+  new_record->surname == existing_record->surname &&
+  new_record->country == existing_record->country &&
+  new_record->age == existing_record->age;
+}
+
+
 bool utils::processing::date_is_between_dates(const std::string& mid_date,
                                               const std::string& date1,
                                               const std::string& date2)
 {
-  uint16_t mid_year = stoi(mid_date.substr(5, 4));
-  uint16_t year1 = stoi(date1.substr(5, 4));
-  uint16_t year2 = stoi(date2.substr(5, 4));
+  uint16_t mid_year = stoi(mid_date.substr(6, 4));
+  uint16_t year1 = stoi(date1.substr(6, 4));
+  uint16_t year2 = stoi(date2.substr(6, 4));
 
   if (year1 < mid_year && mid_year < year2)
     return true;

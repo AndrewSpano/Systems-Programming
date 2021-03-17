@@ -56,6 +56,7 @@ class SkipList
 
     bool _expand(void);
     void _expand_up(SkipListDataNodePtr data_node, SkipListNodePtr* prev_nodes);
+    void _shrink_down(SkipListDataNodePtr data_node_to_remove, SkipListNodePtr* prev_nodes);
     void _delete_skip_level(const uint16_t& level);
     void _delete_head_data(void);
 
@@ -65,6 +66,7 @@ class SkipList
     ~SkipList(void);
 
     void insert(Record* data, const std::string& date);
+    Record* remove(const std::string& id);
     Record* get(const std::string& id, std::string& date);
     bool in(const std::string& id);
 

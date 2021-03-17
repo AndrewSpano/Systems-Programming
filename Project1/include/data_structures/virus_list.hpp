@@ -65,10 +65,15 @@ class VirusList
     VirusList(const uint64_t& _bloom_filter_size);
     ~VirusList(void);
 
-    void insert(Record* record, const std::string& virus_name, const bool& status, const std::string& date);
-    bool exists_in_virus_name(Record* record, const std::string& virus_name);
+    void insert(Record* record, const std::string& virus_name, const bool& status,
+                const std::string& date);
+    void remove_from_non_vaccinated(const std::string& id, const std::string& virus_name);
+    bool exists_in_virus_name(const std::string& id, const std::string& virus_name,
+                              const bool& only_vaccinated);
+    std::string get_vaccination_date(const std::string& id, const std::string virus_name);
 
-    bool probably_in_bloom_filter_of_virus(const std::string& id, const std::string& virus_name);
+
+    bool in_bloom_filter_of_virus(const std::string& id, const std::string& virus_name);
     void vaccine_status(const std::string& id, const std::string& virus_name);
 
     void population_status(HashTable* hash_table,

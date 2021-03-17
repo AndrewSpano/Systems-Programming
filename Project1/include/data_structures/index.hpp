@@ -1,10 +1,11 @@
 #ifndef _INDEX
 #define _INDEX
 
-#include "record.hpp"
 #include "record_list.hpp"
 #include "virus_list.hpp"
 #include "hash_table.hpp"
+#include "../utils/macros.hpp"
+#include "../utils/utils.hpp"
 
 
 typedef struct Index
@@ -54,12 +55,31 @@ typedef struct Index
     countries_hash_table->insert_if_not_exists(new_record->country);
   }
 
-  void population_status(const std::string& country, const std::string& virus_name,
-                         const std::string& date1, const std::string& date2)
+  void insert_citizen_record(const std::string& id, const std::string& first_name,
+                             const std::string& last_name, const std::string& country,
+                             const uint8_t& age, const std::string& virus_name,
+                             const bool& status, const std::string& date)
   {
+    Record* new_record = new Record(id, first_name, last_name, country, age);
+    Record* same_id_record = records_list->get(id);
 
+    /* check if a record with the same ID exists, and make sure it does not create any conflict */
+    if (same_id_record && (!parsing::processing::is_valid_new_record(new_record, same_id_record)))
+      DELETE_LOG_AND_RETURN(new_record, *new_record);
+
+    std::string date_vaccinated = virus_list->get_vaccination_date(id, virus_name);
+    if (date_vaccinated != "")
+      DELETE_LOG_VACCINATION_AND_RETURN(new_record, date_vaccinated)
+    bool exists_in_non_vaccinated = virus_list->exists_in_virus_name(id, virus_name, false);
+    if (!status && exists_in_non_vaccinated)
+      DELETE_LOG_NON_VACCINATION_AND_RETURN(new_record)
+
+    /* if we get here it means that the record is legit, and therefore insert it in the database */
+    if (exists_in_non_vaccinated)
+      virus_list->remove_from_non_vaccinated(id, virus_name);
+    std::string status_as_string = (status) ? "YES" : "NO";
+    insert(same_id_record, new_record, virus_name, status_as_string, date);
   }
-
 } Index;
 
 

@@ -33,6 +33,11 @@ void VirusList::insert(Record* record, const std::string& virus_name, const bool
   {
     head = new VirusNode(virus_name, head, bloom_filter_size);
     head->insert(status, record, date);
+    size++;
+  }
+  else if (virus_name == head->virus_name)
+  {
+    head->insert(status, record, date);
   }
   else
   {
@@ -41,25 +46,61 @@ void VirusList::insert(Record* record, const std::string& virus_name, const bool
       temp = temp->next;
 
     if (!temp->next || temp->next->virus_name != virus_name)
+    {
       temp->next = new VirusNode(virus_name, temp->next, bloom_filter_size);
+      size++;
+    }
     temp->next->insert(status, record, date);
   }
-  size++;
 }
 
 
-bool VirusList::exists_in_virus_name(Record* record, const std::string& virus_name)
+void VirusList::remove_from_non_vaccinated(const std::string& id, const std::string& virus_name)
 {
   VirusNodePtr current_node = head;
   while (current_node && current_node->virus_name < virus_name)
     current_node = current_node->next;
 
-  return current_node && current_node->virus_name == virus_name &&
-        (current_node->vaccinated->in(record->id) || current_node->non_vaccinated->in(record->id));
+  if (!current_node || current_node->virus_name != virus_name)
+    return;
+
+  current_node->non_vaccinated->remove(id);
 }
 
 
-bool VirusList::probably_in_bloom_filter_of_virus(const std::string& id, const std::string& virus_name)
+bool VirusList::exists_in_virus_name(const std::string& id, const std::string& virus_name,
+                                     const bool& only_vaccinated=false)
+{
+  VirusNodePtr current_node = head;
+  while (current_node && current_node->virus_name < virus_name)
+    current_node = current_node->next;
+
+  if (only_vaccinated)
+    return current_node && current_node->virus_name == virus_name &&
+           current_node->vaccinated->in(id);
+  else
+    return current_node && current_node->virus_name == virus_name &&
+          (current_node->vaccinated->in(id) || current_node->non_vaccinated->in(id));
+}
+
+
+std::string VirusList::get_vaccination_date(const std::string& id, const std::string virus_name)
+{
+  VirusNodePtr current_node = head;
+  while (current_node && current_node->virus_name < virus_name)
+    current_node = current_node->next;
+
+  if (!current_node || current_node->virus_name != virus_name)
+    return "";
+
+  std::string target_date = "";
+  Record* dummy_record = current_node->vaccinated->get(id, target_date);
+
+  return target_date;
+}
+
+
+bool VirusList::in_bloom_filter_of_virus(const std::string& id, const std::string& virus_name)
 {
   VirusNodePtr current_node = head;
   /* traverse the VirusList until the corresponding virus is found (if it does not exist, break) */

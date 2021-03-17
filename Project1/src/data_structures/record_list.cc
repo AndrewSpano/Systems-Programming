@@ -9,7 +9,7 @@ RecordList::RecordList(void): head(NULL), size(0)
 RecordList::~RecordList(void)
 {
   while (size)
-    remove(0);
+    _remove(0);
 }
 
 
@@ -28,12 +28,8 @@ void RecordList::insert(Record* item)
 }
 
 
-void RecordList::remove(size_t pos)
+void RecordList::_remove(size_t pos)
 {
-  if (pos >= size)
-    throw std::invalid_argument("Remove position: " + std::to_string(pos) + " bigger " +
-                                "than list size:  " + std::to_string(size) + ".");
-
   if (pos == 0)
   {
     RecordNodePtr new_head = head->next;

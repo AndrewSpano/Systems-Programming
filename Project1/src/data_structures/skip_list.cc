@@ -51,6 +51,33 @@ void SkipList::_expand_up(SkipListDataNodePtr data_node, SkipListNodePtr* prev_n
 }
 
 
+void SkipList::_shrink_down(SkipListDataNodePtr data_node_to_remove, SkipListNodePtr* prev_nodes)
+{
+  size_t i = 0;
+
+  while (i < max_level - 1)
+  {
+    if (!skip_heads[i])
+      break;
+
+    if (!prev_nodes[i] && skip_heads[i]->data_node == data_node_to_remove)
+    {
+        SkipListNodePtr temp_next = skip_heads[i]->next;
+        delete skip_heads[i];
+        skip_heads[i] = temp_next;
+    }
+    else if (prev_nodes[i] && prev_nodes[i]->next &&
+             prev_nodes[i]->next->data_node == data_node_to_remove)
+    {
+      SkipListNodePtr temp_next = prev_nodes[i]->next->next;
+      delete prev_nodes[i]->next;
+      prev_nodes[i]->next = temp_next;
+    }
+  }
+}
+
+
+
 void SkipList::_delete_skip_level(const uint16_t& level)
 {
   SkipListNodePtr skip_node = skip_heads[level];
@@ -124,6 +151,72 @@ void SkipList::insert(Record* data, const std::string& date)
   delete[] prev_nodes;
 
   size++;
+}
+
+
+Record* SkipList::remove(const std::string& id)
+{
+  if (!size)
+    throw std::invalid_argument("Trying to remove from a Skip List with 0 entries.");
+  else if (*data_head->data >= id && !(*data_head->data == id))
+    throw std::invalid_argument("Trying to remove from a Skip List an item that does not exist.");
+
+  /* record to be returned */
+  Record* target_record = NULL;
+
+  /* create an array that will store "the previous node before going down" for every level */
+  SkipListNodePtr* prev_nodes = new SkipListNodePtr[max_level - 1];
+  std::memset(prev_nodes, '\0', (max_level - 1) * sizeof(SkipListNodePtr));
+  SkipListNodePtr current_node = NULL;
+
+  /* traverse the skip list levels, while also storing the nodes which led us down */
+  for (size_t i = max_level - 2; i >= 0 && i < max_level - 1; i--)
+  {
+    if (skip_heads[i] && *skip_heads[i]->data_node->data < id)
+    {
+      if (!current_node)
+        current_node = skip_heads[i];
+      while (current_node->next && *current_node->next->data_node->data < id)
+        current_node = current_node->next;
+      prev_nodes[i] = current_node;
+      current_node = current_node->down;
+    }
+  }
+
+  /* if we are trying to remove the head */
+  if (*data_head->data == id)
+  {
+    _shrink_down(data_head, prev_nodes);
+    target_record = data_head->data;
+    SkipListDataNodePtr next_head = data_head->next;
+    delete data_head;
+    data_head = next_head;
+  }
+  else
+  {
+    /* get the data node pointed by the 1st layer of skip-lists, if a skip list exists */
+    SkipListDataNodePtr data_node = NULL;
+    if (!prev_nodes[0])
+      data_node = data_head;
+    else
+      data_node = prev_nodes[0]->data_node;
+
+    while (data_node->next && *data_node->next->data < id)
+      data_node = data_node->next;
+
+    if (!data_node || !(*data_node->next->data == id))
+      throw std::invalid_argument("Trying to remove from a Skip List an item that does not exist.");
+
+    _shrink_down(data_node->next, prev_nodes);
+    target_record = data_node->next->data;
+    SkipListDataNodePtr temp_next = data_node->next->next;
+    delete data_node->next;
+    data_node->next = temp_next;
+  }
+
+  delete[] prev_nodes;
+  size--;
+  return target_record;
 }
 
 

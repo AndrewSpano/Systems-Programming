@@ -28,15 +28,15 @@ class RecordList
 {
   private:
     RecordNodePtr head;
-    uint8_t size;
+    uint64_t size;
 
+    void _remove(size_t pos);
   public:
 
     RecordList(void);
     ~RecordList(void);
 
     void insert(Record* item);
-    void remove(size_t pos);
     bool in(const std::string& _id);
     Record* get(const std::string& _id);
 

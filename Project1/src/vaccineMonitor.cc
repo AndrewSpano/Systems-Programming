@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
       std::string virus_name = "";
 
       if (parsing::user_input::parse_vaccine_status(line, citizen_id, virus_name, true))
-        index.virus_list->probably_in_bloom_filter_of_virus(citizen_id, virus_name)
+        index.virus_list->in_bloom_filter_of_virus(citizen_id, virus_name)
           ? std::cout << "MAYBE" << std::endl
           : std::cout << "NOT VACCINATED" << std::endl;
 
@@ -92,12 +92,9 @@ int main(int argc, char* argv[])
       std::string date = "";
 
       if (parsing::user_input::parse_insert_vaccinate(line, citizen_id, first_name, last_name,
-        country, age, virus_name, true, status, date))
-        {
-          std::cout << "COMMAND 6 VALUES ARE: " << citizen_id << ", " << first_name
-          << ", " << last_name << ", " << country << ", " << +age
-          << ", " << virus_name << ", " << status << ", " << date << '\n';
-        }
+                                                      country, age, virus_name, true, status, date))
+        index.insert_citizen_record(citizen_id, first_name, last_name, country, age, virus_name,
+                                    status, date);
       }
     else if (command == 6)
     {
@@ -133,6 +130,8 @@ int main(int argc, char* argv[])
     std::cout << std::endl;
     command = parsing::user_input::get_option(line, false);
   }
+
+  index.records_list->print();
 
   std::cout << std::endl;
   return EXIT_SUCCESS;

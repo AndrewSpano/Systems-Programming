@@ -2,6 +2,8 @@
 #include <string>
 #include <cstring>
 #include <fstream>
+#include "../../include/utils/utils.hpp"
+#include "../../include/utils/macros.hpp"
 #include "../../include/utils/parsing.hpp"
 
 
@@ -60,7 +62,7 @@ void parsing::parse_record_line(const std::string& line, Index& index)
   */
 
   /* 1. if a record with the same ID exists, and the new record is incompatible with it, continue */
-  if (same_id_record && !parsing::utils::is_valid_new_record(new_record, same_id_record))
+  if (same_id_record && !parsing::processing::is_valid_new_record(new_record, same_id_record))
     DELETE_LOG_AND_RETURN(new_record, line)
 
   /* 2. parse the virusName, skip the record if an error occurrs */
@@ -78,7 +80,7 @@ void parsing::parse_record_line(const std::string& line, Index& index)
   start = end;
 
   /* 3. check if current record contradicts vaccination data for existing record with same ID */
-  if (same_id_record && index.virus_list->exists_in_virus_name(new_record, virus_name))
+  if (same_id_record && index.virus_list->exists_in_virus_name(new_record->id, virus_name, false))
     DELETE_LOG_AND_RETURN(new_record, line)
 
   /* 2. if the status is "NO", make sure that this is the last string of the line and continue */
@@ -438,7 +440,7 @@ bool parsing::user_input::parse_insert_vaccinate(const std::string& line,
       !parsing::utils::is_valid_alphanumerical(argv[5], true) ||
      (needs_status_and_date &&
      (!parsing::utils::is_valid_status(argv[6]) ||
-      !parsing::utils::is_valid_date(argv[7]))))
+      (argv[6] == "YES" && !parsing::utils::is_valid_date(argv[7])))))
     LOG_COMMAND_AND_RETURN(line)
 
   citizen_id = argv[0];

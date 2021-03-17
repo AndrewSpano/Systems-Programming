@@ -28,6 +28,11 @@ typedef struct Record
     return id < _id;
   }
 
+  bool operator <= (const std::string& _id)
+  {
+    return id <= _id;
+  }
+
   bool operator == (const std::string& _id)
   {
     return id == _id;
@@ -38,9 +43,19 @@ typedef struct Record
     return id > _id;
   }
 
+  bool operator >= (const std::string& _id)
+  {
+    return id >= _id;
+  }
+
   bool operator < (const Record& r)
   {
     return id < r.id;
+  }
+
+  bool operator <= (const Record& r)
+  {
+    return id <= r.id;
   }
 
   bool operator == (const Record& r)
@@ -51,6 +66,11 @@ typedef struct Record
   bool operator > (const Record& r)
   {
     return id > r.id;
+  }
+
+  bool operator >= (const Record& r)
+  {
+    return id >= r.id;
   }
 
   friend std::ostream& operator << (std::ostream& out, const Record& r)

@@ -5,25 +5,8 @@
 
 #define CURRENT_YEAR 2021
 
-#define LOG_AND_RETURN(line)                             \
-{                                                        \
-  std::cout << "ERROR IN RECORD " << line << std::endl;  \
-  return;                                                \
-}
-
-#define DELETE_LOG_AND_RETURN(record, line)              \
-{                                                        \
-  std::cout << "ERROR IN RECORD " << line << std::endl;  \
-  delete record;                                         \
-  return;                                                \
-}
-
-#define LOG_COMMAND_AND_RETURN(line)                                                            \
-{                                                                                               \
-  std::cout << "ERROR: The format of the command \"" << line << "\" is invalid." << std::endl;  \
-  return false;                                                                                 \
-}
-
+struct Index;
+typedef struct Index Index;
 
 namespace parsing
 {
@@ -43,8 +26,6 @@ namespace parsing
     bool is_valid_date(const std::string& str);
 
     bool date2_is_later_than_date1(const std::string& date1, const std::string& date2);
-
-    bool is_valid_new_record(Record* new_record, Record* existing_record);
 
     bool file_exists(const std::string& path);
 

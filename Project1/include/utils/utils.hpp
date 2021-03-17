@@ -2,6 +2,17 @@
 #define _PROCESSING_UTILS
 
 #include <iostream>
+#include "../data_structures/record.hpp"
+
+
+namespace parsing
+{
+  namespace processing
+  {
+    bool is_valid_new_record(Record* new_record, Record* existing_record);
+  }
+}
+
 
 namespace utils
 {

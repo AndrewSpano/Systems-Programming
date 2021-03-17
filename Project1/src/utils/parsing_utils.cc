@@ -114,15 +114,15 @@ bool parsing::utils::is_valid_date(const std::string& str)
          is_digit(str[6]) && is_digit(str[7]) && is_digit(str[8]) && is_digit(str[9]) &&
          stoi(str.substr(0, 2)) <= 30 &&
          stoi(str.substr(3, 2)) <= 12 &&
-         stoi(str.substr(5, 4)) <= CURRENT_YEAR;
+         stoi(str.substr(6, 4)) <= CURRENT_YEAR;
 }
 
 
 /* true if the second date is "later" than date1; else false */
 bool parsing::utils::date2_is_later_than_date1(const std::string& date1, const std::string& date2)
 {
-  uint16_t year1 = stoi(date1.substr(5, 4));
-  uint16_t year2 = stoi(date2.substr(5, 4));
+  uint16_t year1 = stoi(date1.substr(6, 4));
+  uint16_t year2 = stoi(date2.substr(6, 4));
 
   if (year2 > year1)
     return true;
@@ -145,16 +145,6 @@ bool parsing::utils::date2_is_later_than_date1(const std::string& date1, const s
       return days2 >= days1;
     }
   }
-}
-
-
-/* true if the new record has the same ID with an existing record, and is valid */
-bool parsing::utils::is_valid_new_record(Record* new_record, Record* existing_record)
-{
-  return new_record->name == existing_record->name &&
-  new_record->surname == existing_record->surname &&
-  new_record->country == existing_record->country &&
-  new_record->age == existing_record->age;
 }
 
 
