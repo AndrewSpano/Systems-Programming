@@ -1,6 +1,9 @@
 #ifndef _INDEX
 #define _INDEX
 
+#include <iostream>
+#include <ctime>
+
 #include "record_list.hpp"
 #include "virus_list.hpp"
 #include "hash_table.hpp"
@@ -64,13 +67,14 @@ typedef struct Index
     Record* same_id_record = records_list->get(id);
 
     /* check if a record with the same ID exists, and make sure it does not create any conflict */
-    if (same_id_record && (!parsing::processing::is_valid_new_record(new_record, same_id_record)))
+    if (same_id_record && !parsing::processing::is_valid_new_record(new_record, same_id_record))
       DELETE_LOG_AND_RETURN(new_record, *new_record);
 
     std::string date_vaccinated = virus_list->get_vaccination_date(id, virus_name);
     if (date_vaccinated != "")
       DELETE_LOG_VACCINATION_AND_RETURN(new_record, date_vaccinated)
-    bool exists_in_non_vaccinated = virus_list->exists_in_virus_name(id, virus_name, false);
+
+    bool exists_in_non_vaccinated = virus_list->exists_in_virus_name(id, virus_name, false, true);
     if (!status && exists_in_non_vaccinated)
       DELETE_LOG_NON_VACCINATION_AND_RETURN(new_record)
 
@@ -80,6 +84,39 @@ typedef struct Index
     std::string status_as_string = (status) ? "YES" : "NO";
     insert(same_id_record, new_record, virus_name, status_as_string, date);
   }
+
+  void vaccinate_now(const std::string& id, const std::string& first_name,
+                     const std::string& last_name, const std::string& country,
+                     const uint8_t& age, const std::string& virus_name)
+  {
+    Record* new_record = new Record(id, first_name, last_name, country, age);
+    Record* same_id_record = records_list->get(id);
+
+    /* check if a record with the same ID exists, and make sure it does not create any conflict */
+    if (same_id_record && !parsing::processing::is_valid_new_record(new_record, same_id_record))
+      DELETE_LOG_AND_RETURN(new_record, *new_record);
+
+    std::string date_vaccinated = virus_list->get_vaccination_date(id, virus_name);
+    if (date_vaccinated != "")
+      DELETE_LOG_VACCINATION_AND_RETURN(new_record, date_vaccinated)
+
+    /* if we get here it means that the record is legit, and therefore insert it in the database */
+    if (virus_list->exists_in_virus_name(id, virus_name, false, true))
+      virus_list->remove_from_non_vaccinated(id, virus_name);
+    /* get the status (always yes for vaccinateNow) */
+    std::string status_as_string = "YES";
+    /* get todays date */
+    time_t rawtime;
+    struct tm* timeinfo;
+    char buffer[80];
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    strftime(buffer,sizeof(buffer),"%d-%m-%Y",timeinfo);
+    std::string todays_date(buffer);
+    /* finally insert the record */
+    insert(same_id_record, new_record, virus_name, status_as_string, todays_date);
+  }
+
 } Index;
 
 

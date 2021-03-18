@@ -69,7 +69,8 @@ class VirusList
                 const std::string& date);
     void remove_from_non_vaccinated(const std::string& id, const std::string& virus_name);
     bool exists_in_virus_name(const std::string& id, const std::string& virus_name,
-                              const bool& only_vaccinated);
+                              const bool& only_vaccinated,
+                              const bool& only_non_vaccinated);
     std::string get_vaccination_date(const std::string& id, const std::string virus_name);
 
 
@@ -80,6 +81,8 @@ class VirusList
                            const std::string& country, const std::string& virus_name,
                            const std::string& date1, const std::string& date2,
                            const bool& by_age);
+    void print_virus(const std::string& virus_name, const bool& only_vaccinated,
+                     const bool& only_non_vaccinated);
 };
 
 

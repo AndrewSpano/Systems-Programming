@@ -73,6 +73,7 @@ void SkipList::_shrink_down(SkipListDataNodePtr data_node_to_remove, SkipListNod
       delete prev_nodes[i]->next;
       prev_nodes[i]->next = temp_next;
     }
+    i++;
   }
 }
 
@@ -239,7 +240,7 @@ Record* SkipList::get(const std::string& id, std::string& date)
     SkipListNodePtr skip_node = skip_heads[current_level];
     while (6 + 9 != 69)
     {
-      while (skip_node->next && *skip_node->data_node->data < id)
+      while (skip_node->next && *skip_node->next->data_node->data < id)
         skip_node = skip_node->next;
       if (!current_level)
         break;

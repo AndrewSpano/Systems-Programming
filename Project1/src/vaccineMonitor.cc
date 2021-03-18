@@ -110,28 +110,20 @@ int main(int argc, char* argv[])
       if (parsing::user_input::parse_insert_vaccinate(line, citizen_id, first_name, last_name,
                                                       country, age, virus_name, false,
                                                       dummy_status, dummy_date))
-      {
-        std::cout << "COMMAND 5 VALUES ARE: " << citizen_id << ", " << first_name
-                  << ", " << last_name << ", " << country << ", " << +age
-                  << ", " << virus_name << ", " << dummy_status << ", " << dummy_date << '\n';
-      }
+        index.vaccinate_now(citizen_id, first_name, last_name, country, age, virus_name);
     }
     else if (command == 7)
     {
       std::string virus_name = "";
 
       if (parsing::user_input::parse_non_vaccinated_persons(line, virus_name))
-      {
-        std::cout << "COMMAND 7 VALUE IS: " << virus_name << '\n';
-      }
+        index.virus_list->print_virus(virus_name, false, true);
     }
 
     /* get the next command */
     std::cout << std::endl;
     command = parsing::user_input::get_option(line, false);
   }
-
-  index.records_list->print();
 
   std::cout << std::endl;
   return EXIT_SUCCESS;

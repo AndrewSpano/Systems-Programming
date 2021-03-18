@@ -80,7 +80,8 @@ void parsing::parse_record_line(const std::string& line, Index& index)
   start = end;
 
   /* 3. check if current record contradicts vaccination data for existing record with same ID */
-  if (same_id_record && index.virus_list->exists_in_virus_name(new_record->id, virus_name, false))
+  if (same_id_record && index.virus_list->exists_in_virus_name(new_record->id, virus_name,
+                                                               false, false))
     DELETE_LOG_AND_RETURN(new_record, line)
 
   /* 2. if the status is "NO", make sure that this is the last string of the line and continue */
