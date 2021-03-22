@@ -11,11 +11,11 @@ This is the fist out of three projects of the [Systems Programming](http://cgi.d
 - [include](include): Contains all the header files for the project. It is divided in two sub-directories:
     - [data_structures](include/data_structures): Contains the Header files for all the data structures used by the system.
     - [utils](include/utils): Contains header files for different utility functions.
-- [src](src): Contains the source code of the project. It contains two sub-directories, the main source file and a Bash Script used to generate a Dataset:
-    - [data_structures](src/data_structures): Contains implementations of the data structures defined in the correspnding header files.
-    - [utils](src/utils): Contains implementations for all the utility functions.
-    - [vaccineMonitor.cc](src/vaccineMonitor.cc): The main source file that combines all the existing code in the Vaccine Monitor system.
-    - [testFile.sh](src/testFile.sh): A Bash script used to create a Dataset that will be fed to the system.
+- [core](core): Contains the core source code of the project. It contains two sub-directories and the main source file:
+    - [data_structures](core/data_structures): Contains implementations of the data structures defined in the correspnding header files.
+    - [utils](core/utils): Contains implementations for all the utility functions.
+    - [vaccineMonitor.cc](core/vaccineMonitor.cc): The main source file that combines all the existing code in the Vaccine Monitor system.
+- [bash](bash): Contains the [bash script](bash/testFile.sh) used to create datasets, and a [tests directory](bash/tests) used to store the datasets created.
 <br> </br>
 
 
@@ -35,8 +35,28 @@ These data structures are all grouped in one structure called [Index](include/da
 
 # Usage
 
-To compile the source code enter, run
+First we have to create a Dataset
 ```shell
+$ cd bash
+$ chmod +x testFile.sh
+$ ./testFile.sh viruses_filepath countries_filepath number_of_records allow_duplicates
+```
+where the parameters are:
+- viruses_filepath: The path to a file containing virus names, like [this one](bash/data/viruses.txt).
+- countries_filepath: The path to a file containing country names, like [this one](bash/data/countries.txt).
+- number_of_records: The number of records that will be produced in the dataset.
+- allow_duplicates: Whether to allow duplicate (same citizen ID) records or not. Should have 0 as value if duplicates are not allowed. Else, they are allowed.
+
+The path of the created dataset is by default: [bash/tests/inputFile.txt](bash/tests/inputFile.txt).
+
+An example of running the script is:
+```shell
+$ ./testFile.sh data/viruses.txt data/countries.txt 10000 1
+```
+
+To compile the source code, run
+```shell
+$ cd ..
 $ make
 ```
 
@@ -52,10 +72,10 @@ After running the program, the user will get a prompt explaining the available o
 
 An example of running the program is:
 ```shell
-$ bin/vaccineMonitor -b 100000 -c Dataset/data_from_bash_script.txt
+$ bin/vaccineMonitor -b 100000 -c bash/tests/inputFile.txt
 ```
 
 Furthemore, [Valgrind](https://valgrind.org/) can be used to check the memory management, like so:
 ```shell
-$ valgrind bin/vaccineMonitor -b 100000 -c Dataset/data_from_bash_script.txt
+$ valgrind bin/vaccineMonitor -b 100000 -c bash/tests/inputFile.txt
 ```

@@ -3,7 +3,7 @@
 
 #include "../data_structures/index.hpp"
 
-#define CURRENT_YEAR 2021
+#define CURRENT_YEAR 9999
 
 struct Index;
 typedef struct Index Index;

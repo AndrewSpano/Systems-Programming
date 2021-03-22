@@ -78,14 +78,15 @@ bool VirusList::exists_in_virus_name(const std::string& id, const std::string& v
 
   if (only_vaccinated)
     return current_node && current_node->virus_name == virus_name &&
-           !current_node->bloom_filter->is_probably_in(id) && current_node->vaccinated->in(id);
+           current_node->bloom_filter->is_probably_in(id) && current_node->vaccinated->in(id);
   else if (only_non_vaccinated)
     return current_node && current_node->virus_name == virus_name &&
            current_node->non_vaccinated->in(id);
   else
     return current_node && current_node->virus_name == virus_name &&
-        ((!current_node->bloom_filter->is_probably_in(id) && current_node->vaccinated->in(id)) ||
+         ((current_node->bloom_filter->is_probably_in(id) && current_node->vaccinated->in(id)) ||
            current_node->non_vaccinated->in(id));
+
 }
 
 
@@ -126,9 +127,10 @@ void VirusList::vaccine_status(const std::string& id, const std::string& virus_n
   while (current_node && (virus_name == "" || current_node->virus_name < virus_name))
   {
     if (virus_name == "")
-      current_node->bloom_filter->is_probably_in(id) && current_node->vaccinated->get(id, date)
-        ? std::cout << current_node->virus_name << " YES " << date << std::endl
-        : std::cout << current_node->virus_name << " NO" << std::endl;
+      if (current_node->vaccinated->get(id, date))
+        std::cout << current_node->virus_name << " YES " << date << std::endl;
+      else if (current_node->non_vaccinated->in(id))
+        std::cout << current_node->virus_name << " NO" << std::endl;
     current_node = current_node->next;
   }
 
@@ -305,7 +307,9 @@ void VirusList::print_virus(const std::string& virus_name, const bool& only_vacc
     current_node->non_vaccinated->print();
   else
   {
+    std::cout << "Vaccinated:" << std::endl;
     current_node->vaccinated->print();
+    std::cout << "\nNon Vaccinated:" << std::endl;
     current_node->non_vaccinated->print();
   }
 }
