@@ -1,0 +1,44 @@
+1568 GniyoJHtXhZ zqNlkWfNQP Hungary 57 COVID-19 NO
+1812 IEGtlTVnf jou Hungary 93 Rabies YES 01-05-1192
+1445 hIbTAPtTcBWu QhIhTRS Hungary 23 Lassa NO
+1020 UdwYBIJfvcH enNuS Hungary 104 H1N1 NO
+573 EHjZG ZJhrcAwhs Hungary 91 Hepatitis-D YES 20-02-1699
+1534 nTk iOoxH Hungary 5 Horsepox YES 18-12-1284
+538 Aml SlMohLPt Hungary 40 Lassa NO
+1069 JJZvSykfnyLV BJvVNHoOS Hungary 94 Flu NO
+1958 xBQhKycZEfDJ LuSQrXSZ Hungary 117 Cowpox NO
+1984 tJAQgcadp yFjOncLSrC Hungary 38 Junin YES 30-03-1476
+1882 yUdWFZl nHqdvXm Hungary 10 Hepatitis-E NO
+1040 ugGBD vHkD Hungary 98 COVID-19 NO
+526 xodW pvPbMIzQhXxm Hungary 73 Ebola YES 12-12-1566
+1923 UoMibPBzzVy uMyr Hungary 32 SARS-1 NO
+1487 FvNBkHoiRV YIQyXM Hungary 26 Horsepox NO
+1075 pGT iQwCfXNrLiC Hungary 8 SARS-1 NO
+1882 yUdWFZl nHqdvXm Hungary 10 Banna YES 04-11-1134
+985 AQJexuAFTG OiYmJAI Hungary 70 Monkeypox YES 03-09-0717
+60 fAbCyGMVp QSUPYGiJ Hungary 13 Hepatitis-C YES 26-01-0751
+1923 UoMibPBzzVy uMyr Hungary 32 Zika YES 20-08-1455
+1984 tJAQgcadp yFjOncLSrC Hungary 38 Hepatitis-A YES 10-09-1525
+1923 UoMibPBzzVy uMyr Hungary 32 Hepatitis-B YES 30-10-0656
+27 NSiMCmsnKuc xVGTOyVWhi Hungary 115 Hepatitis-E YES 28-09-1667
+1149 wVApSFGvUAsl seB Hungary 57 Hepatitis-D YES 18-07-0035
+706 sfeFiKL JSo Hungary 100 Flu YES 09-03-1514
+60 fAbCyGMVp QSUPYGiJ Hungary 13 Hepatitis-A YES 22-11-0048
+1978 XUbkRBTZXPNd QERwps Hungary 14 Hepatitis-B YES 16-07-1375
+526 xodW pvPbMIzQhXxm Hungary 73 Lassa YES 25-08-0083
+1355 VnlVnETcq cPtqEhD Hungary 92 Typhus YES 15-09-0887
+1568 GniyoJHtXhZ zqNlkWfNQP Hungary 57 Lassa NO
+470 jKuvlcvxQ NyUgBtUVEib Hungary 81 Hepatitis-A YES 06-07-0891
+687 todTga HuNPFku Hungary 58 Junin NO
+1632 VrnsXKqu HEVkybhvHAi Hungary 87 Cowpox NO
+27 NSiMCmsnKuc xVGTOyVWhi Hungary 115 Hepatitis-C NO
+448 dCR IOdzXsq Hungary 36 SARS-1 YES 22-11-0017
+1812 IEGtlTVnf jou Hungary 93 Junin YES 11-06-0129
+1075 pGT iQwCfXNrLiC Hungary 8 Rabies NO
+736 wQqeGLBb hfECNzsfEZ Hungary 64 Rabies YES 19-06-1328
+60 fAbCyGMVp QSUPYGiJ Hungary 13 Hepatitis-E NO
+1020 UdwYBIJfvcH enNuS Hungary 104 Banna NO
+1138 tGkMrnGZQuFY YEbOBlJZTo Hungary 106 Hepatitis-E NO
+985 AQJexuAFTG OiYmJAI Hungary 70 Hepatitis-E NO
+830 pvMsXH YPMP Hungary 33 Monkeypox YES 26-08-0301
+1445 hIbTAPtTcBWu QhIhTRS Hungary 23 SARS-1 NO

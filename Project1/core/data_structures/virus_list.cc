@@ -295,7 +295,7 @@ void VirusList::print_virus(const std::string& virus_name, const bool& only_vacc
   while (current_node && current_node->virus_name < virus_name)
     current_node = current_node->next;
 
-  if (!current_node)
+  if (!current_node || current_node->virus_name != virus_name)
   {
     std::cout << "Virus " << virus_name << " does not exist." << std::endl;
     return;

@@ -1,0 +1,41 @@
+1444 CTwiMGfqcBz tlTRcP Argentina 76 H1N1 YES 19-06-0402
+1947 crKoOzXYteR bZrmANDWC Argentina 39 Horsepox YES 03-09-1642
+1066 eYYYe XfUkCl Argentina 4 Rabies YES 11-11-0629
+20 pAuGq YVA Argentina 37 Ebola YES 01-10-0949
+585 yeQTvSnKEiy rWjyXojmDQqA Argentina 89 SARS-1 NO
+1617 SieQUP UPLcAewzIS Argentina 106 Junin YES 15-01-1690
+1899 MBQAv yMgcB Argentina 105 Rabies YES 14-01-0158
+1076 wMTXyKarVZv tJRggC Argentina 70 SARS-1 NO
+1066 eYYYe XfUkCl Argentina 4 Rabies YES 25-12-1340
+311 LvseednIql LalQm Argentina 89 Rabies NO
+1795 QqmdOKNZhfZl mFoJew Argentina 111 Ebola YES 06-10-0425
+386 yfHH BVuMliiL Argentina 20 Hepatitis-A NO
+1723 LzmtkK HEhFKJO Argentina 40 Junin NO
+1721 ShtN flYDfdWczkN Argentina 119 Ebola YES 07-08-1294
+1603 OfXVvp qShAEfg Argentina 39 Hepatitis-E NO
+1721 ShtN flYDfdWczkN Argentina 119 Hepatitis-B NO
+217 msSHujuT fKBZ Argentina 83 Horsepox YES 24-11-1017
+616 ISQEsTGer twlFhwLYgrV Argentina 70 Banna YES 14-10-1420
+247 AvPiFYih LIXRed Argentina 98 Monkeypox NO
+1201 tMHDC PDXfpAahg Argentina 78 Zika YES 01-07-1830
+1885 Snr CSJBugdd Argentina 28 Horsepox NO
+1502 XPmriI vhZHWhLXf Argentina 50 Toscana NO
+694 IkUkDjBZ YqxvZR Argentina 78 Hepatitis-E YES 18-03-1365
+1463 PJctxXi hifVfMB Argentina 61 Monkeypox NO
+1397 qreNGFJWQxP JZxbBKaC Argentina 76 Hepatitis-B YES 20-10-1738
+624 JFeAoGDVcff NuixpmnxOf Argentina 36 Hepatitis-C YES 06-08-0570
+1791 RISrIbF NjrXRrVfUK Argentina 1 Typhus NO
+1283 yctmYBPLG BVVZFmyh Argentina 29 Flu YES 29-10-1348
+1971 rZTmqClxsuK HjIsbARZjmH Argentina 7 SARS-1 YES 25-01-0492
+51 vLwgHMSBuRm jYGuvZ Argentina 48 Lassa NO
+40 BpIKat hANJUoUfmVb Argentina 101 Hepatitis-C NO
+1721 ShtN flYDfdWczkN Argentina 119 Junin YES 17-05-0217
+19 OGTIreQS HocrZVA Argentina 48 Hepatitis-A NO
+386 yfHH BVuMliiL Argentina 20 Rabies NO
+59 oxMXZHVYS YyrAq Argentina 44 Monkeypox YES 09-07-1219
+217 msSHujuT fKBZ Argentina 83 Rabies YES 11-07-1379
+247 AvPiFYih LIXRed Argentina 98 Typhus NO
+1076 wMTXyKarVZv tJRggC Argentina 70 Toscana YES 08-04-0810
+40 BpIKat hANJUoUfmVb Argentina 101 Toscana NO
+1201 tMHDC PDXfpAahg Argentina 78 COVID-19 NO
+649 euLb sZAxNQ Argentina 112 Zika YES 26-01-1858

@@ -1,0 +1,41 @@
+59 oxMXZHVYS YyrAq Argentina 44 Ebola NO
+1244 wqBcBoYDOdFd PaQqaF Argentina 111 Zika YES 16-01-0995
+1444 CTwiMGfqcBz tlTRcP Argentina 76 Typhus YES 05-04-1672
+59 oxMXZHVYS YyrAq Argentina 44 Horsepox NO
+694 IkUkDjBZ YqxvZR Argentina 78 Monkeypox YES 18-01-1410
+59 oxMXZHVYS YyrAq Argentina 44 SARS-1 YES 30-02-1386
+1721 ShtN flYDfdWczkN Argentina 119 Junin YES 02-06-1569
+1397 qreNGFJWQxP JZxbBKaC Argentina 76 Banna YES 04-06-1679
+1603 OfXVvp qShAEfg Argentina 39 Monkeypox YES 12-08-0869
+1781 HQbvqYFsd NeL Argentina 49 Hepatitis-D YES 22-08-1660
+1444 CTwiMGfqcBz tlTRcP Argentina 76 Flu YES 04-04-1028
+217 msSHujuT fKBZ Argentina 83 Ebola YES 19-02-0599
+1283 yctmYBPLG BVVZFmyh Argentina 29 Hepatitis-D YES 17-12-0303
+649 euLb sZAxNQ Argentina 112 Junin NO
+59 oxMXZHVYS YyrAq Argentina 44 Hepatitis-B YES 08-12-1703
+367 jpPrNomdTrsb dViFKNM Argentina 20 Toscana YES 26-12-0725
+75 bUQWbG ZOWP Argentina 72 Ebola NO
+649 euLb sZAxNQ Argentina 112 Hepatitis-D NO
+59 oxMXZHVYS YyrAq Argentina 44 Lassa YES 15-05-1573
+1700 HjWujsxWJEuB NjryaHhJZbjG Argentina 1 Zika NO
+1824 XwE JKKnIUOrsb Argentina 5 Cowpox NO
+1503 nuKbyv jRdSMGkk Argentina 23 Junin YES 23-07-0599
+1838 UPyvIwlJo AGwOYStukbxQ Argentina 110 Hepatitis-D NO
+1613 QgYbtAUU ETH Argentina 111 Monkeypox YES 26-02-1618
+1163 ETxyKtwnaJl SsRMTpqxqDyg Argentina 46 SARS-1 NO
+1613 QgYbtAUU ETH Argentina 111 SARS-1 NO
+1795 QqmdOKNZhfZl mFoJew Argentina 111 Flu NO
+1995 sTeoihK DyL Argentina 3 Cowpox YES 12-04-1892
+1444 CTwiMGfqcBz tlTRcP Argentina 76 Junin NO
+1444 CTwiMGfqcBz tlTRcP Argentina 76 Hepatitis-C NO
+217 msSHujuT fKBZ Argentina 83 Ebola NO
+1502 XPmriI vhZHWhLXf Argentina 50 Hepatitis-E NO
+1676 NDatJcEYVDE pqxr Argentina 105 Hepatitis-C YES 30-12-1945
+1502 XPmriI vhZHWhLXf Argentina 50 Monkeypox NO
+616 ISQEsTGer twlFhwLYgrV Argentina 70 Banna NO
+1885 Snr CSJBugdd Argentina 28 Lassa NO
+1795 QqmdOKNZhfZl mFoJew Argentina 111 Lassa YES 16-07-0617
+1795 QqmdOKNZhfZl mFoJew Argentina 111 Lassa NO
+1795 QqmdOKNZhfZl mFoJew Argentina 111 Flu NO
+247 AvPiFYih LIXRed Argentina 98 Hepatitis-D YES 16-09-0418
+1076 wMTXyKarVZv tJRggC Argentina 70 Hepatitis-C YES 25-05-0253

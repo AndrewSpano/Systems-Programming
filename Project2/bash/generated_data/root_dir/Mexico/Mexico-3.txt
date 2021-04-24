@@ -1,0 +1,38 @@
+416 MVg rksW Mexico 42 Zika YES 30-03-0952
+152 YeDcUBEBCi mtXWOWSzAlKD Mexico 116 Rabies NO
+666 HzpdPaqcYJAl AZDar Mexico 20 SARS-1 NO
+1756 zAjAIuw BSUQRXnukTT Mexico 6 Horsepox YES 05-07-0743
+152 YeDcUBEBCi mtXWOWSzAlKD Mexico 116 Flu NO
+1699 wbINhsVoB UeDXcjGdxexa Mexico 4 Hepatitis-B YES 18-08-0859
+263 rHZkF PeSHrsBzjl Mexico 26 Flu NO
+655 bqTXCGfks XFLtHENvDM Mexico 11 H1N1 YES 19-05-0084
+1433 evN RchwW Mexico 91 Lassa YES 28-09-0952
+537 OxKWMNW FtJCvQRjeyZ Mexico 71 Junin YES 02-08-0263
+370 qRLlAegfo nivrF Mexico 38 Rabies NO
+1823 TPZoBAmTJo fpslGY Mexico 95 Toscana YES 20-05-1069
+1035 pPLG PIYUkVMkRH Mexico 70 Lassa NO
+1120 lpV hNlQmdZzFLv Mexico 104 Horsepox NO
+530 KRFfeJUJd jFoos Mexico 55 Toscana YES 07-09-0336
+310 uNlNFYUzro IcW Mexico 19 Typhus YES 15-09-0593
+64 xqhwemdzH QeYgJi Mexico 88 Ebola NO
+1823 TPZoBAmTJo fpslGY Mexico 95 Lassa YES 26-12-0962
+1395 alw HGAqW Mexico 48 Hepatitis-A YES 14-02-0988
+1950 IiqzyOKbIQGK zFEA Mexico 106 Lassa YES 26-02-1146
+659 edX cvHCoN Mexico 106 Hepatitis-E YES 18-10-0233
+1035 pPLG PIYUkVMkRH Mexico 70 Rabies YES 03-09-0849
+450 luJNC pxEQf Mexico 18 Toscana YES 15-10-0130
+1429 eJQR bntdrL Mexico 115 SARS-1 NO
+659 edX cvHCoN Mexico 106 Hepatitis-C YES 01-10-0750
+1414 qyZslxH aYOmCQJ Mexico 53 Hepatitis-B YES 28-09-0290
+674 bcfGXTFi ikvLsV Mexico 43 Monkeypox NO
+1678 cbG vyYGNtAwLaM Mexico 75 Rabies YES 18-08-1623
+530 KRFfeJUJd jFoos Mexico 55 Lassa YES 10-12-0139
+1678 cbG vyYGNtAwLaM Mexico 75 SARS-1 YES 19-05-1993
+1678 cbG vyYGNtAwLaM Mexico 75 Toscana YES 13-08-1756
+822 RqJMZMiwBgUs eWcjfLEDqzz Mexico 87 Flu NO
+1751 apprzB jiCR Mexico 16 Horsepox YES 29-09-0256
+947 cxcZceVTjnbT CEJNKc Mexico 3 Cowpox NO
+1073 LNOIiCdG kmbHT Mexico 107 Ebola YES 19-10-1093
+1678 cbG vyYGNtAwLaM Mexico 75 Ebola NO
+1747 LyFIB ZDnFElRk Mexico 110 Hepatitis-B NO
+1027 fIStfYC ptekONDWCbth Mexico 82 Monkeypox YES 19-07-1447

@@ -1,0 +1,39 @@
+406 QoXMcLu HjgHHADx Uruguay 101 SARS-1 NO
+601 FmzDPsOa qSea Uruguay 118 Horsepox NO
+1940 sTO FKgokvaot Uruguay 43 SARS-1 YES 02-05-0997
+1032 YRQkjL qQvO Uruguay 3 Rabies NO
+1032 YRQkjL qQvO Uruguay 3 Banna NO
+596 nlznLzm VlljeEMC Uruguay 64 H1N1 YES 30-08-1329
+1032 YRQkjL qQvO Uruguay 3 Monkeypox NO
+1203 NRSIKavh cpxvdHzjV Uruguay 96 Typhus YES 17-02-0757
+803 HZPigk ySaQEMS Uruguay 106 Hepatitis-A YES 17-05-1869
+232 gkBtNgy KzbxES Uruguay 57 Zika YES 21-09-1314
+1334 kiJkdvDX aZdmIqoN Uruguay 85 Toscana YES 26-11-0957
+996 kSNySPUiNfc IiayPtzJMq Uruguay 71 Hepatitis-C YES 16-05-1722
+856 rzA bClhE Uruguay 58 Monkeypox YES 19-08-1284
+1109 FKcQevTbqs bFoXRaXBRUz Uruguay 106 Hepatitis-C NO
+681 OpXNIo Ory Uruguay 38 Hepatitis-D YES 25-04-1516
+1818 GRmlBommWYHv ARuGA Uruguay 6 SARS-1 NO
+904 PZsOVXEIa OHfxZAqJjVPV Uruguay 110 Typhus YES 07-06-0478
+1772 eSpOfR RPP Uruguay 28 Flu YES 19-03-0910
+1203 NRSIKavh cpxvdHzjV Uruguay 96 Horsepox YES 11-11-1978
+518 hVZCNrQxSN TJSXsvSJKA Uruguay 89 Flu YES 24-06-1202
+1754 VsHHb bGmGq Uruguay 27 Monkeypox YES 07-04-1798
+601 FmzDPsOa qSea Uruguay 118 Rabies YES 17-11-1041
+1032 YRQkjL qQvO Uruguay 3 Monkeypox NO
+996 kSNySPUiNfc IiayPtzJMq Uruguay 71 Cowpox YES 26-04-1556
+803 HZPigk ySaQEMS Uruguay 106 Toscana YES 29-07-0478
+559 DoQQJENG gDtYJKJ Uruguay 71 Lassa YES 29-08-0366
+1501 PXgPzuuGRJuu LdC Uruguay 111 Zika YES 22-11-1044
+1258 wCDPxU vxIl Uruguay 52 Junin YES 18-06-1258
+2000 ptaSvk tmMrbGHz Uruguay 73 Ebola YES 13-05-1442
+1 tudUTbImV ahVQbcRuU Uruguay 4 Toscana YES 30-04-0274
+1754 VsHHb bGmGq Uruguay 27 Hepatitis-A NO
+1665 pvVjDj emFtHuSjO Uruguay 99 Hepatitis-D YES 15-06-0537
+1420 VEEnhglaPT QkJgH Uruguay 33 Cowpox YES 26-11-0995
+730 oppORLm OCr Uruguay 17 Zika YES 07-02-0697
+1274 ocwfdto NqNmEDkyNLAj Uruguay 109 Cowpox NO
+647 PSnFdrj kSsevMgQXRd Uruguay 13 Ebola NO
+996 kSNySPUiNfc IiayPtzJMq Uruguay 71 Rabies YES 28-09-1785
+406 QoXMcLu HjgHHADx Uruguay 101 Cowpox NO
+681 OpXNIo Ory Uruguay 38 Hepatitis-D NO

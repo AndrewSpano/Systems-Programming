@@ -1,0 +1,100 @@
+4 PPHRldsTviRU zXxP Peru 108 Rabies YES 04-11-0640
+12 epSYWJ fzOiiaZfx France 114 Hepatitis-B NO
+7 aIBAjbZ xwrYixltlmr Albania 69 Rabies NO
+2 hokPNSVjebP aQksX Colombia 2 Junin YES 18-03-0443
+14 PGD HbFgS Hungary 110 Hepatitis-B YES 22-07-0884
+12 epSYWJ fzOiiaZfx France 114 Banna YES 30-11-0950
+0 dbLTqvV QdNOvu Australia 39 Hepatitis-B NO
+6 GCBp ENIl Albania 90 Ebola YES 13-02-1610
+12 epSYWJ fzOiiaZfx France 114 Junin YES 07-10-0871
+0 dbLTqvV QdNOvu Australia 39 COVID-19 NO
+16 gGpGhdGCGL SlrJStE Uruguay 82 Horsepox YES 16-09-0495
+15 QXrgGPwSUZim FyecFQabIaE Spain 2 Hepatitis-A YES 19-08-1209
+6 GCBp ENIl Albania 90 Hepatitis-A NO
+8 utsCYRaMPH XpUasgbCRZHg Portugal 40 Typhus YES 13-08-1065
+10 jvuyvWwZxds KqJ Australia 104 Rabies YES 21-08-1590
+2 hokPNSVjebP aQksX Colombia 2 Junin YES 11-11-1718
+12 epSYWJ fzOiiaZfx France 114 Hepatitis-E YES 15-09-1567
+9 xEiAXO oVfMfF Colombia 82 Typhus NO
+2 hokPNSVjebP aQksX Colombia 2 Monkeypox NO
+14 PGD HbFgS Hungary 110 Hepatitis-B NO
+12 epSYWJ fzOiiaZfx France 114 Rabies YES 25-04-0476
+10 jvuyvWwZxds KqJ Australia 104 Junin NO
+0 dbLTqvV QdNOvu Australia 39 Lassa NO
+6 GCBp ENIl Albania 90 SARS-1 NO
+14 PGD HbFgS Hungary 110 Ebola NO
+2 hokPNSVjebP aQksX Colombia 2 Hepatitis-C NO
+4 PPHRldsTviRU zXxP Peru 108 Rabies NO
+14 PGD HbFgS Hungary 110 Rabies NO
+15 QXrgGPwSUZim FyecFQabIaE Spain 2 Cowpox YES 10-09-0552
+7 aIBAjbZ xwrYixltlmr Albania 69 Monkeypox YES 15-10-0695
+4 PPHRldsTviRU zXxP Peru 108 Cowpox NO
+8 utsCYRaMPH XpUasgbCRZHg Portugal 40 Banna NO
+7 aIBAjbZ xwrYixltlmr Albania 69 Rabies NO
+15 QXrgGPwSUZim FyecFQabIaE Spain 2 Hepatitis-E NO
+0 dbLTqvV QdNOvu Australia 39 Lassa YES 07-06-0860
+8 utsCYRaMPH XpUasgbCRZHg Portugal 40 Hepatitis-D NO
+6 GCBp ENIl Albania 90 SARS-1 YES 08-01-1749
+7 aIBAjbZ xwrYixltlmr Albania 69 Ebola NO
+4 PPHRldsTviRU zXxP Peru 108 Typhus YES 21-02-0782
+6 GCBp ENIl Albania 90 Zika YES 02-05-0217
+9 xEiAXO oVfMfF Colombia 82 Hepatitis-A NO
+8 utsCYRaMPH XpUasgbCRZHg Portugal 40 Hepatitis-A YES 12-08-0194
+0 dbLTqvV QdNOvu Australia 39 Toscana NO
+4 PPHRldsTviRU zXxP Peru 108 Monkeypox NO
+13 dtQRP kWqZvojtgZxp Greece 25 Toscana YES 29-12-0439
+1 zmjkgvg VoIopjxS Chile 20 Rabies NO
+13 dtQRP kWqZvojtgZxp Greece 25 Typhus NO
+14 PGD HbFgS Hungary 110 Hepatitis-D NO
+12 epSYWJ fzOiiaZfx France 114 Banna NO
+13 dtQRP kWqZvojtgZxp Greece 25 Zika NO
+5 qFtpuijjqiBJ xTEQgLdhxGBs China 4 Rabies YES 25-11-1917
+0 dbLTqvV QdNOvu Australia 39 Hepatitis-E NO
+14 PGD HbFgS Hungary 110 H1N1 NO
+9 xEiAXO oVfMfF Colombia 82 Hepatitis-E NO
+1 zmjkgvg VoIopjxS Chile 20 Typhus YES 24-08-0900
+11 yWiWeggSs vQZZmlf Hungary 95 Junin NO
+2 hokPNSVjebP aQksX Colombia 2 Lassa NO
+10 jvuyvWwZxds KqJ Australia 104 Lassa YES 07-09-0991
+5 qFtpuijjqiBJ xTEQgLdhxGBs China 4 Horsepox NO
+7 aIBAjbZ xwrYixltlmr Albania 69 Hepatitis-E YES 19-03-1428
+5 qFtpuijjqiBJ xTEQgLdhxGBs China 4 Toscana YES 14-04-0698
+9 xEiAXO oVfMfF Colombia 82 Hepatitis-A NO
+4 PPHRldsTviRU zXxP Peru 108 Typhus YES 07-07-1686
+6 GCBp ENIl Albania 90 Ebola NO
+4 PPHRldsTviRU zXxP Peru 108 Lassa YES 15-03-1825
+2 hokPNSVjebP aQksX Colombia 2 Hepatitis-D NO
+9 xEiAXO oVfMfF Colombia 82 Junin NO
+13 dtQRP kWqZvojtgZxp Greece 25 Horsepox NO
+8 utsCYRaMPH XpUasgbCRZHg Portugal 40 Horsepox NO
+14 PGD HbFgS Hungary 110 Cowpox NO
+8 utsCYRaMPH XpUasgbCRZHg Portugal 40 COVID-19 NO
+13 dtQRP kWqZvojtgZxp Greece 25 H1N1 YES 17-04-1020
+2 hokPNSVjebP aQksX Colombia 2 Lassa YES 24-11-0889
+9 xEiAXO oVfMfF Colombia 82 Banna YES 29-04-1831
+0 dbLTqvV QdNOvu Australia 39 Rabies NO
+11 yWiWeggSs vQZZmlf Hungary 95 Hepatitis-D YES 05-02-1485
+11 yWiWeggSs vQZZmlf Hungary 95 Zika YES 19-01-1614
+4 PPHRldsTviRU zXxP Peru 108 Toscana NO
+12 epSYWJ fzOiiaZfx France 114 Hepatitis-A NO
+12 epSYWJ fzOiiaZfx France 114 Zika NO
+0 dbLTqvV QdNOvu Australia 39 COVID-19 NO
+7 aIBAjbZ xwrYixltlmr Albania 69 Hepatitis-C YES 21-10-0731
+5 qFtpuijjqiBJ xTEQgLdhxGBs China 4 Monkeypox NO
+5 qFtpuijjqiBJ xTEQgLdhxGBs China 4 Ebola NO
+14 PGD HbFgS Hungary 110 Hepatitis-E NO
+14 PGD HbFgS Hungary 110 Hepatitis-B NO
+1 zmjkgvg VoIopjxS Chile 20 Ebola NO
+3 GWuOH TmhJ Ecuador 66 Junin YES 01-12-1782
+13 dtQRP kWqZvojtgZxp Greece 25 Hepatitis-A NO
+12 epSYWJ fzOiiaZfx France 114 Cowpox NO
+3 GWuOH TmhJ Ecuador 66 Banna YES 06-12-1376
+15 QXrgGPwSUZim FyecFQabIaE Spain 2 Cowpox NO
+6 GCBp ENIl Albania 90 Toscana YES 27-03-1264
+10 jvuyvWwZxds KqJ Australia 104 Typhus YES 05-01-1357
+11 yWiWeggSs vQZZmlf Hungary 95 H1N1 NO
+8 utsCYRaMPH XpUasgbCRZHg Portugal 40 Hepatitis-C YES 08-12-0037
+4 PPHRldsTviRU zXxP Peru 108 Ebola NO
+9 xEiAXO oVfMfF Colombia 82 Horsepox YES 01-12-1783
+7 aIBAjbZ xwrYixltlmr Albania 69 Horsepox NO
+15 QXrgGPwSUZim FyecFQabIaE Spain 2 Hepatitis-A YES 14-02-1583
