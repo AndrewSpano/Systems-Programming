@@ -37,7 +37,8 @@ ALL: travelMonitor Monitor
 
 ########################################################################################
 # travel monitor program
-travelMonitor: travelMonitorMain parsing.o parsing_utils.o
+
+travelMonitor: travelMonitorMain parsing.o parsing_utils.o comm_utils.o
 	$(CC) -o bin/travelMonitor object/travelMonitor_objects/*.o object/common_objects/*.o $(CFLAGS)
 
 travelMonitorMain:
@@ -49,9 +50,13 @@ parsing.o:
 parsing_utils.o:
 	$(CC) -c -o object/common_objects/parsing_utils.o core/utils/parsing_utils.cc $(CFLAGS)
 
+comm_utils.o:
+	$(CC) -c -o object/common_objects/comm_utils.o core/utils/comm_utils.cc $(CFLAGS)
+
 
 ########################################################################################
 # monitor program
+
 Monitor: MonitorMain parsing.o parsing_utils.o
 	$(CC) -o bin/Monitor object/Monitor_objects/*.o object/common_objects/*.o $(CFLAGS)
 

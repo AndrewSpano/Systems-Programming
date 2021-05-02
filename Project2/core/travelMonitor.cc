@@ -5,24 +5,52 @@
 
 #include "../include/utils/errors.hpp"
 #include "../include/utils/parsing.hpp"
+#include "../include/utils/comm_utils.hpp"
+#include "../include/utils/structures.hpp"
+
+
+#include <thread>
+#include <chrono>
+// std::this_thread::sleep_for(std::chrono::milliseconds(x)); 
 
 
 int main(int argc, char* argv[])
 {
-    std::cout  << std::endl;
-
     /* arguments */
-    uint16_t num_monitors = 0;
-    uint64_t buffer_size = 0;
-    uint64_t bloom_filter_size = 0;
-    std::string root_dir = "";
+    structures::Input input;
     ErrorHandler handler;
-    parsing::arguments::parse_travel_monitor_args(argc, argv, num_monitors, buffer_size, bloom_filter_size, root_dir, handler);
+    parsing::arguments::parse_travel_monitor_args(argc, argv, input, handler);
     if (handler.status == HELP_TRAVEL_MONITOR) { handler.print_help_travel_monitor(); return EXIT_SUCCESS; }
     else if (handler.check_and_print()) return EXIT_FAILURE;
 
-    /* initialize the seed for the SkipList */
-    srand(time(NULL));
+    /* create two named pipes for each child process: 1 for coordination and 1 for data tranfer */
+    pid_t monitor_pids[input.num_monitors] = {0};
+    structures::commPipes comm_pipes[input.num_monitors];
+    process_utils::travel_monitor::create_pipes(comm_pipes, input.num_monitors);
+
+    /* create the monitor processes and send the appropriate values */
+    process_utils::travel_monitor::create_monitors(monitor_pids, comm_pipes, input.num_monitors);
+    process_utils::travel_monitor::send_args(comm_pipes, input);
+
+    /* assign countries to each monitor */
+    process_utils::travel_monitor::assign_countries(comm_pipes, input);
+
+    int returnStatus;
+    while (wait(&returnStatus) > 0);
+
+    process_utils::travel_monitor::free_and_delete_pipes(comm_pipes, input.num_monitors);
+
+
+    std::cout << "\n\nTravel Monitor Exiting!\n\n";
+    return 0;
+
+
+
+
+
+
+
+
 
     /* get an option from the user for which command to execute */
     std::string line = "";

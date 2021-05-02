@@ -8,12 +8,7 @@
 
 
 
-void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[],
-                                                   uint16_t & num_monitors,
-                                                   uint64_t & buffer_size,
-                                                   uint64_t & bloom_filter_size,
-                                                   std::string & root_dir,
-                                                   ErrorHandler & handler)
+void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[], structures::Input & input, ErrorHandler & handler)
 {
     if (argc == 2 && (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")))
     {
@@ -45,7 +40,7 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
                 handler.invalid_value = value;
                 return;
             }
-            num_monitors = stoi(value);
+            input.num_monitors = stoi(value);
             flag_m = true;
         }
         else if (flag == "-b")
@@ -56,7 +51,7 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
                 handler.invalid_value = value;
                 return;
             }
-            buffer_size = stoi(value);
+            input.buffer_size = stoi(value);
             flag_b = true;
         }
         else if (flag == "-s")
@@ -67,7 +62,7 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
                 handler.invalid_value = value;
                 return;
             }
-            bloom_filter_size = stoi(value);
+            input.bf_size = stoi(value);
             flag_s = true;
         }
         else if (flag == "-i")
@@ -78,7 +73,7 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
                 handler.invalid_value = value;
                 return;
             }
-            root_dir = value;
+            input.root_dir = value;
             flag_i = true;
         }
         else
@@ -103,10 +98,7 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
 
 
 
-void parsing::arguments::parse_monitor_args(const int & argc, char* argv[],
-                                            std::string & pipe1_path,
-                                            std::string & pipe2_path,
-                                            ErrorHandler & handler)
+void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], structures::commPipes & comm_pipes, ErrorHandler & handler)
 {
     if (argc == 2 && (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")))
     {
@@ -123,7 +115,6 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[],
     bool flag_cp = false;
     bool flag_dp = false;
 
-
     for (size_t i = 1; i < 5; i += 2)
     {
         std::string flag(argv[i]);
@@ -139,7 +130,8 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[],
                 handler.invalid_value = value;
                 return;
             }
-            pipe1_path = value;
+            comm_pipes.coordination_pipe = new char[value.length() + 1];
+            strcpy(comm_pipes.coordination_pipe, value.c_str());
             flag_cp = true;
         }
         else if (flag == "-d")
@@ -152,7 +144,8 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[],
                 handler.invalid_value = value;
                 return;
             }
-            pipe2_path = value;
+            comm_pipes.data_pipe = new char[value.length() + 1];
+            strcpy(comm_pipes.data_pipe, value.c_str());
             flag_dp = true;
         }
         else

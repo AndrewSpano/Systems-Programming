@@ -7,6 +7,7 @@
 
 #include "date.hpp"
 #include "errors.hpp"
+#include "structures.hpp"
 
 
 namespace parsing
@@ -61,10 +62,7 @@ namespace parsing
      *      An error handler used to distinguish errors.
      */
     void parse_travel_monitor_args(const int & argc, char* argv[],
-                                   uint16_t & num_monitors,
-                                   uint64_t & buffer_size,
-                                   uint64_t & bloom_filter_size,
-                                   std::string & root_dir,
+                                   structures::Input & input,
                                    ErrorHandler & handler);
 
     /**
@@ -81,10 +79,7 @@ namespace parsing
      * @param[out] handler
      *    An error handler used to distinguish errors.
      */
-    void parse_monitor_args(const int & argc, char* argv[],
-                            std::string & pipe1_path,
-                            std::string & pipe2_path,
-                            ErrorHandler & handler);
+    void parse_monitor_args(const int & argc, char* argv[], structures::commPipes & comm_pipes, ErrorHandler & handler);
   }
 
 
