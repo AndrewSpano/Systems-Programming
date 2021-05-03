@@ -79,7 +79,7 @@ namespace parsing
      * @param[out] handler
      *    An error handler used to distinguish errors.
      */
-    void parse_monitor_args(const int & argc, char* argv[], structures::commPipes & comm_pipes, ErrorHandler & handler);
+    void parse_monitor_args(const int & argc, char* argv[], structures::CommunicationPipes & pipes, ErrorHandler & handler);
   }
 
 

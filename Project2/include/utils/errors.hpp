@@ -18,6 +18,8 @@ typedef enum ErrorCode
     INVALID_BUFFER_SIZE,
     INVALID_BLOOM_FILTER_SIZE,
     INVALID_ROOT_DIR,
+    INVALID_INPUT_PIPE,
+    INVALID_OUTPUT_PIPE,
     INVALID_FLAG,
     INVALID_CITIZEN_ID,
     INVALID_DATE,
@@ -52,9 +54,9 @@ typedef struct ErrorHandler
 
     void print_help_monitor(void)
     {
-        std::cout << "Usage: ./Monitor -c coordinationPipe -d dataPipe" << std::endl
-                  << std::endl << "\tcoordinationPipe  =  The pipe used to coordinate with the parent process."
-                  << std::endl << "\tdataPipe          =  The pipe used to transfer/get data to/from the paren process.";
+        std::cout << "Usage: ./Monitor -i inputNamedPipe -o outputNamedPipe" << std::endl
+                  << std::endl << "\tinputNamedPipe   =  The pipe used to receive data from the parent process."
+                  << std::endl << "\toutputNamedPipe  =  The pipe used to send data to the parent process.";
     }
 
     bool check_and_print(void)
@@ -93,6 +95,13 @@ typedef struct ErrorHandler
                     std::cout << "ERROR: The value for the \"root directory\" (-i flag): \"" << this->invalid_value
                               << "\" is invalid.";
                     break;
+                case INVALID_INPUT_PIPE:
+                    std::cout << "ERROR: The value for the \"input pipe\" (-i flag): \"" << this->invalid_value
+                              << "\" is invalid.";
+                    break;
+                case INVALID_OUTPUT_PIPE:
+                    std::cout << "ERROR: The value for the \"output pipe\" (-o flag): \"" << this->invalid_value
+                              << "\" is invalid.";
                 case INVALID_FLAG:
                     std::cout << "ERROR: Unrecognized flag: \"" << this->invalid_value << ".";
                     break;

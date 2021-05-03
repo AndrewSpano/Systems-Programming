@@ -2,11 +2,13 @@
 #include <string>
 #include <memory>
 #include <cstring>
+#include <fcntl.h>
 
 #include "../include/utils/errors.hpp"
 #include "../include/utils/parsing.hpp"
 #include "../include/utils/comm_utils.hpp"
 #include "../include/utils/structures.hpp"
+#include "../include/utils/process_utils.hpp"
 
 
 #include <thread>
@@ -24,21 +26,21 @@ int main(int argc, char* argv[])
     else if (handler.check_and_print()) return EXIT_FAILURE;
 
     /* create two named pipes for each child process: 1 for coordination and 1 for data tranfer */
-    pid_t monitor_pids[input.num_monitors] = {0};
-    structures::commPipes comm_pipes[input.num_monitors];
-    process_utils::travel_monitor::create_pipes(comm_pipes, input.num_monitors);
+    structures::CommunicationPipes pipes[input.num_monitors];
+    process_utils::travel_monitor::create_pipes(pipes, input.num_monitors);
 
     /* create the monitor processes and send the appropriate values */
-    process_utils::travel_monitor::create_monitors(monitor_pids, comm_pipes, input.num_monitors);
-    process_utils::travel_monitor::send_args(comm_pipes, input);
+    pid_t monitor_pids[input.num_monitors] = {0};
+    process_utils::travel_monitor::create_monitors(monitor_pids, pipes, input.num_monitors);
+    comm_utils::travel_monitor::send_args(pipes, input);
 
     /* assign countries to each monitor */
-    process_utils::travel_monitor::assign_countries(comm_pipes, input);
+    comm_utils::travel_monitor::assign_countries(pipes, input);
 
     int returnStatus;
     while (wait(&returnStatus) > 0);
 
-    process_utils::travel_monitor::free_and_delete_pipes(comm_pipes, input.num_monitors);
+    process_utils::travel_monitor::free_and_delete_pipes(pipes, input.num_monitors);
 
 
     std::cout << "\n\nTravel Monitor Exiting!\n\n";

@@ -20,16 +20,16 @@ namespace structures
         }
     } Input;
 
-    typedef struct commPipes
+    typedef struct CommunicationPipes
     {
-        char* coordination_pipe = NULL;
-        char* data_pipe = NULL;
+        char* input = NULL;
+        char* output = NULL;
 
         void print(void)
         {
-            printf("Coordination Named Pipe: \"%s\", Data Named Pipe: \"%s\"\n", this->coordination_pipe, this->data_pipe);
+            printf("Input Named Pipe: \"%s\", Output Named Pipe: \"%s\"\n", this->input, this->output);
         }
-    } commPipes;
+    } CommunicationPipes;
 }
 
 

@@ -2,6 +2,9 @@
 #include <string>
 #include <cstring>
 #include <fstream>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 #include "../../include/utils/parsing.hpp"
 #include "../../include/utils/macros.hpp"
@@ -98,7 +101,7 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
 
 
 
-void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], structures::commPipes & comm_pipes, ErrorHandler & handler)
+void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], structures::CommunicationPipes & pipes, ErrorHandler & handler)
 {
     if (argc == 2 && (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")))
     {
@@ -114,38 +117,35 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], stru
 
     bool flag_cp = false;
     bool flag_dp = false;
+    struct stat sb;
 
     for (size_t i = 1; i < 5; i += 2)
     {
         std::string flag(argv[i]);
         std::string value(argv[i + 1]);
 
-        if (flag == "-c")
+        if (flag == "-i")
         {
-            // TODO: if (!is_pipe())
-            if (3 == 4)
+            if (stat(value.c_str(), &sb) == -1 || !S_ISFIFO(sb.st_mode))
             {
-                // TODO: correct error ID
-                handler.status = INVALID_NUM_MONITORS;
+                handler.status = INVALID_INPUT_PIPE;
                 handler.invalid_value = value;
                 return;
             }
-            comm_pipes.coordination_pipe = new char[value.length() + 1];
-            strcpy(comm_pipes.coordination_pipe, value.c_str());
+            pipes.input = new char[value.length() + 1];
+            strcpy(pipes.input, value.c_str());
             flag_cp = true;
         }
-        else if (flag == "-d")
+        else if (flag == "-o")
         {
-            // TODO: if (!is_pipe())
-            if (3 == 4)
+            if (stat(value.c_str(), &sb) == -1 || !S_ISFIFO(sb.st_mode))
             {
-                // TODO: correct error ID
-                handler.status = INVALID_BUFFER_SIZE;
+                handler.status = INVALID_OUTPUT_PIPE;
                 handler.invalid_value = value;
                 return;
             }
-            comm_pipes.data_pipe = new char[value.length() + 1];
-            strcpy(comm_pipes.data_pipe, value.c_str());
+            pipes.output = new char[value.length() + 1];
+            strcpy(pipes.output, value.c_str());
             flag_dp = true;
         }
         else
