@@ -8,6 +8,7 @@
 
 #include "../../include/utils/process_utils.hpp"
 #include "../../include/utils/comm_utils.hpp"
+#include "../../include/data_structures/list.hpp"
 
 
 
@@ -179,7 +180,7 @@ void comm_utils::travel_monitor::send_args(const structures::CommunicationPipes 
 }
 
 
-void comm_utils::travel_monitor::assign_countries(const structures::CommunicationPipes pipes[], const structures::Input & input)
+void comm_utils::travel_monitor::assign_countries(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[], const structures::Input & input)
 {
     /* open all pipes and get their file descriptors */
     int input_fds[input.num_monitors] = {0};
@@ -189,7 +190,9 @@ void comm_utils::travel_monitor::assign_countries(const structures::Communicatio
     char path[300] = {0};
     struct dirent **namelist;
     int num_countries = scandir(input.root_dir.c_str(), &namelist, NULL, alphasort);
+    tm_index->init_countries(num_countries - 2);
     size_t round_robin = 0;
+    size_t country_id = 0;
 
     for (size_t i = 0; i < num_countries; i++)
     {
@@ -197,6 +200,8 @@ void comm_utils::travel_monitor::assign_countries(const structures::Communicatio
         if (strcmp(namelist[i]->d_name, ".") && strcmp(namelist[i]->d_name, ".."))
         {
             comm_utils::_send_message(input_fds[round_robin], output_fds[round_robin], SEND_COUNTRY, namelist[i]->d_name, strlen(namelist[i]->d_name) + 1, input.buffer_size);
+            tm_index->countries[country_id] = std::string(namelist[i]->d_name);
+            country_id++;
             round_robin = (round_robin + 1) % input.num_monitors;
         }
         free(namelist[i]);
@@ -205,19 +210,23 @@ void comm_utils::travel_monitor::assign_countries(const structures::Communicatio
 
     /* inform the Monitors that no more countries will be arriving */
     for (size_t i = 0; i < input.num_monitors; i++)
-    {
         comm_utils::_send_message(input_fds[i], output_fds[i], COUNTRIES_SENT, NULL, 0, input.buffer_size);
-    }
 
     /* close all pipes */
     process_utils::travel_monitor::close_all_pipes(input_fds, output_fds, input.num_monitors);
 }
 
 
-void comm_utils::monitor::init_args(const structures::CommunicationPipes & pipes, structures::Input & input)
+void comm_utils::travel_monitor::receive_bloom_filters(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[], const structures::Input & input)
 {
-    int input_fd = open(pipes.input, O_RDONLY | O_NONBLOCK);
-    int output_fd = open(pipes.output, O_WRONLY);
+
+}
+
+
+void comm_utils::monitor::init_args(const structures::CommunicationPipes* pipes, structures::Input & input)
+{
+    int input_fd = open(pipes->input, O_RDONLY | O_NONBLOCK);
+    int output_fd = open(pipes->output, O_WRONLY);
 
     /* variables used to get root directory */
     char buf[1028];
@@ -235,7 +244,7 @@ void comm_utils::monitor::init_args(const structures::CommunicationPipes & pipes
 }
 
 
-void comm_utils::monitor::receive_countries(const structures::CommunicationPipes & pipes, structures::Input & input)
+void comm_utils::monitor::receive_countries(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input)
 {
     uint16_t num_countries = 0;
     uint8_t msg_id = REJECT;
@@ -243,15 +252,26 @@ void comm_utils::monitor::receive_countries(const structures::CommunicationPipes
     char buf[128];
     size_t bytes_in = 0;
 
-    int input_fd = open(pipes.input, O_RDONLY | O_NONBLOCK);
-    int output_fd = open(pipes.output, O_WRONLY);
+    int input_fd = open(pipes->input, O_RDONLY | O_NONBLOCK);
+    int output_fd = open(pipes->output, O_WRONLY);
 
+    /* build the countries array by creating a list to save all the countries, and then converting it to an array */
+    List<std::string, std::string> countries;
+    comm_utils::_receive_message(input_fd, output_fd, msg_id, buf, bytes_in, input.buffer_size);
     while (msg_id != COUNTRIES_SENT)
     {
+        std::string* country = new std::string(buf);
+        countries.insert(country);
         comm_utils::_receive_message(input_fd, output_fd, msg_id, buf, bytes_in, input.buffer_size);
-        printf("From pipe: %s: Message ID: %u, and value received: %s\n", pipes.input, msg_id, buf);
     }
+    m_index->init_countries(countries);
 
     close(input_fd);
     close(output_fd);
+}
+
+
+void comm_utils::monitor::send_bloom_filterts(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input)
+{
+
 }

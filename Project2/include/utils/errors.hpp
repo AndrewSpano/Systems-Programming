@@ -21,6 +21,7 @@ typedef enum ErrorCode
     INVALID_INPUT_PIPE,
     INVALID_OUTPUT_PIPE,
     INVALID_FLAG,
+    INVALID_RECORD,
     INVALID_CITIZEN_ID,
     INVALID_DATE,
     INVALID_DATE1,
@@ -103,7 +104,10 @@ typedef struct ErrorHandler
                     std::cout << "ERROR: The value for the \"output pipe\" (-o flag): \"" << this->invalid_value
                               << "\" is invalid.";
                 case INVALID_FLAG:
-                    std::cout << "ERROR: Unrecognized flag: \"" << this->invalid_value << ".";
+                    std::cout << "ERROR: Unrecognized flag: \"" << this->invalid_value << "\".";
+                    break;
+                case INVALID_RECORD:
+                    std::cout << "ERROR: In Record: \"" << this->invalid_value << "\".";
                     break;
                 case INVALID_CITIZEN_ID:
                     std::cout << "ERROR: The \"citizenID\" parameter provided in the following line: \""

@@ -8,6 +8,7 @@
 #include "date.hpp"
 #include "errors.hpp"
 #include "structures.hpp"
+#include "../data_structures/indices.hpp"
 
 
 namespace parsing
@@ -30,56 +31,18 @@ namespace parsing
 
     }
 
-    void parse_record_line(const std::string & line, ErrorHandler & handler);
+    void parse_record_line(std::string* country, const std::string & line, MonitorIndex* m_index, ErrorHandler & handler);
 
-    // namespace dataset
-    // {
-    //     void parse_dataset(const std::string& dataset_path, Index& index);
-    // }
+    namespace dataset
+    {
+        void parse_country_dataset(std::string* country, const std::string & dataset_path, MonitorIndex* m_index, ErrorHandler & handler);
+    }
 
 
   namespace arguments
   {
-    
-    /**
-     * Parse the command line arguments of the travelMonitor process. 
-     * 
-     * @param[in] argc
-     *      The number of arguments provided when executing the travelMonitor process.
-     * @param[in] argv
-     *      The command line arguments.
-     * @param[out] num_monitors
-     *      The number of Monitor (child) processes to create.
-     * @param[out] buffer_size
-     *      The size (in bytes) of the buffer of the Named Pipes used for
-     *      communication between the processes.
-     * @param[out] bloom_filter_size
-     *      The size (in bytes) of the Bloom Filter.
-     * @param[out] root_dir
-     *      The relative/absolute path of the root directory that will contain
-     *      a sub-directory for each country.
-     * @param[out] handler
-     *      An error handler used to distinguish errors.
-     */
-    void parse_travel_monitor_args(const int & argc, char* argv[],
-                                   structures::Input & input,
-                                   ErrorHandler & handler);
-
-    /**
-     * Parse the command line arguments of the Monitor process.
-     * 
-     * @param[in] argc
-     *    The number of arguments provided when executing the travelMonitor process.
-     * @param[in] argv
-     *    The command line arguments.
-     * @param[out] pipe1_path
-     *    The name (path) of the pipe used for coordination. (???)
-     * @param[out] pipe2_path
-     *    The name (path) of the pipe used to transfer data. (???)
-     * @param[out] handler
-     *    An error handler used to distinguish errors.
-     */
-    void parse_monitor_args(const int & argc, char* argv[], structures::CommunicationPipes & pipes, ErrorHandler & handler);
+    void parse_travel_monitor_args(const int & argc, char* argv[], structures::Input & input, ErrorHandler & handler);
+    void parse_monitor_args(const int & argc, char* argv[], structures::CommunicationPipes* pipes, ErrorHandler & handler);
   }
 
 

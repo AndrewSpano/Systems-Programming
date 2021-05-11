@@ -3,6 +3,7 @@
 
 
 #include "structures.hpp"
+#include "../data_structures/indices.hpp"
 
 
 typedef enum communicationID
@@ -19,7 +20,6 @@ typedef enum communicationID
 
 namespace comm_utils
 {
-
     void _poll_until_read(const int & fd);
     void _wait_ack(const int & fd);
     void _send_numeric(const int & input_fd, const int & output_fd, const uint64_t & numeric, const uint64_t & buffer_size);
@@ -31,13 +31,15 @@ namespace comm_utils
     namespace travel_monitor
     {
         void send_args(const structures::CommunicationPipes pipes[], const structures::Input & input);
-        void assign_countries(const structures::CommunicationPipes pipes[], const structures::Input & input);
+        void assign_countries(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[], const structures::Input & input);
+        void receive_bloom_filters(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[], const structures::Input & input);
     }
 
     namespace monitor
     {
-        void init_args(const structures::CommunicationPipes & pipes, structures::Input & input);
-        void receive_countries(const structures::CommunicationPipes & pipes, structures::Input & input);
+        void init_args(const structures::CommunicationPipes* pipes, structures::Input & input);
+        void receive_countries(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input);
+        void send_bloom_filterts(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input);
     }
 }
 

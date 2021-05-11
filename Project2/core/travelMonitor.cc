@@ -9,10 +9,15 @@
 #include "../include/utils/comm_utils.hpp"
 #include "../include/utils/structures.hpp"
 #include "../include/utils/process_utils.hpp"
+#include "../include/data_structures/indices.hpp"
 
 
-#include <thread>
-#include <chrono>
+travelMonitorIndex* tm_index;
+structures::CommunicationPipes* pipes;
+
+
+// #include <thread>
+// #include <chrono>
 // std::this_thread::sleep_for(std::chrono::milliseconds(x)); 
 
 
@@ -25,8 +30,11 @@ int main(int argc, char* argv[])
     if (handler.status == HELP_TRAVEL_MONITOR) { handler.print_help_travel_monitor(); return EXIT_SUCCESS; }
     else if (handler.check_and_print()) return EXIT_FAILURE;
 
+    /* initialize important variables */
+    tm_index = new travelMonitorIndex(&input);
+
     /* create two named pipes for each child process: 1 for coordination and 1 for data tranfer */
-    structures::CommunicationPipes pipes[input.num_monitors];
+    pipes = new structures::CommunicationPipes[input.num_monitors];
     process_utils::travel_monitor::create_pipes(pipes, input.num_monitors);
 
     /* create the monitor processes and send the appropriate values */
@@ -35,13 +43,16 @@ int main(int argc, char* argv[])
     comm_utils::travel_monitor::send_args(pipes, input);
 
     /* assign countries to each monitor */
-    comm_utils::travel_monitor::assign_countries(pipes, input);
+    comm_utils::travel_monitor::assign_countries(tm_index, pipes, input);
+
+    
 
     int returnStatus;
     while (wait(&returnStatus) > 0);
 
     process_utils::travel_monitor::free_and_delete_pipes(pipes, input.num_monitors);
-
+    delete[] pipes;
+    delete tm_index;
 
     std::cout << "\n\nTravel Monitor Exiting!\n\n";
     return 0;

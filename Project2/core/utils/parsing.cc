@@ -10,7 +10,6 @@
 #include "../../include/utils/macros.hpp"
 
 
-
 void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[], structures::Input & input, ErrorHandler & handler)
 {
     if (argc == 2 && (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")))
@@ -101,7 +100,7 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
 
 
 
-void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], structures::CommunicationPipes & pipes, ErrorHandler & handler)
+void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], structures::CommunicationPipes* pipes, ErrorHandler & handler)
 {
     if (argc == 2 && (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")))
     {
@@ -132,8 +131,8 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], stru
                 handler.invalid_value = value;
                 return;
             }
-            pipes.input = new char[value.length() + 1];
-            strcpy(pipes.input, value.c_str());
+            pipes->input = new char[value.length() + 1];
+            strcpy(pipes->input, value.c_str());
             flag_cp = true;
         }
         else if (flag == "-o")
@@ -144,8 +143,8 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], stru
                 handler.invalid_value = value;
                 return;
             }
-            pipes.output = new char[value.length() + 1];
-            strcpy(pipes.output, value.c_str());
+            pipes->output = new char[value.length() + 1];
+            strcpy(pipes->output, value.c_str());
             flag_dp = true;
         }
         else
@@ -165,7 +164,7 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], stru
 
 
 
-void parsing::parse_record_line(const std::string & line, ErrorHandler & handler)
+void parsing::parse_record_line(std::string* country, const std::string & line, MonitorIndex* m_index, ErrorHandler & handler)
 {
     size_t start = 0, end = 0;
 
@@ -201,9 +200,9 @@ void parsing::parse_record_line(const std::string & line, ErrorHandler & handler
     start = end;
 
     /* create a Record from the existing data */
-    // Record* new_record = new Record(id, name, surname, country, age);
+    Record* new_record = new Record(id, name, surname, country, age);
     /* scan all the existing records to see if a Record with the same ID exists */
-    // Record* same_id_record = index.records_list->get(id);
+    Record* same_id_record = m_index->records->get(id);
 
     /*
     CASES:
@@ -240,7 +239,6 @@ void parsing::parse_record_line(const std::string & line, ErrorHandler & handler
         parsing::utils::parse_next_substring(line, start, end);
         std::string dummy = line.substr(start, end - start);
         if (end != 0) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
-        // DELETE_LOG_AND_RETURN(new_record, line)
 
         /* if we get here the Record is legit, add it to the data structures */
         // index.insert(same_id_record, new_record, virus_name, status);
@@ -253,20 +251,43 @@ void parsing::parse_record_line(const std::string & line, ErrorHandler & handler
         parsing::utils::parse_next_substring(line, start, end);
         std::string date = line.substr(start, end - start);
         if (end == 0 || !parsing::utils::is_valid_date(date)) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
-        // DELETE_LOG_AND_RETURN(new_record, line)
         start = end;
 
         /* make sure the date was the last string */
         parsing::utils::parse_next_substring(line, start, end);
         std::string dummy = line.substr(start, end - start);
         if (end != 0) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
-        // DELETE_LOG_AND_RETURN(new_record, line)
 
         /* if we get here the Record is legit, add it to the data structures */
         // index.insert(same_id_record, new_record, virus_name, status, date);
     }
 }
 
+
+void parsing::dataset::parse_country_dataset(std::string* country, const std::string & dataset_path, MonitorIndex* m_index, ErrorHandler & handler)
+{
+    /* create an ifstream item to open and navigate the file */
+    std::ifstream dataset(dataset_path, std::ios::binary);
+
+    /* make sure that the file successfully opened */
+    if (!dataset.is_open()) throw std::invalid_argument("Could not open Dataset file \"" + dataset_path + "\".");
+
+    /* start reading the records (lines) one by one */
+    std::string line = "";
+    std::getline(dataset, line);
+
+    while (line != "")
+    {
+        /* parse the next record, and if it is valid, add it to the monitor index (data structures) */
+        parsing::parse_record_line(country, line, m_index, handler);
+        handler.check_and_print();
+        /* read the next line */
+        std::getline(dataset, line);
+    }
+
+    /* everything is done, close the file and return */
+    dataset.close();
+}
 
 
 int parsing::user_input::get_option(std::string & line, const bool & _print_help)
