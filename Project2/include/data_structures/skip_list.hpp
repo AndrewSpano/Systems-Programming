@@ -6,6 +6,7 @@
 
 
 #include "record.hpp"
+#include "../utils/date.hpp"
 
 
 typedef struct SkipListDataNode* SkipListDataNodePtr;
@@ -13,18 +14,14 @@ typedef struct SkipListDataNode
 {
   SkipListDataNodePtr next;
   Record* data;
-  std::string* date;
+  Date* date;
 
-  SkipListDataNode(SkipListDataNodePtr _next, Record* record, const std::string & _date):
-  next(_next), data(record)
-  {
-    date = new std::string(_date);
-  }
+  SkipListDataNode(SkipListDataNodePtr _next, Record* record, Date* _date):
+  next(_next), data(record), date(_date)
+  { }
 
   ~SkipListDataNode(void)
-  {
-    delete date;
-  }
+  { delete date; }
 } SkipListDataNode;
 
 
@@ -65,9 +62,9 @@ class SkipList
     SkipList(const uint16_t & _max_level, const double & p);
     ~SkipList(void);
 
-    void insert(Record* data, const std::string & date);
+    void insert(Record* data, Date* date);
     Record* remove(const std::string & id);
-    Record* get(const std::string & id, std::string & date);
+    Record* get(const std::string & id, Date** date);
     bool in(const std::string & id);
 
     void print(void);

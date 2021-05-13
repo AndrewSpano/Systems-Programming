@@ -45,7 +45,9 @@ int main(int argc, char* argv[])
     /* assign countries to each monitor */
     comm_utils::travel_monitor::assign_countries(tm_index, pipes, input);
 
-    
+    /* receive the bloom filters (per virus) from the monitors */
+    comm_utils::travel_monitor::receive_bloom_filters(tm_index, pipes, input);
+
 
     int returnStatus;
     while (wait(&returnStatus) > 0);

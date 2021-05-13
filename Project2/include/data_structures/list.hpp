@@ -19,7 +19,7 @@ struct ListNode
 };
 
 
-template <typename T, typename K>
+template <typename T>
 class List
 {
     private:
@@ -98,11 +98,11 @@ class List
             return temp->data;
         }
 
-        T* get(const K & data)
+        T* get(const std::string & data)
         {
             if (_size == 0) return NULL;
             ListNode<T>* temp = _head;
-            while (temp && *temp->data != *data)
+            while (temp && *temp->data != data)
                 temp = temp->next;
             return (temp) ? temp->data : NULL;
         }

@@ -25,7 +25,7 @@ void VirusList::_delete_data(void)
 }
 
 
-void VirusList::insert(Record* record, const std::string & virus_name, const bool & status, const std::string & date)
+void VirusList::insert(Record* record, const std::string & virus_name, const bool & status, Date* date)
 {
     if (size == 0 || virus_name < head->virus_name)
     {
@@ -105,13 +105,17 @@ bool VirusList::exists_in_virus_name(const std::string & id, const std::string &
                 current_node->non_vaccinated->in(id);
     else
         return current_node && current_node->virus_name == virus_name &&
-                ((current_node->bloom_filter->is_probably_in(id) && current_node->vaccinated->in(id)) ||
+             ((current_node->bloom_filter->is_probably_in(id) && current_node->vaccinated->in(id)) ||
                 current_node->non_vaccinated->in(id));
 
 }
 
 
-std::string VirusList::get_vaccination_date(const std::string & id, const std::string virus_name)
+size_t VirusList::get_size(void)
+{ return size; }
+
+
+Date* VirusList::get_vaccination_date(const std::string & id, const std::string virus_name)
 {
     VirusNodePtr current_node = head;
     while (current_node && current_node->virus_name < virus_name)
@@ -119,11 +123,23 @@ std::string VirusList::get_vaccination_date(const std::string & id, const std::s
 
     if (!current_node || current_node->virus_name != virus_name ||
         !current_node->bloom_filter->is_probably_in(id))
-        return "";
+        return NULL;
 
-    std::string target_date = "";
-    Record* dummy_record = current_node->vaccinated->get(id, target_date);
+    Date* target_date = NULL;
+    Record* dummy_record = current_node->vaccinated->get(id, &target_date);
     return target_date;
+}
+
+
+void VirusList::get_bf_pairs(BFPair** bfs_per_virus)
+{
+    VirusNodePtr current_node = head;
+    size_t pos = 0;
+    while (current_node)
+    {
+        bfs_per_virus[pos++] = new BFPair(current_node->virus_name, current_node->bloom_filter);
+        current_node = current_node->next;
+    }
 }
 
 
@@ -150,5 +166,5 @@ void VirusList::print_virus(const std::string & virus_name, const bool & only_va
         current_node->vaccinated->print();
         std::cout << "\nNon Vaccinated:" << std::endl;
         current_node->non_vaccinated->print();
-  }
+    }
 }

@@ -25,6 +25,33 @@ void comm_utils::_poll_until_read(const int & fd)
 }
 
 
+size_t comm_utils::_poll_until_any_read(int fds[], bool fd_has_read[], const size_t & num_fds, const size_t & count_read)
+{
+    size_t num_to_read = num_fds - count_read;
+    size_t current_fd = 0;
+    
+    struct pollfd fdarr[num_to_read];
+    size_t map[num_to_read] = {0};
+    for (size_t i = 0; i < num_fds; i++)
+    {
+        if (!fd_has_read[i])
+        {
+            fdarr[current_fd].fd = fds[i];
+            fdarr[current_fd].events = POLLIN;
+            map[current_fd] = i;
+            current_fd++;
+        }
+    }
+    
+    int rc = poll(fdarr, num_to_read, 500);
+    while (rc != 1 || process_utils::travel_monitor::ready_fd(fdarr, num_to_read) == -1)
+    {
+        rc = poll(fdarr, num_to_read, 500);
+    }
+    return map[process_utils::travel_monitor::ready_fd(fdarr, num_to_read)];
+}
+
+
 void comm_utils::_wait_ack(const int & fd)
 {
     uint8_t response = REJECT;
@@ -166,7 +193,7 @@ void comm_utils::travel_monitor::send_args(const structures::CommunicationPipes 
     /* open all pipes and get their file descriptors */
     int input_fds[input.num_monitors] = {0};
     int output_fds[input.num_monitors] = {0};
-    process_utils::travel_monitor::open_all_pipes(pipes, input_fds, O_RDWR | O_NONBLOCK, output_fds, O_WRONLY, input.num_monitors);
+    process_utils::travel_monitor::open_all_pipes(pipes, input_fds, O_RDONLY | O_NONBLOCK, output_fds, O_WRONLY, input.num_monitors);
 
     for (size_t i = 0; i < input.num_monitors; i++)
     {
@@ -187,7 +214,7 @@ void comm_utils::travel_monitor::assign_countries(travelMonitorIndex* tm_index, 
     int output_fds[input.num_monitors] = {0};
     process_utils::travel_monitor::open_all_pipes(pipes, input_fds, O_RDWR | O_NONBLOCK, output_fds, O_WRONLY, input.num_monitors);
 
-    char path[300] = {0};
+    char path[256] = {0};
     struct dirent **namelist;
     int num_countries = scandir(input.root_dir.c_str(), &namelist, NULL, alphasort);
     tm_index->init_countries(num_countries - 2);
@@ -219,7 +246,45 @@ void comm_utils::travel_monitor::assign_countries(travelMonitorIndex* tm_index, 
 
 void comm_utils::travel_monitor::receive_bloom_filters(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[], const structures::Input & input)
 {
+    /* open all pipes and get their file descriptors */
+    size_t active_monitors = (input.num_monitors >= tm_index->num_countries) ? input.num_monitors : tm_index->num_countries;
+    int input_fds[active_monitors] = {0};
+    int output_fds[active_monitors] = {0};
+    process_utils::travel_monitor::open_all_pipes(pipes, input_fds, O_RDONLY | O_NONBLOCK, output_fds, O_WRONLY, active_monitors);
 
+    /* variables used for receiving messages */
+    size_t num_viruses = 0;
+    uint8_t msg_id = REJECT;
+    size_t bytes_in = 0;
+    char virus_name[128] = {0};
+    char bf_bits[input.bf_size] = {0};
+
+    /* receive a message (viruses and bloom filters) from every (active) monitor */
+    bool finished_monitors[active_monitors] = {false};
+    for (size_t count_finished_monitors = 0; count_finished_monitors < active_monitors; count_finished_monitors++)
+    {
+        size_t ready_monitor = comm_utils::_poll_until_any_read(input_fds, finished_monitors, active_monitors, count_finished_monitors);
+
+        /* receive the number of viruses */
+        comm_utils::_receive_numeric(input_fds[ready_monitor], output_fds[ready_monitor], num_viruses, input.buffer_size);
+        for (size_t i = 0; i < num_viruses; i++)
+        {
+            /* receive the virus name and its bloom filter, then add/update them to the list */
+            comm_utils::_receive_message(input_fds[ready_monitor], output_fds[ready_monitor], msg_id, virus_name, bytes_in, input.buffer_size);
+            std::string _virus_name_str(virus_name);
+            comm_utils::_receive_message(input_fds[ready_monitor], output_fds[ready_monitor], msg_id, bf_bits, bytes_in, input.buffer_size);
+
+            BFPair* existing_bf_pair = tm_index->bloom_filters->get(_virus_name_str);
+            if (existing_bf_pair == NULL)
+                tm_index->bloom_filters->insert(new BFPair(_virus_name_str, input.bf_size, DEFAULT_K, (uint8_t *) bf_bits));
+            else
+                existing_bf_pair->bloom_filter->update((uint8_t *) bf_bits);
+        }
+        finished_monitors[ready_monitor] = true;
+    }
+
+    /* close all pipes */
+    process_utils::travel_monitor::close_all_pipes(input_fds, output_fds, active_monitors);
 }
 
 
@@ -246,7 +311,6 @@ void comm_utils::monitor::init_args(const structures::CommunicationPipes* pipes,
 
 void comm_utils::monitor::receive_countries(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input)
 {
-    uint16_t num_countries = 0;
     uint8_t msg_id = REJECT;
     
     char buf[128];
@@ -256,7 +320,7 @@ void comm_utils::monitor::receive_countries(MonitorIndex* m_index, const structu
     int output_fd = open(pipes->output, O_WRONLY);
 
     /* build the countries array by creating a list to save all the countries, and then converting it to an array */
-    List<std::string, std::string> countries;
+    List<std::string> countries;
     comm_utils::_receive_message(input_fd, output_fd, msg_id, buf, bytes_in, input.buffer_size);
     while (msg_id != COUNTRIES_SENT)
     {
@@ -264,14 +328,45 @@ void comm_utils::monitor::receive_countries(MonitorIndex* m_index, const structu
         countries.insert(country);
         comm_utils::_receive_message(input_fd, output_fd, msg_id, buf, bytes_in, input.buffer_size);
     }
-    m_index->init_countries(countries);
+    if (countries.get_size() > 0)
+        m_index->init_countries(countries);
 
     close(input_fd);
     close(output_fd);
 }
 
 
-void comm_utils::monitor::send_bloom_filterts(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input)
+void comm_utils::monitor::send_bloom_filters(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input)
 {
+    /* get the bloom filter of every virus */
+    size_t num_viruses = m_index->virus_list->get_size();
+    BFPair** bf_per_virus = new BFPair*[num_viruses];
+    m_index->virus_list->get_bf_pairs(bf_per_virus);
 
+    /* open the pipes */
+    int input_fd = open(pipes->input, O_RDONLY | O_NONBLOCK);
+    int output_fd = open(pipes->output, O_WRONLY);
+
+    /* send the number of virus-bloom_filter that will be sent to the travel Monitor */
+    comm_utils::_send_numeric(input_fd, output_fd, num_viruses, input.buffer_size);
+
+    /* now send each pair separately */
+    for (size_t i = 0; i < num_viruses; i++)
+    {
+        std::string virus_name = bf_per_virus[i]->virus_name;
+        comm_utils::_send_message(input_fd, output_fd, SEND_VIRUS_NAME, virus_name.c_str(), virus_name.length() + 1, input.buffer_size);
+
+        uint8_t* bits = bf_per_virus[i]->bloom_filter->get_bloom_filter();
+        comm_utils::_send_message(input_fd, output_fd, SEND_BF, (char *) bits, input.bf_size, input.buffer_size);
+        delete[] bits;
+    }
+
+    /* close the pipes */
+    close(input_fd);
+    close(output_fd);
+
+    /* delete the virus-bloom_filter pair information */
+    for (size_t i = 0; i < num_viruses; i++)
+        delete bf_per_virus[i];
+    delete[] bf_per_virus;    
 }

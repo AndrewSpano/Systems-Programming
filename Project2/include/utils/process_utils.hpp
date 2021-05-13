@@ -11,7 +11,9 @@
 #include <sys/wait.h>
 
 #include "structures.hpp"
-
+#include "errors.hpp"
+#include "../data_structures/bloom_filter.hpp"
+#include "../data_structures/indices.hpp"
 
 
 namespace process_utils
@@ -26,6 +28,12 @@ namespace process_utils
                             int data_fds[], const mode_t & data_perms, const uint16_t & num_monitors);
         void close_all_pipes(const int comm_fds[], const int data_fds[], const uint16_t & num_monitors);
         void create_monitors(pid_t monitor_pids[], structures::CommunicationPipes pipes[], const u_int16_t & num_monitors);
+        int ready_fd(struct pollfd fdarr[], size_t num_fds);
+    }
+
+    namespace monitor
+    {
+        void parse_countries(MonitorIndex* m_index, const std::string & root_dir, ErrorHandler & handler);
     }
 }
 

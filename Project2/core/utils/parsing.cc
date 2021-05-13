@@ -188,8 +188,8 @@ void parsing::parse_record_line(std::string* country, const std::string & line, 
 
     /* parse the country */
     parsing::utils::parse_next_substring(line, start, end);
-    std::string country = line.substr(start, end - start);
-    if (end == 0 || !parsing::utils::is_valid_alphabetical(country)) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
+    std::string _country = line.substr(start, end - start);
+    if (end == 0 || !parsing::utils::is_valid_alphabetical(_country) || _country != *country) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
     start = end;
 
     /* parse the age */
@@ -205,32 +205,30 @@ void parsing::parse_record_line(std::string* country, const std::string & line, 
     Record* same_id_record = m_index->records->get(id);
 
     /*
-    CASES:
+    ERROR CASES:
         1. A Record with the same ID but a different field exists -> ERROR, continue
         2. Input after Record (virus, YES/NO, date) is incorrect -> ERROR, continue
         3. Same Record exists, vaccination data is contradictory to new data -> ERROR, continue
     */
 
     /* 1. if a record with the same ID exists, and the new record is incompatible with it, continue */
-    // if (same_id_record && !parsing::processing::is_valid_new_record(new_record, same_id_record))
-    //     DELETE_LOG_AND_RETURN(new_record, line)
+    if (same_id_record && *new_record != *same_id_record) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
 
     /* 2. parse the virusName */
     parsing::utils::parse_next_substring(line, start, end);
     std::string virus_name = line.substr(start, end - start);
-    if (end == 0 || !parsing::utils::is_valid_alphanumerical(virus_name, true)) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
+    if (end == 0 || !parsing::utils::is_valid_alphanumerical(virus_name, true)) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
     start = end;
 
     /* 2. parse the status */
     parsing::utils::parse_next_substring(line, start, end);
     std::string status = line.substr(start, end - start);
-    if (end == 0 || !parsing::utils::is_valid_status(status)) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
+    if (end == 0 || !parsing::utils::is_valid_status(status)) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
     start = end;
 
     /* 3. check if current record contradicts vaccination data for existing record with same ID */
-    // if (same_id_record && index.virus_list->exists_in_virus_name(new_record->id, virus_name,
-    //                                                             false, false))
-    //     DELETE_LOG_AND_RETURN(new_record, line)
+    if (same_id_record && m_index->virus_list->exists_in_virus_name(new_record->id, virus_name, false, false))
+        DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
 
     /* 2. if the status is "NO", make sure that this is the last string of the line and continue */
     if (status == "NO")
@@ -238,10 +236,10 @@ void parsing::parse_record_line(std::string* country, const std::string & line, 
         /* check for the status being the last string */
         parsing::utils::parse_next_substring(line, start, end);
         std::string dummy = line.substr(start, end - start);
-        if (end != 0) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
+        if (end != 0) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
 
         /* if we get here the Record is legit, add it to the data structures */
-        // index.insert(same_id_record, new_record, virus_name, status);
+        m_index->insert(same_id_record, new_record, virus_name, status);
     }
 
     /* 2. if the status is "YES", parse the data and make sure that it is the last string */
@@ -249,17 +247,18 @@ void parsing::parse_record_line(std::string* country, const std::string & line, 
     {
         /* parse the date, skip the record if an error occurrs */
         parsing::utils::parse_next_substring(line, start, end);
-        std::string date = line.substr(start, end - start);
-        if (end == 0 || !parsing::utils::is_valid_date(date)) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
+        std::string date_str = line.substr(start, end - start);
+        if (end == 0 || !parsing::utils::is_valid_date(date_str)) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
         start = end;
 
         /* make sure the date was the last string */
         parsing::utils::parse_next_substring(line, start, end);
         std::string dummy = line.substr(start, end - start);
-        if (end != 0) HANDLE_AND_RETURN(handler, INVALID_RECORD, line)
+        if (end != 0) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
 
         /* if we get here the Record is legit, add it to the data structures */
-        // index.insert(same_id_record, new_record, virus_name, status, date);
+        Date* date = new Date(date_str);
+        m_index->insert(same_id_record, new_record, virus_name, status, date);
     }
 }
 

@@ -4,6 +4,7 @@
 #include "record.hpp"
 #include "skip_list.hpp"
 #include "bloom_filter.hpp"
+#include "../utils/date.hpp"
 
 
 typedef struct VirusNode* VirusNodePtr;
@@ -33,7 +34,7 @@ typedef struct VirusNode
         next = NULL;
     }
 
-    void insert(const bool & status, Record* record, const std::string & date)
+    void insert(const bool & status, Record* record, Date* date)
     {
         if (status)
         {
@@ -63,13 +64,16 @@ class VirusList
         VirusList(const uint64_t & _bloom_filter_size);
         ~VirusList(void);
 
-        void insert(Record* record, const std::string & virus_name, const bool& status, const std::string & date);
+        void insert(Record* record, const std::string & virus_name, const bool& status, Date* date);
         void remove_from_non_vaccinated(const std::string & id, const std::string & virus_name);
         
         bool in_bloom_filter_of_virus(const std::string & id, const std::string & virus_name);
         void update_bloom_filter_of_virus(uint8_t update_arr[], const std::string & virus_name);
         bool exists_in_virus_name(const std::string & id, const std::string & virus_name, const bool & only_vaccinated, const bool & only_non_vaccinated);
-        std::string get_vaccination_date(const std::string & id, const std::string virus_name);
+        
+        size_t get_size(void);
+        Date* get_vaccination_date(const std::string & id, const std::string virus_name);
+        void get_bf_pairs(BFPair** bfs_per_virus);
 
         void print_virus(const std::string & virus_name, const bool & only_vaccinated, const bool & only_non_vaccinated);
 };

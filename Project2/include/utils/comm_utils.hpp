@@ -4,6 +4,7 @@
 
 #include "structures.hpp"
 #include "../data_structures/indices.hpp"
+#include "../data_structures/bloom_filter.hpp"
 
 
 typedef enum communicationID
@@ -13,7 +14,9 @@ typedef enum communicationID
     NUMERIC = 2,
     INPUT = 3,
     SEND_COUNTRY = 4,
-    COUNTRIES_SENT = 5
+    COUNTRIES_SENT = 5,
+    SEND_VIRUS_NAME = 6,
+    SEND_BF = 7
 } communicationID;
 
 
@@ -21,6 +24,7 @@ typedef enum communicationID
 namespace comm_utils
 {
     void _poll_until_read(const int & fd);
+    size_t _poll_until_any_read(int fds[], bool fd_has_read[], const size_t & num_fds, const size_t & count_read);
     void _wait_ack(const int & fd);
     void _send_numeric(const int & input_fd, const int & output_fd, const uint64_t & numeric, const uint64_t & buffer_size);
     void _receive_numeric(const int & input_fd, const int & output_fd, const uint64_t & numeric, const uint64_t & buffer_size);
@@ -39,7 +43,7 @@ namespace comm_utils
     {
         void init_args(const structures::CommunicationPipes* pipes, structures::Input & input);
         void receive_countries(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input);
-        void send_bloom_filterts(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input);
+        void send_bloom_filters(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input);
     }
 }
 

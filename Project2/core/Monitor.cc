@@ -10,6 +10,7 @@
 #include "../include/utils/errors.hpp"
 #include "../include/utils/parsing.hpp"
 #include "../include/utils/comm_utils.hpp"
+#include "../include/utils/process_utils.hpp"
 #include "../include/utils/structures.hpp"
 #include "../include/data_structures/indices.hpp"
 
@@ -39,12 +40,23 @@ int main(int argc, char* argv[])
     /* get the assigned countries */
     comm_utils::monitor::receive_countries(m_index, pipes, input);
 
+    /* die if no countries were given */
+    if (m_index->num_countries == 0)
+    {
+        delete[] pipes->input;
+        delete[] pipes->output;
+        delete pipes;
+        delete m_index;
 
-    std::string path = "bash/generated_data/root_dir/Albania/Albania-1.txt";
-    std::string* c = new std::string("Albania");
-    parsing::dataset::parse_country_dataset(c, path, m_index, handler);
-    path = "bash/generated_data/root_dir/Albania/Albania-2.txt";
-    parsing::dataset::parse_country_dataset(c, path, m_index, handler);
+        return EXIT_SUCCESS;
+    }
+
+    /* parse the data and insert it in the data structures */
+    process_utils::monitor::parse_countries(m_index, input.root_dir, handler);
+
+    /* send the bloom filters to the travelMonitor */
+    comm_utils::monitor::send_bloom_filters(m_index, pipes, input);
+
 
     /* free allocated memory */
     delete[] pipes->input;

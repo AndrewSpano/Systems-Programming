@@ -7,6 +7,7 @@
 #include <dirent.h>
 
 #include "../../include/utils/process_utils.hpp"
+#include "../../include/utils/parsing.hpp"
 
 
 void process_utils::travel_monitor::_create_pipe(char** named_pipe, const char* type, const size_t & id)
@@ -90,5 +91,43 @@ void process_utils::travel_monitor::create_monitors(pid_t monitor_pids[], struct
             perror("execvp() failed in process_utils::create_monitors()");
             exit(-1);
         }
+    }
+}
+
+
+int process_utils::travel_monitor::ready_fd(struct pollfd fdarr[], size_t num_fds)
+{
+    for (size_t i = 0; i < num_fds; i++)
+        if (fdarr[i].revents == POLLIN || fdarr[i].revents == (POLLIN | POLLHUP))
+            return i;
+    return -1;    
+}
+
+
+void process_utils::monitor::parse_countries(MonitorIndex* m_index, const std::string & root_dir, ErrorHandler & handler)
+{
+    for (size_t country_id = 0; country_id < m_index->num_countries; country_id++)
+    {
+        std::string* country = &(m_index->countries[country_id]);
+        char country_dir_path[256] = {0};
+        sprintf(country_dir_path, "%s/%s", root_dir.c_str(), country->c_str());
+
+        struct dirent **namelist;
+        int num_files = scandir(country_dir_path, &namelist, NULL, alphasort);
+
+        for (size_t i = 0; i < num_files; i++)
+        {
+            if (strcmp(namelist[i]->d_name, ".") && strcmp(namelist[i]->d_name, ".."))
+            {
+                std::string* filename = new std::string(namelist[i]->d_name);
+                char path[256];
+                sprintf(path, "%s/%s", country_dir_path, filename->c_str()); 
+
+                parsing::dataset::parse_country_dataset(country, path, m_index, handler);
+                m_index->files_per_country[country_id]->insert(filename);
+            }
+            free(namelist[i]);
+        }
+        free(namelist);
     }
 }

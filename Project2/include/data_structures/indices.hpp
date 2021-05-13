@@ -13,14 +13,15 @@
 /// structure to handle the data stored in a Monitor process
 typedef struct MonitorIndex
 {
-    List<Record, std::string>* records = NULL;
+    List<Record>* records = NULL;
     uint16_t num_countries = 0;
     std::string* countries = NULL;
+    List<std::string>** files_per_country = NULL;
     VirusList* virus_list = NULL;
 
-    MonitorIndex(const uint64_t & bf_size): num_countries(0)
+    MonitorIndex(const uint64_t & bf_size): num_countries(0), countries(NULL), files_per_country(NULL)
     {
-        records = new List<Record, std::string>();
+        records = new List<Record>();
         virus_list = new VirusList(bf_size);
     }
 
@@ -28,10 +29,16 @@ typedef struct MonitorIndex
     {
         delete records;
         if (countries) delete[] countries;
+        if (files_per_country)
+        {
+            for (size_t i = 0; i < num_countries; i++)
+                delete files_per_country[i];
+            delete[] files_per_country;            
+        }
         delete virus_list;
     }
 
-    void init_countries(List<std::string, std::string> & countries_list)
+    void init_countries(List<std::string> & countries_list)
     {
         num_countries = countries_list.get_size();
         countries = new std::string[num_countries];
@@ -40,6 +47,28 @@ typedef struct MonitorIndex
         for (size_t i = 0; i < num_countries; i++)
             countries[i] = *countries_arr[i];
         delete[] countries_arr;
+
+        files_per_country = new List<std::string>*[num_countries];
+        for (size_t i = 0; i < num_countries; i++)
+            files_per_country[i] = new List<std::string>;
+    }
+
+    void insert(Record* existing_record, Record* new_record, const std::string & virus_name, const std::string & _status, Date* date=NULL)
+    {
+        /* if the record has not been seen before, insert it in the list with records */
+        if (!existing_record)
+        {
+            records->insert(new_record);
+        }
+        else
+        {
+            delete new_record;
+            new_record = existing_record;
+        }
+
+        /* insert the new entry in the specified disease list */
+        bool status = _status == "YES";
+        virus_list->insert(new_record, virus_name, status, date);
     }
 
 } MonitorIndex;
@@ -51,10 +80,10 @@ typedef struct travelMonitorIndex
     structures::Input* input;
     uint16_t num_countries;
     std::string* countries;
-    List<BFPair, std::string>* bloom_filters;
+    List<BFPair>* bloom_filters;
 
     travelMonitorIndex(structures::Input* _inp): input(_inp), num_countries(0), countries(NULL)
-    { bloom_filters = new List<BFPair, std::string>; }
+    { bloom_filters = new List<BFPair>; }
 
     ~travelMonitorIndex(void)
     {

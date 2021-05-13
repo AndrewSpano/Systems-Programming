@@ -2,10 +2,8 @@
 #include "../../include/data_structures/skip_list.hpp"
 
 
-SkipList::SkipList(const uint16_t& _max_level, const double& p): max_level(_max_level),
-                                                                 expand_up_probability(p),
-                                                                 data_head(NULL),
-                                                                 size(0)
+SkipList::SkipList(const uint16_t& _max_level, const double& p):
+max_level(_max_level), expand_up_probability(p), data_head(NULL), size(0)
 {
   skip_heads = new SkipListNodePtr[max_level - 1];
   std::memset(skip_heads, '\0', (max_level - 1) * sizeof(SkipListNodePtr));
@@ -77,7 +75,6 @@ void SkipList::_shrink_down(SkipListDataNodePtr data_node_to_remove, SkipListNod
 }
 
 
-
 void SkipList::_delete_skip_level(const uint16_t& level)
 {
   SkipListNodePtr skip_node = skip_heads[level];
@@ -102,7 +99,7 @@ void SkipList::_delete_head_data(void)
 }
 
 
-void SkipList::insert(Record* data, const std::string& date)
+void SkipList::insert(Record* data, Date* date)
 {
   /* create an array that will store "the previous node before going down" for every level */
   SkipListNodePtr* prev_nodes = new SkipListNodePtr[max_level - 1];
@@ -220,12 +217,11 @@ Record* SkipList::remove(const std::string& id)
 }
 
 
-Record* SkipList::get(const std::string& id, std::string& date)
+Record* SkipList::get(const std::string& id, Date** date)
 {
   int current_level = max_level - 2;
   /* skip not initialized levels and those where the first skip data item exceeds the search data */
-  while (current_level >= 0 && (!skip_heads[current_level] ||
-                                *skip_heads[current_level]->data_node->data > id))
+  while (current_level >= 0 && (!skip_heads[current_level] || *skip_heads[current_level]->data_node->data > id))
     current_level--;
 
   /* find the data node in the base list from which the linear search will start */
@@ -256,7 +252,7 @@ Record* SkipList::get(const std::string& id, std::string& date)
 
   if (data_node && *data_node->data == id)
   {
-    date = *data_node->date;
+    *date = data_node->date;
     return data_node->data;
   }
   else
@@ -266,8 +262,8 @@ Record* SkipList::get(const std::string& id, std::string& date)
 
 bool SkipList::in(const std::string& id)
 {
-  std::string dummy_date = "";
-  return get(id, dummy_date) != NULL;
+  Date* dummy_date = NULL;
+  return get(id, &dummy_date) != NULL;
 }
 
 

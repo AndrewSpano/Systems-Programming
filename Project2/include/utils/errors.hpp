@@ -33,7 +33,6 @@ typedef enum ErrorCode
     INVALID_AGE,
     INVALID_VIRUS_NAME,
     INVALID_NUM_PARAMETERS,
-    INVALID_RECORD
 } ErrorCode;
 
 
