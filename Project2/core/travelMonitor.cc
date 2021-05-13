@@ -9,6 +9,7 @@
 #include "../include/utils/comm_utils.hpp"
 #include "../include/utils/structures.hpp"
 #include "../include/utils/process_utils.hpp"
+#include "../include/utils/queries.hpp"
 #include "../include/data_structures/indices.hpp"
 
 
@@ -30,6 +31,7 @@ int main(int argc, char* argv[])
     if (handler.status == HELP_TRAVEL_MONITOR) { handler.print_help_travel_monitor(); return EXIT_SUCCESS; }
     else if (handler.check_and_print()) return EXIT_FAILURE;
 
+
     /* initialize important variables */
     tm_index = new travelMonitorIndex(&input);
 
@@ -47,24 +49,6 @@ int main(int argc, char* argv[])
 
     /* receive the bloom filters (per virus) from the monitors */
     comm_utils::travel_monitor::receive_bloom_filters(tm_index, pipes, input);
-
-
-    int returnStatus;
-    while (wait(&returnStatus) > 0);
-
-    process_utils::travel_monitor::free_and_delete_pipes(pipes, input.num_monitors);
-    delete[] pipes;
-    delete tm_index;
-
-    std::cout << "\n\nTravel Monitor Exiting!\n\n";
-    return 0;
-
-
-
-
-
-
-
 
 
     /* get an option from the user for which command to execute */
@@ -88,7 +72,9 @@ int main(int argc, char* argv[])
             parsing::user_input::parse_travel_request(line, citizen_id, date, country_from, country_to, virus_name, handler);
             if (!handler.check_and_print())
             {
-                // execute query
+                structures::TravelRequestData tr_data(citizen_id, &date, country_from, country_to, virus_name);
+                queries::travel_monitor::travel_request(tm_index, pipes, input, tr_data, handler);
+                handler.check_and_print();
             }
         }
         else if (command == 2)
@@ -126,9 +112,17 @@ int main(int argc, char* argv[])
         }
 
         /* get the next command */
-        // std::cout << std::endl;
+        std::cout << std::endl;
         command = parsing::user_input::get_option(line);
     }
+
+    int returnStatus;
+    while (wait(&returnStatus) > 0);
+
+    /* free allocated memory */
+    process_utils::travel_monitor::free_and_delete_pipes(pipes, input.num_monitors);
+    delete[] pipes;
+    delete tm_index;
 
     std::cout << std::endl;
     return EXIT_SUCCESS;

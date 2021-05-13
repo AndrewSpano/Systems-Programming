@@ -370,3 +370,11 @@ void comm_utils::monitor::send_bloom_filters(MonitorIndex* m_index, const struct
         delete bf_per_virus[i];
     delete[] bf_per_virus;    
 }
+
+
+void comm_utils::monitor::wait_for_command(MonitorIndex* m_index, const int & input_fd, const int & output_fd, structures::Input & input, uint8_t & msg_id, char message[])
+{
+    /* receive the command */
+    size_t len = 0;
+    comm_utils::_receive_message(input_fd, output_fd, msg_id, message, len, input.buffer_size);
+}

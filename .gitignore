@@ -33,6 +33,7 @@
 
 # Custom ignores
 Project1/dataset/
+Project2/dataset/
 Project2/bash/generated_data/inputFile.txt
 Project2/bash/generated_data/root_dir
 deliverables/

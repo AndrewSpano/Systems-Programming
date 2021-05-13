@@ -119,7 +119,7 @@ Date* VirusList::get_vaccination_date(const std::string & id, const std::string 
 {
     VirusNodePtr current_node = head;
     while (current_node && current_node->virus_name < virus_name)
-    current_node = current_node->next;
+        current_node = current_node->next;
 
     if (!current_node || current_node->virus_name != virus_name ||
         !current_node->bloom_filter->is_probably_in(id))

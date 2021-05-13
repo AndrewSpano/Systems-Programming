@@ -16,7 +16,11 @@ typedef enum communicationID
     SEND_COUNTRY = 4,
     COUNTRIES_SENT = 5,
     SEND_VIRUS_NAME = 6,
-    SEND_BF = 7
+    SEND_BF = 7,
+    TRAVEL_REQUEST_SEND_DATA = 8,
+    TRAVEL_REQUEST_NOT_VACCINATED = 9,
+    TRAVEL_REQUEST_NEED_VACCINATION = 10,
+    TRAVEL_REQUEST_OK = 11
 } communicationID;
 
 
@@ -44,6 +48,7 @@ namespace comm_utils
         void init_args(const structures::CommunicationPipes* pipes, structures::Input & input);
         void receive_countries(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input);
         void send_bloom_filters(MonitorIndex* m_index, const structures::CommunicationPipes* pipes, structures::Input & input);
+        void wait_for_command(MonitorIndex* m_index, const int & input_fd, const int & output_fd, structures::Input & input, uint8_t & msg_id, char message[]);
     }
 }
 

@@ -12,6 +12,7 @@
 #include "../include/utils/comm_utils.hpp"
 #include "../include/utils/process_utils.hpp"
 #include "../include/utils/structures.hpp"
+#include "../include/utils/queries.hpp"
 #include "../include/data_structures/indices.hpp"
 
 
@@ -57,6 +58,36 @@ int main(int argc, char* argv[])
     /* send the bloom filters to the travelMonitor */
     comm_utils::monitor::send_bloom_filters(m_index, pipes, input);
 
+
+    /* open the pipes in order to accept commands */
+    int input_fd = open(pipes->input, O_RDONLY | O_NONBLOCK);
+    int output_fd = open(pipes->output, O_WRONLY);
+    uint8_t msg_id = REJECT;
+    char message[512] = {0};
+    
+    /* accept commands and execute them */
+    // while (420 != 69)
+    // {
+        /* now wait until a command has been given */
+        memset(message, 0, 512);
+        comm_utils::monitor::wait_for_command(m_index, input_fd, output_fd, input, msg_id, message);
+
+        /* determine which command was given */
+        switch (msg_id)
+        {
+            case TRAVEL_REQUEST_SEND_DATA:
+                queries::monitor::travel_request(m_index, input_fd, output_fd, input, message);
+                break;
+            default:
+                std::cout << "This code should have never been executed. Monitor::main()" << std::endl;
+                break;
+        }
+    // }
+
+    
+    /* close the pipes */
+    close(input_fd);
+    close(output_fd);
 
     /* free allocated memory */
     delete[] pipes->input;

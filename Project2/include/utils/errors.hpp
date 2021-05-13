@@ -33,6 +33,8 @@ typedef enum ErrorCode
     INVALID_AGE,
     INVALID_VIRUS_NAME,
     INVALID_NUM_PARAMETERS,
+    UNKNOWN_COYNTRY,
+    UNKNOWN_VIRUS
 } ErrorCode;
 
 
@@ -152,6 +154,14 @@ typedef struct ErrorHandler
                     std::cout << "ERROR: The number of parameters provided in the following line "
                               << "exceeds the number of needed parameters: \"" << this->invalid_value
                               << "\".";
+                    break;
+                case UNKNOWN_COYNTRY:
+                    std::cout << "ERROR: CountryFrom \"" << this->invalid_value << "\" does not exist in "
+                              << "the database.";
+                    break;
+                case UNKNOWN_VIRUS:
+                    std::cout << "ERROR: Virus \"" << this->invalid_value << "\" does not exist in "
+                              << "the database.";
                     break;
             }
             std::cout << std::endl << std::endl;
