@@ -279,7 +279,7 @@ void parsing::dataset::parse_country_dataset(std::string* country, const std::st
     {
         /* parse the next record, and if it is valid, add it to the monitor index (data structures) */
         parsing::parse_record_line(country, line, m_index, handler);
-        handler.check_and_print();
+        // handler.check_and_print();
         /* read the next line */
         std::getline(dataset, line);
     }

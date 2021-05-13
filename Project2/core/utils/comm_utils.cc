@@ -44,7 +44,7 @@ size_t comm_utils::_poll_until_any_read(int fds[], bool fd_has_read[], const siz
     }
     
     int rc = poll(fdarr, num_to_read, 500);
-    while (rc != 1 || process_utils::travel_monitor::ready_fd(fdarr, num_to_read) == -1)
+    while (rc < 1 || process_utils::travel_monitor::ready_fd(fdarr, num_to_read) == -1)
     {
         rc = poll(fdarr, num_to_read, 500);
     }
@@ -247,7 +247,7 @@ void comm_utils::travel_monitor::assign_countries(travelMonitorIndex* tm_index, 
 void comm_utils::travel_monitor::receive_bloom_filters(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[], const structures::Input & input)
 {
     /* open all pipes and get their file descriptors */
-    size_t active_monitors = (input.num_monitors >= tm_index->num_countries) ? input.num_monitors : tm_index->num_countries;
+    size_t active_monitors = (input.num_monitors <= tm_index->num_countries) ? input.num_monitors : tm_index->num_countries;
     int input_fds[active_monitors] = {0};
     int output_fds[active_monitors] = {0};
     process_utils::travel_monitor::open_all_pipes(pipes, input_fds, O_RDONLY | O_NONBLOCK, output_fds, O_WRONLY, active_monitors);
