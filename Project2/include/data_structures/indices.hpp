@@ -62,6 +62,13 @@ typedef struct MonitorIndex
             files_per_country[i] = new List<std::string>;
     }
 
+    int country_id(const std::string & country)
+    {
+        for (size_t i = 0; i < num_countries; i++)
+            if (countries[i] == country) return i;
+        return -1;
+    }
+
     void insert(Record* existing_record, Record* new_record, const std::string & virus_name, const std::string & _status, Date* date=NULL)
     {
         /* if the record has not been seen before, insert it in the list with records */

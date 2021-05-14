@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include <cstring>
+
 #include "date.hpp"
+#include "utils.hpp"
+
 
 namespace structures
 {
@@ -111,34 +114,18 @@ namespace structures
             char data[128]= {0};
 
             /* read the citizen ID */
-            read_from_buf(str_representation, offset, &len, data);
+            utils::read_from_buf(str_representation, offset, &len, data);
             citizen_id = std::string(data);
             memset(data, 0, 128);
 
             /* read the date */
-            read_from_buf(str_representation, offset, &len, data);
+            utils::read_from_buf(str_representation, offset, &len, data);
             date = new Date(data);
             memset(data, 0, 128);
 
             /* read the virus */
-            read_from_buf(str_representation, offset, &len, data);
+            utils::read_from_buf(str_representation, offset, &len, data);
             virus_name = std::string(data);
-        }
-
-        void write_to_buf(char buf[], size_t & offset, size_t* len, char data[])
-        {
-            memcpy(buf + offset, len, sizeof(size_t));
-            offset += sizeof(size_t);
-            memcpy(buf + offset, data, *len);
-            offset += *len;
-        }
-
-        void read_from_buf(char buf[], size_t & offset, size_t* len, char data[])
-        {
-            memcpy(len, buf + offset, sizeof(size_t));
-            offset += sizeof(size_t);
-            memcpy(data, buf + offset, *len);
-            offset += *len;
         }
 
         size_t to_str(char buf[])
@@ -148,16 +135,16 @@ namespace structures
             
             /* write citizen ID */
             len = citizen_id.length() + 1;
-            write_to_buf(buf, offset, &len, (char *) citizen_id.c_str());
+            utils::write_to_buf(buf, offset, &len, (char *) citizen_id.c_str());
 
             /* write date */
             char date_buf[20];
             len = date->to_str(date_buf) + 1;
-            write_to_buf(buf, offset, &len, date_buf);
+            utils::write_to_buf(buf, offset, &len, date_buf);
 
             /* write virus */
             len = virus_name.length() + 1;
-            write_to_buf(buf, offset, &len, (char *) virus_name.c_str());
+            utils::write_to_buf(buf, offset, &len, (char *) virus_name.c_str());
 
             return offset;
         }
@@ -176,6 +163,65 @@ namespace structures
         virus_name(_vn), date_1(_date_1), date_2(_date_2), country(_country)
         { }
     } TSData;
+
+
+
+    typedef struct VaccinationStatus
+    {
+        std::string virus_name = "";
+        bool status = false;
+        Date* date = NULL;
+
+        VaccinationStatus(const std::string & _vn, const bool & _status, Date* _date): virus_name(_vn), status(_status), date(_date)
+        { }
+
+        VaccinationStatus(char str_representation[]): date(NULL)
+        {
+            size_t len = 0;
+            size_t offset = 0;
+            char data[128]= {0};
+
+            /* read the virus */
+            utils::read_from_buf(str_representation, offset, &len, data);
+            virus_name = std::string(data);
+            memset(data, 0, 128);
+
+            /* read the status */
+            memcpy(&status, str_representation + offset, sizeof(bool));
+            offset++;
+
+            /* read the date */
+            if (status)
+            {
+                utils::read_from_buf(str_representation, offset, &len, data);
+                date = new Date(data);
+            }
+        }
+
+        size_t to_str(char buf[])
+        {
+            size_t len = 0;
+            size_t offset = 0;
+            
+            /* write the virus */
+            len = virus_name.length() + 1;
+            utils::write_to_buf(buf, offset, &len, (char *) virus_name.c_str());
+
+            /* write status */
+            memcpy(buf + offset, &status, sizeof(bool));
+            offset++;
+
+            /* write date */
+            if (status)
+            {                
+                char date_buf[128];
+                len = date->to_str(date_buf) + 1;
+                utils::write_to_buf(buf, offset, &len, date_buf);
+            }
+
+            return offset;
+        }
+    } VaccinationStatus;
 }
 
 

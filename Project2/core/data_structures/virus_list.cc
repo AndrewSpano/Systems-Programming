@@ -143,6 +143,39 @@ void VirusList::get_bf_pairs(BFPair** bfs_per_virus)
 }
 
 
+structures::VaccinationStatus** VirusList::get_vaccination_status_of_citizen(const std::string & id, size_t & num_existing_viruses)
+{
+    /* perform one pass to see in how many viruses the citizen has info */
+    num_existing_viruses = 0;
+    VirusNodePtr current_node = head;
+    while (current_node)
+    {
+        if (current_node->non_vaccinated->in(id) || current_node->vaccinated->in(id))
+            num_existing_viruses++;
+        current_node = current_node->next;
+    }
+
+    structures::VaccinationStatus** info = new structures::VaccinationStatus*[num_existing_viruses];
+
+    size_t pos = 0;
+    current_node = head;
+    while (current_node)
+    {
+        Date* date_vaccinated = NULL;
+        Record* dummy_record = current_node->vaccinated->get(id, &date_vaccinated);
+
+        if (date_vaccinated != NULL)
+            info[pos++] = new structures::VaccinationStatus(current_node->virus_name, true, date_vaccinated);
+        else if (current_node->non_vaccinated->in(id))
+            info[pos++] = new structures::VaccinationStatus(current_node->virus_name, false, NULL);
+
+        current_node = current_node->next;
+    }
+
+    return info;
+}
+
+
 void VirusList::print_virus(const std::string & virus_name, const bool & only_vaccinated, const bool & only_non_vaccinated)
 {
     VirusNodePtr current_node = head;

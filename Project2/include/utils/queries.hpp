@@ -15,11 +15,15 @@ namespace queries
         void travel_request(travelMonitorIndex* tm_index, structures::CommunicationPipes* pipes, const structures::Input & input,
                             structures::TRData & tr_data, ErrorHandler & handler, bool & was_accepted);
         void travel_stats(travelMonitorIndex* tm_index, const structures::TSData & ts_data, ErrorHandler & handler);
+
+        void search_vaccination_status(travelMonitorIndex* tm_index, structures::CommunicationPipes* pipes, const structures::Input & input,
+                                       const std::string & id);
     }
 
     namespace monitor
     {
         void travel_request(MonitorIndex* m_index, const int & input_fd, const int & output_fd, const structures::Input & input, char data[]);
+        void search_vaccination_status(MonitorIndex* m_index, const int & input_fd, const int & output_fd, const structures::Input & input, char data[]);
     }
 }
 

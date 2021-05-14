@@ -5,6 +5,7 @@
 #include "skip_list.hpp"
 #include "bloom_filter.hpp"
 #include "../utils/date.hpp"
+#include "../utils/structures.hpp"
 
 
 typedef struct VirusNode* VirusNodePtr;
@@ -74,6 +75,8 @@ class VirusList
         size_t get_size(void);
         Date* get_vaccination_date(const std::string & id, const std::string virus_name);
         void get_bf_pairs(BFPair** bfs_per_virus);
+        structures::VaccinationStatus** get_vaccination_status_of_citizen(const std::string & id, size_t & num_existing_viruses);
+
 
         void print_virus(const std::string & virus_name, const bool & only_vaccinated, const bool & only_non_vaccinated);
 };

@@ -212,7 +212,7 @@ void comm_utils::travel_monitor::assign_countries(travelMonitorIndex* tm_index, 
     /* open all pipes and get their file descriptors */
     int input_fds[input.num_monitors] = {0};
     int output_fds[input.num_monitors] = {0};
-    process_utils::travel_monitor::open_all_pipes(pipes, input_fds, O_RDWR | O_NONBLOCK, output_fds, O_WRONLY, input.num_monitors);
+    process_utils::travel_monitor::open_all_pipes(pipes, input_fds, O_RDONLY | O_NONBLOCK, output_fds, O_WRONLY, input.num_monitors);
 
     char path[256] = {0};
     struct dirent **namelist;

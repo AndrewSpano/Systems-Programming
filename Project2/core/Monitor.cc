@@ -78,6 +78,9 @@ int main(int argc, char* argv[])
             case TRAVEL_REQUEST_SEND_DATA:
                 queries::monitor::travel_request(m_index, input_fd, output_fd, input, message);
                 break;
+            case SEARCH_VACCINATION_STATUS_SEND_DATA:
+                queries::monitor::search_vaccination_status(m_index, input_fd, output_fd, input, message);
+                break;
             default:
                 std::cout << "This code should have never been executed. Monitor::main()" << std::endl;
                 break;

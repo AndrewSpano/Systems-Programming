@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
             parsing::user_input::parse_search_vaccination_status(line, citizen_id, handler);
             if (!handler.check_and_print())
             {
-                // execute query
+                queries::travel_monitor::search_vaccination_status(tm_index, pipes, input, citizen_id);
             }
         }
 
@@ -127,6 +127,9 @@ int main(int argc, char* argv[])
 
     int returnStatus;
     while (wait(&returnStatus) > 0);
+
+    /* write to the logfile */
+    tm_index->logger->write_to_logfile();
 
     /* free allocated memory */
     process_utils::travel_monitor::free_and_delete_pipes(pipes, input.num_monitors);

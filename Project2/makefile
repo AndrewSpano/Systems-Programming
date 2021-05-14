@@ -8,7 +8,7 @@ ALL: travelMonitor Monitor
 ########################################################################################
 # travel monitor program
 
-travelMonitor: travelMonitorMain parsing.o parsing_utils.o process_utils.o comm_utils.o bloom_filter.o skip_list.o virus_list.o queries.o
+travelMonitor: travelMonitorMain parsing.o parsing_utils.o process_utils.o comm_utils.o bloom_filter.o skip_list.o virus_list.o queries.o utils.o
 	$(CC) -o bin/travelMonitor object/travelMonitor_objects/*.o object/common_objects/*.o $(CFLAGS)
 
 travelMonitorMain:
@@ -37,6 +37,9 @@ virus_list.o:
 
 queries.o:
 	$(CC) -c -o object/common_objects/queries.o core/utils/queries.cc $(CFLAGS)
+
+utils.o:
+	$(CC) -c -o object/common_objects/utils.o core/utils/utils.cc $(CFLAGS)
 
 
 ########################################################################################
