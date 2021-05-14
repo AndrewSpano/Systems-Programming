@@ -15,6 +15,9 @@ typedef struct Date
     Date(void)
     { }
 
+    Date(Date* _date): day(_date->day), month(_date->month), year(_date->year)
+    { }
+
     Date(const uint8_t & _day, const uint8_t & _month, const uint16_t & _year): day(_day), month(_month), year(_year)
     { }
 
@@ -70,6 +73,11 @@ typedef struct Date
     bool operator == (const Date & date)
     {
         return this->year == date.year && this->month == date.month && this->day == date.day;
+    }
+
+    bool operator != (const Date & date)
+    {
+        return this->year != date.year || this->month != date.month || this->day != date.day;
     }
 
     bool operator > (const Date & date)

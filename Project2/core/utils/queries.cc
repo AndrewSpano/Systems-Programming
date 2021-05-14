@@ -11,7 +11,7 @@
 
 
 void queries::travel_monitor::travel_request(travelMonitorIndex* tm_index, structures::CommunicationPipes* pipes, const structures::Input & input,
-                                             structures::TravelRequestData & tr_data, ErrorHandler & handler)
+                                             structures::TRData & tr_data, ErrorHandler & handler, bool & was_accepted)
 {
     /* make sure that the from country exists in the database */
     int country_from_id = tm_index->country_id(tr_data.country_from);
@@ -35,6 +35,7 @@ void queries::travel_monitor::travel_request(travelMonitorIndex* tm_index, struc
     if (!bf_pair->bloom_filter->is_probably_in(tr_data.citizen_id))
     {
         std::cout << "REQUEST REJECTED - YOU ARE NOT VACCINATED" << std::endl;
+        was_accepted = false;
         return;
     }
 
@@ -63,13 +64,16 @@ void queries::travel_monitor::travel_request(travelMonitorIndex* tm_index, struc
     switch (msg_id)
     {
         case TRAVEL_REQUEST_NOT_VACCINATED:
-            std::cout << "YOU ARE NOT VACCINATED";
+            std::cout << "REQUEST REJECTED - YOU ARE NOT VACCINATED";
+            was_accepted = false;
             break;
         case TRAVEL_REQUEST_NEED_VACCINATION:
-            std::cout << "YOU WILL NEED ANOTHER VACCINATION BEFORE TRAVEL DATE";
+            std::cout << "REQUEST REJECTED - YOU WILL NEED ANOTHER VACCINATION BEFORE TRAVEL DATE";
+            was_accepted = false;
             break;
         case TRAVEL_REQUEST_OK:
-            std::cout << "HAPPY TRAVELS";
+            std::cout << "REQUEST ACCEPTED - HAPPY TRAVELS";
+            was_accepted = true;
             break;
         default:
             std::cout << "This message should have never been printed. In queries::travel_monitor::travel_request()";
@@ -82,8 +86,9 @@ void queries::travel_monitor::travel_request(travelMonitorIndex* tm_index, struc
 
 void queries::monitor::travel_request(MonitorIndex* m_index, const int & input_fd, const int & output_fd, const structures::Input & input, char data[])
 {
-    structures::TravelRequestData tr_data(data);
+    structures::TRData tr_data(data);
     Date* vaccination_date = m_index->virus_list->get_vaccination_date(tr_data.citizen_id, tr_data.virus_name);
+    bool was_accepted = false;
 
     if (vaccination_date == NULL)
     {
@@ -96,7 +101,37 @@ void queries::monitor::travel_request(MonitorIndex* m_index, const int & input_f
     else
     {
         comm_utils::_send_message(input_fd, output_fd, TRAVEL_REQUEST_OK, NULL, 0, input.buffer_size);
+        was_accepted = true;
     }
 
+    structures::TRQuery* query = new structures::TRQuery(tr_data.date, tr_data.country_from, tr_data.virus_name, was_accepted);
+    m_index->logger->insert(query);
+
     delete tr_data.date;
+}
+
+
+
+void queries::travel_monitor::travel_stats(travelMonitorIndex* tm_index, const structures::TSData & ts_data, ErrorHandler & handler)
+{
+    size_t accepted = 0;
+    size_t rejected = 0;
+
+    size_t num_queries = tm_index->logger->query_list->get_size();
+    if (num_queries > 0)
+    {
+        structures::TRQuery** queries = tm_index->logger->query_list->get_as_arr();
+
+        for (size_t i = 0; i < num_queries; i++)
+            if ((ts_data.country == "" || ts_data.country == queries[i]->country) && ts_data.virus_name == queries[i]->virus_name &&
+                *ts_data.date_1 <= *queries[i]->date && *queries[i]->date <= ts_data.date_2)
+                (queries[i]->was_accepted) ? accepted++
+                                           : rejected++;    
+
+        delete[] queries;
+    }
+
+    std::cout << "TOTAL REQUESTS " << (accepted + rejected) << std::endl;
+    std::cout << "ACCEPTED " << accepted << std::endl;
+    std::cout << "REJECTED " << rejected << std::endl;
 }

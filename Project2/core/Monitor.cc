@@ -95,5 +95,6 @@ int main(int argc, char* argv[])
     delete pipes;
     delete m_index;
 
+    std::cout << "Monitor Exiting!\n";
     return EXIT_SUCCESS;
 }

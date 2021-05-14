@@ -7,6 +7,7 @@
 
 namespace structures
 {
+
     typedef struct Input
     {
         uint16_t num_monitors = 0;
@@ -21,6 +22,8 @@ namespace structures
         }
     } Input;
 
+
+
     typedef struct CommunicationPipes
     {
         char* input = NULL;
@@ -32,7 +35,64 @@ namespace structures
         }
     } CommunicationPipes;
 
-    typedef struct TravelRequestData
+
+
+    typedef struct TRQuery
+    {
+        Date* date = NULL;
+        std::string country = "";
+        std::string virus_name = "";
+        bool was_accepted = false;
+
+        TRQuery(Date* _date, const std::string & _country, const std::string & _virus_name, const bool & _was_accepted):
+        country(_country), virus_name(_virus_name), was_accepted(_was_accepted)
+        { date = new Date(_date); }
+
+        ~TRQuery(void)
+        { delete date; }
+
+        bool operator < (const std::string & str)
+        { return *date < Date(str); }
+
+        bool operator <= (const std::string & str)
+        { return *date <= Date(str); }
+
+        bool operator == (const std::string & str)
+        { return *date == Date(str); }
+
+        bool operator != (const std::string & str)
+        { return *date != Date(str); }
+
+        bool operator > (const std::string & str)
+        { return *date > Date(str); }
+
+        bool operator >= (const std::string & str)
+        { return *date >= Date(str); }
+
+        bool operator < (const TRQuery & query)
+        { return *date < *(query.date); }
+
+        bool operator <= (const TRQuery & query)
+        { return *date <= *(query.date); }
+
+        bool operator == (const TRQuery & query)
+        { return *date == *(query.date); }
+
+        bool operator != (const TRQuery & query)
+        { return *date != *(query.date); }
+
+        bool operator > (const TRQuery & query)
+        { return *date > *(query.date); }
+
+        bool operator >= (const TRQuery & query)
+        { return *date >= *(query.date); }
+
+
+    } TRQuery;
+
+
+
+    typedef struct TRData
     {
         std::string citizen_id = "";
         Date* date;
@@ -40,11 +100,11 @@ namespace structures
         std::string country_to = "";
         std::string virus_name = "";
 
-        TravelRequestData(const std::string & _citizen_id, Date* _date, const std::string _country_from, const std::string _country_to, const std::string _virus_name):
+        TRData(const std::string & _citizen_id, Date* _date, const std::string _country_from, const std::string _country_to, const std::string _virus_name):
         citizen_id(_citizen_id), date(_date), country_from(_country_from), country_to(_country_to), virus_name(_virus_name)
         { }
 
-        TravelRequestData(char str_representation[]): country_from(""), country_to("")
+        TRData(char str_representation[]): country_from(""), country_to("")
         {
             size_t len = 0;
             size_t offset = 0;
@@ -101,7 +161,21 @@ namespace structures
 
             return offset;
         }
-    } TravelRequestData;
+    } TRData;
+
+
+
+    typedef struct TSData
+    {
+        std::string virus_name = "";
+        Date* date_1 = NULL;
+        Date* date_2 = NULL;
+        std::string country = "";
+
+        TSData(const std::string & _vn, Date* _date_1, Date* _date_2, const std::string _country=""):
+        virus_name(_vn), date_1(_date_1), date_2(_date_2), country(_country)
+        { }
+    } TSData;
 }
 
 

@@ -13,7 +13,8 @@ namespace queries
     namespace travel_monitor
     {
         void travel_request(travelMonitorIndex* tm_index, structures::CommunicationPipes* pipes, const structures::Input & input,
-                            structures::TravelRequestData & tr_data, ErrorHandler & handler);
+                            structures::TRData & tr_data, ErrorHandler & handler, bool & was_accepted);
+        void travel_stats(travelMonitorIndex* tm_index, const structures::TSData & ts_data, ErrorHandler & handler);
     }
 
     namespace monitor

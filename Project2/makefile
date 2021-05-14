@@ -52,4 +52,4 @@ MonitorMain:
 
 # clean
 clean:
-	rm -rf bin/* object/*.o
+	rm -rf bin/* object/common_objects/*.o object/Monitor_objects/*.o object/travelMonitor_objects/*.o

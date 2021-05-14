@@ -72,9 +72,16 @@ int main(int argc, char* argv[])
             parsing::user_input::parse_travel_request(line, citizen_id, date, country_from, country_to, virus_name, handler);
             if (!handler.check_and_print())
             {
-                structures::TravelRequestData tr_data(citizen_id, &date, country_from, country_to, virus_name);
-                queries::travel_monitor::travel_request(tm_index, pipes, input, tr_data, handler);
-                handler.check_and_print();
+                bool was_accepted = false;
+                structures::TRData tr_data(citizen_id, &date, country_from, country_to, virus_name);
+
+                queries::travel_monitor::travel_request(tm_index, pipes, input, tr_data, handler, was_accepted);
+
+                if (!handler.check_and_print())
+                {
+                    structures::TRQuery* query = new structures::TRQuery(&date, country_from, virus_name, was_accepted);
+                    tm_index->logger->insert(query);
+                }
             }
         }
         else if (command == 2)
@@ -87,7 +94,9 @@ int main(int argc, char* argv[])
             parsing::user_input::parse_travel_stats(line, virus_name, date1, date2, country, handler);
             if (!handler.check_and_print())
             {
-                // execute query
+                structures::TSData ts_data(virus_name, &date1, &date2, country);
+                queries::travel_monitor::travel_stats(tm_index, ts_data, handler);
+                handler.check_and_print();
             }
         }
         else if (command == 3)
