@@ -4,7 +4,7 @@
 
 void initialize_signal_handlers(void);
 void block_sigint_sigquit_sigusr1(void);
-void unblock__siging_sigquit_sigusr1(void);
+void unblock_sigint_sigquit_sigusr1(void);
 
 
 

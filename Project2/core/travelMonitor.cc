@@ -4,23 +4,20 @@
 #include <cstring>
 #include <fcntl.h>
 
+#include "../include/ipc/ipc.hpp"
+#include "../include/ipc/queries.hpp"
 #include "../include/utils/errors.hpp"
 #include "../include/utils/parsing.hpp"
-#include "../include/ipc/ipc.hpp"
 #include "../include/utils/structures.hpp"
 #include "../include/utils/process_utils.hpp"
-#include "../include/ipc/queries.hpp"
 #include "../include/data_structures/indices.hpp"
+#include "../include/signal_handlers/travel_monitor_signal_handling.hpp"
 
 
 travelMonitorIndex* tm_index;
 structures::CommunicationPipes* pipes;
 pid_t* monitor_pids;
 
-
-// #include <thread>
-// #include <chrono>
-// std::this_thread::sleep_for(std::chrono::milliseconds(x));
 
 
 int main(int argc, char* argv[])
@@ -51,16 +48,21 @@ int main(int argc, char* argv[])
     /* receive the bloom filters (per virus) from the monitors */
     ipc::travel_monitor::receive_bloom_filters(tm_index, pipes);
 
+    /* initialize signal handlers */
+    initialize_signal_handlers();
+
 
     /* get an option from the user for which command to execute */
     std::string line = "";
     int command = parsing::user_input::get_option(line, true);
+    std::cout << std::endl;
 
     /* iterate until user gives the "/exit" command */
     while (command)
     {
-        std::cout << std::endl;
-
+        /* block all the signals until the specified command if executed */
+        block_sigint_sigquit_sigchld();
+        
         /* distinguish which command the user wants to use, and execute it if it's format is correct */
         if (command == 1)
         {
@@ -122,13 +124,17 @@ int main(int argc, char* argv[])
             }
         }
 
+        /* now that the query has been exected, unblock (and therefore handle) all signals */
+        unblock_sigint_sigquit_sigchld();
+
         /* get the next command */
         std::cout << std::endl;
         command = parsing::user_input::get_option(line);
+        std::cout << std::endl;
     }
 
     /* kill all the monitors, then make sure they have died, write to the logfiles and cleanup the allocated memory */
-    process_utils::travel_monitor::kill_minitors_and_wait(monitor_pids, tm_index, input);
+    process_utils::travel_monitor::kill_minitors_and_wait(monitor_pids, tm_index);
     tm_index->logger->write_to_logfile();
     process_utils::travel_monitor::cleanup(tm_index, pipes, monitor_pids);
 

@@ -23,7 +23,7 @@ void process_utils::travel_monitor::_create_pipe(char** named_pipe, const char* 
 }
 
 
-void process_utils::travel_monitor::create_pipes(structures::CommunicationPipes pipes[], const uint16_t & num_monitors)
+void process_utils::travel_monitor::create_pipes(structures::CommunicationPipes* pipes, const uint16_t & num_monitors)
 {
     for (size_t i = 0; i < num_monitors; i++)
     {
@@ -31,6 +31,7 @@ void process_utils::travel_monitor::create_pipes(structures::CommunicationPipes 
         _create_pipe(&pipes[i].output, "output", i);        
     }
 }
+
 
 
 void process_utils::travel_monitor::_free_and_delete_pipe(const char* named_pipe)
@@ -44,7 +45,7 @@ void process_utils::travel_monitor::_free_and_delete_pipe(const char* named_pipe
 }
 
 
-void process_utils::travel_monitor::free_and_delete_pipes(structures::CommunicationPipes pipes[], const uint16_t & num_monitors)
+void process_utils::travel_monitor::free_and_delete_pipes(structures::CommunicationPipes* pipes, const uint16_t & num_monitors)
 {
     for (size_t i = 0; i < num_monitors; i++)
     {
@@ -54,13 +55,14 @@ void process_utils::travel_monitor::free_and_delete_pipes(structures::Communicat
 }
 
 
-void process_utils::travel_monitor::open_all_pipes(const structures::CommunicationPipes pipes[], int comm_fds[], const mode_t & comm_perms,
-                                                   int data_fds[], const mode_t & data_perms, const uint16_t & num_monitors)
+
+void process_utils::travel_monitor::open_all_pipes(const structures::CommunicationPipes* pipes, int comm_fds[], const mode_t & input_perms,
+                                                   int data_fds[], const mode_t & output_perms, const uint16_t & num_monitors)
 {
     for (size_t i = 0; i < num_monitors; i++)
     {
-        comm_fds[i] = open(pipes[i].input, comm_perms);
-        data_fds[i] = open(pipes[i].output, data_perms);
+        comm_fds[i] = open(pipes[i].input, input_perms);
+        data_fds[i] = open(pipes[i].output, output_perms);
     }
 }
 
@@ -75,30 +77,37 @@ void process_utils::travel_monitor::close_all_pipes(const int comm_fds[], const 
 }
 
 
-void process_utils::travel_monitor::create_monitors(pid_t monitor_pids[], structures::CommunicationPipes pipes[], const u_int16_t & num_monitors)
+
+void process_utils::travel_monitor::_create_monitor(pid_t monitor_pids[], structures::CommunicationPipes* pipes, const size_t & position)
 {
-    for (size_t i = 0; i < num_monitors; i++)
+    monitor_pids[position] = fork();
+    if (monitor_pids[position] < 0)
     {
-        monitor_pids[i] = fork();
-        if (monitor_pids[i] < 0)
-        {
-            perror("fork() failed in process_utils::create_monitors()");
-            exit(-1);
-        }
-        else if (monitor_pids[i] == 0)
-        {
-            const char* const argv[] = {"bin/Monitor", "-i", pipes[i].output, "-o", pipes[i].input, NULL};
-            execvp(argv[0], const_cast<char* const*>(argv));
-            perror("execvp() failed in process_utils::create_monitors()");
-            exit(-1);
-        }
+        perror("fork() failed in process_utils::_create_monitor()");
+        exit(-1);
+    }
+    else if (monitor_pids[position] == 0)
+    {
+        const char* const argv[] = {"bin/Monitor", "-i", pipes[position].output, "-o", pipes[position].input, NULL};
+        execvp(argv[0], const_cast<char* const*>(argv));
+        perror("execvp() failed in process_utils::create_monitors()");
+        exit(-1);
     }
 }
 
 
-void process_utils::travel_monitor::kill_minitors_and_wait(pid_t monitor_pids[], travelMonitorIndex* tm_index, const structures::Input & input)
+void process_utils::travel_monitor::create_monitors(pid_t monitor_pids[], structures::CommunicationPipes* pipes, const u_int16_t & num_monitors)
 {
-    size_t active_monitors = (input.num_monitors <= tm_index->num_countries) ? input.num_monitors : tm_index->num_countries;
+    for (size_t i = 0; i < num_monitors; i++)
+        process_utils::travel_monitor::_create_monitor(monitor_pids, pipes, i);
+}
+
+
+
+void process_utils::travel_monitor::kill_minitors_and_wait(pid_t monitor_pids[], travelMonitorIndex* tm_index)
+{
+    size_t active_monitors = (tm_index->input->num_monitors <= tm_index->num_countries) ? tm_index->input->num_monitors : tm_index->num_countries;
+    tm_index->has_sent_sigkill = true;
     for (size_t i = 0; i < active_monitors; i++)
         kill(monitor_pids[i], SIGKILL);
     int returnStatus;
@@ -106,13 +115,14 @@ void process_utils::travel_monitor::kill_minitors_and_wait(pid_t monitor_pids[],
 }
 
 
-void process_utils::travel_monitor::cleanup(travelMonitorIndex* tm_index, structures::CommunicationPipes pipes[], pid_t monitor_pids[])
+void process_utils::travel_monitor::cleanup(travelMonitorIndex* tm_index, structures::CommunicationPipes* pipes, pid_t* monitor_pids)
 {
     process_utils::travel_monitor::free_and_delete_pipes(pipes, tm_index->input->num_monitors);
     delete[] monitor_pids;
     delete[] pipes;
     delete tm_index;
 }
+
 
 
 int process_utils::travel_monitor::ready_fd(struct pollfd fdarr[], size_t num_fds)
@@ -122,6 +132,16 @@ int process_utils::travel_monitor::ready_fd(struct pollfd fdarr[], size_t num_fd
             return i;
     return -1;    
 }
+
+
+int process_utils::travel_monitor::dead_monitor(pid_t* monitor_pids, const pid_t & terminated_process, const size_t & num_monitors)
+{
+    for (size_t i = 0; i < num_monitors; i++)
+        if (monitor_pids[i] == terminated_process)
+            return i;
+    return -1;
+}
+
 
 
 void process_utils::monitor::parse_countries(MonitorIndex* m_index, const std::string & root_dir, ErrorHandler & handler)

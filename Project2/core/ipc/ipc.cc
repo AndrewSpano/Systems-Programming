@@ -64,6 +64,7 @@ void ipc::_wait_ack(const int & fd)
 }
 
 
+
 void ipc::_send_numeric(const int & input_fd, const int & output_fd, const uint64_t & numeric, const uint64_t & buffer_size)
 {
     /* let the other process know that we want to send a numeric value */
@@ -116,6 +117,7 @@ void ipc::_receive_numeric(const int & input_fd, const int & output_fd, const ui
         bytes_left -= bytes_to_receive;
     }
 }
+
 
 
 void ipc::_notify_and_wait_ack(const int & input_fd, const int & output_fd, const uint8_t & msg_id, const size_t & bytes_out, const uint64_t & buffer_size)
@@ -188,6 +190,15 @@ void ipc::_receive_message(const int & input_fd, const int & output_fd, uint8_t 
 }
 
 
+
+void ipc::travel_monitor::_send_args(const int & input_fd, const int & output_fd, const structures::Input & input)
+{
+    ipc::_send_numeric(input_fd, output_fd, input.buffer_size, 1);
+    ipc::_send_numeric(input_fd, output_fd, input.bf_size, input.buffer_size);
+    ipc::_send_message(input_fd, output_fd, INPUT, input.root_dir.c_str(), input.root_dir.length() + 1, input.buffer_size);
+}
+
+
 void ipc::travel_monitor::send_args(const structures::CommunicationPipes pipes[], const structures::Input & input)
 {
     size_t len = input.root_dir.length() + 1;
@@ -199,13 +210,12 @@ void ipc::travel_monitor::send_args(const structures::CommunicationPipes pipes[]
     for (size_t i = 0; i < input.num_monitors; i++)
     {
         /* write: 1) buffer size, 2) bloom filter size, 3) root_dir */
-        ipc::_send_numeric(input_fds[i], output_fds[i], input.buffer_size, 1);
-        ipc::_send_numeric(input_fds[i], output_fds[i], input.bf_size, input.buffer_size);
-        ipc::_send_message(input_fds[i], output_fds[i], INPUT, input.root_dir.c_str(), input.root_dir.length() + 1, input.buffer_size);
+        ipc::travel_monitor::_send_args(input_fds[i], output_fds[i], input);
     }
 
     process_utils::travel_monitor::close_all_pipes(input_fds, output_fds, input.num_monitors);
 }
+
 
 
 void ipc::travel_monitor::assign_countries(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[])
@@ -224,7 +234,7 @@ void ipc::travel_monitor::assign_countries(travelMonitorIndex* tm_index, const s
 
     for (size_t i = 0; i < num_countries; i++)
     {
-        /* send country to specific moniror */
+        /* send country to specific monitor */
         if (strcmp(namelist[i]->d_name, ".") && strcmp(namelist[i]->d_name, ".."))
         {
             ipc::_send_message(input_fds[round_robin], output_fds[round_robin], SEND_COUNTRY, namelist[i]->d_name, strlen(namelist[i]->d_name) + 1, tm_index->input->buffer_size);
@@ -245,6 +255,33 @@ void ipc::travel_monitor::assign_countries(travelMonitorIndex* tm_index, const s
 }
 
 
+void ipc::travel_monitor::_receive_bloom_filters(travelMonitorIndex* tm_index, const int & input_fd, const int & output_fd)
+{
+    /* variables used for receiving messages */
+    size_t num_viruses = 0;
+    uint8_t msg_id = REJECT;
+    size_t bytes_in = 0;
+    char virus_name[128] = {0};
+    char bf_bits[tm_index->input->bf_size] = {0};
+
+    /* receive the number of viruses */
+    ipc::_receive_numeric(input_fd, output_fd, num_viruses, tm_index->input->buffer_size);
+    for (size_t i = 0; i < num_viruses; i++)
+    {
+        /* receive the virus name and its bloom filter, then add/update them to the list */
+        ipc::_receive_message(input_fd, output_fd, msg_id, virus_name, bytes_in, tm_index->input->buffer_size);
+        std::string _virus_name_str(virus_name);
+        ipc::_receive_message(input_fd, output_fd, msg_id, bf_bits, bytes_in, tm_index->input->buffer_size);
+
+        BFPair* existing_bf_pair = tm_index->bloom_filters->get(_virus_name_str);
+        if (existing_bf_pair == NULL)
+            tm_index->bloom_filters->insert(new BFPair(_virus_name_str, tm_index->input->bf_size, DEFAULT_K, (uint8_t *) bf_bits));
+        else
+            existing_bf_pair->bloom_filter->update((uint8_t *) bf_bits);
+    }
+}
+
+
 void ipc::travel_monitor::receive_bloom_filters(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[])
 {
     /* open all pipes and get their file descriptors */
@@ -253,34 +290,14 @@ void ipc::travel_monitor::receive_bloom_filters(travelMonitorIndex* tm_index, co
     int output_fds[active_monitors] = {0};
     process_utils::travel_monitor::open_all_pipes(pipes, input_fds, O_RDONLY | O_NONBLOCK, output_fds, O_WRONLY, active_monitors);
 
-    /* variables used for receiving messages */
-    size_t num_viruses = 0;
-    uint8_t msg_id = REJECT;
-    size_t bytes_in = 0;
-    char virus_name[128] = {0};
-    char bf_bits[tm_index->input->bf_size] = {0};
-
-    /* receive a message (viruses and bloom filters) from every (active) monitor */
+    /* receive messages (viruses and bloom filters) from every (active) monitor */
     bool finished_monitors[active_monitors] = {false};
     for (size_t count_finished_monitors = 0; count_finished_monitors < active_monitors; count_finished_monitors++)
     {
         size_t ready_monitor = ipc::_poll_until_any_read(input_fds, finished_monitors, active_monitors, count_finished_monitors);
 
-        /* receive the number of viruses */
-        ipc::_receive_numeric(input_fds[ready_monitor], output_fds[ready_monitor], num_viruses, tm_index->input->buffer_size);
-        for (size_t i = 0; i < num_viruses; i++)
-        {
-            /* receive the virus name and its bloom filter, then add/update them to the list */
-            ipc::_receive_message(input_fds[ready_monitor], output_fds[ready_monitor], msg_id, virus_name, bytes_in, tm_index->input->buffer_size);
-            std::string _virus_name_str(virus_name);
-            ipc::_receive_message(input_fds[ready_monitor], output_fds[ready_monitor], msg_id, bf_bits, bytes_in, tm_index->input->buffer_size);
-
-            BFPair* existing_bf_pair = tm_index->bloom_filters->get(_virus_name_str);
-            if (existing_bf_pair == NULL)
-                tm_index->bloom_filters->insert(new BFPair(_virus_name_str, tm_index->input->bf_size, DEFAULT_K, (uint8_t *) bf_bits));
-            else
-                existing_bf_pair->bloom_filter->update((uint8_t *) bf_bits);
-        }
+        /* receive pairs of: a) virus name, b) bloom filter for that virus */
+        ipc::travel_monitor::_receive_bloom_filters(tm_index, input_fds[ready_monitor], output_fds[ready_monitor]);
         finished_monitors[ready_monitor] = true;
     }
 
@@ -371,6 +388,7 @@ void ipc::monitor::send_bloom_filters(MonitorIndex* m_index, const structures::C
         delete bf_per_virus[i];
     delete[] bf_per_virus;    
 }
+
 
 
 void ipc::monitor::wait_for_command(MonitorIndex* m_index, const int & input_fd, const int & output_fd, uint8_t & msg_id, char message[])

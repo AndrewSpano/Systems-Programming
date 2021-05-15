@@ -98,9 +98,11 @@ typedef struct travelMonitorIndex
     uint16_t num_countries;
     std::string* countries;
     List<BFPair>* bloom_filters;
-    Logger* logger = NULL;
+    Logger* logger;
+    bool is_receiving_data;
+    bool has_sent_sigkill;
 
-    travelMonitorIndex(structures::Input* _inp): input(_inp), num_countries(0), countries(NULL), logger(NULL)
+    travelMonitorIndex(structures::Input* _inp): input(_inp), num_countries(0), countries(NULL), logger(NULL), is_receiving_data(false), has_sent_sigkill(false)
     { bloom_filters = new List<BFPair>; }
 
     ~travelMonitorIndex(void)

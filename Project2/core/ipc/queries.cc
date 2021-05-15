@@ -4,16 +4,13 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <poll.h>
+#include <sys/wait.h>
 #include <dirent.h>
-#include <csignal>
 
 #include "../../include/ipc/ipc.hpp"
 #include "../../include/ipc/queries.hpp"
 #include "../../include/utils/parsing.hpp"
 #include "../../include/utils/process_utils.hpp"
-
-#include <thread>
-#include <chrono>
 
 
 
@@ -162,35 +159,11 @@ void ipc::travel_monitor::queries::add_vaccination_records(travelMonitorIndex* t
     int input_fd = open(pipes[monitor_with_from_country].input, O_RDONLY | O_NONBLOCK);
     int output_fd = open(pipes[monitor_with_from_country].output, O_WRONLY);
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(3000)); 
-
-
     /* send a SIGURS1 to that monitor */
     kill(monitor_pids[monitor_with_from_country], SIGUSR1);
 
-    /* initialize useful variables */
-    size_t num_viruses = 0;
-    uint8_t msg_id = REJECT;
-    size_t bytes_in = 0;
-    char virus_name[128] = {0};
-    char bf_bits[tm_index->input->bf_size] = {0};
-
-    /* now receive the number of virus-bloom filter pairs that will be sent */
-    ipc::_receive_numeric(input_fd, output_fd, num_viruses, tm_index->input->buffer_size);
-    /* loop to receive each pair and update the list of bf pairs */
-    for (size_t i = 0; i < num_viruses; i++)
-    {
-        /* receive the virus name and its bloom filter, then add/update them to the list */
-        ipc::_receive_message(input_fd, output_fd, msg_id, virus_name, bytes_in, tm_index->input->buffer_size);
-        std::string _virus_name_str(virus_name);
-        ipc::_receive_message(input_fd, output_fd, msg_id, bf_bits, bytes_in, tm_index->input->buffer_size);
-
-        BFPair* existing_bf_pair = tm_index->bloom_filters->get(_virus_name_str);
-        if (existing_bf_pair == NULL)
-            tm_index->bloom_filters->insert(new BFPair(_virus_name_str, tm_index->input->bf_size, DEFAULT_K, (uint8_t *) bf_bits));
-        else
-            existing_bf_pair->bloom_filter->update((uint8_t *) bf_bits);
-    }
+    /* receive the bloom filters */
+    ipc::travel_monitor::_receive_bloom_filters(tm_index, input_fd, output_fd);
 
     /* close the pipes */
     close(input_fd);
@@ -340,4 +313,51 @@ void ipc::monitor::queries::search_vaccination_status(MonitorIndex* m_index, con
 
     /* free the allocated memory and return */
     delete[] info;
+}
+
+
+
+void ipc::travel_monitor::queries::handle_sigchld(travelMonitorIndex* tm_index, structures::CommunicationPipes* pipes, pid_t* monitor_pids)
+{
+    /* see which monitors are "alive" because they have countries to process */
+    size_t active_monitors = (tm_index->input->num_monitors <= tm_index->num_countries) ? tm_index->input->num_monitors : tm_index->num_countries;
+
+    /* get the process id of the process that terminated */
+    pid_t dead_process_pid = waitpid(-1, NULL, WNOHANG);
+    while (dead_process_pid > 0)
+    {
+        /* get the ID of the monitor that terminated by scanning all the pids */
+        size_t dead_monitor = process_utils::travel_monitor::dead_monitor(monitor_pids, dead_process_pid, tm_index->input->num_monitors);
+
+        /* if the monitor that terminated was an "active" monitor */
+        if (dead_monitor < active_monitors)
+        {
+            /* create a new process that will replace the old one */
+            process_utils::travel_monitor::_create_monitor(monitor_pids, pipes, dead_monitor);
+
+            /* open the named pipes for that monitor */
+            int input_fd = open(pipes[dead_monitor].input, O_RDONLY | O_NONBLOCK);
+            int output_fd = open(pipes[dead_monitor].output, O_WRONLY);
+
+            /* send the arguments to the process */
+            ipc::travel_monitor::_send_args(input_fd, output_fd, *tm_index->input);
+
+            /* now send all the countries */
+            for (size_t i = 0; i < tm_index->num_countries; i++)
+                if (tm_index->monitor_with_country(i) == dead_monitor)
+                    ipc::_send_message(input_fd, output_fd, SEND_COUNTRY, tm_index->countries->c_str(), tm_index->countries[i].length() + 1, tm_index->input->buffer_size);
+            /* let the monitor know that all the countries have been sent */
+            ipc::_send_message(input_fd, output_fd, COUNTRIES_SENT, NULL, 0, tm_index->input->buffer_size);
+
+            /* receive the bloom filters */
+            ipc::travel_monitor::_receive_bloom_filters(tm_index, input_fd, output_fd);
+
+            /* close the pipes as they are no longer needed */
+            close(input_fd);
+            close(output_fd);
+        }
+
+        /* get the pid of the next process that terminated, if any other process has terminated */
+        dead_process_pid = waitpid(-1, NULL, WNOHANG);
+    }
 }

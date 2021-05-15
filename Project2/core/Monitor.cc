@@ -21,9 +21,6 @@ MonitorIndex* m_index;
 structures::CommunicationPipes* pipes;
 ErrorHandler handler;
 
-// #include <thread>
-// #include <chrono>
-// std::this_thread::sleep_for(std::chrono::milliseconds(x));
 
 
 int main(int argc, char* argv[])
@@ -70,8 +67,8 @@ int main(int argc, char* argv[])
     char message[512] = {0};
     
     /* accept commands and execute them */
-    // while (420 != 69)
-    // {
+    while (420 != 69)
+    {
         /* now wait until a command has been given */
         memset(message, 0, 512);
         ipc::monitor::wait_for_command(m_index, input_fd, output_fd, msg_id, message);
@@ -94,9 +91,8 @@ int main(int argc, char* argv[])
         }
 
         /* now unblock them */
-        unblock__siging_sigquit_sigusr1();
-    // }
-
+        unblock_sigint_sigquit_sigusr1();
+    }
     
     /* close the pipes */
     close(input_fd);
