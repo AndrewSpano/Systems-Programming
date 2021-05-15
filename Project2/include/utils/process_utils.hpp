@@ -28,6 +28,8 @@ namespace process_utils
                             int data_fds[], const mode_t & data_perms, const uint16_t & num_monitors);
         void close_all_pipes(const int comm_fds[], const int data_fds[], const uint16_t & num_monitors);
         void create_monitors(pid_t monitor_pids[], structures::CommunicationPipes pipes[], const u_int16_t & num_monitors);
+        void kill_minitors_and_wait(pid_t monitor_pids[], travelMonitorIndex* tm_index, const structures::Input & input);
+        void cleanup(travelMonitorIndex* tm_index, structures::CommunicationPipes pipes[], pid_t monitor_pids[]);
         int ready_fd(struct pollfd fdarr[], size_t num_fds);
     }
 

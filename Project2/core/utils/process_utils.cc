@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <poll.h>
 #include <dirent.h>
+#include <csignal>
 
 #include "../../include/utils/process_utils.hpp"
 #include "../../include/utils/parsing.hpp"
@@ -92,6 +93,25 @@ void process_utils::travel_monitor::create_monitors(pid_t monitor_pids[], struct
             exit(-1);
         }
     }
+}
+
+
+void process_utils::travel_monitor::kill_minitors_and_wait(pid_t monitor_pids[], travelMonitorIndex* tm_index, const structures::Input & input)
+{
+    size_t active_monitors = (input.num_monitors <= tm_index->num_countries) ? input.num_monitors : tm_index->num_countries;
+    for (size_t i = 0; i < active_monitors; i++)
+        kill(monitor_pids[i], SIGKILL);
+    int returnStatus;
+    while (wait(&returnStatus) > 0);
+}
+
+
+void process_utils::travel_monitor::cleanup(travelMonitorIndex* tm_index, structures::CommunicationPipes pipes[], pid_t monitor_pids[])
+{
+    process_utils::travel_monitor::free_and_delete_pipes(pipes, tm_index->input->num_monitors);
+    delete[] monitor_pids;
+    delete[] pipes;
+    delete tm_index;
 }
 
 

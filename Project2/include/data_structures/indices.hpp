@@ -15,6 +15,7 @@
 /// structure to handle the data stored in a Monitor process
 typedef struct MonitorIndex
 {
+    structures::Input* input;
     List<Record>* records = NULL;
     uint16_t num_countries = 0;
     std::string* countries = NULL;
@@ -22,10 +23,10 @@ typedef struct MonitorIndex
     VirusList* virus_list = NULL;
     Logger* logger = NULL;
 
-    MonitorIndex(const uint64_t & bf_size): num_countries(0), countries(NULL), files_per_country(NULL), logger(NULL)
+    MonitorIndex(structures::Input* _inp): input(_inp), num_countries(0), countries(NULL), files_per_country(NULL), logger(NULL)
     {
         records = new List<Record>();
-        virus_list = new VirusList(bf_size);
+        virus_list = new VirusList(input->bf_size);
     }
 
     ~MonitorIndex(void)

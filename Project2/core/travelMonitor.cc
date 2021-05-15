@@ -6,20 +6,21 @@
 
 #include "../include/utils/errors.hpp"
 #include "../include/utils/parsing.hpp"
-#include "../include/utils/comm_utils.hpp"
+#include "../include/ipc/ipc.hpp"
 #include "../include/utils/structures.hpp"
 #include "../include/utils/process_utils.hpp"
-#include "../include/utils/queries.hpp"
+#include "../include/ipc/queries.hpp"
 #include "../include/data_structures/indices.hpp"
 
 
 travelMonitorIndex* tm_index;
 structures::CommunicationPipes* pipes;
+pid_t* monitor_pids;
 
 
 // #include <thread>
 // #include <chrono>
-// std::this_thread::sleep_for(std::chrono::milliseconds(x)); 
+// std::this_thread::sleep_for(std::chrono::milliseconds(x));
 
 
 int main(int argc, char* argv[])
@@ -40,15 +41,15 @@ int main(int argc, char* argv[])
     process_utils::travel_monitor::create_pipes(pipes, input.num_monitors);
 
     /* create the monitor processes and send the appropriate values */
-    pid_t monitor_pids[input.num_monitors] = {0};
+    monitor_pids = new pid_t[input.num_monitors];
     process_utils::travel_monitor::create_monitors(monitor_pids, pipes, input.num_monitors);
-    comm_utils::travel_monitor::send_args(pipes, input);
+    ipc::travel_monitor::send_args(pipes, input);
 
     /* assign countries to each monitor */
-    comm_utils::travel_monitor::assign_countries(tm_index, pipes, input);
+    ipc::travel_monitor::assign_countries(tm_index, pipes);
 
     /* receive the bloom filters (per virus) from the monitors */
-    comm_utils::travel_monitor::receive_bloom_filters(tm_index, pipes, input);
+    ipc::travel_monitor::receive_bloom_filters(tm_index, pipes);
 
 
     /* get an option from the user for which command to execute */
@@ -75,7 +76,7 @@ int main(int argc, char* argv[])
                 bool was_accepted = false;
                 structures::TRData tr_data(citizen_id, &date, country_from, country_to, virus_name);
 
-                queries::travel_monitor::travel_request(tm_index, pipes, input, tr_data, handler, was_accepted);
+                ipc::travel_monitor::queries::travel_request(tm_index, pipes, tr_data, handler, was_accepted);
 
                 if (!handler.check_and_print())
                 {
@@ -95,7 +96,7 @@ int main(int argc, char* argv[])
             if (!handler.check_and_print())
             {
                 structures::TSData ts_data(virus_name, &date1, &date2, country);
-                queries::travel_monitor::travel_stats(tm_index, ts_data, handler);
+                ipc::travel_monitor::queries::travel_stats(tm_index, ts_data, handler);
                 handler.check_and_print();
             }
         }
@@ -106,7 +107,8 @@ int main(int argc, char* argv[])
             parsing::user_input::parse_add_vaccination_records(line, country, handler);
             if (!handler.check_and_print())
             {
-                // execute query
+                ipc::travel_monitor::queries::add_vaccination_records(tm_index, monitor_pids, pipes, country, handler);
+                handler.check_and_print();
             }
         }
         else if (command == 4)
@@ -116,7 +118,7 @@ int main(int argc, char* argv[])
             parsing::user_input::parse_search_vaccination_status(line, citizen_id, handler);
             if (!handler.check_and_print())
             {
-                queries::travel_monitor::search_vaccination_status(tm_index, pipes, input, citizen_id);
+                ipc::travel_monitor::queries::search_vaccination_status(tm_index, pipes, citizen_id);
             }
         }
 
@@ -125,16 +127,10 @@ int main(int argc, char* argv[])
         command = parsing::user_input::get_option(line);
     }
 
-    int returnStatus;
-    while (wait(&returnStatus) > 0);
-
-    /* write to the logfile */
+    /* kill all the monitors, then make sure they have died, write to the logfiles and cleanup the allocated memory */
+    process_utils::travel_monitor::kill_minitors_and_wait(monitor_pids, tm_index, input);
     tm_index->logger->write_to_logfile();
-
-    /* free allocated memory */
-    process_utils::travel_monitor::free_and_delete_pipes(pipes, input.num_monitors);
-    delete[] pipes;
-    delete tm_index;
+    process_utils::travel_monitor::cleanup(tm_index, pipes, monitor_pids);
 
     std::cout << std::endl;
     return EXIT_SUCCESS;
