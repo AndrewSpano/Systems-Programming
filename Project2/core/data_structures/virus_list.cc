@@ -78,19 +78,6 @@ bool VirusList::in_bloom_filter_of_virus(const std::string & id, const std::stri
 }
 
 
-void VirusList::update_bloom_filter_of_virus(uint8_t update_arr[], const std::string & virus_name)
-{
-    VirusNodePtr current_node = head;
-    /* traverse the VirusList until the corresponding virus is found (if it does not exist, break) */
-    while (current_node && current_node->virus_name < virus_name)
-        current_node = current_node->next;
-    
-    if (!current_node || current_node->virus_name != virus_name) return;
-
-    current_node->bloom_filter->update(update_arr);
-}
-
-
 bool VirusList::exists_in_virus_name(const std::string & id, const std::string & virus_name, const bool & only_vaccinated=false, const bool & only_non_vaccinated=false)
 {
     VirusNodePtr current_node = head;

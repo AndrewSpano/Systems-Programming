@@ -69,7 +69,6 @@ class VirusList
         void remove_from_non_vaccinated(const std::string & id, const std::string & virus_name);
         
         bool in_bloom_filter_of_virus(const std::string & id, const std::string & virus_name);
-        void update_bloom_filter_of_virus(uint8_t update_arr[], const std::string & virus_name);
         bool exists_in_virus_name(const std::string & id, const std::string & virus_name, const bool & only_vaccinated, const bool & only_non_vaccinated);
         
         size_t get_size(void);
