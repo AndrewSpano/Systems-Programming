@@ -1,0 +1,41 @@
+20 pAuGq YVA Argentina 37 Typhus NO
+585 yeQTvSnKEiy rWjyXojmDQqA Argentina 89 Flu NO
+1700 HjWujsxWJEuB NjryaHhJZbjG Argentina 1 Zika YES 06-03-0085
+1824 XwE JKKnIUOrsb Argentina 5 Cowpox NO
+1723 LzmtkK HEhFKJO Argentina 40 Monkeypox NO
+1127 oRT NSlKVeeoSm Argentina 13 Hepatitis-B NO
+1113 Gjq DiTdsqCl Argentina 103 Lassa YES 15-04-1531
+1422 trzoXzR RgBKLtm Argentina 75 COVID-19 YES 28-10-0856
+1824 XwE JKKnIUOrsb Argentina 5 Typhus NO
+217 msSHujuT fKBZ Argentina 83 Zika YES 04-02-1773
+1444 CTwiMGfqcBz tlTRcP Argentina 76 Monkeypox NO
+266 uqKPrCHHxAAg LzpUUdOpU Argentina 58 Rabies NO
+1983 qnbpEEjDZ XJSqYfDm Argentina 96 Hepatitis-C YES 08-05-1447
+1700 HjWujsxWJEuB NjryaHhJZbjG Argentina 1 Ebola YES 26-12-1880
+818 LQniDNBMk nTwkhgfhBY Argentina 71 Hepatitis-B NO
+1187 WTDLiQrdpNuw qVWQOSWwa Argentina 80 Hepatitis-E NO
+20 pAuGq YVA Argentina 37 Junin YES 28-06-0604
+694 IkUkDjBZ YqxvZR Argentina 78 Typhus NO
+1840 gbAI hKPL Argentina 11 Ebola YES 11-03-1058
+1781 HQbvqYFsd NeL Argentina 49 Hepatitis-B YES 10-06-0456
+51 vLwgHMSBuRm jYGuvZ Argentina 48 Zika YES 02-12-1869
+1801 PJtzYGqzvO DKUXX Argentina 98 Monkeypox YES 14-11-0471
+1422 trzoXzR RgBKLtm Argentina 75 Rabies NO
+469 QvKV CSjWYmYk Argentina 60 Horsepox YES 20-07-1186
+585 yeQTvSnKEiy rWjyXojmDQqA Argentina 89 Flu NO
+624 JFeAoGDVcff NuixpmnxOf Argentina 36 H1N1 NO
+1076 wMTXyKarVZv tJRggC Argentina 70 COVID-19 YES 30-06-0094
+1163 ETxyKtwnaJl SsRMTpqxqDyg Argentina 46 Hepatitis-A YES 13-02-0071
+843 JMKyde ToHWBCYnGpm Argentina 69 COVID-19 YES 16-10-0522
+886 EZcqRPXb BLiRHtGXR Argentina 37 Zika NO
+266 uqKPrCHHxAAg LzpUUdOpU Argentina 58 Cowpox NO
+1791 RISrIbF NjrXRrVfUK Argentina 1 Typhus NO
+860 Bhvm ICkK Argentina 76 Hepatitis-B NO
+40 BpIKat hANJUoUfmVb Argentina 101 Hepatitis-E YES 29-03-1239
+1422 trzoXzR RgBKLtm Argentina 75 Typhus YES 03-06-1335
+1244 wqBcBoYDOdFd PaQqaF Argentina 111 Typhus NO
+1113 Gjq DiTdsqCl Argentina 103 Junin YES 27-03-0710
+19 OGTIreQS HocrZVA Argentina 48 Rabies NO
+818 LQniDNBMk nTwkhgfhBY Argentina 71 Monkeypox YES 30-10-0345
+1163 ETxyKtwnaJl SsRMTpqxqDyg Argentina 46 SARS-1 NO
+386 yfHH BVuMliiL Argentina 20 Typhus NO

@@ -1,0 +1,27 @@
+1513 BRMKjyiPK tNLqTsWy Germany 29 H1N1 YES 03-09-0577
+146 vLH qOOxaPsSAP Germany 109 Toscana YES 30-08-1060
+1298 PcQPQUh eKPLCwpIs Germany 94 SARS-1 YES 30-06-1602
+117 gmYg eVReSJeu Germany 36 Lassa NO
+1172 ViGGGOyRXp tRkRxdqrne Germany 19 Hepatitis-E NO
+1172 ViGGGOyRXp tRkRxdqrne Germany 19 Cowpox NO
+1367 McZON wJaRIwj Germany 97 Hepatitis-D NO
+1517 sQzkkzVnMQEN fBhvnzzvZ Germany 114 Typhus NO
+795 hhXdvvUObMM sqsLaXzLKQ Germany 103 Rabies NO
+398 udajdXCwdWSt LgztSGp Germany 98 H1N1 NO
+1298 PcQPQUh eKPLCwpIs Germany 94 Hepatitis-C YES 22-11-0527
+1920 JInxDBd eSYWSFpp Germany 83 Ebola YES 10-10-1978
+1494 ZPBkxCRBXB jVar Germany 54 COVID-19 NO
+1828 MiQPta rQISHpdV Germany 84 Monkeypox YES 09-09-0634
+319 gjEpqtU BXXCUnsfNi Germany 71 COVID-19 NO
+1136 JPWycjiIcY YPKrMgwRwGOa Germany 48 Banna YES 22-08-1353
+993 fljNoZ HZoKsk Germany 93 SARS-1 NO
+1136 JPWycjiIcY YPKrMgwRwGOa Germany 48 Rabies YES 28-12-1461
+65 JMQ eTA Germany 102 Rabies YES 07-03-0809
+319 gjEpqtU BXXCUnsfNi Germany 71 Toscana YES 11-09-0909
+429 ISIWClB GuReWLhORHVI Germany 53 Rabies NO
+695 gjfIWcj TBRTmQxblEf Germany 59 Hepatitis-D YES 22-09-1980
+889 urjobx IvyLywuts Germany 48 Hepatitis-E NO
+1289 RVYorRZM YCMaEynCJKBr Germany 47 Hepatitis-C YES 11-12-0839
+845 hqxalvNFl bRhXt Germany 85 Ebola NO
+201 VSedt ECbZGFAz Germany 51 Typhus NO
+429 ISIWClB GuReWLhORHVI Germany 53 SARS-1 YES 13-03-0271

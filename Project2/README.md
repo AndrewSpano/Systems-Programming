@@ -76,20 +76,17 @@ Signal Handlers for each module have been implemented in the [core/signal_handle
 First we have to create a Dataset
 ```shell
 $ cd bash
-$ chmod +x testFile.sh
-$ ./testFile.sh viruses_filepath countries_filepath number_of_records allow_duplicates
+$ chmod +x create_infiles.sh
+$ ./create_infiles.sh inputFile input_dir numFilesPerDirectory
 ```
 where the parameters are:
-- viruses_filepath: The path to a file containing virus names, like [this one](bash/data/viruses.txt).
-- countries_filepath: The path to a file containing country names, like [this one](bash/data/countries.txt).
-- number_of_records: The number of records that will be produced in the dataset.
-- allow_duplicates: Whether to allow duplicate (same citizen ID) records or not. Should have 0 as value if duplicates are not allowed. Else, they are allowed.
-
-The path of the created dataset is by default: [bash/tests/inputFile.txt](bash/tests/inputFile.txt).
+- inputFile: The path to a dataset with records, like [this one](bash/generated_data/inputFile.txt).
+- input_dir: The path to the root directory with sub-directories for each country, that will be produced by the script, like [this one](bash/generated_data/root_dir).
+- numFilesPerDirectory: The number of files that each country directory must have.
 
 An example of running the script is:
 ```shell
-$ ./testFile.sh data/viruses.txt data/countries.txt 10000 1
+$ ./create_infiles.sh bash/generated_data/inputFile.txt bash/generated_data/root_dir 10
 ```
 
 To compile the source code, run
@@ -100,20 +97,22 @@ $ make
 
 To run the executable, enter
 ```shell
-$ bin/vaccineMonitor -b Bloom_Filter_size_in_Bytes -c Path_to_Dataset
+$ ./travelMonitor –m numMonitors -b bufferSize -s sizeOfBloom -i input_dir
 ```
 where the parameters:
-- -b Bloom_Filter_size_in_Bytes: Integer value indicating the number of bytes to allocate for the Bloom Filter.
-- -c Path_to_Dataset: The absolute/relative path to the Dataset used for initially inserting data in the database.
+- -m numMonitors: Integer value that indicates how many child (Monitor) processes shall be created.
+- -b bufferSize: Integer value denoting the maximum number of bytes that messages should have when being transfered in the Named Pipes.
+- -s sizeOfBloom: Integer value indicating the number of bytes to allocate for the Bloom Filter.
+- -i input_dir: The absolute/relative path to the root directory that contains the sub-directories with the countries.
 
 After running the program, the user will get a prompt explaining the available options and queries available.
 
 An example of running the program is:
 ```shell
-$ bin/vaccineMonitor -b 100000 -c bash/tests/inputFile.txt
+$ bin/travelMonitor -m 3 -b 420 -s 10 -i bash/generated_data/root_dir
 ```
 
 Furthemore, [Valgrind](https://valgrind.org/) can be used to check the memory management, like so:
 ```shell
-$ valgrind bin/vaccineMonitor -b 100000 -c bash/tests/inputFile.txt
+$ valgrind --trace-children=yes --leak-check=full bin/travelMonitor -m 3 -b 420 -s 10 -i bash/generated_data/root_dir
 ```

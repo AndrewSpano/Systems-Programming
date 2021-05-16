@@ -1,0 +1,44 @@
+478 FqKKKhWjR NYiWDJMsb Ecuador 77 Flu YES 05-08-0725
+579 LeOZtJLpaMAp ddHcdYPV Ecuador 80 Ebola YES 24-06-1924
+1396 vyzHUayX xunw Ecuador 1 Hepatitis-E YES 22-09-1117
+578 yLGMeVYa uDIIaS Ecuador 73 Rabies NO
+472 RZXXedHzHD XQdRwpHif Ecuador 114 Hepatitis-B YES 28-08-1834
+1345 RzdyLY MJdcLfXgESv Ecuador 76 Horsepox YES 23-11-1587
+1218 Hkp PuQ Ecuador 78 Hepatitis-C YES 27-10-0712
+677 epyNuw sOVKS Ecuador 26 Typhus NO
+1507 xSBgkugYcwUl xcdT Ecuador 33 Banna YES 18-07-1579
+140 XYdOFqBcyq pJOGeGHIXAv Ecuador 98 Hepatitis-A YES 01-02-0569
+763 Zxd EXQX Ecuador 108 Hepatitis-C YES 24-10-1944
+541 MDtnhMYZFVO YOXxbzyr Ecuador 49 H1N1 YES 26-10-0414
+76 zYebqexQSlEZ yckgxLuw Ecuador 62 Horsepox NO
+579 LeOZtJLpaMAp ddHcdYPV Ecuador 80 Hepatitis-B NO
+1218 Hkp PuQ Ecuador 78 Typhus NO
+83 StBzx fghFlpsW Ecuador 4 Banna NO
+181 rbNrRt PkxbNYS Ecuador 92 Rabies YES 23-11-1236
+677 epyNuw sOVKS Ecuador 26 COVID-19 YES 14-07-0821
+1615 XYabnwki rHWajRqIRKo Ecuador 70 Monkeypox NO
+181 rbNrRt PkxbNYS Ecuador 92 H1N1 YES 02-04-1600
+1833 QWIt tQJDZFWx Ecuador 23 Junin NO
+1813 ZsvsrrnGrgru IWUcG Ecuador 96 Horsepox YES 13-08-0403
+494 WufOZFjJhxr tlkEjJvPNFw Ecuador 18 SARS-1 YES 14-10-1394
+301 qXTxzUaC wTRNPNBYJZpT Ecuador 21 H1N1 NO
+640 NYLIFCB jJXra Ecuador 61 Hepatitis-C YES 05-01-0858
+1615 XYabnwki rHWajRqIRKo Ecuador 70 Hepatitis-A YES 21-11-1266
+427 xMGyxDW Bxq Ecuador 84 Zika NO
+640 NYLIFCB jJXra Ecuador 61 Hepatitis-D NO
+1970 pksAcgral LLOm Ecuador 67 Hepatitis-A YES 02-12-1975
+369 BhBwavEGrgD itLOoNCDzbC Ecuador 1 Rabies NO
+523 UwAOzaD BPudlagoqeuh Ecuador 50 Ebola NO
+140 XYdOFqBcyq pJOGeGHIXAv Ecuador 98 Rabies YES 20-09-1145
+697 KnHj pgRkuenO Ecuador 40 Cowpox NO
+1629 ysJG XkIsSvYY Ecuador 57 SARS-1 YES 26-11-0968
+761 veXKsZuhSc KzaCiRAgLv Ecuador 111 Monkeypox YES 30-07-0532
+172 RAyFpYOoA rgZhfjEZ Ecuador 26 SARS-1 YES 20-01-0038
+228 zqfmOJxevWC pgnCtRhQT Ecuador 39 Zika NO
+820 sSxVQIO ojgyT Ecuador 7 Ebola NO
+1310 OxhYfinB VBUZaHLDT Ecuador 48 H1N1 YES 20-08-0710
+1514 pUhwzoZ QUGMT Ecuador 25 Zika NO
+76 zYebqexQSlEZ yckgxLuw Ecuador 62 Hepatitis-D NO
+50 uvj gFkloN Ecuador 114 Junin YES 30-01-1588
+1345 RzdyLY MJdcLfXgESv Ecuador 76 Hepatitis-D YES 03-01-0570
+761 veXKsZuhSc KzaCiRAgLv Ecuador 111 Zika NO

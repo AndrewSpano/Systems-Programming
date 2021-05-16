@@ -1,0 +1,28 @@
+138 Pig KBMYoymsy Germany 117 COVID-19 YES 14-03-1542
+422 AdGcZppElWf oYoGpr Germany 102 Monkeypox YES 01-01-0847
+1859 fZztykaD qneTbbipXplV Germany 83 Hepatitis-E YES 29-02-1645
+65 JMQ eTA Germany 102 SARS-1 NO
+789 MxqJbmgNK nnTuvCjg Germany 115 Cowpox YES 03-01-1423
+1184 wCOyT yUTziT Germany 33 COVID-19 YES 25-05-1453
+488 yqwOOOk JMFjeT Germany 2 Hepatitis-A YES 08-07-0483
+991 jomEZMwRjvF zdEmyQrwO Germany 112 Lassa NO
+1271 iLrzPKosHS sOP Germany 71 Rabies NO
+993 fljNoZ HZoKsk Germany 93 Cowpox YES 23-03-0928
+285 QAY qQUydmBypRg Germany 72 Cowpox YES 09-04-1676
+1842 aBtguvM FnSCDUVuxSe Germany 63 Monkeypox YES 19-09-0990
+1842 aBtguvM FnSCDUVuxSe Germany 63 Hepatitis-D NO
+1297 uxpQk DGAAvAgI Germany 9 Flu NO
+789 MxqJbmgNK nnTuvCjg Germany 115 Monkeypox NO
+319 gjEpqtU BXXCUnsfNi Germany 71 Hepatitis-D NO
+449 qWSaGjeUTC QlEaxjaauA Germany 75 H1N1 YES 25-02-1034
+138 Pig KBMYoymsy Germany 117 Junin YES 27-05-0303
+1828 MiQPta rQISHpdV Germany 84 Zika YES 27-10-0379
+308 smgV UtvYvo Germany 98 Hepatitis-A NO
+1354 EZByxyhPS fumeGh Germany 113 Rabies YES 10-10-0292
+1842 aBtguvM FnSCDUVuxSe Germany 63 Horsepox NO
+138 Pig KBMYoymsy Germany 117 Typhus NO
+1513 BRMKjyiPK tNLqTsWy Germany 29 H1N1 YES 10-03-1923
+344 uOXMXGKZCbC JXSqiN Germany 90 Hepatitis-A YES 12-06-0010
+1572 MwwVXnJIcCtU wXDqrmUt Germany 68 COVID-19 NO
+344 uOXMXGKZCbC JXSqiN Germany 90 Ebola NO
+1842 aBtguvM FnSCDUVuxSe Germany 63 Hepatitis-B NO
