@@ -118,6 +118,24 @@ void ipc::monitor::queries::travel_request(MonitorIndex* m_index, const int & in
 
 void ipc::travel_monitor::queries::travel_stats(travelMonitorIndex* tm_index, const structures::TSData & ts_data, ErrorHandler & handler)
 {
+    /* make sure that the from country exists in the database */
+    if (ts_data.country != "" && tm_index->country_id(ts_data.country) == -1)
+    {
+        handler.status = UNKNOWN_COYNTRY;
+        handler.invalid_value = ts_data.country;
+        return;
+    }
+
+    /* make sure that the virus exists in the database */
+    BFPair* bf_pair = tm_index->bloom_filters->get(ts_data.virus_name);
+    if (bf_pair == NULL)
+    {
+        handler.status = UNKNOWN_VIRUS;
+        handler.invalid_value = ts_data.virus_name;
+        return;
+    }
+
+    /* perform the query */
     size_t accepted = 0;
     size_t rejected = 0;
 
@@ -345,7 +363,7 @@ void ipc::travel_monitor::queries::handle_sigchld(travelMonitorIndex* tm_index, 
             /* now send all the countries */
             for (size_t i = 0; i < tm_index->num_countries; i++)
                 if (tm_index->monitor_with_country(i) == dead_monitor)
-                    ipc::_send_message(input_fd, output_fd, SEND_COUNTRY, tm_index->countries->c_str(), tm_index->countries[i].length() + 1, tm_index->input->buffer_size);
+                    ipc::_send_message(input_fd, output_fd, SEND_COUNTRY, tm_index->countries[i].c_str(), tm_index->countries[i].length() + 1, tm_index->input->buffer_size);
             /* let the monitor know that all the countries have been sent */
             ipc::_send_message(input_fd, output_fd, COUNTRIES_SENT, NULL, 0, tm_index->input->buffer_size);
 

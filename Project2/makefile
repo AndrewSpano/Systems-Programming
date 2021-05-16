@@ -60,4 +60,4 @@ monitor_signal_handling.o:
 
 # clean
 clean:
-	rm -rf bin/* object/common_objects/*.o object/Monitor_objects/*.o object/travelMonitor_objects/*.o
+	rm -rf bin/* object/common_objects/*.o object/Monitor_objects/*.o object/travelMonitor_objects/*.o logfiles/log_file.*

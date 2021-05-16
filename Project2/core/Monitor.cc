@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 
     /* open the pipes in order to accept commands */
     int input_fd = open(pipes->input, O_RDONLY | O_NONBLOCK);
-    int output_fd = open(pipes->output, O_WRONLY);
+    int output_fd = open(pipes->output, O_RDWR);
     uint8_t msg_id = REJECT;
     char message[512] = {0};
     
@@ -104,6 +104,5 @@ int main(int argc, char* argv[])
     delete pipes;
     delete m_index;
 
-    std::cout << "Monitor Exiting!\n";
     return EXIT_SUCCESS;
 }
