@@ -243,6 +243,7 @@ void ipc::travel_monitor::queries::search_vaccination_status(travelMonitorIndex*
     /* send the citizen ID it to all the monitors */
     for (size_t i = 0; i < active_monitors; i++)
         ipc::_send_message(input_fds[i], output_fds[i], SEARCH_VACCINATION_STATUS_SEND_DATA, id.c_str(), id.length() + 1, tm_index->input->buffer_size);
+    bool flag_id_was_found = false;
 
     /* variables used for receiving messages */
     uint8_t msg_id = REJECT;
@@ -261,6 +262,7 @@ void ipc::travel_monitor::queries::search_vaccination_status(travelMonitorIndex*
         /* if this is the monitor that contains the citizen with the needed ID */
         if (msg_id == SEARCH_VACCINATION_STATUS_CONTAINS)
         {
+            flag_id_was_found = true;
             /* create the record in order to print information about it */
             Record record(message);
             std::cout << record.id << " " << record.name << " " << record.surname << " " << *record.country << std::endl
@@ -287,6 +289,10 @@ void ipc::travel_monitor::queries::search_vaccination_status(travelMonitorIndex*
         }
         finished_monitors[ready_monitor] = true;
     }
+
+    /* handle the case where the citizen was not found in the dataset */
+    if (!flag_id_was_found)
+        std::cout << "ERROR: Citizen with ID \"" << id << "\" was not found in the database." << std::endl;
 
     /* close all pipes */
     process_utils::travel_monitor::close_all_pipes(input_fds, output_fds, active_monitors);
