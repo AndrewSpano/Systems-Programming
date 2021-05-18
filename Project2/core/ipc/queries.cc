@@ -231,7 +231,7 @@ void ipc::monitor::queries::add_vaccination_records(MonitorIndex* m_index, const
 
 
 
-void ipc::travel_monitor::queries::search_vaccination_status(travelMonitorIndex* tm_index, structures::CommunicationPipes* pipes, const std::string & id)
+void ipc::travel_monitor::queries::search_vaccination_status(travelMonitorIndex* tm_index, structures::CommunicationPipes* pipes, const std::string & id, ErrorHandler & handler)
 {
     /* open all pipes and get their file descriptors */
     size_t active_monitors = (tm_index->input->num_monitors <= tm_index->num_countries) ? tm_index->input->num_monitors : tm_index->num_countries;
@@ -290,12 +290,15 @@ void ipc::travel_monitor::queries::search_vaccination_status(travelMonitorIndex*
         finished_monitors[ready_monitor] = true;
     }
 
-    /* handle the case where the citizen was not found in the dataset */
-    if (!flag_id_was_found)
-        std::cout << "ERROR: Citizen with ID \"" << id << "\" was not found in the database." << std::endl;
-
     /* close all pipes */
     process_utils::travel_monitor::close_all_pipes(input_fds, output_fds, active_monitors);
+
+    /* handle the case where the citizen was not found in the dataset */
+    if (!flag_id_was_found)
+    {
+        handler.status = UNKNOWN_ID;
+        handler.invalid_value = id;
+    }
 }
 
 

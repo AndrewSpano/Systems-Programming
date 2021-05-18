@@ -34,7 +34,8 @@ typedef enum ErrorCode
     INVALID_VIRUS_NAME,
     INVALID_NUM_PARAMETERS,
     UNKNOWN_COYNTRY,
-    UNKNOWN_VIRUS
+    UNKNOWN_VIRUS,
+    UNKNOWN_ID
 } ErrorCode;
 
 
@@ -104,7 +105,7 @@ typedef struct ErrorHandler
                     break;
                 case INVALID_OUTPUT_PIPE:
                     std::cout << "ERROR: The value for the \"output pipe\" (-o flag): \"" << this->invalid_value
-                              << "\" is invalid.";
+                              << "\" is invalid." << std::endl << std::endl;
                 case INVALID_FLAG:
                     std::cout << "ERROR: Unrecognized flag: \"" << this->invalid_value << "\"." << std::endl << std::endl;
                     break;
@@ -163,6 +164,10 @@ typedef struct ErrorHandler
                 case UNKNOWN_VIRUS:
                     std::cout << "ERROR: Virus \"" << this->invalid_value << "\" does not exist in "
                               << "the database." << std::endl << std::endl;
+                    break;
+                case UNKNOWN_ID:
+                    std::cout << "ERROR: Citizen with ID \"" << this->invalid_value
+                              << "\" does not exist in the database." << std::endl << std::endl;
                     break;
             }
         }

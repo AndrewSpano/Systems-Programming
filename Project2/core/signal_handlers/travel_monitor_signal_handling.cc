@@ -9,6 +9,7 @@
 #include "../../include/ipc/queries.hpp"
 
 
+sigset_t sigchld_set;
 sigset_t target_signals_set;
 
 
@@ -58,12 +59,25 @@ void initialize_signal_handlers(void)
     action.sa_handler = handle_sigchld;
     sigaction(SIGCHLD, &action, NULL);
 
+    /* only sigchld will be blocked when input is being received */
+    sigemptyset(&sigchld_set);
+    sigaddset(&sigchld_set, SIGCHLD);
+
     /* singals will be blocked when a query is being executed, and received later */
     sigemptyset(&target_signals_set);
     sigaddset(&target_signals_set, SIGINT);
     sigaddset(&target_signals_set, SIGQUIT);
     sigaddset(&target_signals_set, SIGCHLD);
 }
+
+
+
+void block_sigchld(void)
+{ sigprocmask(SIG_BLOCK, &sigchld_set, NULL); }
+
+
+void unblock_sigchld(void)
+{ sigprocmask(SIG_UNBLOCK, &sigchld_set, NULL); }
 
 
 void block_sigint_sigquit_sigchld(void)

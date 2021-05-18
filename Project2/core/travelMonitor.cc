@@ -52,14 +52,14 @@ int main(int argc, char* argv[])
     initialize_signal_handlers();
 
 
-    /* block all the signals until a command is given */
-    block_sigint_sigquit_sigchld();
+    /* block SIGCHLD until a command is given */
+    block_sigchld();
     /* get an option from the user for which command to execute */
     std::string line = "";
     int command = parsing::user_input::get_option(line, true);
     std::cout << std::endl;
-    /* unblock (and therefore handle) all signals */
-    unblock_sigint_sigquit_sigchld();
+    /* unblock (and therefore handle) SIGCHLD */
+    unblock_sigchld();
 
     /* iterate until user gives the "/exit" command */
     while (command)
@@ -124,21 +124,22 @@ int main(int argc, char* argv[])
             parsing::user_input::parse_search_vaccination_status(line, citizen_id, handler);
             if (!handler.check_and_print())
             {
-                ipc::travel_monitor::queries::search_vaccination_status(tm_index, pipes, citizen_id);
+                ipc::travel_monitor::queries::search_vaccination_status(tm_index, pipes, citizen_id, handler);
+                handler.check_and_print();
             }
         }
 
         /* now that the query has been exected, unblock (and therefore handle) all signals */
         unblock_sigint_sigquit_sigchld();
 
-        /* block all the signals until a command is specified */
-        block_sigint_sigquit_sigchld();
+        /* block SIGCHLD until a command is given */
+        block_sigchld();
         /* get the next command */
         std::cout << std::endl;
         command = parsing::user_input::get_option(line);
         std::cout << std::endl;
-        /* unblock (and therefore handle) all signals */
-        unblock_sigint_sigquit_sigchld();
+        /* unblock (and therefore handle) SIGCHLD */
+        unblock_sigchld();
     }
 
     /* kill all the monitors, then make sure they have died, write to the logfiles and cleanup the allocated memory */
