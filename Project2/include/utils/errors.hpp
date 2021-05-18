@@ -167,7 +167,7 @@ typedef struct ErrorHandler
                     break;
                 case UNKNOWN_ID:
                     std::cout << "ERROR: Citizen with ID \"" << this->invalid_value
-                              << "\" does not exist in the database." << std::endl << std::endl;
+                              << "\" does not exist in the database." << std::endl;
                     break;
             }
         }
