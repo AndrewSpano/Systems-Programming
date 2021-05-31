@@ -36,5 +36,8 @@ Project1/dataset/
 Project2/dataset/
 Project2/test_dataset/
 Project2/logfiles/log_file.*
+Project3/datasets/
+Project3/test_dataset/
+Project3/logfiles/log_file.*
 deliverables/
 .vscode/
