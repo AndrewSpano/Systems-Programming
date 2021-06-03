@@ -21,3 +21,10 @@ void utils::read_from_buf(char buf[], size_t & offset, size_t* len, char data[])
     memcpy(data, buf + offset, *len);
     offset += *len;
 }
+
+
+void utils::perror_exit(char* error_message)
+{
+    perror(error_message);
+    exit(1);
+}

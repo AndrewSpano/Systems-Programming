@@ -10,14 +10,14 @@
 #include "../../include/utils/macros.hpp"
 
 
-void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[], structures::Input & input, ErrorHandler & handler)
+void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[], structures::travelMonitorInput & input, ErrorHandler & handler)
 {
     if (argc == 2 && (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")))
     {
         handler.status = HELP_TRAVEL_MONITOR;
         return;
     }
-    else if (argc != 9)
+    else if (argc != 13)
     {
         handler.status = INVALID_NUM_ARGS_TRAVEL_MONITOR;
         handler.invalid_value = std::to_string(argc);
@@ -26,10 +26,12 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
 
     bool flag_m = false;
     bool flag_b = false;
+    bool flag_c = false;
     bool flag_s = false;
     bool flag_i = false;
+    bool flag_t = false;
 
-    for (size_t i = 1; i < 9; i += 2)
+    for (size_t i = 1; i < 13; i += 2)
     {
         std::string flag(argv[i]);
         std::string value(argv[i + 1]);
@@ -49,12 +51,23 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
         {
             if (!parsing::utils::is_valid_numerical(value) || stoi(value) == 0)
             {
-                handler.status = INVALID_BUFFER_SIZE;
+                handler.status = INVALID_SOCKET_BUFFER_SIZE;
                 handler.invalid_value = value;
                 return;
             }
-            input.buffer_size = stoi(value);
+            input.socket_buffer_size = stoi(value);
             flag_b = true;
+        }
+        else if (flag == "-c")
+        {
+            if (!parsing::utils::is_valid_numerical(value) || stoi(value) == 0)
+            {
+                handler.status = INVALID_CYCLIC_BUFFER_SIZE;
+                handler.invalid_value = value;
+                return;
+            }
+            input.cyclic_buffer_size = stoi(value);
+            flag_c = true;
         }
         else if (flag == "-s")
         {
@@ -78,6 +91,17 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
             input.root_dir = value;
             flag_i = true;
         }
+        else if (flag == "-t")
+        {
+            if (!parsing::utils::is_valid_numerical(value) || stoi(value) == 0)
+            {
+                handler.status = INVALID_NUM_THREADS;
+                handler.invalid_value = value;
+                return;
+            }
+            input.num_threads = stoi(value);
+            flag_t = true;
+        }
         else
         {
             handler.status = INVALID_FLAG;
@@ -86,66 +110,107 @@ void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[
         }
     }
 
-    if (!flag_m || !flag_b || !flag_s || !flag_i)
+    if (!flag_m || !flag_b || !flag_c || !flag_s || !flag_i || !flag_t)
     {
         handler.status = INVALID_ARGS;
         std::string missing_args = " ";
         if (!flag_m) missing_args += "-m ";
         if (!flag_b) missing_args += "-b ";
+        if (!flag_c) missing_args += "-c ";
         if (!flag_s) missing_args += "-s ";
         if (!flag_i) missing_args += "-i ";
+        if (!flag_t) missing_args += "-t ";
         handler.invalid_value = missing_args.replace(missing_args.length() - 1, 1, ".");
     }
 }
 
 
 
-void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], structures::CommunicationPipes* pipes, ErrorHandler & handler)
+void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], structures::MonitorInput & input, ErrorHandler & handler)
 {
     if (argc == 2 && (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")))
     {
         handler.status = HELP_MONITOR;
         return;
     }
-    else if (argc != 5)
+    else if (argc < 11)
     {
         handler.status = INVALID_NUM_ARGS_MONITOR;
         handler.invalid_value = std::to_string(argc);
         return;
     }
+    else if (argc == 11)
+    {
+        handler.status = INVALID_COUNTRIES;
+        return;
+    }
 
-    bool flag_cp = false;
-    bool flag_dp = false;
-    struct stat sb;
+    bool flag_p = false;
+    bool flag_t = false;
+    bool flag_b = false;
+    bool flag_c = false;
+    bool flag_s = false;
 
-    for (size_t i = 1; i < 5; i += 2)
+
+    for (size_t i = 1; i < 13; i += 2)
     {
         std::string flag(argv[i]);
         std::string value(argv[i + 1]);
 
-        if (flag == "-i")
+        if (flag == "-p")
         {
-            if (stat(value.c_str(), &sb) == -1 || !S_ISFIFO(sb.st_mode))
+            if (!parsing::utils::is_valid_numerical(value) || stoi(value) == 0)
             {
-                handler.status = INVALID_INPUT_PIPE;
+                handler.status = INVALID_PORT;
                 handler.invalid_value = value;
                 return;
             }
-            pipes->input = new char[value.length() + 1];
-            strcpy(pipes->input, value.c_str());
-            flag_cp = true;
+            input.port = stoi(value);
+            flag_p = true;
         }
-        else if (flag == "-o")
+        else if (flag == "-t")
         {
-            if (stat(value.c_str(), &sb) == -1 || !S_ISFIFO(sb.st_mode))
+            if (!parsing::utils::is_valid_numerical(value) || stoi(value) == 0)
             {
-                handler.status = INVALID_OUTPUT_PIPE;
+                handler.status = INVALID_NUM_THREADS;
                 handler.invalid_value = value;
                 return;
             }
-            pipes->output = new char[value.length() + 1];
-            strcpy(pipes->output, value.c_str());
-            flag_dp = true;
+            input.num_threads = stoi(value);
+            flag_t = true;
+        }
+        else if (flag == "-b")
+        {
+            if (!parsing::utils::is_valid_numerical(value) || stoi(value) == 0)
+            {
+                handler.status = INVALID_SOCKET_BUFFER_SIZE;
+                handler.invalid_value = value;
+                return;
+            }
+            input.socket_buffer_size = stoi(value);
+            flag_b = true;
+        }
+        else if (flag == "-c")
+        {
+            if (!parsing::utils::is_valid_numerical(value) || stoi(value) == 0)
+            {
+                handler.status = INVALID_CYCLIC_BUFFER_SIZE;
+                handler.invalid_value = value;
+                return;
+            }
+            input.cyclic_buffer_size = stoi(value);
+            flag_c = true;
+        }
+        else if (flag == "-s")
+        {
+            if (!parsing::utils::is_valid_numerical(value) || stoi(value) == 0)
+            {
+                handler.status = INVALID_BLOOM_FILTER_SIZE;
+                handler.invalid_value = value;
+                return;
+            }
+            input.bf_size = stoi(value);
+            flag_s = true;
         }
         else
         {
@@ -155,11 +220,23 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], stru
         }
     }
 
-    if (!flag_cp || !flag_dp)
+    if (!flag_p || !flag_t || !flag_b || !flag_c || !flag_s)
     {
         handler.status = INVALID_ARGS;
-        handler.invalid_value = (!flag_cp) ? " -c." : " -d.";
+        std::string missing_args = " ";
+        if (!flag_p) missing_args += "-p ";
+        if (!flag_t) missing_args += "-t ";
+        if (!flag_b) missing_args += "-b ";
+        if (!flag_c) missing_args += "-c ";
+        if (!flag_s) missing_args += "-s ";
+        handler.invalid_value = missing_args.replace(missing_args.length() - 1, 1, ".");
+        return;
     }
+
+    input.num_countries = argc - 11;
+    input.countries_paths = new std::string[input.num_countries];
+    for (size_t i = 11; i < argc; i++)
+        input.countries_paths[i - 11] = std::string(argv[i]);    
 }
 
 

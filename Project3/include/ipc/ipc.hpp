@@ -2,10 +2,6 @@
 #define _IPC
 
 
-#include "../utils/structures.hpp"
-#include "../data_structures/indices.hpp"
-#include "../data_structures/bloom_filter.hpp"
-
 
 typedef enum communicationID
 {
@@ -33,6 +29,7 @@ namespace ipc
 {
     void _poll_until_read(const int & fd);
     size_t _poll_until_any_read(int fds[], bool fd_has_read[], const size_t & num_fds, const size_t & count_read);
+    int ready_fd(struct pollfd fdarr[], size_t num_fds);
     void _wait_ack(const int & fd);
 
     void _send_numeric(const int & input_fd, const int & output_fd, const uint64_t & numeric, const uint64_t & buffer_size);
@@ -41,24 +38,7 @@ namespace ipc
     void _notify_and_wait_ack(const int & input_fd, const int & output_fd, const uint8_t & msg_id, const size_t & bytes_out, const uint64_t & buffer_size);
     void _send_message(const int & input_fd, const int & output_fd, const uint8_t & msg_id, const char buf[], size_t bytes_out, const uint64_t & buffer_size);
     void _receive_message(const int & input_fd, const int & output_fd, uint8_t & msg_id, char buf[], size_t & bytes_in, const uint64_t & buffer_size);
-
-    namespace travel_monitor
-    {
-        void _send_args(const int & input_fd, const int & output_fd, const structures::Input & input);
-        void send_args(const structures::CommunicationPipes pipes[], const structures::Input & input);
-        
-        void assign_countries(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[]);
-        void _receive_bloom_filters(travelMonitorIndex* tm_index, const int & input_fd, const int & output_fd);
-        void receive_bloom_filters(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[]);
-    }
-
-    namespace monitor
-    {
-        void init_args(const structures::CommunicationPipes* pipes, structures::Input & input);
-        void receive_countries(MonitorIndex* m_index, const structures::CommunicationPipes* pipes);
-        void send_bloom_filters(MonitorIndex* m_index, const structures::CommunicationPipes* pipes);
-        void wait_for_command(MonitorIndex* m_index, const int & input_fd, const int & output_fd, uint8_t & msg_id, char message[]);
-    }
+    void wait_for_command(const int & input_fd, const int & output_fd, uint8_t & msg_id, char message[], const uint64_t & buffer_size);
 }
 
 

@@ -15,11 +15,13 @@ typedef enum ErrorCode
     INVALID_NUM_ARGS_MONITOR,
     INVALID_ARGS,
     INVALID_NUM_MONITORS,
-    INVALID_BUFFER_SIZE,
+    INVALID_SOCKET_BUFFER_SIZE,
+    INVALID_CYCLIC_BUFFER_SIZE,
     INVALID_BLOOM_FILTER_SIZE,
     INVALID_ROOT_DIR,
-    INVALID_INPUT_PIPE,
-    INVALID_OUTPUT_PIPE,
+    INVALID_NUM_THREADS,
+    INVALID_PORT,
+    INVALID_COUNTRIES,
     INVALID_FLAG,
     INVALID_RECORD,
     INVALID_CITIZEN_ID,
@@ -47,19 +49,26 @@ typedef struct ErrorHandler
 
     void print_help_travel_monitor(void)
     {
-        std::cout << "Usage: ./travelMonitor -m numMonitors -b bufferSize -s sizeOfBloom -i input_dir" << std::endl
-                  << std::endl << "\tnumMonitors  =  Number of (child) Monitor processes to create."
-                  << std::endl << "\tbufferSize   =  The size (in bytes) for reading through the Named pipes."
-                  << std::endl << "\tsizeOfBloom  =  The size (in bytes) of the Bloom Filter."
-                  << std::endl << "\tinput_dir    =  The relative/absolute path to the root directory containing the "
-                  << "subdiretories for the countries." << std::endl << std::endl;
+        std::cout << "Usage: bin/travelMonitorClient -m numMonitors -b socketBufferSize -c cyclicBufferSize -s sizeOfBloom -i input_dir -t numThreads" << std::endl
+                  << std::endl << "\tnumMonitors        =  The number of (child) Monitor processes to create."
+                  << std::endl << "\tsocketBufferSize   =  The size (in bytes) for reading/writing through the sockets."
+                  << std::endl << "\tcyclicBufferSize   =  The size of the buffer used to store filesnames for Monitors to read and parse."
+                  << std::endl << "\tsizeOfBloom        =  The size (in bytes) of the Bloom Filter."
+                  << std::endl << "\tinput_dir          =  The relative/absolute path to the root directory containing the subdiretories for the countries."
+                  << std::endl << "\tnumThreads         =  The number of threads that each MonitorServer will create."
+                  << std::endl << std::endl;
     }
 
     void print_help_monitor(void)
     {
-        std::cout << "Usage: ./Monitor -i inputNamedPipe -o outputNamedPipe" << std::endl
-                  << std::endl << "\tinputNamedPipe   =  The pipe used to receive data from the parent process."
-                  << std::endl << "\toutputNamedPipe  =  The pipe used to send data to the parent process.";
+        std::cout << "Usage: bin/monitorServer -p port -t numThreads -b socketBufferSize -c cyclicBufferSize -s sizeOfBloom path1 path2 ... pathN" << std::endl
+                  << std::endl << "\tport                    =  Port used for communication."
+                  << std::endl << "\tnumThreads              =  The number of threads that each MonitorServer will create."
+                  << std::endl << "\tsocketBufferSize        =  The size (in bytes) for reading/writing through the sockets."
+                  << std::endl << "\tcyclicBufferSize        =  The size of the buffer used to store filesnames for Monitors to read and parse."
+                  << std::endl << "\tsizeOfBloom             =  The size (in bytes) of the Bloom Filter."
+                  << std::endl << "\tpath1 path 2... pathN   =  Paths to directories containing countries and their data."
+                  << std::endl << std::endl;
     }
 
     bool check_and_print(void)
@@ -87,8 +96,12 @@ typedef struct ErrorHandler
                     std::cout << "ERROR: The value for the \"number of Monitors\" (-m flag): \"" << this->invalid_value
                               << "\" is invalid." << std::endl << std::endl;
                     break;
-                case INVALID_BUFFER_SIZE:
-                    std::cout << "ERROR: The value for the \"buffer size\" (-b flag): \"" << this->invalid_value
+                case INVALID_SOCKET_BUFFER_SIZE:
+                    std::cout << "ERROR: The value for the \"socket buffer size\" (-b flag): \"" << this->invalid_value
+                              << "\" is invalid." << std::endl << std::endl;
+                    break;
+                case INVALID_CYCLIC_BUFFER_SIZE:
+                    std::cout << "ERROR: The value for the \"cyclic buffer size\" (-c flag): \"" << this->invalid_value
                               << "\" is invalid." << std::endl << std::endl;
                     break;
                 case INVALID_BLOOM_FILTER_SIZE:
@@ -99,12 +112,12 @@ typedef struct ErrorHandler
                     std::cout << "ERROR: The value for the \"root directory\" (-i flag): \"" << this->invalid_value
                               << "\" is invalid." << std::endl << std::endl;
                     break;
-                case INVALID_INPUT_PIPE:
-                    std::cout << "ERROR: The value for the \"input pipe\" (-i flag): \"" << this->invalid_value
+                case INVALID_NUM_THREADS:
+                    std::cout << "ERROR: The value for the \"number of threards\" (-t flag): \"" << this->invalid_value
                               << "\" is invalid." << std::endl << std::endl;
                     break;
-                case INVALID_OUTPUT_PIPE:
-                    std::cout << "ERROR: The value for the \"output pipe\" (-o flag): \"" << this->invalid_value
+                case INVALID_PORT:
+                    std::cout << "ERROR: The value for the \"listening port\" (-p flag): \"" << this->invalid_value
                               << "\" is invalid." << std::endl << std::endl;
                 case INVALID_FLAG:
                     std::cout << "ERROR: Unrecognized flag: \"" << this->invalid_value << "\"." << std::endl << std::endl;

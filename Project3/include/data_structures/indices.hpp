@@ -15,7 +15,7 @@
 /// structure to handle the data stored in a Monitor process
 typedef struct MonitorIndex
 {
-    structures::Input* input;
+    structures::MonitorInput* input;
     List<Record>* records = NULL;
     uint16_t num_countries = 0;
     std::string* countries = NULL;
@@ -23,7 +23,7 @@ typedef struct MonitorIndex
     VirusList* virus_list = NULL;
     Logger* logger = NULL;
 
-    MonitorIndex(structures::Input* _inp): input(_inp), num_countries(0), countries(NULL), files_per_country(NULL), logger(NULL)
+    MonitorIndex(structures::MonitorInput* _inp): input(_inp), num_countries(0), countries(NULL), files_per_country(NULL), logger(NULL)
     {
         records = new List<Record>();
         virus_list = new VirusList(input->bf_size);
@@ -94,7 +94,7 @@ typedef struct MonitorIndex
 /// structure to handle the data stored in the travelMonitor process
 typedef struct travelMonitorIndex
 {
-    structures::Input* input;
+    structures::travelMonitorInput* input;
     uint16_t num_countries;
     std::string* countries;
     List<BFPair>* bloom_filters;
@@ -102,7 +102,7 @@ typedef struct travelMonitorIndex
     bool is_receiving_data;
     bool has_sent_sigkill;
 
-    travelMonitorIndex(structures::Input* _inp): input(_inp), num_countries(0), countries(NULL), logger(NULL), is_receiving_data(false), has_sent_sigkill(false)
+    travelMonitorIndex(structures::travelMonitorInput* _inp): input(_inp), num_countries(0), countries(NULL), logger(NULL), is_receiving_data(false), has_sent_sigkill(false)
     { bloom_filters = new List<BFPair>; }
 
     ~travelMonitorIndex(void)
@@ -128,6 +128,16 @@ typedef struct travelMonitorIndex
 
     size_t monitor_with_country(const size_t & country_id)
     { return country_id % input->num_monitors; }
+
+    size_t num_countries_of_monitor(const size_t & monitor_id)
+    { return num_countries / input->num_monitors + ((monitor_id > (num_countries % input->num_monitors)) ? 1 : 0); }
+
+    void get_countries_of_monitor(std::string target_arr[], const size_t & monitor_id)
+    {
+        size_t index = 0;
+        for (size_t i = monitor_id; i < num_countries; i += input->num_monitors)
+            target_arr[index++] = countries[i];
+    }
 
 } travelMonitorIndex;
 

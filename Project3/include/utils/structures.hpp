@@ -3,6 +3,11 @@
 
 #include <iostream>
 #include <cstring>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
 
 #include "date.hpp"
 #include "utils.hpp"
@@ -11,32 +16,62 @@
 namespace structures
 {
 
-    typedef struct Input
+    typedef struct travelMonitorInput
     {
         uint16_t num_monitors = 0;
-        uint64_t buffer_size = 0;
+        uint64_t socket_buffer_size = 0;
+        uint16_t cyclic_buffer_size = 0;
         uint64_t bf_size = 0;
         std::string root_dir = "";
+        uint16_t num_threads = 0;
 
         void print(void)
         {
-            std::cout << "Number of monitors: " << this->num_monitors << ", Buffer Size: " << this->buffer_size
-                      << ", Bloom Filter Size: " << this->bf_size << ", Root Directory: " << this->root_dir << std::endl;
+            std::cout << "Number of Monitors: " << this->num_monitors << ", Socket Buffer Size: " << this->socket_buffer_size
+                      << ", Cyclic Buffer Size: " << this->cyclic_buffer_size << ", Bloom Filter Size: " << this->bf_size
+                      << ", Root Directory: " << this->root_dir << ", Number of Threads: " << this->num_threads << std::endl;
         }
-    } Input;
+    } travelMonitorInput;
 
 
-
-    typedef struct CommunicationPipes
+    typedef struct MonitorInput
     {
-        char* input = NULL;
-        char* output = NULL;
+        uint16_t port = 0;
+        uint16_t num_threads = 0;
+        uint64_t socket_buffer_size = 0;
+        uint16_t cyclic_buffer_size = 0;
+        uint64_t bf_size = 0;
+        uint16_t num_countries = 0;
+        std::string* countries_paths = NULL;
+
+        ~MonitorInput(void)
+        { if (countries_paths != NULL) delete[] countries_paths; }
 
         void print(void)
         {
-            printf("Input Named Pipe: \"%s\", Output Named Pipe: \"%s\"\n", this->input, this->output);
+            std::cout << "Port: " << this->port << ", Number of Threads: " << this->num_threads
+                      << ", Socket Buffer Size: " << this->socket_buffer_size << ", Cyclic Buffer Size: " << this->cyclic_buffer_size
+                      << ", Bloom Filter Size: " << this->bf_size << ", Number of countries: " << this->num_countries << std::endl;
+            for (size_t i = 0; i < this->num_countries; i++)
+                std::cout << "\t" << countries_paths[i] << std::endl;            
         }
-    } CommunicationPipes;
+    } MonitorInput;
+
+
+
+    typedef struct NetworkCommunication
+    {
+        int client_socket = -1;
+        int server_socket = -1;
+        int port = -1;
+        sockaddr_in server_address;
+
+        NetworkCommunication(void): client_socket(-1), server_socket(-1), port(-1)
+        { }
+
+        NetworkCommunication(const int &_port): client_socket(-1), server_socket(-1), port(_port)
+        { }
+    } NetworkCommunication;
 
 
 

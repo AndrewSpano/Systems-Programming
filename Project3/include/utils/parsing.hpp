@@ -41,8 +41,8 @@ namespace parsing
 
   namespace arguments
   {
-    void parse_travel_monitor_args(const int & argc, char* argv[], structures::Input & input, ErrorHandler & handler);
-    void parse_monitor_args(const int & argc, char* argv[], structures::CommunicationPipes* pipes, ErrorHandler & handler);
+    void parse_travel_monitor_args(const int & argc, char* argv[], structures::travelMonitorInput & input, ErrorHandler & handler);
+    void parse_monitor_args(const int & argc, char* argv[], structures::MonitorInput & input, ErrorHandler & handler);
   }
 
 

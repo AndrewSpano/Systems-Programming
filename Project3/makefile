@@ -9,7 +9,7 @@ ALL: travelMonitor Monitor
 ########################################################################################
 # travel monitor program
 
-travelMonitor: travelMonitorMain parsing.o parsing_utils.o process_utils.o ipc.o bloom_filter.o skip_list.o virus_list.o queries.o utils.o
+travelMonitor: travelMonitorMain parsing.o parsing_utils.o network_utils.o process_utils.o ipc.o setup.o bloom_filter.o skip_list.o virus_list.o queries.o utils.o
 	$(CC) -o bin/travelMonitor object/travelMonitor_objects/*.o object/common_objects/*.o $(CFLAGS) $(LIBS)
 
 travelMonitorMain:
@@ -21,11 +21,17 @@ parsing.o:
 parsing_utils.o:
 	$(CC) -c -o object/common_objects/parsing_utils.o core/utils/parsing_utils.cc $(CFLAGS) $(LIBS)
 
+network_utils.o:
+	$(CC) -c -o object/common_objects/network_utils.o core/utils/network_utils.cc $(CFLAGS) $(LIBS)
+
 process_utils.o:
 	$(CC) -c -o object/common_objects/process_utils.o core/utils/process_utils.cc $(CFLAGS) $(LIBS)
 
 ipc.o:
 	$(CC) -c -o object/common_objects/ipc.o core/ipc/ipc.cc $(CFLAGS) $(LIBS)
+
+setup.o:
+	$(CC) -c -o object/common_objects/setup.o core/ipc/setup.cc $(CFLAGS) $(LIBS)
 
 bloom_filter.o:
 	$(CC) -c -o object/common_objects/bloom_filter.o core/data_structures/bloom_filter.cc $(CFLAGS) $(LIBS)

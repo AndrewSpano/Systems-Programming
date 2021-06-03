@@ -1,145 +1,140 @@
 #include <cstring>
+#include <cstdlib>
+
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <poll.h>
 #include <dirent.h>
-#include <csignal>
+#include <sys/wait.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
 
-#include "../../include/utils/process_utils.hpp"
 #include "../../include/utils/parsing.hpp"
+#include "../../include/utils/process_utils.hpp"
+#include "../../include/utils/network_utils.hpp"
 
 
-void process_utils::travel_monitor::_create_pipe(char** named_pipe, const char* type, const size_t & id)
+
+
+void process_utils::travel_monitor::enumerate_countries(travelMonitorIndex* tm_index)
 {
-    *named_pipe = new char[40];
-    sprintf(*named_pipe, "pipes/%s_%lu", type, id);
-    if (mkfifo(*named_pipe, 0666) < 0)
+    char path[256] = {0};
+    struct dirent **namelist;
+    int num_countries = scandir(tm_index->input->root_dir.c_str(), &namelist, NULL, alphasort);
+    tm_index->init_countries(num_countries - 2);
+    size_t country_id = 0;
+
+    for (size_t i = 0; i < num_countries; i++)
     {
-        perror("mkfifo() failed in process_utils::_create_pipe()");
-        exit(-1);
+        if (strcmp(namelist[i]->d_name, ".") && strcmp(namelist[i]->d_name, ".."))
+            tm_index->countries[country_id++] = std::string(namelist[i]->d_name);
+        free(namelist[i]);
     }
+    free(namelist);
 }
 
 
-void process_utils::travel_monitor::create_pipes(structures::CommunicationPipes* pipes, const uint16_t & num_monitors)
+
+void process_utils::travel_monitor::create_addresses(structures::NetworkCommunication* network_info, const uint16_t & num_monitors)
 {
+    /* get the hostname of the current machine */
+    char hostname[128] = {0};
+    if (gethostname(hostname, 128) < 0)
+        utils::perror_exit("gethostname() @ process_utils::travel_monitor::create_addresses()");
+    struct hostent* foundhost = gethostbyname(hostname);
+
+    /* define a specific port for each monitor: start from one port and increment for the next monitor */
+    int port = rand() % 25000 + 6900;
     for (size_t i = 0; i < num_monitors; i++)
     {
-        _create_pipe(&pipes[i].input, "input", i);
-        _create_pipe(&pipes[i].output, "output", i);        
+        network_info[i].port = port + i;
+        network_utils::init_address(&network_info[i].server_address, port + i, foundhost);
     }
 }
 
 
 
-void process_utils::travel_monitor::_free_and_delete_pipe(const char* named_pipe)
+void process_utils::travel_monitor::create_monitors(pid_t monitor_pids[], structures::NetworkCommunication* network_info, travelMonitorIndex* tm_index)
 {
-    if (unlink(named_pipe) < 0)
+    /* convert key variables to strings */
+    char num_threads_as_str[16] = {0}, socket_buffer_size_as_str[16] = {0}, cyclic_buffer_size_as_str[16] = {0}, bloom_filter_size_as_str[16] = {0};
+    snprintf(num_threads_as_str, 16, "%d", tm_index->input->num_threads);
+    snprintf(socket_buffer_size_as_str, 16, "%d", tm_index->input->socket_buffer_size);
+    snprintf(cyclic_buffer_size_as_str, 16, "%d", tm_index->input->cyclic_buffer_size);
+    snprintf(bloom_filter_size_as_str, 16, "%d", tm_index->input->bf_size);
+
+    /* iterate to create each monitor separately */
+    for (size_t i = 0; i < tm_index->input->num_monitors; i++)
     {
-        perror("unlink() failed in process_utils::_free_and_delete_pipe()");
-        exit(-1);
-    }
-    delete[] named_pipe;
-}
+        monitor_pids[i] = fork();
+        if (monitor_pids[i] < 0)
+        {
+            utils::perror_exit("fork() @ process_utils::travel_monitor::create_monitors()");
+        }
+        else if (monitor_pids[i] == 0)
+        {
+            char port_as_str[16] = {0};
+            snprintf(port_as_str, 16, "%d", network_info[i].port);
+            
+            uint16_t num_countries_of_monitor = tm_index->num_countries_of_monitor(i);
+            size_t num_arguments = 11 + num_countries_of_monitor + 1;
 
+            /* executable main arguments */
+            char* argv[num_arguments] = {"bin/Monitor", "-p", port_as_str,
+                                                        "-t", num_threads_as_str,
+                                                        "-b", socket_buffer_size_as_str,
+                                                        "-c", cyclic_buffer_size_as_str,
+                                                        "-s", bloom_filter_size_as_str};
+            /* countries paths */
+            std::string countries[num_countries_of_monitor];
+            tm_index->get_countries_of_monitor(countries, i);
+            for (size_t arg = 11; arg < num_arguments - 1; arg++)
+            {
+                char path[256] = {0};
+                sprintf(path, "%s/%s", tm_index->input->root_dir.c_str(), countries[arg - 11].c_str());
+                argv[arg] = new char[256];
+                strcpy(argv[arg], path);
+            }
+            /* NULL */
+            argv[num_arguments - 1] = NULL;
 
-void process_utils::travel_monitor::free_and_delete_pipes(structures::CommunicationPipes* pipes, const uint16_t & num_monitors)
-{
-    for (size_t i = 0; i < num_monitors; i++)
-    {
-        _free_and_delete_pipe(pipes[i].input);
-        _free_and_delete_pipe(pipes[i].output);
-    }
-}
-
-
-
-void process_utils::travel_monitor::open_all_pipes(const structures::CommunicationPipes* pipes, int comm_fds[], const mode_t & input_perms,
-                                                   int data_fds[], const mode_t & output_perms, const uint16_t & num_monitors)
-{
-    for (size_t i = 0; i < num_monitors; i++)
-    {
-        comm_fds[i] = open(pipes[i].input, input_perms);
-        data_fds[i] = open(pipes[i].output, output_perms);
-    }
-}
-
-
-void process_utils::travel_monitor::close_all_pipes(const int comm_fds[], const int data_fds[], const uint16_t & num_monitors)
-{
-    for (size_t i = 0; i < num_monitors; i++)
-    {
-        close(comm_fds[i]);
-        close(data_fds[i]);
-    }
-}
-
-
-
-void process_utils::travel_monitor::_create_monitor(pid_t monitor_pids[], structures::CommunicationPipes* pipes, const size_t & position)
-{
-    monitor_pids[position] = fork();
-    if (monitor_pids[position] < 0)
-    {
-        perror("fork() failed in process_utils::_create_monitor()");
-        exit(-1);
-    }
-    else if (monitor_pids[position] == 0)
-    {
-        const char* const argv[] = {"bin/Monitor", "-i", pipes[position].output, "-o", pipes[position].input, NULL};
-        execvp(argv[0], const_cast<char* const*>(argv));
-        perror("execvp() failed in process_utils::create_monitors()");
-        exit(-1);
+            execvp(argv[0], const_cast<char* const*>(argv));
+            utils::perror_exit("execvp() @ process_utils::travel_monitor::create_monitors()");
+        }
     }
 }
 
 
-void process_utils::travel_monitor::create_monitors(pid_t monitor_pids[], structures::CommunicationPipes* pipes, const u_int16_t & num_monitors)
-{
-    for (size_t i = 0; i < num_monitors; i++)
-        process_utils::travel_monitor::_create_monitor(monitor_pids, pipes, i);
-}
 
-
-
-void process_utils::travel_monitor::kill_minitors_and_wait(pid_t monitor_pids[], travelMonitorIndex* tm_index)
+void process_utils::travel_monitor::create_connections(structures::NetworkCommunication* network_info, travelMonitorIndex* tm_index)
 {
     size_t active_monitors = (tm_index->input->num_monitors <= tm_index->num_countries) ? tm_index->input->num_monitors : tm_index->num_countries;
-    tm_index->has_sent_sigkill = true;
     for (size_t i = 0; i < active_monitors; i++)
-        kill(monitor_pids[i], SIGKILL);
-    int returnStatus;
-    while (wait(&returnStatus) > 0);
-}
-
-
-void process_utils::travel_monitor::cleanup(travelMonitorIndex* tm_index, structures::CommunicationPipes* pipes, pid_t* monitor_pids)
-{
-    process_utils::travel_monitor::free_and_delete_pipes(pipes, tm_index->input->num_monitors);
-    delete[] monitor_pids;
-    delete[] pipes;
-    delete tm_index;
+        network_info[i].client_socket = network_utils::create_socket_and_connect(&network_info[i].server_address);
 }
 
 
 
-int process_utils::travel_monitor::ready_fd(struct pollfd fdarr[], size_t num_fds)
+void process_utils::monitor::establish_connection(structures::NetworkCommunication & network_info)
 {
-    for (size_t i = 0; i < num_fds; i++)
-        if (fdarr[i].revents == POLLIN || fdarr[i].revents == (POLLIN | POLLHUP))
-            return i;
-    return -1;    
-}
+    /* get the hostname of the current machine */
+    char hostname[128] = {0};
+    if (gethostname(hostname, 128) < 0)
+        utils::perror_exit("gethostname() @ process_utils::monitor::establish_connection()");
+    struct hostent* foundhost = gethostbyname(hostname);
 
+    /* initialize the address information of the Monitor server */
+    network_utils::init_address(&network_info.server_address, network_info.port, foundhost);
 
-int process_utils::travel_monitor::dead_monitor(pid_t* monitor_pids, const pid_t & terminated_process, const size_t & num_monitors)
-{
-    for (size_t i = 0; i < num_monitors; i++)
-        if (monitor_pids[i] == terminated_process)
-            return i;
-    return -1;
+    /* create a socket for the server */
+    network_info.server_socket = network_utils::create_server_socket(&network_info.server_address, 5);
+
+    /* accept the connection from the client */
+    network_info.client_socket = network_utils::accept_connection(network_info.client_socket);
 }
 
 
