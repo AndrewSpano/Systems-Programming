@@ -35,7 +35,7 @@ namespace ipc
     void _wait_ack(const int & fd);
 
     void _send_numeric(const int & input_fd, const int & output_fd, const uint64_t & numeric, const uint64_t & buffer_size);
-    void _receive_numeric(const int & input_fd, const int & output_fd, const uint64_t & numeric, const uint64_t & buffer_size);
+    void _receive_numeric(const int & input_fd, const int & output_fd, uint64_t & numeric, const uint64_t & buffer_size);
 
     void _notify_and_wait_ack(const int & input_fd, const int & output_fd, const uint8_t & msg_id, const size_t & bytes_out, const uint64_t & buffer_size);
     void _send_message(const int & input_fd, const int & output_fd, const uint8_t & msg_id, const char buf[], size_t bytes_out, const uint64_t & buffer_size);

@@ -6,8 +6,9 @@
 #include <poll.h>
 #include <dirent.h>
 
-#include "../../include/utils/process_utils.hpp"
 #include "../../include/ipc/ipc.hpp"
+#include "../../include/utils/utils.hpp"
+#include "../../include/utils/process_utils.hpp"
 
 
 
@@ -74,15 +75,21 @@ void ipc::_wait_ack(const int & fd)
 
 void ipc::_send_numeric(const int & input_fd, const int & output_fd, const uint64_t & numeric, const uint64_t & buffer_size)
 {
-    /* let the other process know that we want to send a numeric value */
-    uint8_t msg_id = NUMERIC;
-    ssize_t ret = write(output_fd, &msg_id, sizeof(msg_id));
+    /* convert the numeric to Network Byte Order */
+    uint64_t _numeric_network_byte_order = htonl(numeric);
 
+    /* helper variables */
     char send_buf[buffer_size] = {0};
     size_t bytes_sent = 0;
     size_t bytes_left = sizeof(numeric);
-    char* _numeric_ptr = (char *) &numeric;
+    char* _numeric_ptr = (char *) &_numeric_network_byte_order;
 
+    /* let the other process know that we want to send a numeric value */
+    uint8_t msg_id = NUMERIC;
+    ssize_t ret = write(output_fd, &msg_id, sizeof(msg_id));
+    ipc::_wait_ack(input_fd);
+
+    /* pack numeric and sent it */
     while (bytes_left > 0)
     {
         size_t bytes_to_write = (bytes_left <= buffer_size) ? bytes_left : buffer_size;
@@ -97,18 +104,21 @@ void ipc::_send_numeric(const int & input_fd, const int & output_fd, const uint6
 }
 
 
-void ipc::_receive_numeric(const int & input_fd, const int & output_fd, const uint64_t & numeric, const uint64_t & buffer_size)
+void ipc::_receive_numeric(const int & input_fd, const int & output_fd, uint64_t & numeric, const uint64_t & buffer_size)
 {
-    /* wait a signal from the other process to start receiving the numeric value */
-    uint8_t dummy_msg_id = 0;
-    ipc::_poll_until_read(input_fd);
-    ssize_t ret = read(input_fd, &dummy_msg_id, sizeof(dummy_msg_id));
-
+    /* helper variables */
     size_t bytes_received = 0;
     size_t bytes_left = sizeof(numeric);
     char* _numeric_ptr = (char *) &numeric;
     uint8_t ack = ACK;
 
+    /* wait a signal from the other process to start receiving the numeric value */
+    uint8_t dummy_msg_id = 0;
+    ipc::_poll_until_read(input_fd);
+    ssize_t ret = read(input_fd, &dummy_msg_id, sizeof(dummy_msg_id));
+    ret = write(output_fd, &ack, sizeof(ack));
+
+    /* receive packed numeric */
     while (bytes_left > 0)
     {
         size_t bytes_to_receive = (bytes_left <= buffer_size) ? bytes_left : buffer_size;
@@ -123,6 +133,9 @@ void ipc::_receive_numeric(const int & input_fd, const int & output_fd, const ui
         bytes_received += bytes_to_receive;
         bytes_left -= bytes_to_receive;
     }
+
+    /* numeric was received in Network Byte Order, convert back to Host byte order */
+    numeric = ntohl(numeric);
 }
 
 

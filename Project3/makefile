@@ -10,10 +10,10 @@ ALL: travelMonitor Monitor
 # travel monitor program
 
 travelMonitor: travelMonitorMain parsing.o parsing_utils.o network_utils.o process_utils.o ipc.o setup.o bloom_filter.o skip_list.o virus_list.o queries.o utils.o
-	$(CC) -o bin/travelMonitor object/travelMonitor_objects/*.o object/common_objects/*.o $(CFLAGS) $(LIBS)
+	$(CC) -o bin/travelMonitorClient object/travelMonitor_objects/*.o object/common_objects/*.o $(CFLAGS) $(LIBS)
 
 travelMonitorMain:
-	$(CC) -c -o object/travelMonitor_objects/travel_monitor_main.o core/travelMonitor.cc $(CFLAGS) $(LIBS)
+	$(CC) -c -o object/travelMonitor_objects/travel_monitor_main.o core/travelMonitorClient.cc $(CFLAGS) $(LIBS)
 
 parsing.o:
 	$(CC) -c -o object/common_objects/parsing.o core/utils/parsing.cc $(CFLAGS) $(LIBS)
@@ -53,10 +53,10 @@ utils.o:
 # monitor program
 
 Monitor: MonitorMain parsing.o parsing_utils.o
-	$(CC) -o bin/Monitor object/Monitor_objects/*.o object/common_objects/*.o $(CFLAGS) $(LIBS)
+	$(CC) -o bin/monitorServer object/Monitor_objects/*.o object/common_objects/*.o $(CFLAGS) $(LIBS)
 
 MonitorMain:
-	$(CC) -c -o object/Monitor_objects/monitor_main.o core/Monitor.cc $(CFLAGS) $(LIBS)
+	$(CC) -c -o object/Monitor_objects/monitor_main.o core/monitorServer.cc $(CFLAGS) $(LIBS)
 
 
 # clean

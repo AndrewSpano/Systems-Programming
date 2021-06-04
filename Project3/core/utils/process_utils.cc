@@ -87,15 +87,15 @@ void process_utils::travel_monitor::create_monitors(pid_t monitor_pids[], struct
             char** argv = new char*[num_arguments];
 
             /* standard arguments to be copied in the arguments of the executable */
-            const char* const _argv[] = {"bin/Monitor", "-p", port_as_str,
-                                                        "-t", num_threads_as_str,
-                                                        "-b", socket_buffer_size_as_str,
-                                                        "-c", cyclic_buffer_size_as_str,
-                                                        "-s", bloom_filter_size_as_str};
+            const char* const _argv[] = {"bin/monitorServer", "-p", port_as_str,
+                                                              "-t", num_threads_as_str,
+                                                              "-b", socket_buffer_size_as_str,
+                                                              "-c", cyclic_buffer_size_as_str,
+                                                              "-s", bloom_filter_size_as_str};
             /* copy them */
             for (size_t i = 0; i < 11; i++)
             {
-                argv[i] = new char[16];
+                argv[i] = new char[32];
                 sprintf(argv[i], "%s", _argv[i]);
             }
             

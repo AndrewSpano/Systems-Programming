@@ -32,21 +32,18 @@ int main(int argc, char* argv[])
     structures::NetworkCommunication network_info(input.port);
 
     /* establish a connection with the parent process */
-    // std::cout << "M: Gonna establish connection.\n";
     process_utils::monitor::establish_connection(network_info);
-    // std::cout << "M: Established connection.\n";
-    // std::cout << "M: Sockets are: Client socket = " << network_info.client_socket << ", server socket = " << network_info.server_socket << std::endl;
 
     /////////////////////
 
-    char buf[256] = {0};
-    int fd = network_info.client_socket;
-    uint8_t id;
-    size_t bytes_in;
+    // char buf[256] = {0};
+    // int fd = network_info.client_socket;
+    // uint8_t id;
+    // size_t bytes_in;
 
-    ipc::_receive_message(fd, fd, id, buf, bytes_in, input.socket_buffer_size);
+    // ipc::_receive_message(fd, fd, id, buf, bytes_in, input.socket_buffer_size);
 
-    std::cout << "M: Received message: " << buf << std::endl;
+    // std::cout << "M: Received message: " << buf << std::endl;
 
     // std::cout << "M: Gonna read from buf." << std::endl;
     // ssize_t ret = read(network_info.client_socket, buf, 256);
@@ -54,9 +51,11 @@ int main(int argc, char* argv[])
 
     ///////////////////////
 
-    /* create threads */
 
-    /* parse the bloom filters in multithreaded manner */
+    /* create threads */
+    
+
+    /* parse the data in a multithreaded manner */
 
     /* send the bloom filters to the parent process */
 
