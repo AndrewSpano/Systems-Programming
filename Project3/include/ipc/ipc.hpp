@@ -2,6 +2,8 @@
 #define _IPC
 
 
+#include <iostream>
+
 
 typedef enum communicationID
 {

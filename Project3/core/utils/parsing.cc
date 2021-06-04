@@ -152,7 +152,7 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], stru
     bool flag_s = false;
 
 
-    for (size_t i = 1; i < 13; i += 2)
+    for (size_t i = 1; i < 11; i += 2)
     {
         std::string flag(argv[i]);
         std::string value(argv[i + 1]);

@@ -32,7 +32,27 @@ int main(int argc, char* argv[])
     structures::NetworkCommunication network_info(input.port);
 
     /* establish a connection with the parent process */
+    // std::cout << "M: Gonna establish connection.\n";
     process_utils::monitor::establish_connection(network_info);
+    // std::cout << "M: Established connection.\n";
+    // std::cout << "M: Sockets are: Client socket = " << network_info.client_socket << ", server socket = " << network_info.server_socket << std::endl;
+
+    /////////////////////
+
+    char buf[256] = {0};
+    int fd = network_info.client_socket;
+    uint8_t id;
+    size_t bytes_in;
+
+    ipc::_receive_message(fd, fd, id, buf, bytes_in, input.socket_buffer_size);
+
+    std::cout << "M: Received message: " << buf << std::endl;
+
+    // std::cout << "M: Gonna read from buf." << std::endl;
+    // ssize_t ret = read(network_info.client_socket, buf, 256);
+    // std::cout << "M: Read from buf: " << buf << std::endl;
+
+    ///////////////////////
 
     /* create threads */
 
@@ -76,12 +96,13 @@ int main(int argc, char* argv[])
     //     }
     // }
     
-    // /* close the pipes */
-    // close(input_fd);
-    // close(output_fd);
+    /* close the server socket */
+    process_utils::monitor::close_connection(network_info);
 
     /* free allocated memory */
     delete m_index;
+
+    std::cout << "M: Exiting Monitor!\n";
 
     return EXIT_SUCCESS;
 }

@@ -46,7 +46,23 @@ int main(int argc, char* argv[])
     process_utils::travel_monitor::create_monitors(monitor_pids, network_info, tm_index);
 
     /* create the connections with the Monitor child processes, that is, create file descriptors (sockets) to communicate */
+    // std::cout << "TM: Gonna create connections.\n";
     process_utils::travel_monitor::create_connections(network_info, tm_index);
+    // std::cout << "TM: Created connections.\n";
+
+    ///////////////////////
+
+    char buf[256] = {0};
+    strcpy(buf, "IPC should be working by now.");
+
+    int fd = network_info[0].client_socket;
+    ipc::_send_message(fd, fd, 1, buf, 256, input.socket_buffer_size);
+
+    // std::cout << "TM: Gonna write to buf: " << buf << std::endl;
+    // ssize_t ret = write(network_info[0].client_socket, buf, 256);
+    // std::cout << "TM: Wrote to buf." << std::endl;
+
+    ///////////////////////
 
     /* now that the connections have been established, receive the bloom filters */
 
@@ -141,6 +157,12 @@ int main(int argc, char* argv[])
     // process_utils::travel_monitor::kill_minitors_and_wait(monitor_pids, tm_index);
     // tm_index->logger->write_to_logfile();
     // process_utils::travel_monitor::cleanup(tm_index, pipes, monitor_pids);
+
+    /* close the client sockets */
+    process_utils::travel_monitor::close_connections(network_info, tm_index);
+
+    /* free the allocated memory */
+    delete tm_index;
 
     std::cout << std::endl;
     return EXIT_SUCCESS;

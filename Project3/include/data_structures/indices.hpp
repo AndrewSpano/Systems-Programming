@@ -130,7 +130,7 @@ typedef struct travelMonitorIndex
     { return country_id % input->num_monitors; }
 
     size_t num_countries_of_monitor(const size_t & monitor_id)
-    { return num_countries / input->num_monitors + ((monitor_id > (num_countries % input->num_monitors)) ? 1 : 0); }
+    { return num_countries / input->num_monitors + ((num_countries % input->num_monitors > 0) && ((monitor_id < num_countries % input->num_monitors)) ? 1 : 0); }
 
     void get_countries_of_monitor(std::string target_arr[], const size_t & monitor_id)
     {

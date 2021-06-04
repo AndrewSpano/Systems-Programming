@@ -62,10 +62,10 @@ void process_utils::travel_monitor::create_monitors(pid_t monitor_pids[], struct
 {
     /* convert key variables to strings */
     char num_threads_as_str[16] = {0}, socket_buffer_size_as_str[16] = {0}, cyclic_buffer_size_as_str[16] = {0}, bloom_filter_size_as_str[16] = {0};
-    snprintf(num_threads_as_str, 16, "%d", tm_index->input->num_threads);
-    snprintf(socket_buffer_size_as_str, 16, "%d", tm_index->input->socket_buffer_size);
-    snprintf(cyclic_buffer_size_as_str, 16, "%d", tm_index->input->cyclic_buffer_size);
-    snprintf(bloom_filter_size_as_str, 16, "%d", tm_index->input->bf_size);
+    sprintf(num_threads_as_str, "%hu", tm_index->input->num_threads);
+    sprintf(socket_buffer_size_as_str, "%lu", tm_index->input->socket_buffer_size);
+    sprintf(cyclic_buffer_size_as_str, "%hu", tm_index->input->cyclic_buffer_size);
+    sprintf(bloom_filter_size_as_str, "%lu", tm_index->input->bf_size);
 
     /* iterate to create each monitor separately */
     for (size_t i = 0; i < tm_index->input->num_monitors; i++)
@@ -78,30 +78,40 @@ void process_utils::travel_monitor::create_monitors(pid_t monitor_pids[], struct
         else if (monitor_pids[i] == 0)
         {
             char port_as_str[16] = {0};
-            snprintf(port_as_str, 16, "%d", network_info[i].port);
+            sprintf(port_as_str, "%d", network_info[i].port);
             
             uint16_t num_countries_of_monitor = tm_index->num_countries_of_monitor(i);
             size_t num_arguments = 11 + num_countries_of_monitor + 1;
 
-            /* executable main arguments */
-            char* argv[num_arguments] = {"bin/Monitor", "-p", port_as_str,
+            /* executable arguments */
+            char** argv = new char*[num_arguments];
+
+            /* standard arguments to be copied in the arguments of the executable */
+            const char* const _argv[] = {"bin/Monitor", "-p", port_as_str,
                                                         "-t", num_threads_as_str,
                                                         "-b", socket_buffer_size_as_str,
                                                         "-c", cyclic_buffer_size_as_str,
                                                         "-s", bloom_filter_size_as_str};
-            /* countries paths */
+            /* copy them */
+            for (size_t i = 0; i < 11; i++)
+            {
+                argv[i] = new char[16];
+                sprintf(argv[i], "%s", _argv[i]);
+            }
+            
+            /* countries paths arguments */
             std::string countries[num_countries_of_monitor];
             tm_index->get_countries_of_monitor(countries, i);
             for (size_t arg = 11; arg < num_arguments - 1; arg++)
             {
-                char path[256] = {0};
-                sprintf(path, "%s/%s", tm_index->input->root_dir.c_str(), countries[arg - 11].c_str());
                 argv[arg] = new char[256];
-                strcpy(argv[arg], path);
+                sprintf(argv[arg], "%s/%s", tm_index->input->root_dir.c_str(), countries[arg - 11].c_str());
             }
+
             /* NULL */
             argv[num_arguments - 1] = NULL;
 
+            /* execute the Monitor Server */
             execvp(argv[0], const_cast<char* const*>(argv));
             utils::perror_exit("execvp() @ process_utils::travel_monitor::create_monitors()");
         }
@@ -115,6 +125,16 @@ void process_utils::travel_monitor::create_connections(structures::NetworkCommun
     size_t active_monitors = (tm_index->input->num_monitors <= tm_index->num_countries) ? tm_index->input->num_monitors : tm_index->num_countries;
     for (size_t i = 0; i < active_monitors; i++)
         network_info[i].client_socket = network_utils::create_socket_and_connect(&network_info[i].server_address);
+}
+
+
+
+void process_utils::travel_monitor::close_connections(structures::NetworkCommunication* network_info, travelMonitorIndex* tm_index)
+{
+    size_t active_monitors = (tm_index->input->num_monitors <= tm_index->num_countries) ? tm_index->input->num_monitors : tm_index->num_countries;
+    for (size_t i = 0; i < active_monitors; i++)
+        if (close(network_info[i].client_socket) < 0)
+            utils::perror_exit("close() @ process_utils::travel_monitor::close_connections()");
 }
 
 
@@ -134,7 +154,15 @@ void process_utils::monitor::establish_connection(structures::NetworkCommunicati
     network_info.server_socket = network_utils::create_server_socket(&network_info.server_address, 5);
 
     /* accept the connection from the client */
-    network_info.client_socket = network_utils::accept_connection(network_info.client_socket);
+    network_info.client_socket = network_utils::accept_connection(network_info.server_socket);
+}
+
+
+
+void process_utils::monitor::close_connection(structures::NetworkCommunication & network_info)
+{
+    if (close(network_info.server_socket) < 0)
+        utils::perror_exit("close() @ process_utils::travel_monitor::close_connections()");
 }
 
 

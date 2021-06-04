@@ -52,6 +52,9 @@ int network_utils::create_server_socket(struct sockaddr_in* address, const int &
 int network_utils::accept_connection(const int & server_socket)
 {
     struct sockaddr_in client_address;
-	socklen_t clientlen;
-    return accept(server_socket, (struct sockaddr *) &client_address, &clientlen);
+	socklen_t clientlen = sizeof(client_address);
+    int client_socket = accept(server_socket, (struct sockaddr *) &client_address, &clientlen);
+    if (client_socket < 0)
+        utils::perror_exit("accept() @ network_utils::accept_connection()");
+    return client_socket;
 }

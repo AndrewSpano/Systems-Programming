@@ -32,11 +32,15 @@ namespace process_utils
 
         void create_connections(structures::NetworkCommunication* network_info, travelMonitorIndex* tm_index);
         
+        void close_connections(structures::NetworkCommunication* network_info, travelMonitorIndex* tm_index);
     }
 
     namespace monitor
     {
         void establish_connection(structures::NetworkCommunication & network_info);
+
+        void close_connection(structures::NetworkCommunication & network_info);
+
         void parse_countries(MonitorIndex* m_index, const std::string & root_dir, ErrorHandler & handler);
     }
 }

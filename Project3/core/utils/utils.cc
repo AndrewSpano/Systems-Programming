@@ -23,8 +23,8 @@ void utils::read_from_buf(char buf[], size_t & offset, size_t* len, char data[])
 }
 
 
-void utils::perror_exit(char* error_message)
+void utils::perror_exit(const std::string & error_message)
 {
-    perror(error_message);
+    perror(error_message.c_str());
     exit(1);
 }
