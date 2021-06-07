@@ -167,30 +167,30 @@ void process_utils::monitor::close_connection(structures::NetworkCommunication &
 
 
 
-void process_utils::monitor::parse_countries(MonitorIndex* m_index, const std::string & root_dir, ErrorHandler & handler)
-{
-    for (size_t country_id = 0; country_id < m_index->num_countries; country_id++)
-    {
-        std::string* country = &(m_index->countries[country_id]);
-        char country_dir_path[256] = {0};
-        sprintf(country_dir_path, "%s/%s", root_dir.c_str(), country->c_str());
+// void process_utils::monitor::parse_countries(MonitorIndex* m_index, const std::string & root_dir, ErrorHandler & handler)
+// {
+//     for (size_t country_id = 0; country_id < m_index->num_countries; country_id++)
+//     {
+//         std::string* country = &(m_index->countries[country_id]);
+//         char country_dir_path[256] = {0};
+//         sprintf(country_dir_path, "%s/%s", root_dir.c_str(), country->c_str());
 
-        struct dirent **namelist;
-        int num_files = scandir(country_dir_path, &namelist, NULL, alphasort);
+//         struct dirent **namelist;
+//         int num_files = scandir(country_dir_path, &namelist, NULL, alphasort);
 
-        for (size_t i = 0; i < num_files; i++)
-        {
-            if (strcmp(namelist[i]->d_name, ".") && strcmp(namelist[i]->d_name, ".."))
-            {
-                std::string* filename = new std::string(namelist[i]->d_name);
-                char path[256];
-                sprintf(path, "%s/%s", country_dir_path, filename->c_str()); 
+//         for (size_t i = 0; i < num_files; i++)
+//         {
+//             if (strcmp(namelist[i]->d_name, ".") && strcmp(namelist[i]->d_name, ".."))
+//             {
+//                 std::string* filename = new std::string(namelist[i]->d_name);
+//                 char path[256];
+//                 sprintf(path, "%s/%s", country_dir_path, filename->c_str()); 
 
-                parsing::dataset::parse_country_dataset(country, path, m_index, handler);
-                m_index->files_per_country[country_id]->insert(filename);
-            }
-            free(namelist[i]);
-        }
-        free(namelist);
-    }
-}
+//                 parsing::dataset::parse_country_dataset(country, path, m_index, handler);
+//                 m_index->files_per_country[country_id]->insert(filename);
+//             }
+//             free(namelist[i]);
+//         }
+//         free(namelist);
+//     }
+// }

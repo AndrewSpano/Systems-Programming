@@ -48,115 +48,90 @@ int main(int argc, char* argv[])
     /* create the connections with the Monitor child processes, that is, create file descriptors (sockets) to communicate */
     process_utils::travel_monitor::create_connections(network_info, tm_index);
 
-    ///////////////////////
-
-    // char buf[256] = {0};
-    // strcpy(buf, "IPC should be working by now.");
-
-    // int fd = network_info[0].client_socket;
-    // ipc::_send_message(fd, fd, 1, buf, 256, input.socket_buffer_size);
-
-    // std::cout << "TM: Gonna write to buf: " << buf << std::endl;
-    // ssize_t ret = write(network_info[0].client_socket, buf, 256);
-    // std::cout << "TM: Wrote to buf." << std::endl;
-
-    ///////////////////////
-
 
     /* now that the connections have been established, receive the bloom filters */
+    ipc::travel_monitor::setup::receive_bloom_filters(tm_index, network_info);
 
-    // /* create two named pipes for each child process: 1 for coordination and 1 for data tranfer */
-    // structures::CommunicationPipes* pipes = new structures::CommunicationPipes[input.num_monitors];
-    // process_utils::travel_monitor::create_pipes(pipes, input.num_monitors);
+    /* get an option from the user for which command to execute */
+    std::string line = "";
+    int command = parsing::user_input::get_option(line, true);
+    std::cout << std::endl;
 
-    // /* create the monitor processes and send the appropriate values */
-    // pid_t* monitor_pids = new pid_t[input.num_monitors];
-    // process_utils::travel_monitor::create_monitors(monitor_pids, pipes, input.num_monitors);
+    /* iterate until user gives the "/exit" command */
+    while (command)
+    {
+        /* distinguish which command the user wants to use, and execute it if it's format is correct */
+        if (command == 1)
+        {
+            std::string citizen_id = "";
+            Date date;
+            std::string country_from = "";
+            std::string country_to = "";
+            std::string virus_name = "";
 
-    // /* receive the bloom filters (per virus) from the monitors */
-    // ipc::travel_monitor::setup::receive_bloom_filters(tm_index, pipes);
+            parsing::user_input::parse_travel_request(line, citizen_id, date, country_from, country_to, virus_name, handler);
+            if (!handler.check_and_print())
+            {
+                bool was_accepted = false;
+                structures::TRData tr_data(citizen_id, &date, country_from, country_to, virus_name);
 
-    // /* get an option from the user for which command to execute */
-    // std::string line = "";
-    // int command = parsing::user_input::get_option(line, true);
-    // std::cout << std::endl;
+                ipc::travel_monitor::queries::travel_request(tm_index, network_info, tr_data, handler, was_accepted);
 
-    // /* iterate until user gives the "/exit" command */
-    // while (command)
-    // {
-    //     /* distinguish which command the user wants to use, and execute it if it's format is correct */
-    //     if (command == 1)
-    //     {
-    //         std::string citizen_id = "";
-    //         Date date;
-    //         std::string country_from = "";
-    //         std::string country_to = "";
-    //         std::string virus_name = "";
+                if (!handler.check_and_print())
+                {
+                    structures::TRQuery* query = new structures::TRQuery(&date, country_from, virus_name, was_accepted);
+                    tm_index->logger->insert(query);
+                }
+            }
+        }
+        else if (command == 2)
+        {
+            std::string virus_name = "";
+            Date date1;
+            Date date2;
+            std::string country = "";
 
-    //         parsing::user_input::parse_travel_request(line, citizen_id, date, country_from, country_to, virus_name, handler);
-    //         if (!handler.check_and_print())
-    //         {
-    //             bool was_accepted = false;
-    //             structures::TRData tr_data(citizen_id, &date, country_from, country_to, virus_name);
+            parsing::user_input::parse_travel_stats(line, virus_name, date1, date2, country, handler);
+            if (!handler.check_and_print())
+            {
+                structures::TSData ts_data(virus_name, &date1, &date2, country);
+                ipc::travel_monitor::queries::travel_stats(tm_index, ts_data, handler);
+                handler.check_and_print();
+            }
+        }
+        else if (command == 3)
+        {
+            std::string country = "";
 
-    //             ipc::travel_monitor::queries::travel_request(tm_index, pipes, tr_data, handler, was_accepted);
+            parsing::user_input::parse_add_vaccination_records(line, country, handler);
+            if (!handler.check_and_print())
+            {
+                ipc::travel_monitor::queries::add_vaccination_records(tm_index, network_info, country, handler);
+                handler.check_and_print();
+            }
+        }
+        else if (command == 4)
+        {
+            std::string citizen_id = "";
 
-    //             if (!handler.check_and_print())
-    //             {
-    //                 structures::TRQuery* query = new structures::TRQuery(&date, country_from, virus_name, was_accepted);
-    //                 tm_index->logger->insert(query);
-    //             }
-    //         }
-    //     }
-    //     else if (command == 2)
-    //     {
-    //         std::string virus_name = "";
-    //         Date date1;
-    //         Date date2;
-    //         std::string country = "";
+            parsing::user_input::parse_search_vaccination_status(line, citizen_id, handler);
+            if (!handler.check_and_print())
+            {
+                ipc::travel_monitor::queries::search_vaccination_status(tm_index, network_info, citizen_id, handler);
+                handler.check_and_print();
+            }
+        }
 
-    //         parsing::user_input::parse_travel_stats(line, virus_name, date1, date2, country, handler);
-    //         if (!handler.check_and_print())
-    //         {
-    //             structures::TSData ts_data(virus_name, &date1, &date2, country);
-    //             ipc::travel_monitor::queries::travel_stats(tm_index, ts_data, handler);
-    //             handler.check_and_print();
-    //         }
-    //     }
-    //     else if (command == 3)
-    //     {
-    //         std::string country = "";
+        /* get the next command */
+        std::cout << std::endl;
+        command = parsing::user_input::get_option(line);
+        std::cout << std::endl;
+    }
 
-    //         parsing::user_input::parse_add_vaccination_records(line, country, handler);
-    //         if (!handler.check_and_print())
-    //         {
-    //             ipc::travel_monitor::queries::add_vaccination_records(tm_index, monitor_pids, pipes, country, handler);
-    //             handler.check_and_print();
-    //         }
-    //     }
-    //     else if (command == 4)
-    //     {
-    //         std::string citizen_id = "";
-
-    //         parsing::user_input::parse_search_vaccination_status(line, citizen_id, handler);
-    //         if (!handler.check_and_print())
-    //         {
-    //             ipc::travel_monitor::queries::search_vaccination_status(tm_index, pipes, citizen_id, handler);
-    //             handler.check_and_print();
-    //         }
-    //     }
-
-    //     /* get the next command */
-    //     std::cout << std::endl;
-    //     command = parsing::user_input::get_option(line);
-    //     std::cout << std::endl;
-    // }
-
-    // /* kill all the monitors, then make sure they have died, write to the logfiles and cleanup the allocated memory */
-    // process_utils::travel_monitor::kill_minitors_and_wait(monitor_pids, tm_index);
-    // tm_index->logger->write_to_logfile();
-    // process_utils::travel_monitor::cleanup(tm_index, pipes, monitor_pids);
-
+    /* kill all the monitors, then make sure they have died, write to the logfiles and cleanup the allocated memory */
+    ipc::travel_monitor::queries::quit_monitors(tm_index, network_info);
+    tm_index->logger->write_to_logfile();
+    
     /* close the client sockets */
     process_utils::travel_monitor::close_connections(network_info, tm_index);
 

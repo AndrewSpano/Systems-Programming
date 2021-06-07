@@ -4,6 +4,7 @@
 #define CURRENT_YEAR 2021
 
 #include <iostream>
+#include <pthread.h>
 
 #include "date.hpp"
 #include "errors.hpp"
@@ -31,11 +32,11 @@ namespace parsing
 
     }
 
-    void parse_record_line(std::string* country, const std::string & line, MonitorIndex* m_index, ErrorHandler & handler);
+    void parse_record_line(std::string* country, const std::string & line, MonitorIndex* m_index, pthread_mutex_t* ds_mutex, ErrorHandler & handler);
 
     namespace dataset
     {
-        void parse_country_dataset(std::string* country, const std::string & dataset_path, MonitorIndex* m_index, ErrorHandler & handler);
+        void parse_country_dataset(std::string* country, const std::string & dataset_path, MonitorIndex* m_index, pthread_mutex_t* ds_mutex, ErrorHandler handler);
     }
 
 

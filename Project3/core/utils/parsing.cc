@@ -5,9 +5,11 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <pthread.h>
 
-#include "../../include/utils/parsing.hpp"
+#include "../../include/utils/utils.hpp"
 #include "../../include/utils/macros.hpp"
+#include "../../include/utils/parsing.hpp"
 
 
 void parsing::arguments::parse_travel_monitor_args(const int & argc, char* argv[], structures::travelMonitorInput & input, ErrorHandler & handler)
@@ -233,15 +235,19 @@ void parsing::arguments::parse_monitor_args(const int & argc, char* argv[], stru
         return;
     }
 
+    /* get the name of the root directory */
+    input.root_dir = parent_directory(argv[11]);
+
+    /* read the countries names ony by one */
     input.num_countries = argc - 11;
-    input.countries_paths = new std::string[input.num_countries];
+    input.countries = new std::string[input.num_countries];
     for (size_t i = 11; i < argc; i++)
-        input.countries_paths[i - 11] = std::string(argv[i]);    
+        input.countries[i - 11] = file_basename(argv[i]);
 }
 
 
 
-void parsing::parse_record_line(std::string* country, const std::string & line, MonitorIndex* m_index, ErrorHandler & handler)
+void parsing::parse_record_line(std::string* country, const std::string & line, MonitorIndex* m_index, pthread_mutex_t* ds_mutex, ErrorHandler & handler)
 {
     size_t start = 0, end = 0;
 
@@ -278,20 +284,8 @@ void parsing::parse_record_line(std::string* country, const std::string & line, 
 
     /* create a Record from the existing data */
     Record* new_record = new Record(id, name, surname, country, age);
-    /* scan all the existing records to see if a Record with the same ID exists */
-    Record* same_id_record = m_index->records->get(id);
 
-    /*
-    ERROR CASES:
-        1. A Record with the same ID but a different field exists -> ERROR, continue
-        2. Input after Record (virus, YES/NO, date) is incorrect -> ERROR, continue
-        3. Same Record exists, vaccination data is contradictory to new data -> ERROR, continue
-    */
-
-    /* 1. if a record with the same ID exists, and the new record is incompatible with it, continue */
-    if (same_id_record && *new_record != *same_id_record) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
-
-    /* 2. parse the virusName */
+    /* parse the virusName */
     parsing::utils::parse_next_substring(line, start, end);
     std::string virus_name = line.substr(start, end - start);
     if (end == 0 || !parsing::utils::is_valid_alphanumerical(virus_name, true)) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
@@ -303,10 +297,6 @@ void parsing::parse_record_line(std::string* country, const std::string & line, 
     if (end == 0 || !parsing::utils::is_valid_status(status)) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
     start = end;
 
-    /* 3. check if current record contradicts vaccination data for existing record with same ID */
-    if (same_id_record && m_index->virus_list->exists_in_virus_name(new_record->id, virus_name, false, false))
-        DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
-
     /* 2. if the status is "NO", make sure that this is the last string of the line and continue */
     if (status == "NO")
     {
@@ -316,7 +306,9 @@ void parsing::parse_record_line(std::string* country, const std::string & line, 
         if (end != 0) DELETE_HANDLE_AND_RETURN(new_record, handler, INVALID_RECORD, line)
 
         /* if we get here the Record is legit, add it to the data structures */
-        m_index->insert(same_id_record, new_record, virus_name, status);
+	    pthread_mutex_lock(ds_mutex);
+        m_index->insert(new_record, virus_name, status);
+        pthread_mutex_unlock(ds_mutex);
     }
 
     /* 2. if the status is "YES", parse the data and make sure that it is the last string */
@@ -335,12 +327,14 @@ void parsing::parse_record_line(std::string* country, const std::string & line, 
 
         /* if we get here the Record is legit, add it to the data structures */
         Date* date = new Date(date_str);
-        m_index->insert(same_id_record, new_record, virus_name, status, date);
+	    pthread_mutex_lock(ds_mutex);
+        m_index->insert(new_record, virus_name, status, date);
+        pthread_mutex_unlock(ds_mutex);
     }
 }
 
 
-void parsing::dataset::parse_country_dataset(std::string* country, const std::string & dataset_path, MonitorIndex* m_index, ErrorHandler & handler)
+void parsing::dataset::parse_country_dataset(std::string* country, const std::string & dataset_path, MonitorIndex* m_index, pthread_mutex_t* ds_mutex, ErrorHandler handler)
 {
     /* create an ifstream item to open and navigate the file */
     std::ifstream dataset(dataset_path, std::ios::binary);
@@ -355,7 +349,7 @@ void parsing::dataset::parse_country_dataset(std::string* country, const std::st
     while (line != "")
     {
         /* parse the next record, and if it is valid, add it to the monitor index (data structures) */
-        parsing::parse_record_line(country, line, m_index, handler);
+        parsing::parse_record_line(country, line, m_index, ds_mutex, handler);
         handler.check_and_print();
         /* read the next line */
         std::getline(dataset, line);

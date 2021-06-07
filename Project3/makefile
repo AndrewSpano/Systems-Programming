@@ -52,11 +52,14 @@ utils.o:
 ########################################################################################
 # monitor program
 
-Monitor: MonitorMain parsing.o parsing_utils.o
+Monitor: MonitorMain parsing.o parsing_utils.o thread_utils.o
 	$(CC) -o bin/monitorServer object/Monitor_objects/*.o object/common_objects/*.o $(CFLAGS) $(LIBS)
 
 MonitorMain:
 	$(CC) -c -o object/Monitor_objects/monitor_main.o core/monitorServer.cc $(CFLAGS) $(LIBS)
+
+thread_utils.o:
+	$(CC) -c -o object/Monitor_objects/thread_utils.o core/utils/thread_utils.cc $(CFLAGS) $(LIBS)
 
 
 # clean

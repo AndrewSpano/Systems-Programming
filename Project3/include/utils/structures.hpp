@@ -8,6 +8,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+#include <pthread.h>
 
 #include "date.hpp"
 #include "utils.hpp"
@@ -16,6 +17,7 @@
 namespace structures
 {
 
+    /// defines the travelMonitorClient input parameters
     typedef struct travelMonitorInput
     {
         uint16_t num_monitors = 0;
@@ -27,13 +29,17 @@ namespace structures
 
         void print(void)
         {
-            std::cout << "Number of Monitors: " << this->num_monitors << ", Socket Buffer Size: " << this->socket_buffer_size
-                      << ", Cyclic Buffer Size: " << this->cyclic_buffer_size << ", Bloom Filter Size: " << this->bf_size
-                      << ", Root Directory: " << this->root_dir << ", Number of Threads: " << this->num_threads << std::endl;
+            std::cout << "Number of Monitors: " << num_monitors << ", Socket Buffer Size: " << socket_buffer_size
+                      << ", Cyclic Buffer Size: " << cyclic_buffer_size << ", Bloom Filter Size: " << bf_size
+                      << ", Root Directory: " << root_dir << ", Number of Threads: " << num_threads << std::endl;
         }
     } travelMonitorInput;
 
 
+
+
+
+    /// defines the monitorServer input parameters
     typedef struct MonitorInput
     {
         uint16_t port = 0;
@@ -41,24 +47,29 @@ namespace structures
         uint64_t socket_buffer_size = 0;
         uint16_t cyclic_buffer_size = 0;
         uint64_t bf_size = 0;
+        std::string root_dir = "";
         uint16_t num_countries = 0;
-        std::string* countries_paths = NULL;
+        std::string* countries = NULL;
 
         ~MonitorInput(void)
-        { if (countries_paths != NULL) delete[] countries_paths; }
+        { if (countries != NULL) delete[] countries; }
 
         void print(void)
         {
-            std::cout << "Port: " << this->port << ", Number of Threads: " << this->num_threads
-                      << ", Socket Buffer Size: " << this->socket_buffer_size << ", Cyclic Buffer Size: " << this->cyclic_buffer_size
-                      << ", Bloom Filter Size: " << this->bf_size << ", Number of countries: " << this->num_countries << std::endl;
-            for (size_t i = 0; i < this->num_countries; i++)
-                std::cout << "\t" << countries_paths[i] << std::endl;            
+            std::cout << "Port: " << port << ", Number of Threads: " << num_threads
+                      << ", Socket Buffer Size: " << socket_buffer_size << ", Cyclic Buffer Size: " << cyclic_buffer_size
+                      << ", Bloom Filter Size: " << bf_size << ", Root Directory = " << root_dir
+                      << ", Number of countries: " << num_countries << std::endl;
+            for (size_t i = 0; i < num_countries; i++)
+                std::cout << "\t" << countries[i] << std::endl;            
         }
     } MonitorInput;
 
 
 
+
+
+    /// defines the sockets (fds) used for communication
     typedef struct NetworkCommunication
     {
         int client_socket = -1;
@@ -75,6 +86,76 @@ namespace structures
 
 
 
+
+
+    /// defines the cyclic buffer from which the monitorServer threads will get files to process
+    typedef struct CyclicBuffer
+    {
+        uint16_t size = 0;
+        char** buffer = NULL;
+        uint16_t start = 0;
+        uint16_t end = 0;
+        uint16_t count = 0;
+
+        CyclicBuffer(const uint16_t & _size): size(_size), start(0), end(0), count(0)
+        {
+            buffer = new char*[size];
+            for (size_t i = 0; i < size; i++)
+                buffer[i] = new char[256];
+            
+        }
+
+        ~CyclicBuffer(void)
+        {
+            if (buffer)
+            {
+                for (size_t i = 0; i < size; i++)
+                    delete[] buffer[i];
+                delete[] buffer;
+            }
+            buffer = NULL;
+        }
+
+        void insert(char str[])
+        {
+            memcpy(buffer[end], str, strlen(str) + 1);
+            end = (end + 1) % size;
+            count++;
+        }
+
+        char* remove(void)
+        {
+            char* str = new char[256];
+            strcpy(str, buffer[start]);
+            memset(buffer[start], 0, 256);
+            start = (start + 1) % size;
+            count--;
+            return str;
+        }
+
+        bool is_empty(void)
+        { return count == 0; }
+
+        bool is_full(void)
+        { return count == size; }
+    } CyclicBuffer;
+
+
+
+    /// defines the pthread variables used to ensure that race conditions are not violated
+    typedef struct RaceConditions
+    {
+        pthread_mutex_t buffer_access;
+        pthread_mutex_t data_structures_access;
+        pthread_cond_t cond_nonempty;
+        pthread_cond_t cond_nonfull;
+    } RaceConditions;
+
+
+
+
+
+    /// defines the structure of a Travel Request Query
     typedef struct TRQuery
     {
         Date* date = NULL;
@@ -130,6 +211,9 @@ namespace structures
 
 
 
+
+
+    /// defines the structure of a Travel Request Query Data
     typedef struct TRData
     {
         std::string citizen_id = "";
@@ -187,6 +271,9 @@ namespace structures
 
 
 
+
+
+    /// defines the structure of a Travel Stats Query
     typedef struct TSData
     {
         std::string virus_name = "";
@@ -201,6 +288,9 @@ namespace structures
 
 
 
+
+
+    /// defines the structure of a Vaccination Status Query
     typedef struct VaccinationStatus
     {
         std::string virus_name = "";

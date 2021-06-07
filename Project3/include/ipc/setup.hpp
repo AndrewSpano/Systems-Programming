@@ -14,8 +14,8 @@ namespace ipc
     {
         namespace setup
         {
-            // void _receive_bloom_filters(travelMonitorIndex* tm_index, const int & input_fd, const int & output_fd);
-            // void receive_bloom_filters(travelMonitorIndex* tm_index, const structures::CommunicationPipes pipes[]);
+            void _receive_bloom_filters(travelMonitorIndex* tm_index, const int & input_fd, const int & output_fd);
+            void receive_bloom_filters(travelMonitorIndex* tm_index, structures::NetworkCommunication* network_info);
         }
     }
 
@@ -23,7 +23,7 @@ namespace ipc
     {
         namespace setup
         {
-            // void send_bloom_filters(MonitorIndex* m_index, const structures::CommunicationPipes* pipes);
+            void send_bloom_filters(MonitorIndex* m_index, const int & input_fd, const int & output_fd);
         }
     }
 }
