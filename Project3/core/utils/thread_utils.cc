@@ -97,7 +97,6 @@ void* thread_utils::_thread_consumer(void* ptr)
 
         /* parse it */
         parsing::dataset::parse_country_dataset(country_ptr, filepath, m_index, &race_cond.data_structures_access, handler);
-        std::cout << "\t\tData file " << filepath << " parsed!\n";
 
         /* free the file name */
         delete[] path;
@@ -113,7 +112,7 @@ void* thread_utils::_thread_consumer(void* ptr)
     }
 
     /* should never be executed */
-    return NULL;
+    pthread_exit(NULL);
 }
 
 
@@ -171,7 +170,7 @@ void thread_utils::produce(MonitorIndex* m_index)
 void thread_utils::produce_new(MonitorIndex* m_index, const std::string & country)
 {
     /* get pointer of the specified country */
-    const int & country_id = m_index->country_id(std::string(country));
+    const int country_id = m_index->country_id(std::string(country));
     std::string* country_ptr = &(m_index->input->countries[country_id]);
 
     /* total new data files that will be found */
@@ -183,7 +182,7 @@ void thread_utils::produce_new(MonitorIndex* m_index, const std::string & countr
 
     /* parse again the country directory and look for new files */
     char country_dir_path[256] = {0};
-    sprintf(country_dir_path, "/%s/%s", m_index->input->root_dir.c_str(), country_ptr->c_str());
+    sprintf(country_dir_path, "%s/%s", m_index->input->root_dir.c_str(), country_ptr->c_str());
     struct dirent **namelist;
     int num_files = scandir(country_dir_path, &namelist, NULL, alphasort);
 

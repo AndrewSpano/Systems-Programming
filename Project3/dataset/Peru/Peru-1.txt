@@ -1,0 +1,39 @@
+4715 GvPFtF nZbNpiJETG Peru 72 SARS-1 YES 14-11-0280
+2835 QgfDUt HJuDhMnDqofn Peru 63 H1N1 NO
+4330 YqYfTHD XVVK Peru 31 COVID-19 NO
+1474 EFTKlSsZINu QpbdX Peru 70 Flu YES 18-09-0545
+4953 HGx iGpVGFZ Peru 104 Banna NO
+258 IkyqIfkC bUYApPT Peru 120 Hepatitis-C NO
+4288 UDWDLtNgrF TIHzHusnLN Peru 69 Hepatitis-E NO
+3768 mcmgNkHa druBmewiThfe Peru 21 Zika YES 08-08-0412
+2857 PZPAywgi zuFFJMcdcgc Peru 51 Typhus YES 29-09-1777
+80 cQcXAxfwgd yyK Peru 29 COVID-19 NO
+930 fCBmpowWgd UdrOxEvhf Peru 15 Typhus NO
+4479 KLkZ xbMpKcMmr Peru 74 Monkeypox NO
+1802 CjrfdBO fErgn Peru 93 Horsepox YES 08-04-1650
+3682 tdilFn ihR Peru 99 Banna YES 23-03-1309
+3937 nzGGsTxb kIeljakyQ Peru 43 Hepatitis-B NO
+7932 eYJiqdiY TYYkZFlU Peru 106 SARS-1 NO
+8973 fLEBSnFVgNWE usmEZMNwoJzG Peru 48 Banna YES 02-08-0316
+4341 vrHhSbvsu ffEOoaMe Peru 82 Zika NO
+6924 SzmW lWExIcBBOvP Peru 81 Horsepox YES 15-06-0044
+7860 GRy jGSZ Peru 99 Rabies NO
+8848 ORxSOdRoE zdlNXgeQx Peru 18 Cowpox YES 10-12-1855
+47 xxjjKMzwuZRl mteZ Peru 95 Rabies NO
+9495 RAKZ IfIMw Peru 36 COVID-19 YES 29-09-0002
+8220 SoIoHJnI TSLh Peru 104 Lassa YES 14-10-0027
+7979 FDEUgLxelWR fGR Peru 82 Lassa YES 25-06-1573
+809 wKmBxRxkDiO JxGNkoQ Peru 106 Horsepox YES 07-10-0674
+8175 nfEE kRrLAGmR Peru 95 Hepatitis-A NO
+4403 zFrYQvGsEc zFWeutbWt Peru 118 Horsepox YES 08-09-1644
+7541 jcuMNEIeUS soqKkWZeuOwC Peru 67 Flu YES 19-10-0103
+648 kmndp hehB Peru 86 Hepatitis-B YES 04-12-0419
+4718 rPNaMURxy SmzCjzVeSruZ Peru 57 Horsepox YES 27-11-0713
+1494 ORdTxRvwiglA apVEvvrPks Peru 68 Toscana NO
+6327 tZfrs lzg Peru 87 Hepatitis-A NO
+9979 qOJz RpilWFx Peru 19 Ebola YES 17-05-0451
+4340 ByjyWMJfv mkhkgaTZCGfK Peru 61 COVID-19 NO
+1776 yqlMAZAjvH kQWBvzdgVj Peru 117 COVID-19 NO
+3034 jwmypnRRyAwk hve Peru 13 Hepatitis-D YES 27-07-0348
+8815 QMJtNtdGmG PahKj Peru 102 Cowpox NO
+9120 wiOoUrOO WabDTMvcA Peru 82 Horsepox NO

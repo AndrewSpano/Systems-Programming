@@ -102,6 +102,5 @@ int main(int argc, char* argv[])
     delete m_index;
     delete cyclic_buffer;
 
-    std::cout << "M: Exiting Monitor: " << getpid() << "\n";
     return EXIT_SUCCESS;
 }
