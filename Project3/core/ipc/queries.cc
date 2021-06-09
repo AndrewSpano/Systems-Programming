@@ -89,7 +89,7 @@ void ipc::monitor::queries::travel_request(MonitorIndex* m_index, const int & in
     Date* vaccination_date = m_index->virus_list->get_vaccination_date(tr_data.citizen_id, tr_data.virus_name);
     bool was_accepted = false;
 
-    if (vaccination_date == NULL)
+    if (vaccination_date == NULL || *tr_data.date <= *vaccination_date)
     {
         ipc::_send_message(input_fd, output_fd, TRAVEL_REQUEST_NOT_VACCINATED, NULL, 0, m_index->input->socket_buffer_size);
     }

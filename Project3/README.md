@@ -94,10 +94,10 @@ After running the program, the user will get a prompt explaining the available o
 
 An example of running the program is:
 ```shell
-$ bin/travelMonitorClient -m 3 -b 420 -c 5 -s 10 -i datasets/correct_dataset -t 4
+$ bin/travelMonitorClient -m 3 -b 420 -c 5 -s 10 -i dataset -t 4
 ```
 
 Furthemore, [Valgrind](https://valgrind.org/) can be used to check the memory management, like so:
 ```shell
-$ valgrind --trace-children=yes --leak-check=full bin/travelMonitorClient -m 3 -b 420 -c 5 -s 10 -i datasets/correct_dataset -t 4
+$ valgrind --trace-children=yes --leak-check=full bin/travelMonitorClient -m 3 -b 420 -c 5 -s 10 -i dataset -t 4
 ```
