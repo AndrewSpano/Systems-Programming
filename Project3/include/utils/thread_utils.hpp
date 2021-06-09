@@ -13,7 +13,7 @@ namespace thread_utils
 
     void* _thread_consumer(void* ptr);
     void produce(MonitorIndex* m_index);
-    void produce_new(MonitorIndex* m_index, const int & country_id);
+    void produce_new(MonitorIndex* m_index, const std::string & country);
 
     void exit_threads(void);
 }

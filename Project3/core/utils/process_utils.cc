@@ -22,7 +22,6 @@
 
 void process_utils::travel_monitor::enumerate_countries(travelMonitorIndex* tm_index)
 {
-    char path[256] = {0};
     struct dirent **namelist;
     int num_countries = scandir(tm_index->input->root_dir.c_str(), &namelist, NULL, alphasort);
     tm_index->init_countries(num_countries - 2);
@@ -48,6 +47,7 @@ void process_utils::travel_monitor::create_addresses(structures::NetworkCommunic
     struct hostent* foundhost = gethostbyname(hostname);
 
     /* define a specific port for each monitor: start from one port and increment for the next monitor */
+    srand(time(NULL));
     int port = rand() % 25000 + 6900;
     for (size_t i = 0; i < num_monitors; i++)
     {

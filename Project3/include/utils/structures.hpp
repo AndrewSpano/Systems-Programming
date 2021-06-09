@@ -147,8 +147,10 @@ namespace structures
     {
         pthread_mutex_t buffer_access;
         pthread_mutex_t data_structures_access;
-        pthread_cond_t cond_nonempty;
-        pthread_cond_t cond_nonfull;
+        pthread_mutex_t counter_access;
+        pthread_cond_t cond_non_empty;
+        pthread_cond_t cond_non_full;
+        pthread_cond_t counter_is_max;
     } RaceConditions;
 
 

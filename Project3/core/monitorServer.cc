@@ -35,10 +35,6 @@ int main(int argc, char* argv[])
     if (handler.status == HELP_MONITOR) { handler.print_help_monitor(); return EXIT_SUCCESS; }
     else if (handler.check_and_print()) return EXIT_FAILURE;
 
-    std::cout << "\n\n";
-    input.print();
-    std::cout << "\n\n";
-
 
     /* initialize key variables */
     MonitorIndex* m_index = new MonitorIndex(&input);
@@ -64,7 +60,7 @@ int main(int argc, char* argv[])
     char message[512] = {0};
     
     /* accept commands and execute them */
-    while (420 != 69)
+    while (msg_id != EXIT)
     {
         /* now wait until a command has been given */
         memset(message, 0, 512);
@@ -77,7 +73,7 @@ int main(int argc, char* argv[])
                 ipc::monitor::queries::travel_request(m_index, fd, fd, message);
                 break;
             case ADD_VACCINATION_RECORDS_SEND_DATA:
-                thread_utils::produce_new(m_index, m_index->country_id(std::string(message)));
+                thread_utils::produce_new(m_index, message);
                 ipc::monitor::queries::add_vaccination_records(m_index, fd, fd, message, handler);
                 break;
             case SEARCH_VACCINATION_STATUS_SEND_DATA:
@@ -87,7 +83,7 @@ int main(int argc, char* argv[])
                 thread_utils::exit_threads();
                 break;
             default:
-                std::cout << "This code should have never been executed. Monitor::main()" << std::endl;
+                std::cout << "This code should have never been executed. monitorServer::main()" << std::endl;
                 break;
         }
     }
@@ -106,6 +102,6 @@ int main(int argc, char* argv[])
     delete m_index;
     delete cyclic_buffer;
 
-    std::cout << "M: Exiting Monitor!\n";
+    std::cout << "M: Exiting Monitor: " << getpid() << "\n";
     return EXIT_SUCCESS;
 }

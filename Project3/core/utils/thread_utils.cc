@@ -20,7 +20,8 @@ extern structures::CyclicBuffer* cyclic_buffer;
 extern structures::RaceConditions race_cond;
 extern ErrorHandler handler;
 
-/* global variable of file */
+/* global variables of file */
+static size_t num_parsed = 0;
 static bool flag_exit = false;
 
 
@@ -29,18 +30,22 @@ void thread_utils::initialize_thread_variables(void)
 {
     pthread_mutex_init(&race_cond.buffer_access, 0);
     pthread_mutex_init(&race_cond.data_structures_access, 0);
-	pthread_cond_init(&race_cond.cond_nonempty, 0);
-	pthread_cond_init(&race_cond.cond_nonfull, 0);
+    pthread_mutex_init(&race_cond.counter_access, 0);
+	pthread_cond_init(&race_cond.cond_non_empty, 0);
+	pthread_cond_init(&race_cond.cond_non_full, 0);
+	pthread_cond_init(&race_cond.counter_is_max, 0);
 }
 
 
 
 void thread_utils::destroy_thread_variables(void)
 {
-    pthread_cond_destroy(&race_cond.cond_nonempty);
-	pthread_cond_destroy(&race_cond.cond_nonfull);
+    pthread_cond_destroy(&race_cond.cond_non_empty);
+	pthread_cond_destroy(&race_cond.cond_non_full);
+	pthread_cond_destroy(&race_cond.counter_is_max);
 	pthread_mutex_destroy(&race_cond.buffer_access);
 	pthread_mutex_destroy(&race_cond.data_structures_access);
+	pthread_mutex_destroy(&race_cond.counter_access);
 }
 
 
@@ -75,12 +80,14 @@ void* thread_utils::_thread_consumer(void* ptr)
         /* get a country filepath from the cyclic buffer */
 	    pthread_mutex_lock(&race_cond.buffer_access);
         while (cyclic_buffer->is_empty())
-            pthread_cond_wait(&race_cond.cond_nonempty, &race_cond.buffer_access);
-        if (flag_exit)
-        // {
-        //     pthread_mutex_unlock(&race_cond.buffer_access);
-            break;
-        // }
+        {
+            pthread_cond_wait(&race_cond.cond_non_empty, &race_cond.buffer_access);
+            if (flag_exit)
+            {
+                pthread_mutex_unlock(&race_cond.buffer_access);
+                pthread_exit(NULL);
+            }
+        }
         char* path = cyclic_buffer->remove();
         pthread_mutex_unlock(&race_cond.buffer_access);
 
@@ -90,23 +97,32 @@ void* thread_utils::_thread_consumer(void* ptr)
 
         /* parse it */
         parsing::dataset::parse_country_dataset(country_ptr, filepath, m_index, &race_cond.data_structures_access, handler);
+        std::cout << "\t\tData file " << filepath << " parsed!\n";
 
         /* free the file name */
         delete[] path;
 
         /* cyclic buffer should not be full now */
-        pthread_cond_signal(&race_cond.cond_nonfull);
+        pthread_cond_signal(&race_cond.cond_non_full);
+
+        /* update the counter with the number of parsed files and signal the main process */
+        pthread_mutex_lock(&race_cond.counter_access);
+        num_parsed++;
+        pthread_mutex_unlock(&race_cond.counter_access);
+        pthread_cond_signal(&race_cond.counter_is_max);
     }
 
-    /* thread has terminated, return */
-    std::cout << "Thread Exiting!\n";
-    pthread_exit(NULL);
+    /* should never be executed */
+    return NULL;
 }
 
 
 
 void thread_utils::produce(MonitorIndex* m_index)
 {
+    /* total data files that the program will encounter */
+    size_t num_data_files = 0;
+
     /* for each country assigned to the monitorServer */
     for (size_t country_id = 0; country_id < m_index->input->num_countries; country_id++)
     {
@@ -114,6 +130,7 @@ void thread_utils::produce(MonitorIndex* m_index)
         char country_path[257] = {0};
         sprintf(country_path, "%s/%s", m_index->input->root_dir.c_str(), m_index->input->countries[country_id].c_str());
         int num_files = scandir(country_path, &namelist, NULL, alphasort);
+        num_data_files += num_files - 2;
 
         /* for each data file in it */
         for (size_t i = 0; i < num_files; i++)
@@ -126,12 +143,12 @@ void thread_utils::produce(MonitorIndex* m_index)
                 /* insert the filename in the cyclic buffer */
 	            pthread_mutex_lock(&race_cond.buffer_access);
                 while (cyclic_buffer->is_full())
-                    pthread_cond_wait(&race_cond.cond_nonfull, &race_cond.buffer_access);
+                    pthread_cond_wait(&race_cond.cond_non_full, &race_cond.buffer_access);
                 cyclic_buffer->insert(country_slash_filename);
                 pthread_mutex_unlock(&race_cond.buffer_access);
 
                 /* cyclic buffer should not be empty now */
-                pthread_cond_broadcast(&race_cond.cond_nonempty);
+                pthread_cond_signal(&race_cond.cond_non_empty);
 
                 /* insert the filename in the list with the filenames */
                 std::string* _filename = new std::string(namelist[i]->d_name);
@@ -141,13 +158,28 @@ void thread_utils::produce(MonitorIndex* m_index)
         }
         free(namelist);
     }
+
+    /* wait until all files have been parsed */
+    pthread_mutex_lock(&race_cond.counter_access);
+    while (num_parsed < num_data_files)
+        pthread_cond_wait(&race_cond.counter_is_max, &race_cond.counter_access);
+    pthread_mutex_unlock(&race_cond.counter_access);
 }
 
 
 
-void thread_utils::produce_new(MonitorIndex* m_index, const int & country_id)
+void thread_utils::produce_new(MonitorIndex* m_index, const std::string & country)
 {
+    /* get pointer of the specified country */
+    const int & country_id = m_index->country_id(std::string(country));
     std::string* country_ptr = &(m_index->input->countries[country_id]);
+
+    /* total new data files that will be found */
+    size_t num_data_files = 0;
+    pthread_mutex_lock(&race_cond.counter_access);
+    num_parsed = 0;
+    pthread_mutex_unlock(&race_cond.counter_access);
+
 
     /* parse again the country directory and look for new files */
     char country_dir_path[256] = {0};
@@ -169,15 +201,16 @@ void thread_utils::produce_new(MonitorIndex* m_index, const int & country_id)
             /* insert the filename in the cyclic buffer */
             pthread_mutex_lock(&race_cond.buffer_access);
             while (cyclic_buffer->is_full())
-                pthread_cond_wait(&race_cond.cond_nonfull, &race_cond.buffer_access);
+                pthread_cond_wait(&race_cond.cond_non_full, &race_cond.buffer_access);
             cyclic_buffer->insert(country_slash_filename);
             pthread_mutex_unlock(&race_cond.buffer_access);
 
             /* cyclic buffer should not be empty now */
-            pthread_cond_broadcast(&race_cond.cond_nonempty);
+            pthread_cond_broadcast(&race_cond.cond_non_empty);
 
             /* insert the filename in the list with the filenames */
             m_index->files_per_country[country_id]->insert(filename);
+            num_data_files++;
         }
         else
         {
@@ -186,8 +219,13 @@ void thread_utils::produce_new(MonitorIndex* m_index, const int & country_id)
         free(namelist[i]);
     }
     free(namelist);
-}
 
+    /* wait until all files have been parsed */
+    pthread_mutex_lock(&race_cond.counter_access);
+    while (num_parsed < num_data_files)
+        pthread_cond_wait(&race_cond.counter_is_max, &race_cond.counter_access);
+    pthread_mutex_unlock(&race_cond.counter_access);
+}
 
 
 
@@ -195,5 +233,5 @@ void thread_utils::exit_threads(void)
 {
     /* set the flag to true and wake them up */
     flag_exit = true;
-    pthread_cond_broadcast(&race_cond.cond_nonempty);
+    pthread_cond_broadcast(&race_cond.cond_non_empty);
 }
