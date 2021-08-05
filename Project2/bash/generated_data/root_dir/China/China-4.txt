@@ -1,30 +1,59 @@
 192 GRsYCns MfWukDrS China 87 H1N1 NO
+1356 KRXfzlaQ TlDqylwX China 69 Flu YES 16-05-0506
 631 EictuDE GZutujGyd China 38 Typhus YES 28-01-1465
+238 iEhayktOL qER China 64 COVID-19 NO
 1356 KRXfzlaQ TlDqylwX China 69 Monkeypox NO
+1306 GZYhauIG FWvF China 25 Toscana YES 08-02-1101
 1695 pBfhADmj mJxgXFQkBkk China 30 H1N1 NO
+779 hgzLDuhKPoz ZfdSEpZ China 94 Toscana NO
 1831 bEgpJYlWd fYynAxoZnu China 44 Flu NO
+1028 YGGR TQe China 91 Ebola NO
 1169 oBL cXHya China 85 Hepatitis-E NO
+1448 XYiPASt zTG China 61 Hepatitis-C NO
 1340 FblwdSQLnv ynJzArFSZM China 47 Lassa YES 09-12-0574
+1908 VWwp WpeWEmlTxI China 44 Cowpox NO
 304 wCslE DuwYsrXKdfJ China 23 Rabies YES 06-03-0572
+1252 zooOlAloI GnyPKYSmxkKu China 70 Junin YES 17-05-0043
 1872 WgnjwfIg DLvYTrI China 96 Cowpox YES 20-09-1827
+631 EictuDE GZutujGyd China 38 Toscana YES 07-09-1496
 1125 BSUGFLrGcLV bOtqpbNXO China 71 Ebola NO
+1921 KBwVlUtQF fXmUz China 31 Cowpox NO
 661 xVDnBTcCJN OmOw China 7 Junin NO
+1545 RPYqseSF BeVF China 55 Lassa YES 08-04-0951
 1496 CgaBsKewwfH BDy China 76 H1N1 NO
+729 dWpIMzI tkk China 64 COVID-19 YES 10-09-1212
 1448 XYiPASt zTG China 61 Ebola NO
+281 BBrLzB yrDoxcjYIp China 58 Toscana YES 29-03-1954
 1521 jCxwwYzeVo eTiUfk China 46 Lassa YES 19-09-0589
+105 SznjgcxN ZXPGHSLz China 46 Toscana YES 11-11-1326
 1908 VWwp WpeWEmlTxI China 44 Hepatitis-E YES 14-01-0781
+1511 SdW iuM China 39 SARS-1 NO
 1908 VWwp WpeWEmlTxI China 44 Junin YES 23-02-1210
+1533 Use avJBKxSnvt China 28 SARS-1 NO
 419 MZjNpy yFdHl China 52 Hepatitis-C NO
+1077 KUac zKVV China 71 Ebola YES 08-05-1117
 1468 GjElWFRJWjG WoiwRUMaEK China 120 Banna NO
+1831 bEgpJYlWd fYynAxoZnu China 44 Hepatitis-D NO
 1028 YGGR TQe China 91 Hepatitis-C NO
+1545 RPYqseSF BeVF China 55 H1N1 YES 02-09-1992
 1468 GjElWFRJWjG WoiwRUMaEK China 120 Flu NO
+711 NUxQ NdUcxR China 22 Ebola YES 15-01-0346
 1356 KRXfzlaQ TlDqylwX China 69 SARS-1 YES 23-11-1902
+243 iQXUjTcUGCfq BpB China 89 Lassa YES 13-06-0701
 1468 GjElWFRJWjG WoiwRUMaEK China 120 COVID-19 NO
+711 NUxQ NdUcxR China 22 Typhus YES 12-03-0190
 1695 pBfhADmj mJxgXFQkBkk China 30 Monkeypox YES 03-02-1474
+1307 hyoPdXDX RUwzwRtfY China 42 Rabies NO
 1468 GjElWFRJWjG WoiwRUMaEK China 120 Hepatitis-D NO
+1545 RPYqseSF BeVF China 55 Typhus NO
 30 BZt pSSHgdo China 30 Toscana NO
+661 xVDnBTcCJN OmOw China 7 COVID-19 YES 16-04-1391
 1461 AgwyibnSUyV Buz China 53 Monkeypox YES 22-03-1915
+105 SznjgcxN ZXPGHSLz China 46 Cowpox YES 17-03-1860
 1496 CgaBsKewwfH BDy China 76 SARS-1 YES 25-12-0348
+16 AVIzhvNhmByJ FPjWUSbYJl China 53 SARS-1 NO
 1356 KRXfzlaQ TlDqylwX China 69 Hepatitis-E NO
+1169 oBL cXHya China 85 Banna NO
 483 zWJQeJiLVe kTmPXdyumSl China 37 Zika YES 23-06-0421
+410 gmBFEKxXLEe eSdeSWfyta China 23 H1N1 NO
 1496 CgaBsKewwfH BDy China 76 Banna NO

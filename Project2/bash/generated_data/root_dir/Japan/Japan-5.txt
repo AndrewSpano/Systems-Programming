@@ -1,31 +1,61 @@
 1192 YCI sTzDo Japan 89 Junin YES 25-04-0871
+1569 ixMepZFiCV oZLjrnTm Japan 10 Horsepox NO
 1368 ykHL AcmkfeJJ Japan 86 Hepatitis-B YES 25-02-0005
+1376 bjcDdbCIhHtQ SpAvMLUUuoqA Japan 25 Hepatitis-D YES 15-07-0719
 461 kbwRUOPODDmI sfAaCRzQ Japan 72 Lassa NO
+637 DHzcDVWSF VpqxkaLwsS Japan 39 SARS-1 YES 10-04-0006
 1569 ixMepZFiCV oZLjrnTm Japan 10 Flu NO
+563 NItZoyawm VPVhpYPG Japan 44 Cowpox NO
 668 RxmGcJjtKaO WUJZlqmxz Japan 62 Hepatitis-B YES 29-12-0573
+1565 RkfBcMoSELN tnokKVJMhvi Japan 29 COVID-19 NO
 1200 IHeWbNOkO PRaMsmKPkGRC Japan 33 Typhus YES 09-07-1069
+1565 RkfBcMoSELN tnokKVJMhvi Japan 29 Typhus YES 16-11-1547
 102 TdBRb UThOXTXMjOCK Japan 36 Lassa YES 14-08-1007
+668 RxmGcJjtKaO WUJZlqmxz Japan 62 Hepatitis-C NO
 675 yViqJxyxx NpKW Japan 27 Hepatitis-A NO
+1565 RkfBcMoSELN tnokKVJMhvi Japan 29 H1N1 NO
 1002 conNN TcYg Japan 37 Banna NO
+461 kbwRUOPODDmI sfAaCRzQ Japan 72 Horsepox YES 15-09-1294
 1160 qKgNbZhquV vePmOwe Japan 54 H1N1 NO
+637 DHzcDVWSF VpqxkaLwsS Japan 39 Zika YES 22-09-0266
 1960 EgXNov KHOfyu Japan 39 Monkeypox NO
+305 ZBdmyI vnzskRMENai Japan 67 COVID-19 NO
 1779 jzjuzYvLO pnSBChgmwSCi Japan 15 Toscana NO
+440 IlkxDJWTfVU hHX Japan 54 Banna YES 10-04-1744
 1599 fwpxo BKdNGoWfIZqO Japan 24 Hepatitis-D NO
+461 kbwRUOPODDmI sfAaCRzQ Japan 72 SARS-1 YES 09-10-0385
 1466 FMgzP hNMthD Japan 41 Zika NO
+1173 gCZKfIIWmmIa WiEi Japan 38 Hepatitis-C NO
 356 jLMCEfIxLJUs ceOQQLXSaO Japan 14 SARS-1 NO
+1774 fYQBdAokb JpHCwMRcb Japan 72 COVID-19 YES 14-07-0167
 675 yViqJxyxx NpKW Japan 27 Typhus YES 14-04-1738
+1160 qKgNbZhquV vePmOwe Japan 54 Junin NO
 315 izlo pSEsdLVFqmXw Japan 46 Hepatitis-D NO
+767 IJhMInRPaDJ TMTlQDLpLRK Japan 93 H1N1 NO
 1524 uPsRHoToiF uHqJXMZU Japan 100 SARS-1 YES 06-05-0008
+246 qojhsKB yFGEtB Japan 35 Junin NO
 1192 YCI sTzDo Japan 89 Zika NO
+1777 EcombdSNwVp gOuwhGvAQf Japan 55 Monkeypox NO
 1424 xcBK dlRNEdn Japan 17 H1N1 YES 20-11-1319
+1466 FMgzP hNMthD Japan 41 Lassa NO
 347 VqhmxgyqGyGT SwyeW Japan 7 Rabies NO
+1094 bFYSYZLbPcJg TKdL Japan 6 Hepatitis-E NO
 557 qMdWQTEi RYAb Japan 80 Zika NO
+102 TdBRb UThOXTXMjOCK Japan 36 Junin NO
 1424 xcBK dlRNEdn Japan 17 Hepatitis-E YES 07-05-0563
+1056 OKfwGRPgEy YIaaVK Japan 87 Toscana NO
 869 iHqMMYJcOGmc GcRXxB Japan 37 COVID-19 NO
+1524 uPsRHoToiF uHqJXMZU Japan 100 Banna NO
 637 DHzcDVWSF VpqxkaLwsS Japan 39 Banna NO
+675 yViqJxyxx NpKW Japan 27 Hepatitis-C NO
 675 yViqJxyxx NpKW Japan 27 H1N1 YES 07-03-0396
+869 iHqMMYJcOGmc GcRXxB Japan 37 Banna NO
 557 qMdWQTEi RYAb Japan 80 COVID-19 NO
+668 RxmGcJjtKaO WUJZlqmxz Japan 62 Rabies NO
 976 TzLkmUNPCNTy hUzKjBqQ Japan 20 COVID-19 NO
+305 ZBdmyI vnzskRMENai Japan 67 Hepatitis-D YES 14-05-1101
 1482 MvWsUUhUSTN dWnbtJDQfy Japan 56 Toscana YES 17-01-0623
+1565 RkfBcMoSELN tnokKVJMhvi Japan 29 Hepatitis-E NO
 1482 MvWsUUhUSTN dWnbtJDQfy Japan 56 Hepatitis-D YES 09-12-0149
+1655 eHuTNvv IRCbNaHwg Japan 38 Typhus NO
 767 IJhMInRPaDJ TMTlQDLpLRK Japan 93 Hepatitis-D YES 12-08-0813

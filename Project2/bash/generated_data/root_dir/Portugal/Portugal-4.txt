@@ -1,38 +1,76 @@
 555 JvYpRlXts SmGvctbw Portugal 92 Lassa YES 08-05-0825
+1139 MhfKRZAZ uuHtAnE Portugal 12 Hepatitis-C NO
 409 aJSQNSmw WGb Portugal 69 Zika NO
+1616 RsCTgAezEHa jfiF Portugal 84 Hepatitis-E YES 08-02-0343
 650 KTI BKLoHAIkqj Portugal 117 Toscana NO
+1409 MLrjIE gPANpEcXOi Portugal 112 Banna NO
 409 aJSQNSmw WGb Portugal 69 COVID-19 YES 07-09-1387
+625 EOWdRiQfYnl XRFDbctXlpfO Portugal 60 Lassa NO
 1139 MhfKRZAZ uuHtAnE Portugal 12 Junin YES 29-11-1693
+278 ggsgZIoAmOmQ mARhXBGxO Portugal 42 Hepatitis-C NO
 545 muflwX tATSq Portugal 66 Hepatitis-B NO
+1328 vfUuMWiah dLqemeE Portugal 20 Junin NO
 1222 TNrDiqvQyz vNeMhidnl Portugal 99 Hepatitis-C NO
+1049 OFZdHgnQibtR XxNBGJ Portugal 16 Cowpox NO
 1139 MhfKRZAZ uuHtAnE Portugal 12 Hepatitis-D YES 04-11-0577
+1789 dAfRTi zpBAOLC Portugal 39 Lassa YES 10-10-1918
 1134 StuzxxoAWqxn syVJ Portugal 7 Zika NO
+740 DPuDBT KwkVwwrDd Portugal 42 Junin YES 11-07-0473
 1673 lxmdHHKO Xmye Portugal 9 Cowpox NO
+515 fLNyvIqYpcJ kzpcPvXP Portugal 74 Monkeypox YES 11-07-1391
 78 KcH CrEgksC Portugal 116 Junin YES 26-06-1003
+18 tWEnqdaLCNnZ oxawdIJ Portugal 60 Hepatitis-A NO
 1757 xCoTcufq tuXNG Portugal 35 Zika NO
+846 qPHYvrUPCNo SUAnU Portugal 59 Monkeypox NO
 1616 RsCTgAezEHa jfiF Portugal 84 Zika YES 19-05-0713
+515 fLNyvIqYpcJ kzpcPvXP Portugal 74 Monkeypox YES 11-04-0147
 78 KcH CrEgksC Portugal 116 Monkeypox YES 10-12-0431
+1049 OFZdHgnQibtR XxNBGJ Portugal 16 H1N1 NO
 740 DPuDBT KwkVwwrDd Portugal 42 SARS-1 YES 13-08-2008
+1134 StuzxxoAWqxn syVJ Portugal 7 Flu NO
 1364 PkPHDKBZdllE clhf Portugal 63 Toscana YES 03-11-1293
+1757 xCoTcufq tuXNG Portugal 35 Hepatitis-E NO
 1757 xCoTcufq tuXNG Portugal 35 Toscana YES 26-06-0921
+880 mYiUK Eobcax Portugal 48 Typhus YES 30-02-1563
 961 eDSuAevDGyHf UWcrTBeUX Portugal 71 Cowpox NO
+330 fpGLGUjv iNmNygebddsA Portugal 63 Flu NO
 880 mYiUK Eobcax Portugal 48 COVID-19 NO
+18 tWEnqdaLCNnZ oxawdIJ Portugal 60 SARS-1 NO
 258 rvwTAYKHLB yfGSATXLClaI Portugal 38 Hepatitis-E NO
+248 fzAHCUbO jtLopaTVDUW Portugal 60 Zika YES 11-02-0071
 1139 MhfKRZAZ uuHtAnE Portugal 12 Horsepox NO
+444 FFYyRc tys Portugal 28 Ebola YES 11-07-1391
 251 DPaUThHPX URtpyrLk Portugal 104 Horsepox YES 11-01-1085
+555 JvYpRlXts SmGvctbw Portugal 92 Hepatitis-D YES 13-02-0879
 1245 TQlPUhdQPGHw JalgnEanNdj Portugal 89 Ebola NO
+260 ByJXucNuNHeC FDaxsQKKHd Portugal 103 Zika YES 13-10-1343
 258 rvwTAYKHLB yfGSATXLClaI Portugal 38 Flu NO
+1039 oFNUE hTYLkVOCKN Portugal 59 Hepatitis-A NO
 1757 xCoTcufq tuXNG Portugal 35 Rabies YES 23-03-0949
+1402 HcLZa aAnaDZGhxY Portugal 52 Hepatitis-C NO
 1409 MLrjIE gPANpEcXOi Portugal 112 Banna YES 26-01-0059
+1369 CNp aOQuBEOAWV Portugal 108 COVID-19 NO
 409 aJSQNSmw WGb Portugal 69 Toscana NO
+278 ggsgZIoAmOmQ mARhXBGxO Portugal 42 Cowpox NO
 1635 uMQgf TykLnNkbj Portugal 45 Horsepox YES 30-03-1393
+955 ihzAFCzNhJy ukpJwymlj Portugal 38 Zika NO
 740 DPuDBT KwkVwwrDd Portugal 42 Hepatitis-B NO
+1364 PkPHDKBZdllE clhf Portugal 63 Hepatitis-B NO
 865 MOEEFaXlzS qvhAqeAJQB Portugal 82 Ebola NO
+865 MOEEFaXlzS qvhAqeAJQB Portugal 82 Lassa NO
 955 ihzAFCzNhJy ukpJwymlj Portugal 38 Ebola NO
+1328 vfUuMWiah dLqemeE Portugal 20 Junin NO
 121 nfm mWlibCQ Portugal 98 Hepatitis-B YES 23-07-1071
+363 Srgm SVIXns Portugal 29 Junin NO
 1516 PsOKSrNAmGTk TNOTaNV Portugal 107 Horsepox NO
+18 tWEnqdaLCNnZ oxawdIJ Portugal 60 H1N1 YES 19-06-1081
 1825 LcOdxwI uvQWUhqc Portugal 119 Hepatitis-D NO
+1411 fmFVEtKmP dAxvqSxbAs Portugal 24 Horsepox YES 01-08-0161
 515 fLNyvIqYpcJ kzpcPvXP Portugal 74 Hepatitis-D NO
+121 nfm mWlibCQ Portugal 98 Hepatitis-E YES 28-09-0797
 420 KAGHv zKeSYOQQtpuy Portugal 12 Cowpox NO
+1616 RsCTgAezEHa jfiF Portugal 84 Flu NO
 650 KTI BKLoHAIkqj Portugal 117 Hepatitis-B NO
+1757 xCoTcufq tuXNG Portugal 35 SARS-1 YES 18-06-1439
 1671 JhbIPjqPV VBhqEpJodTK Portugal 24 Junin YES 03-10-0756
+650 KTI BKLoHAIkqj Portugal 117 Rabies NO

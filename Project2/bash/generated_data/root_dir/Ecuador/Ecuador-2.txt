@@ -1,44 +1,87 @@
 478 FqKKKhWjR NYiWDJMsb Ecuador 77 Flu YES 05-08-0725
+606 hrXhWOFaCLXb zCptARJt Ecuador 40 Horsepox NO
 579 LeOZtJLpaMAp ddHcdYPV Ecuador 80 Ebola YES 24-06-1924
+1218 Hkp PuQ Ecuador 78 Flu YES 01-08-1877
 1396 vyzHUayX xunw Ecuador 1 Hepatitis-E YES 22-09-1117
+478 FqKKKhWjR NYiWDJMsb Ecuador 77 Toscana YES 03-07-1062
 578 yLGMeVYa uDIIaS Ecuador 73 Rabies NO
+1911 KOdANecC DPDS Ecuador 33 Lassa YES 13-02-0134
 472 RZXXedHzHD XQdRwpHif Ecuador 114 Hepatitis-B YES 28-08-1834
+160 DAOznr nxFWEGJj Ecuador 55 Banna NO
 1345 RzdyLY MJdcLfXgESv Ecuador 76 Horsepox YES 23-11-1587
+1849 rzs PyKvjb Ecuador 51 SARS-1 YES 23-09-0063
 1218 Hkp PuQ Ecuador 78 Hepatitis-C YES 27-10-0712
+578 yLGMeVYa uDIIaS Ecuador 73 Hepatitis-A NO
 677 epyNuw sOVKS Ecuador 26 Typhus NO
+1693 fFRoJsiHN yZqtqpllrXn Ecuador 106 Flu YES 26-12-1296
 1507 xSBgkugYcwUl xcdT Ecuador 33 Banna YES 18-07-1579
+427 xMGyxDW Bxq Ecuador 84 Hepatitis-D NO
 140 XYdOFqBcyq pJOGeGHIXAv Ecuador 98 Hepatitis-A YES 01-02-0569
+148 ZbDEGSMKNw ywVXbl Ecuador 97 Cowpox NO
 763 Zxd EXQX Ecuador 108 Hepatitis-C YES 24-10-1944
+472 RZXXedHzHD XQdRwpHif Ecuador 114 Typhus NO
 541 MDtnhMYZFVO YOXxbzyr Ecuador 49 H1N1 YES 26-10-0414
+1610 CDdkgZR kMCwBNkkGy Ecuador 103 SARS-1 NO
 76 zYebqexQSlEZ yckgxLuw Ecuador 62 Horsepox NO
+1337 rIiW mRVYLvs Ecuador 102 Lassa YES 06-03-0537
 579 LeOZtJLpaMAp ddHcdYPV Ecuador 80 Hepatitis-B NO
+1693 fFRoJsiHN yZqtqpllrXn Ecuador 106 Ebola NO
 1218 Hkp PuQ Ecuador 78 Typhus NO
+4 fzmmTUZoLtS RvOecl Ecuador 36 Hepatitis-C NO
 83 StBzx fghFlpsW Ecuador 4 Banna NO
+291 qdgVuDg UzQgoRoXnCWP Ecuador 101 Horsepox NO
 181 rbNrRt PkxbNYS Ecuador 92 Rabies YES 23-11-1236
+697 KnHj pgRkuenO Ecuador 40 Hepatitis-D NO
 677 epyNuw sOVKS Ecuador 26 COVID-19 YES 14-07-0821
+1879 jnvzBG fGpYvsWCb Ecuador 37 Ebola NO
 1615 XYabnwki rHWajRqIRKo Ecuador 70 Monkeypox NO
+148 ZbDEGSMKNw ywVXbl Ecuador 97 Lassa YES 26-09-1051
 181 rbNrRt PkxbNYS Ecuador 92 H1N1 YES 02-04-1600
+820 sSxVQIO ojgyT Ecuador 7 Zika NO
 1833 QWIt tQJDZFWx Ecuador 23 Junin NO
+1879 jnvzBG fGpYvsWCb Ecuador 37 Junin YES 22-01-0651
 1813 ZsvsrrnGrgru IWUcG Ecuador 96 Horsepox YES 13-08-0403
+523 UwAOzaD BPudlagoqeuh Ecuador 50 Cowpox YES 29-10-1672
 494 WufOZFjJhxr tlkEjJvPNFw Ecuador 18 SARS-1 YES 14-10-1394
+4 fzmmTUZoLtS RvOecl Ecuador 36 Lassa YES 10-03-1501
 301 qXTxzUaC wTRNPNBYJZpT Ecuador 21 H1N1 NO
+1610 CDdkgZR kMCwBNkkGy Ecuador 103 Monkeypox NO
 640 NYLIFCB jJXra Ecuador 61 Hepatitis-C YES 05-01-0858
+361 ZOyoSkrs nYKQqjzF Ecuador 63 Ebola YES 10-10-1172
 1615 XYabnwki rHWajRqIRKo Ecuador 70 Hepatitis-A YES 21-11-1266
+82 JRvCNrQRX rqfFfv Ecuador 26 Hepatitis-B YES 12-12-0686
 427 xMGyxDW Bxq Ecuador 84 Zika NO
+1813 ZsvsrrnGrgru IWUcG Ecuador 96 Flu YES 01-03-0457
 640 NYLIFCB jJXra Ecuador 61 Hepatitis-D NO
+478 FqKKKhWjR NYiWDJMsb Ecuador 77 Hepatitis-A NO
 1970 pksAcgral LLOm Ecuador 67 Hepatitis-A YES 02-12-1975
+161 TIKjZbVs dFtwxGVMQ Ecuador 17 Hepatitis-D YES 04-10-1002
 369 BhBwavEGrgD itLOoNCDzbC Ecuador 1 Rabies NO
+688 wsOKRMvGQnQ vAi Ecuador 20 Zika YES 06-03-0855
 523 UwAOzaD BPudlagoqeuh Ecuador 50 Ebola NO
+1342 lBZpNL StrxunlEkPzQ Ecuador 88 Zika YES 07-05-1018
 140 XYdOFqBcyq pJOGeGHIXAv Ecuador 98 Rabies YES 20-09-1145
+241 hSCOeUBgtZZ FIRFxufW Ecuador 11 Zika NO
 697 KnHj pgRkuenO Ecuador 40 Cowpox NO
+677 epyNuw sOVKS Ecuador 26 Hepatitis-B YES 25-04-0477
 1629 ysJG XkIsSvYY Ecuador 57 SARS-1 YES 26-11-0968
+1693 fFRoJsiHN yZqtqpllrXn Ecuador 106 Ebola YES 12-11-1875
 761 veXKsZuhSc KzaCiRAgLv Ecuador 111 Monkeypox YES 30-07-0532
+57 gZGtfRZk KlkaPdyiD Ecuador 35 Toscana YES 10-02-1901
 172 RAyFpYOoA rgZhfjEZ Ecuador 26 SARS-1 YES 20-01-0038
+494 WufOZFjJhxr tlkEjJvPNFw Ecuador 18 Cowpox NO
 228 zqfmOJxevWC pgnCtRhQT Ecuador 39 Zika NO
+1693 fFRoJsiHN yZqtqpllrXn Ecuador 106 Flu YES 29-11-0453
 820 sSxVQIO ojgyT Ecuador 7 Ebola NO
+640 NYLIFCB jJXra Ecuador 61 COVID-19 YES 21-11-0969
 1310 OxhYfinB VBUZaHLDT Ecuador 48 H1N1 YES 20-08-0710
+820 sSxVQIO ojgyT Ecuador 7 Horsepox NO
 1514 pUhwzoZ QUGMT Ecuador 25 Zika NO
+1813 ZsvsrrnGrgru IWUcG Ecuador 96 H1N1 YES 19-07-0804
 76 zYebqexQSlEZ yckgxLuw Ecuador 62 Hepatitis-D NO
+291 qdgVuDg UzQgoRoXnCWP Ecuador 101 Typhus YES 04-12-1808
 50 uvj gFkloN Ecuador 114 Junin YES 30-01-1588
+472 RZXXedHzHD XQdRwpHif Ecuador 114 Rabies YES 10-03-1172
 1345 RzdyLY MJdcLfXgESv Ecuador 76 Hepatitis-D YES 03-01-0570
+959 mDqTvOsWbyP EOKQdGJh Ecuador 48 Monkeypox NO
 761 veXKsZuhSc KzaCiRAgLv Ecuador 111 Zika NO

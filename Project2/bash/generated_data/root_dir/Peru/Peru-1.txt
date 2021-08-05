@@ -1,39 +1,78 @@
 992 vNIihCOR DeexZIXnuPs Peru 40 Zika YES 12-07-1652
+1989 pyJHH etdNdHLVR Peru 5 Monkeypox NO
 1681 ZXYtUtfG RPCoiyMDPWh Peru 58 Zika NO
+771 kEGUYdddmNE NpiuKLkaMP Peru 120 Toscana NO
 992 vNIihCOR DeexZIXnuPs Peru 40 Typhus NO
+771 kEGUYdddmNE NpiuKLkaMP Peru 120 SARS-1 YES 28-05-1100
 910 WenKimCt ZPlmnFtBJyv Peru 80 Ebola NO
+553 bvydTszs xUPdoZcZNFIZ Peru 118 Hepatitis-E NO
 628 FLpeZevH vOs Peru 103 Lassa NO
+1009 rSFjY QglPumffu Peru 24 Ebola YES 11-01-1991
 1807 FUpE DwvPpTGP Peru 5 Ebola NO
+1144 MyPTnbw uaqXfIla Peru 39 Toscana NO
 1681 ZXYtUtfG RPCoiyMDPWh Peru 58 Ebola NO
+639 SGzmrZxi CVFLCIFGXN Peru 86 Cowpox YES 13-02-1280
 1144 MyPTnbw uaqXfIla Peru 39 Horsepox NO
+435 bkmwFObD rSFNc Peru 13 Hepatitis-D NO
 1439 jxh blXgPacvsZED Peru 72 Lassa YES 28-10-0256
+910 WenKimCt ZPlmnFtBJyv Peru 80 Cowpox YES 01-09-0780
 1220 yXlTzmOEjXK TwiUqhV Peru 78 H1N1 YES 11-09-0258
+1101 tlBNXfQKBwpL QlQNNuZuX Peru 46 Junin YES 21-02-1842
 885 uNxOBJ nWJpcjHyUMt Peru 12 Monkeypox NO
+435 bkmwFObD rSFNc Peru 13 Banna NO
 132 woWWFWTm nCH Peru 86 Rabies YES 20-03-0461
+1043 tWfzcgncIB JPaJeC Peru 95 COVID-19 NO
 1855 jwSCwzJZJeaJ juZJDp Peru 55 Rabies YES 12-05-0394
+223 opWXWSrewS iNptwGA Peru 61 Ebola YES 26-11-1359
 1526 BGZnKRMHwGN IoKku Peru 86 Hepatitis-C NO
+1220 yXlTzmOEjXK TwiUqhV Peru 78 COVID-19 NO
 1961 irGehoK zwMHT Peru 18 Typhus YES 26-02-0570
+771 kEGUYdddmNE NpiuKLkaMP Peru 120 Monkeypox YES 07-08-1719
 1805 IpDrqvZUPtNA zroRrdXadEG Peru 2 Typhus NO
-720 RfF PojiRX Peru 65 COVID-19 NO
-1333 eGTKI sUqyPugBDRG Peru 30 Junin NO
-885 uNxOBJ nWJpcjHyUMt Peru 12 Junin NO
-885 uNxOBJ nWJpcjHyUMt Peru 12 Banna YES 25-06-0801
-881 GZaKq gDADRJaWDf Peru 14 Horsepox YES 01-02-1273
-806 gpdXQbUdJ OUEEyKUF Peru 19 Hepatitis-C NO
-960 gwnCyb UOCgW Peru 7 Junin NO
-1771 rsoVpBcArA aogF Peru 5 Hepatitis-C YES 08-12-1284
-1013 wEWgYCu ova Peru 81 Horsepox NO
-1220 yXlTzmOEjXK TwiUqhV Peru 78 Hepatitis-A YES 21-01-1890
-204 IxHRlUy IpWvE Peru 71 Banna YES 11-09-1349
-1601 kmVoFVlapP CxeN Peru 53 Toscana YES 25-02-1116
-992 vNIihCOR DeexZIXnuPs Peru 40 Typhus YES 29-08-0337
-1093 qFwrUtldf lvYukbcaJo Peru 111 Zika YES 20-09-0716
 1807 FUpE DwvPpTGP Peru 5 Ebola NO
+720 RfF PojiRX Peru 65 COVID-19 NO
+641 gfaQ UoGgpcITtGV Peru 18 Hepatitis-E YES 08-12-0741
+1333 eGTKI sUqyPugBDRG Peru 30 Junin NO
+720 RfF PojiRX Peru 65 Lassa YES 10-07-1336
+885 uNxOBJ nWJpcjHyUMt Peru 12 Junin NO
+268 mFLPuRZA eMADUoofozJe Peru 9 Rabies YES 28-04-0827
+885 uNxOBJ nWJpcjHyUMt Peru 12 Banna YES 25-06-0801
+1860 FsZegYjYzw uIykRKEQAn Peru 84 Lassa YES 17-06-1030
+881 GZaKq gDADRJaWDf Peru 14 Horsepox YES 01-02-1273
+536 cSgEl OIakZdeRl Peru 106 Monkeypox NO
+806 gpdXQbUdJ OUEEyKUF Peru 19 Hepatitis-C NO
+1681 ZXYtUtfG RPCoiyMDPWh Peru 58 Hepatitis-B NO
+960 gwnCyb UOCgW Peru 7 Junin NO
+1101 tlBNXfQKBwpL QlQNNuZuX Peru 46 Hepatitis-E YES 01-08-2004
+1771 rsoVpBcArA aogF Peru 5 Hepatitis-C YES 08-12-1284
+1884 xtZVZloaYh OPPLT Peru 80 Toscana YES 18-05-1591
+1013 wEWgYCu ova Peru 81 Horsepox NO
+1560 ftDP bHcWCX Peru 48 COVID-19 NO
+1220 yXlTzmOEjXK TwiUqhV Peru 78 Hepatitis-A YES 21-01-1890
+1101 tlBNXfQKBwpL QlQNNuZuX Peru 46 Flu YES 03-03-0410
+204 IxHRlUy IpWvE Peru 71 Banna YES 11-09-1349
+536 cSgEl OIakZdeRl Peru 106 COVID-19 NO
+1601 kmVoFVlapP CxeN Peru 53 Toscana YES 25-02-1116
+1117 WqUbYkg NEXgenOW Peru 10 Banna YES 25-09-0688
+992 vNIihCOR DeexZIXnuPs Peru 40 Typhus YES 29-08-0337
+1860 FsZegYjYzw uIykRKEQAn Peru 84 Ebola YES 23-01-1384
+1093 qFwrUtldf lvYukbcaJo Peru 111 Zika YES 20-09-0716
+462 eSwjRFDEpft pCfZWwXJR Peru 8 Junin NO
+1807 FUpE DwvPpTGP Peru 5 Ebola NO
+995 WBZ VGXRXBkDtShe Peru 58 Flu NO
 476 nEvpLzYM cCQVBKuB Peru 88 Hepatitis-D NO
+1144 MyPTnbw uaqXfIla Peru 39 Hepatitis-E NO
 255 ODfOox oAbFO Peru 93 COVID-19 NO
+1855 jwSCwzJZJeaJ juZJDp Peru 55 Cowpox NO
 132 woWWFWTm nCH Peru 86 Hepatitis-A YES 12-08-0330
+896 GQLhnnDs nbXgnM Peru 9 Junin YES 01-06-1885
 829 WbuKwibmmL dDksjfRrpwBK Peru 65 Lassa NO
+1333 eGTKI sUqyPugBDRG Peru 30 Lassa NO
 1220 yXlTzmOEjXK TwiUqhV Peru 78 H1N1 NO
+1564 Xxw EHdPoQWjXW Peru 69 Junin NO
 1013 wEWgYCu ova Peru 81 Horsepox YES 10-08-1612
+1855 jwSCwzJZJeaJ juZJDp Peru 55 COVID-19 YES 04-10-0375
 341 ZbHlVDoJ zoni Peru 2 Toscana NO
+562 pJZdkgsouxgl WWGFGQ Peru 90 Junin NO
 995 WBZ VGXRXBkDtShe Peru 58 Hepatitis-E YES 09-03-1139
+562 pJZdkgsouxgl WWGFGQ Peru 90 Junin YES 04-06-1698

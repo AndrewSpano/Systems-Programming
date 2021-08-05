@@ -1,41 +1,82 @@
 649 euLb sZAxNQ Argentina 112 COVID-19 NO
+585 yeQTvSnKEiy rWjyXojmDQqA Argentina 89 Ebola NO
 1401 OnZeMgNVMudr AKUE Argentina 94 Hepatitis-C YES 29-12-1727
+818 LQniDNBMk nTwkhgfhBY Argentina 71 Ebola NO
 1838 UPyvIwlJo AGwOYStukbxQ Argentina 110 SARS-1 NO
+1441 NxxOQrirYOh FoSMzDiqcnM Argentina 32 Horsepox YES 27-12-0362
 75 bUQWbG ZOWP Argentina 72 Hepatitis-A YES 16-03-0426
+75 bUQWbG ZOWP Argentina 72 Hepatitis-B YES 09-07-0951
 1840 gbAI hKPL Argentina 11 Flu NO
+1163 ETxyKtwnaJl SsRMTpqxqDyg Argentina 46 Rabies YES 13-02-0717
 1428 doRVytAWE oFvZbySc Argentina 110 Zika NO
+1076 wMTXyKarVZv tJRggC Argentina 70 Lassa YES 24-11-0758
 1676 NDatJcEYVDE pqxr Argentina 105 Hepatitis-D NO
+1840 gbAI hKPL Argentina 11 H1N1 NO
 122 yldtStBh UIFPhmuTJh Argentina 61 Rabies NO
+266 uqKPrCHHxAAg LzpUUdOpU Argentina 58 Banna YES 17-11-1469
 19 OGTIreQS HocrZVA Argentina 48 Zika YES 17-11-0979
+818 LQniDNBMk nTwkhgfhBY Argentina 71 Toscana YES 21-02-0029
 386 yfHH BVuMliiL Argentina 20 Banna NO
+1151 guUmouF ArnUEgL Argentina 27 H1N1 NO
 780 CfzyJGfduEdm qntDsahNdl Argentina 54 Ebola YES 29-01-0642
+311 LvseednIql LalQm Argentina 89 Toscana YES 18-09-1765
 1381 ZXZYoOCZYW aANqliWXAWJV Argentina 60 Hepatitis-E YES 18-12-1781
+386 yfHH BVuMliiL Argentina 20 Banna NO
 1781 HQbvqYFsd NeL Argentina 49 COVID-19 NO
+1066 eYYYe XfUkCl Argentina 4 Junin YES 04-04-0723
 1441 NxxOQrirYOh FoSMzDiqcnM Argentina 32 Lassa NO
+51 vLwgHMSBuRm jYGuvZ Argentina 48 Banna YES 22-03-1248
 1381 ZXZYoOCZYW aANqliWXAWJV Argentina 60 Flu YES 03-09-1366
+780 CfzyJGfduEdm qntDsahNdl Argentina 54 Horsepox NO
 694 IkUkDjBZ YqxvZR Argentina 78 Hepatitis-C NO
+585 yeQTvSnKEiy rWjyXojmDQqA Argentina 89 Hepatitis-C NO
 649 euLb sZAxNQ Argentina 112 Hepatitis-B YES 17-12-1688
+1431 LsbkMiHxyaXt TqZm Argentina 83 Hepatitis-C NO
 694 IkUkDjBZ YqxvZR Argentina 78 Hepatitis-C NO
+1244 wqBcBoYDOdFd PaQqaF Argentina 111 H1N1 NO
 367 jpPrNomdTrsb dViFKNM Argentina 20 H1N1 NO
+1838 UPyvIwlJo AGwOYStukbxQ Argentina 110 Lassa NO
 1983 qnbpEEjDZ XJSqYfDm Argentina 96 Toscana NO
+1791 RISrIbF NjrXRrVfUK Argentina 1 Hepatitis-A YES 06-12-1406
 1463 PJctxXi hifVfMB Argentina 61 Toscana NO
+1187 WTDLiQrdpNuw qVWQOSWwa Argentina 80 Hepatitis-A YES 13-09-1791
 1947 crKoOzXYteR bZrmANDWC Argentina 39 Ebola NO
+1422 trzoXzR RgBKLtm Argentina 75 Horsepox NO
 1723 LzmtkK HEhFKJO Argentina 40 Rabies YES 25-06-1071
+359 ATvBXOFtEk sTueaEY Argentina 97 H1N1 YES 11-08-1550
 624 JFeAoGDVcff NuixpmnxOf Argentina 36 Rabies YES 04-06-1717
+1781 HQbvqYFsd NeL Argentina 49 Hepatitis-D NO
 1151 guUmouF ArnUEgL Argentina 27 Junin YES 20-02-1675
+975 vkllq eZNqgvEwlVp Argentina 28 SARS-1 NO
 1617 SieQUP UPLcAewzIS Argentina 106 COVID-19 YES 02-12-0783
+75 bUQWbG ZOWP Argentina 72 Junin YES 04-05-1207
 1244 wqBcBoYDOdFd PaQqaF Argentina 111 Flu NO
+1617 SieQUP UPLcAewzIS Argentina 106 Hepatitis-B YES 19-11-0132
 1201 tMHDC PDXfpAahg Argentina 78 SARS-1 YES 14-01-1859
+66 wkPwDab ghXkNRl Argentina 54 Ebola YES 26-01-0361
 359 ATvBXOFtEk sTueaEY Argentina 97 COVID-19 YES 28-09-0587
+1127 oRT NSlKVeeoSm Argentina 13 Hepatitis-B NO
 20 pAuGq YVA Argentina 37 Hepatitis-A YES 25-04-0722
+1244 wqBcBoYDOdFd PaQqaF Argentina 111 Junin NO
 780 CfzyJGfduEdm qntDsahNdl Argentina 54 Flu NO
+184 yBo nsbmgaP Argentina 30 H1N1 YES 02-05-1975
 311 LvseednIql LalQm Argentina 89 Hepatitis-B YES 15-01-1423
+1603 OfXVvp qShAEfg Argentina 39 Banna YES 18-02-1372
 466 kxxaXqgOQ CVR Argentina 113 Toscana NO
+1441 NxxOQrirYOh FoSMzDiqcnM Argentina 32 Horsepox YES 18-10-0004
 468 dMBHpZ nVNDXMCxr Argentina 19 Ebola NO
+1401 OnZeMgNVMudr AKUE Argentina 94 Lassa NO
 585 yeQTvSnKEiy rWjyXojmDQqA Argentina 89 Banna YES 21-12-0039
+1838 UPyvIwlJo AGwOYStukbxQ Argentina 110 Lassa YES 30-06-0835
 1201 tMHDC PDXfpAahg Argentina 78 Cowpox NO
+217 msSHujuT fKBZ Argentina 83 Zika NO
 979 TEJK gDxtMjVeFZ Argentina 76 Cowpox NO
+1397 qreNGFJWQxP JZxbBKaC Argentina 76 Lassa NO
 386 yfHH BVuMliiL Argentina 20 H1N1 NO
+1947 crKoOzXYteR bZrmANDWC Argentina 39 Hepatitis-D YES 10-01-1338
 1244 wqBcBoYDOdFd PaQqaF Argentina 111 Hepatitis-D YES 25-07-0447
+1983 qnbpEEjDZ XJSqYfDm Argentina 96 Hepatitis-B NO
 886 EZcqRPXb BLiRHtGXR Argentina 37 Cowpox NO
+247 AvPiFYih LIXRed Argentina 98 Banna YES 20-03-0629
 1502 XPmriI vhZHWhLXf Argentina 50 SARS-1 NO
+1283 yctmYBPLG BVVZFmyh Argentina 29 Rabies YES 11-04-1323

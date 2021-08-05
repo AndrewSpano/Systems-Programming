@@ -1,29 +1,57 @@
 97 HBd YES India 114 Hepatitis-E NO
+1775 OHDNqXl yuLXNbLdpZDA India 94 Zika YES 01-03-1139
 1570 AeITTr SBrZLMLipk India 83 Junin NO
-56 UjkBkRwuH gMuVjgIsLnAm India 18 Hepatitis-D YES 06-02-1285
-496 sFcgFMgFz FEioCXv India 28 Ebola YES 04-01-0623
-491 blmbLBCQRwE oULfN India 53 Hepatitis-B NO
-1286 sNQtDSD mCyN India 90 Hepatitis-D YES 24-06-0331
-17 EXSCusZ JxsmXwCprNVJ India 30 Cowpox YES 14-07-0463
-1186 egDTeyUdUKKj kHzHpQvnJ India 5 Hepatitis-D NO
-1276 UwPAPPaBYe wwFCkJVaUF India 2 Ebola NO
-1047 tSk OmjkTsMwYZqJ India 2 Ebola YES 11-09-0252
-11 mTCvF MPHoa India 37 Hepatitis-E YES 10-03-1569
-447 zorBDfXrM MxJC India 1 Monkeypox YES 08-07-0493
-1240 UArTSDSSIlGU XUQFvXE India 117 Banna YES 10-12-1875
-1709 vRCTMrcU gOQhahbNR India 48 Zika NO
 97 HBd YES India 114 Hepatitis-D NO
+56 UjkBkRwuH gMuVjgIsLnAm India 18 Hepatitis-D YES 06-02-1285
+1148 CsIPGOlhS RsH India 53 Banna YES 21-05-0676
+496 sFcgFMgFz FEioCXv India 28 Ebola YES 04-01-0623
+324 moLUQoGCG oSBDWJeDyDgc India 42 Horsepox NO
+491 blmbLBCQRwE oULfN India 53 Hepatitis-B NO
+1219 AMcxZmlDY xzF India 2 H1N1 YES 08-12-0537
+1286 sNQtDSD mCyN India 90 Hepatitis-D YES 24-06-0331
+17 EXSCusZ JxsmXwCprNVJ India 30 Ebola NO
+17 EXSCusZ JxsmXwCprNVJ India 30 Cowpox YES 14-07-0463
+1890 GaHMqoFHLL GvWWrgktD India 95 Horsepox YES 12-02-0119
+1186 egDTeyUdUKKj kHzHpQvnJ India 5 Hepatitis-D NO
+1186 egDTeyUdUKKj kHzHpQvnJ India 5 Flu YES 29-07-1847
+1276 UwPAPPaBYe wwFCkJVaUF India 2 Ebola NO
+1706 cnJvoU wSDlk India 94 COVID-19 YES 10-02-0579
+1047 tSk OmjkTsMwYZqJ India 2 Ebola YES 11-09-0252
+1570 AeITTr SBrZLMLipk India 83 Lassa YES 27-11-1286
+11 mTCvF MPHoa India 37 Hepatitis-E YES 10-03-1569
+1540 ZZfD fFeqE India 2 Lassa NO
+447 zorBDfXrM MxJC India 1 Monkeypox YES 08-07-0493
+1413 TTPKCMbnP YBNio India 52 Hepatitis-D NO
+1240 UArTSDSSIlGU XUQFvXE India 117 Banna YES 10-12-1875
+1384 pWMKaltjGzkm VCaCsO India 20 Horsepox YES 10-11-0903
+1709 vRCTMrcU gOQhahbNR India 48 Zika NO
+1648 veaQxz MJTXDjOiHvft India 90 Cowpox NO
+97 HBd YES India 114 Hepatitis-D NO
+496 sFcgFMgFz FEioCXv India 28 Hepatitis-B YES 18-10-1305
 174 mqo GWKCqaTDFrl India 62 Flu YES 13-01-1282
+467 fKpa MvvdQfYx India 5 Hepatitis-A NO
 1291 armAuTmX ArxsWFFTk India 63 Hepatitis-A NO
+215 vjNDay aPBEpsNSYu India 4 Rabies NO
 142 dhxtYC RKaAT India 96 Banna NO
+1058 Tvvg qYJbkIy India 93 Toscana NO
 447 zorBDfXrM MxJC India 1 Ebola NO
+1775 OHDNqXl yuLXNbLdpZDA India 94 SARS-1 NO
 1148 CsIPGOlhS RsH India 53 Hepatitis-B NO
+392 CrKsvnwXV PyzIbchrZzH India 50 Junin NO
 302 jwzq TEA India 41 SARS-1 NO
+1323 JedakbAsBEA ezWbaAl India 89 Hepatitis-D NO
 480 yhiArzaTIG TMihXYrBvozT India 22 Hepatitis-B YES 23-12-0824
+1464 sWmPFyGPnqT haKnPB India 57 Rabies YES 14-12-1594
 1464 sWmPFyGPnqT haKnPB India 57 Hepatitis-D YES 13-05-0533
+1969 lEjkEqtmShZO cORGuqiPH India 14 Hepatitis-B YES 27-08-1632
 520 GKbNjRd ILfsrPfyeLB India 34 Zika YES 15-03-0970
+638 qJL TDhj India 94 Cowpox NO
 1286 sNQtDSD mCyN India 90 Monkeypox YES 26-04-0951
+630 QzotqWysDx peRjHOnLgJw India 33 Hepatitis-A NO
 1413 TTPKCMbnP YBNio India 52 Zika NO
+392 CrKsvnwXV PyzIbchrZzH India 50 Banna NO
 1890 GaHMqoFHLL GvWWrgktD India 95 Typhus NO
+1469 NnOGUuNuU RXWvtPq India 89 Banna NO
 1540 ZZfD fFeqE India 2 Zika NO
+467 fKpa MvvdQfYx India 5 COVID-19 YES 11-12-1037
 496 sFcgFMgFz FEioCXv India 28 Banna YES 13-10-0964

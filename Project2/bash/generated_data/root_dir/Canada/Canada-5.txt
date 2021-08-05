@@ -1,30 +1,60 @@
 1515 aFzOadFvqFkJ knQbCClx Canada 23 Ebola YES 16-11-1299
+86 espnlPA QffqPmiEMicL Canada 19 Hepatitis-D YES 20-06-0319
 1957 jtgWuDmq TzFLvnbrmW Canada 80 COVID-19 YES 23-08-0983
+1359 rUMrk Dpzlm Canada 24 Rabies NO
 222 npiyjt gXGjvjXmoxk Canada 95 Rabies NO
+1241 CwWPjeXW oXawRyKTJfXN Canada 13 Toscana YES 11-07-1798
 508 qqeGpz xkWCHowjaRZ Canada 11 Lassa NO
+1294 tuVRGhwqQLK gJFPAYn Canada 54 SARS-1 NO
 621 oTBiskaCpsl bpKYBWGEYmM Canada 83 Typhus YES 17-09-1651
+1290 Rte YNVTIv Canada 73 SARS-1 NO
 1957 jtgWuDmq TzFLvnbrmW Canada 80 SARS-1 YES 26-07-1049
+970 anSKDwdoewWO EKvHFSN Canada 39 Flu NO
 12 uFZQpo CdKSZwJZjSr Canada 99 Zika NO
+1763 sUdsVA ahrnqcAlLhP Canada 20 Flu YES 17-09-1705
 1089 AsqMRnti cYUDPJFa Canada 35 Flu YES 01-04-0885
+1727 YXlmYrLfHXme uibURDrbStNz Canada 86 Banna YES 17-05-0890
 1732 raB LMLkgk Canada 74 Toscana YES 10-01-1738
+716 YVVi oShgEU Canada 45 Hepatitis-B YES 05-03-1370
 700 qXM Bet Canada 10 Hepatitis-C YES 27-01-0259
+1727 YXlmYrLfHXme uibURDrbStNz Canada 86 Toscana YES 01-08-1561
 1239 QKVDAU fLIu Canada 27 Lassa YES 04-08-0194
+1727 YXlmYrLfHXme uibURDrbStNz Canada 86 Cowpox YES 15-12-1240
 12 uFZQpo CdKSZwJZjSr Canada 99 Hepatitis-B YES 24-12-0822
+749 uqETvXksey hokybbrMul Canada 75 Horsepox NO
 621 oTBiskaCpsl bpKYBWGEYmM Canada 83 Toscana YES 12-07-0235
+354 clThcAa yUDIEDRyO Canada 16 Flu NO
 12 uFZQpo CdKSZwJZjSr Canada 99 Toscana YES 30-03-0309
+1918 sgrjQAws PgASiWNSs Canada 1 H1N1 YES 07-03-0056
 1902 FuSlriO IztZhBYVf Canada 90 Horsepox YES 09-07-0181
+1294 tuVRGhwqQLK gJFPAYn Canada 54 Rabies YES 17-05-0881
 71 KSxfEau TPeJHuYwlwHB Canada 93 Hepatitis-E YES 05-08-0976
+644 XQG MghTOwQyUoKl Canada 14 H1N1 YES 21-11-0897
 1029 SGg LQnmhTxb Canada 106 Rabies YES 21-05-0698
+1592 mxipznqj syPLd Canada 55 Horsepox YES 27-01-0289
 783 LxBi xulnjPvIt Canada 42 Toscana NO
+222 npiyjt gXGjvjXmoxk Canada 95 Monkeypox YES 18-05-1585
 652 lGaCiPp VuGacUJO Canada 24 Cowpox YES 10-06-0011
+670 WBHCopRyjr FccizmcAGaC Canada 95 Hepatitis-B YES 04-05-1407
 1954 vDDIWh FmAykz Canada 119 Hepatitis-A NO
+1089 AsqMRnti cYUDPJFa Canada 35 Typhus YES 22-12-0718
 1294 tuVRGhwqQLK gJFPAYn Canada 54 Hepatitis-B NO
+1029 SGg LQnmhTxb Canada 106 Lassa YES 03-03-0748
 1727 YXlmYrLfHXme uibURDrbStNz Canada 86 Rabies YES 18-08-0796
+267 anPUlGRvFHo QVvNU Canada 37 Banna YES 14-11-0498
 37 aMFldDfhJqDp IKS Canada 72 H1N1 NO
+1067 lYMVzhbQFpCC PLGVhp Canada 42 Banna YES 04-01-0750
 1021 wYOxoDFU pGlKNprzqgH Canada 17 COVID-19 YES 23-07-0322
+1473 wnQ nHiqTG Canada 102 Hepatitis-E NO
 1975 ODqPEPu uNqLJMiF Canada 83 Hepatitis-D YES 23-10-1951
+1141 fijzdBey QTAPPYrogG Canada 39 Hepatitis-B NO
 1280 xwTs AkUE Canada 76 Hepatitis-E YES 01-01-1277
+158 gJK WWNDWonkVa Canada 21 Ebola NO
 5 vJzinQ iEEvW Canada 66 Zika YES 01-07-0013
+1763 sUdsVA ahrnqcAlLhP Canada 20 COVID-19 NO
 1359 rUMrk Dpzlm Canada 24 Cowpox NO
+1473 wnQ nHiqTG Canada 102 Zika NO
 572 uSVLQbJPDk owEJzYUX Canada 28 Typhus YES 01-02-0777
+953 jwfy MDJsXuDWj Canada 90 SARS-1 NO
 1241 CwWPjeXW oXawRyKTJfXN Canada 13 SARS-1 NO
+267 anPUlGRvFHo QVvNU Canada 37 Hepatitis-B NO

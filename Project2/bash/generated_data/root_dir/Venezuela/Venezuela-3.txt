@@ -1,36 +1,71 @@
 1790 BxfnqmKtubD LTH Venezuela 48 Typhus YES 20-10-0129
+1705 WZlkYaHtSSx onuMUYq Venezuela 87 SARS-1 YES 08-05-1197
 1636 uGucIPyoxYfk jolfEp Venezuela 5 Banna YES 06-01-1876
+1300 rtVTgJICC PDM Venezuela 65 Junin YES 19-06-0324
 1100 yFKK mSqbbevZC Venezuela 110 Flu NO
+133 QxUXqtmW YVHQGpfzSNpe Venezuela 106 Monkeypox NO
 133 QxUXqtmW YVHQGpfzSNpe Venezuela 106 Rabies NO
+1300 rtVTgJICC PDM Venezuela 65 Toscana YES 10-12-0597
 549 CnUMuuJivt FNPqwY Venezuela 18 Hepatitis-B YES 10-02-1748
+1981 WjdK qsrZa Venezuela 28 Zika YES 20-07-1074
 1945 xaWGsqhVXpS TnxdjdCh Venezuela 116 Flu YES 11-02-0954
+1133 GaLsOl LAd Venezuela 15 Junin YES 20-09-1140
 1821 UcD mMRAvgtSSkj Venezuela 95 Hepatitis-B YES 19-03-0458
+1270 UNbfkyMpKL wCAteijg Venezuela 114 Junin YES 02-09-0521
 451 ieXx QeDra Venezuela 95 Ebola YES 20-12-1606
+22 xWEumMY mHwaJOjUI Venezuela 105 SARS-1 NO
 1037 Ilt Vchw Venezuela 16 Hepatitis-D NO
+145 ota zch Venezuela 105 Ebola YES 23-04-0425
 1945 xaWGsqhVXpS TnxdjdCh Venezuela 116 Hepatitis-A NO
+1316 NjyFM cqbBnm Venezuela 65 Hepatitis-A YES 18-10-0132
 1293 WkZZRDVLNugW UHybcspGRi Venezuela 85 Hepatitis-B YES 23-04-1781
+876 zQzjxLz VQUjdeZ Venezuela 111 Ebola YES 13-02-0673
 1894 TJFJtQp sxuebh Venezuela 109 Hepatitis-E NO
+1051 YVLknsfu EpKBAAAMBJY Venezuela 77 Hepatitis-A NO
 1316 NjyFM cqbBnm Venezuela 65 Hepatitis-B NO
+1680 fXdFihPhZvH tACmEy Venezuela 107 Hepatitis-C YES 30-04-1264
 966 GLHC gcsksRAbuCmY Venezuela 21 Cowpox YES 22-10-0364
+1410 ekGFw APz Venezuela 108 Toscana YES 17-02-0450
 1031 euEqtpbyHg HRObYWHf Venezuela 52 Hepatitis-B NO
+693 SVkXlT CSlvag Venezuela 112 Junin NO
 1559 yFX GWmrmNiTH Venezuela 48 H1N1 NO
+1100 yFKK mSqbbevZC Venezuela 110 Monkeypox NO
 978 aoPH YSOQJrYEWw Venezuela 89 Typhus YES 05-01-1842
+1713 gNLIHFbkLwT Acxm Venezuela 67 COVID-19 YES 20-02-1559
 1410 ekGFw APz Venezuela 108 Lassa YES 19-12-1923
+1270 UNbfkyMpKL wCAteijg Venezuela 114 Cowpox NO
 1316 NjyFM cqbBnm Venezuela 65 Hepatitis-C NO
+549 CnUMuuJivt FNPqwY Venezuela 18 Hepatitis-E NO
 622 VOcXt tiNVrsuoKhW Venezuela 108 Hepatitis-A NO
+1316 NjyFM cqbBnm Venezuela 65 Lassa YES 13-02-1232
 1559 yFX GWmrmNiTH Venezuela 48 SARS-1 YES 07-06-0511
+53 FyNzmSVtEd xeXMLftBw Venezuela 75 Ebola NO
 595 SPdL nnTy Venezuela 77 H1N1 NO
+1867 ajnCIbhhgLw yNLWxUln Venezuela 72 Cowpox YES 04-12-0399
 1133 GaLsOl LAd Venezuela 15 Toscana NO
+619 TEQNKcJR nTpeoaWoZ Venezuela 114 SARS-1 NO
 793 aKs jkXaHO Venezuela 91 COVID-19 YES 08-09-0450
+1705 WZlkYaHtSSx onuMUYq Venezuela 87 Flu YES 07-02-0002
 549 CnUMuuJivt FNPqwY Venezuela 18 Hepatitis-A YES 11-08-1025
+607 fXqxQv uNOnxeFs Venezuela 3 Toscana NO
 1133 GaLsOl LAd Venezuela 15 Hepatitis-A NO
+1471 RSAhKXqq NAtKiwm Venezuela 92 Hepatitis-E YES 16-04-1820
 351 SqoYJWj fuuoJR Venezuela 36 Ebola YES 25-11-0975
+1790 BxfnqmKtubD LTH Venezuela 48 Typhus NO
 53 FyNzmSVtEd xeXMLftBw Venezuela 75 Banna NO
+1705 WZlkYaHtSSx onuMUYq Venezuela 87 Hepatitis-B NO
 385 EdDWQXjuQvte aTVBah Venezuela 41 H1N1 NO
+1327 eLuxZtLPCXb dzLnKknIQQ Venezuela 86 Toscana NO
 1037 Ilt Vchw Venezuela 16 SARS-1 NO
+1701 LVTQzYHDYLt uoIpLvsC Venezuela 115 Horsepox NO
 882 fQSq ZDhLQv Venezuela 61 Banna NO
+1737 jIyvmagC UKawJM Venezuela 9 Cowpox YES 09-09-1736
 123 HsA elySbZo Venezuela 55 Banna YES 20-12-0483
+385 EdDWQXjuQvte aTVBah Venezuela 41 Ebola YES 01-09-1103
 385 EdDWQXjuQvte aTVBah Venezuela 41 Hepatitis-A YES 25-07-0123
+1894 TJFJtQp sxuebh Venezuela 109 Hepatitis-C NO
 1300 rtVTgJICC PDM Venezuela 65 Toscana NO
+133 QxUXqtmW YVHQGpfzSNpe Venezuela 106 Hepatitis-D NO
 693 SVkXlT CSlvag Venezuela 112 Monkeypox NO
+962 UGCP sWhyFc Venezuela 71 Monkeypox NO
 607 fXqxQv uNOnxeFs Venezuela 3 Toscana NO

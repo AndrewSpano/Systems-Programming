@@ -1,32 +1,63 @@
 1864 ngiz eUvWwLlfrq Chile 118 Flu YES 20-10-1201
+1605 uFPMCjIMRI giLLyCWviC Chile 104 Hepatitis-A NO
 1951 SRPeDPYl MNlUnlZjd Chile 95 Junin YES 26-10-1268
+657 PuWln DQQZcZFXl Chile 4 Banna YES 06-12-0807
 1548 nDJZ Lswht Chile 72 H1N1 NO
+888 rPkRnaV yKLPDJJocy Chile 9 Typhus NO
 1719 DdPHntGU LVx Chile 62 Toscana YES 19-09-0646
+289 ktwHGInS LPE Chile 9 Hepatitis-D NO
 888 rPkRnaV yKLPDJJocy Chile 9 Ebola NO
+548 GBpiuYmYCvPa aYTAgV Chile 88 Hepatitis-A NO
 183 nzrDIWuuDLS itLa Chile 30 H1N1 NO
+1102 tNgNEgEyjut LqouRo Chile 95 Hepatitis-B NO
 850 oTcsHiUIgamx EuhwxMQ Chile 44 Junin NO
+1904 BkIf zmaYknhwvB Chile 51 Junin NO
 1817 tTzpbHcgU TpA Chile 39 Hepatitis-C YES 24-03-1958
+322 AHwCItuXyl FKxTEujxEXB Chile 32 H1N1 YES 03-12-1135
 431 OTeSotxbY jSOCmjAQd Chile 85 Horsepox YES 15-02-2011
+719 PWzSRgLUwf ZQbKLWtUg Chile 23 Horsepox NO
 1788 wKZPErPcdft uBaB Chile 91 Rabies NO
+1944 VXY MhzSXdKWjcmq Chile 64 Flu YES 01-11-2015
 1844 OcIMB UGM Chile 1 Toscana YES 29-06-0784
+183 nzrDIWuuDLS itLa Chile 30 Rabies YES 29-07-1138
 289 ktwHGInS LPE Chile 9 Banna NO
+862 kfvX Snc Chile 6 Junin NO
 1944 VXY MhzSXdKWjcmq Chile 64 COVID-19 YES 21-04-1116
+1174 kYMWbAtDsI nJVcXRzoftE Chile 71 SARS-1 YES 05-09-1189
 512 GqqbmSpB Kigyno Chile 48 Junin YES 20-11-1138
+753 nkWKztsbfqDY wehoaN Chile 53 Hepatitis-A YES 19-07-0833
 850 oTcsHiUIgamx EuhwxMQ Chile 44 Ebola NO
+673 hOhFPNbJEYU UHyDxFyx Chile 4 Hepatitis-D YES 01-11-0175
 162 rIDgzaDm lMMvKcRz Chile 69 Horsepox YES 30-07-1825
+1776 uFgEeNoESrjL Vfdzzwceo Chile 64 Rabies NO
 994 gVXLAqgSaQLS pwtrnBqCUVX Chile 21 Horsepox NO
+719 PWzSRgLUwf ZQbKLWtUg Chile 23 Cowpox NO
 719 PWzSRgLUwf ZQbKLWtUg Chile 23 Monkeypox YES 25-07-1607
+1783 IyOAlv ssnALtZj Chile 4 Lassa NO
 719 PWzSRgLUwf ZQbKLWtUg Chile 23 Toscana YES 24-09-1284
+1605 uFPMCjIMRI giLLyCWviC Chile 104 Flu YES 30-02-0392
 719 PWzSRgLUwf ZQbKLWtUg Chile 23 H1N1 NO
+1111 xsdzAClBD fwOagLwrUfcD Chile 109 Junin NO
 1788 wKZPErPcdft uBaB Chile 91 Toscana NO
+1915 iFrMsJsel tUIHMLNrGLx Chile 27 Lassa YES 12-10-0657
 1788 wKZPErPcdft uBaB Chile 91 Zika YES 03-03-1554
+1776 uFgEeNoESrjL Vfdzzwceo Chile 64 Cowpox NO
 1103 dLpJ obZ Chile 95 COVID-19 YES 11-08-0877
+1703 rUNqTQN wvGSk Chile 27 Hepatitis-E YES 28-08-0395
 1951 SRPeDPYl MNlUnlZjd Chile 95 Junin YES 25-07-0367
+295 zOFpp ByEZ Chile 31 Lassa NO
 183 nzrDIWuuDLS itLa Chile 30 Ebola NO
+548 GBpiuYmYCvPa aYTAgV Chile 88 Zika YES 27-06-1247
 673 hOhFPNbJEYU UHyDxFyx Chile 4 Cowpox YES 24-01-0689
+289 ktwHGInS LPE Chile 9 Ebola YES 03-02-0662
 1608 NqYKVKxkJqc FzfZrV Chile 14 Zika NO
+1548 nDJZ Lswht Chile 72 Banna YES 25-04-1715
 548 GBpiuYmYCvPa aYTAgV Chile 88 Toscana NO
+36 slUwQgfjoPWh Ucbx Chile 45 Horsepox YES 22-08-1917
 835 LeQwNeq ApAIAXSUlfP Chile 118 SARS-1 YES 23-05-1081
+1870 nQClBzhacAGa HvTAfbpZTX Chile 68 Junin YES 14-02-1535
 1870 nQClBzhacAGa HvTAfbpZTX Chile 68 Hepatitis-C YES 23-12-1427
+839 EcZpXit JBDt Chile 55 Junin YES 20-11-0647
 1630 TjdEbNTfgEYb xpji Chile 19 Ebola YES 24-09-0551
+1132 idYc PyovCVJgoP Chile 47 Hepatitis-C YES 21-09-0214
 199 FJoDyuQ gvsmAvF Chile 81 Hepatitis-B YES 20-03-0757

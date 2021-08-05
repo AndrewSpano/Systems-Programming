@@ -1,35 +1,69 @@
 287 kTcvhRqzFb AhShetLNinv Italy 1 Typhus YES 06-07-1874
+407 TTBB GYh Italy 39 COVID-19 YES 07-07-0672
 626 MKHbgkNUPwX Gwm Italy 85 H1N1 YES 19-09-0873
+1449 AJMnNsWjXsA iyAYE Italy 16 COVID-19 NO
 1485 izjcfxDVf PhkKopBbn Italy 111 Horsepox YES 19-09-0539
+973 ZBtxFxug fVccf Italy 115 H1N1 YES 22-09-1809
 1366 nvSGzvFOaBS mEoMfKDYs Italy 94 Toscana YES 18-08-0758
+42 ElydESHz uDkiMWBLaSP Italy 100 COVID-19 NO
 1666 QPluOn mqTabprDEcc Italy 109 Hepatitis-A NO
+375 zWxkE tlXnvjNP Italy 81 Junin YES 16-07-0682
 287 kTcvhRqzFb AhShetLNinv Italy 1 Ebola YES 28-06-0128
+391 ObdfSyWFHU FGURAuDkRhqm Italy 36 Hepatitis-A YES 24-01-1909
 407 TTBB GYh Italy 39 Ebola YES 22-06-0551
+989 MSeXvbs RKg Italy 5 Hepatitis-A YES 10-12-1255
 1480 hockYVFptitM KvipZ Italy 95 Hepatitis-D YES 13-02-1852
+1829 MnUvJnqVFkg QVi Italy 92 Hepatitis-C YES 28-10-1707
 42 ElydESHz uDkiMWBLaSP Italy 100 Cowpox YES 04-05-0780
-129 gJCu HGqQR Italy 62 H1N1 YES 05-01-0564
-1225 TWnVjoz INQsodwf Italy 7 Hepatitis-E YES 18-06-0525
-921 ZomT tkJCHgkBOFuX Italy 76 H1N1 YES 07-02-1036
-348 DiSSaC tNOwqK Italy 86 Cowpox NO
-235 DsuecZI ubIOVlrug Italy 32 Typhus YES 01-04-1668
-375 zWxkE tlXnvjNP Italy 81 Lassa YES 05-12-1243
-1672 pMwFjeQ jRR Italy 36 Monkeypox NO
-407 TTBB GYh Italy 39 COVID-19 YES 28-03-1157
-1485 izjcfxDVf PhkKopBbn Italy 111 Rabies NO
-1485 izjcfxDVf PhkKopBbn Italy 111 Monkeypox NO
-1679 QLe VjDllgl Italy 79 H1N1 NO
-1708 gfsPLM KIpgH Italy 24 Ebola YES 13-01-0330
-709 MAFiN NgKaRPJvX Italy 120 Monkeypox NO
-919 VFjvOE JBXGAsdDyD Italy 65 Hepatitis-D YES 09-03-1029
-937 syoZO PdLprld Italy 29 Hepatitis-D YES 29-05-0354
-692 nhWMXgnUvu AgiH Italy 53 Rabies NO
-454 sAdfTOuvTlN ASyIB Italy 85 Banna NO
-407 TTBB GYh Italy 39 Cowpox NO
 391 ObdfSyWFHU FGURAuDkRhqm Italy 36 Junin NO
+129 gJCu HGqQR Italy 62 H1N1 YES 05-01-0564
+1679 QLe VjDllgl Italy 79 Junin YES 30-03-0417
+1225 TWnVjoz INQsodwf Italy 7 Hepatitis-E YES 18-06-0525
+205 yrsexSHxF ktNb Italy 49 Hepatitis-C YES 28-04-1406
+921 ZomT tkJCHgkBOFuX Italy 76 H1N1 YES 07-02-1036
+854 pbAl locoJDBlXnx Italy 93 Hepatitis-A YES 20-02-0479
+348 DiSSaC tNOwqK Italy 86 Cowpox NO
+454 sAdfTOuvTlN ASyIB Italy 85 Cowpox NO
+235 DsuecZI ubIOVlrug Italy 32 Typhus YES 01-04-1668
+67 xbt XwvrBAbi Italy 101 Cowpox YES 25-06-1739
+375 zWxkE tlXnvjNP Italy 81 Lassa YES 05-12-1243
+487 AmM nSIOgyfjcUVe Italy 119 H1N1 NO
+1672 pMwFjeQ jRR Italy 36 Monkeypox NO
+348 DiSSaC tNOwqK Italy 86 H1N1 NO
+407 TTBB GYh Italy 39 COVID-19 YES 28-03-1157
+42 ElydESHz uDkiMWBLaSP Italy 100 Hepatitis-C NO
+1485 izjcfxDVf PhkKopBbn Italy 111 Rabies NO
+74 uSYvYAVoCn vcyY Italy 78 Hepatitis-A NO
+1485 izjcfxDVf PhkKopBbn Italy 111 Monkeypox NO
+454 sAdfTOuvTlN ASyIB Italy 85 Rabies NO
+1679 QLe VjDllgl Italy 79 H1N1 NO
+348 DiSSaC tNOwqK Italy 86 Hepatitis-D NO
+1708 gfsPLM KIpgH Italy 24 Ebola YES 13-01-0330
+1170 qOCUl RUXteRUGZxd Italy 56 Hepatitis-B YES 02-11-0752
+709 MAFiN NgKaRPJvX Italy 120 Monkeypox NO
+692 nhWMXgnUvu AgiH Italy 53 Hepatitis-E YES 13-02-0178
+919 VFjvOE JBXGAsdDyD Italy 65 Hepatitis-D YES 09-03-1029
+973 ZBtxFxug fVccf Italy 115 Junin YES 25-04-0989
+937 syoZO PdLprld Italy 29 Hepatitis-D YES 29-05-0354
+220 GypkVVmPU bghaFcI Italy 90 SARS-1 NO
+692 nhWMXgnUvu AgiH Italy 53 Rabies NO
+348 DiSSaC tNOwqK Italy 86 Hepatitis-C NO
+454 sAdfTOuvTlN ASyIB Italy 85 Banna NO
+230 bPMCcZd QBNRq Italy 57 Cowpox YES 28-08-1637
+407 TTBB GYh Italy 39 Cowpox NO
+921 ZomT tkJCHgkBOFuX Italy 76 SARS-1 NO
+391 ObdfSyWFHU FGURAuDkRhqm Italy 36 Junin NO
+692 nhWMXgnUvu AgiH Italy 53 Rabies NO
 220 GypkVVmPU bghaFcI Italy 90 Horsepox NO
+1659 TzSIDjWxcHJP rSVH Italy 38 Hepatitis-E YES 04-01-1270
 375 zWxkE tlXnvjNP Italy 81 Banna YES 20-08-0252
+1346 PuKOlAED nVanmRvOYTRa Italy 86 Hepatitis-A NO
 1346 PuKOlAED nVanmRvOYTRa Italy 86 COVID-19 YES 13-03-1711
+1238 fLvfVZDSm fVx Italy 89 Lassa NO
 407 TTBB GYh Italy 39 SARS-1 YES 03-02-0777
+1672 pMwFjeQ jRR Italy 36 Horsepox YES 29-11-0806
 1442 BniknvQBUpRr XfBLAHfCl Italy 120 Rabies NO
+245 vjFaZ mWg Italy 41 Typhus YES 25-08-0811
 1672 pMwFjeQ jRR Italy 36 SARS-1 YES 01-03-1323
+692 nhWMXgnUvu AgiH Italy 53 Cowpox YES 11-05-0030
 558 FYhlvjB EGmVRJLzdyLB Italy 117 Hepatitis-A YES 06-12-0427

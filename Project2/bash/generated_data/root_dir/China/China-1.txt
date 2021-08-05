@@ -1,30 +1,60 @@
 729 dWpIMzI tkk China 64 Rabies YES 17-09-1550
+1253 yJVpbjXJ rmSoRGTCltj China 73 H1N1 NO
 30 BZt pSSHgdo China 30 Lassa YES 13-10-1462
+779 hgzLDuhKPoz ZfdSEpZ China 94 Hepatitis-C YES 04-07-1005
 304 wCslE DuwYsrXKdfJ China 23 Junin YES 15-03-0332
+410 gmBFEKxXLEe eSdeSWfyta China 23 Typhus YES 27-10-0370
 1253 yJVpbjXJ rmSoRGTCltj China 73 Hepatitis-A NO
+1511 SdW iuM China 39 Hepatitis-A YES 30-03-1971
 631 EictuDE GZutujGyd China 38 H1N1 NO
+126 TKKMcvVhKw yfMhNDYVqbuN China 44 Junin YES 29-05-1621
 762 wshOTIlfbm KGcJFsI China 114 Typhus YES 17-01-0404
+1959 gzBZqSJYrFpU lPhLA China 72 COVID-19 NO
 482 CluyUCbV qcsTwdq China 116 Banna YES 26-04-1332
+729 dWpIMzI tkk China 64 Banna YES 17-03-1524
 1468 GjElWFRJWjG WoiwRUMaEK China 120 Hepatitis-C YES 27-10-0835
+192 GRsYCns MfWukDrS China 87 Cowpox YES 17-02-1894
 631 EictuDE GZutujGyd China 38 H1N1 NO
+1622 YLY aqYIEzYeKBJa China 27 Ebola NO
 1598 ZeZVNfAitIvt nDvzC China 104 Horsepox YES 17-03-0776
+1872 WgnjwfIg DLvYTrI China 96 Junin YES 13-08-0655
 120 AdXRDPnOFa xalm China 72 Junin YES 19-11-0212
+729 dWpIMzI tkk China 64 Rabies NO
 30 BZt pSSHgdo China 30 Horsepox YES 08-09-1520
+1468 GjElWFRJWjG WoiwRUMaEK China 120 Cowpox YES 22-06-1806
 1407 mjf YRkBSU China 13 SARS-1 YES 23-08-1788
+1908 VWwp WpeWEmlTxI China 44 Hepatitis-E YES 18-10-1296
 1169 oBL cXHya China 85 COVID-19 YES 10-01-1221
+1695 pBfhADmj mJxgXFQkBkk China 30 Horsepox NO
 105 SznjgcxN ZXPGHSLz China 46 Hepatitis-E YES 15-12-1209
+1872 WgnjwfIg DLvYTrI China 96 Hepatitis-E YES 30-09-1166
 779 hgzLDuhKPoz ZfdSEpZ China 94 Banna YES 18-12-1284
+1448 XYiPASt zTG China 61 Rabies NO
 1307 hyoPdXDX RUwzwRtfY China 42 Toscana NO
+1511 SdW iuM China 39 SARS-1 NO
 1908 VWwp WpeWEmlTxI China 44 Hepatitis-A NO
+1778 xoRzJucSKYKT VsuRV China 45 Banna NO
 1299 TzfdjegnzuHI UxpwXZIK China 62 Hepatitis-D NO
+1533 Use avJBKxSnvt China 28 Cowpox YES 25-08-1685
 1521 jCxwwYzeVo eTiUfk China 46 Typhus NO
+126 TKKMcvVhKw yfMhNDYVqbuN China 44 Zika NO
 1695 pBfhADmj mJxgXFQkBkk China 30 Hepatitis-D YES 16-02-0327
+1448 XYiPASt zTG China 61 Ebola YES 28-11-1559
 1628 VogAwn OscFG China 54 Hepatitis-C YES 12-06-0837
+1077 KUac zKVV China 71 SARS-1 NO
 1252 zooOlAloI GnyPKYSmxkKu China 70 Hepatitis-A NO
+661 xVDnBTcCJN OmOw China 7 Rabies NO
 1461 AgwyibnSUyV Buz China 53 Lassa NO
+984 zvuomCoi bWqpXkGZUPq China 99 H1N1 YES 14-03-1540
 1407 mjf YRkBSU China 13 COVID-19 YES 15-04-0781
+400 vRcYC eMkKzhS China 1 Junin NO
 126 TKKMcvVhKw yfMhNDYVqbuN China 44 Flu YES 19-11-0748
+984 zvuomCoi bWqpXkGZUPq China 99 Monkeypox YES 12-09-1101
 1340 FblwdSQLnv ynJzArFSZM China 47 Banna YES 13-02-1553
+482 CluyUCbV qcsTwdq China 116 Flu YES 19-05-0206
 1496 CgaBsKewwfH BDy China 76 Toscana YES 23-12-0561
+120 AdXRDPnOFa xalm China 72 Hepatitis-C YES 20-07-1130
 785 kiFlZkRkUwl UPqWVeazRQL China 41 Zika NO
+105 SznjgcxN ZXPGHSLz China 46 Zika YES 24-10-0762
 729 dWpIMzI tkk China 64 Hepatitis-A YES 01-03-2016
+779 hgzLDuhKPoz ZfdSEpZ China 94 Hepatitis-A YES 05-12-0993

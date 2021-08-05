@@ -1,40 +1,80 @@
 1799 LvMvVY RLUF Switzerland 83 Flu YES 01-02-0799
+1216 fsX GOEIeXcEdio Switzerland 30 Typhus NO
 1386 fGMVqR lijLbGcMFc Switzerland 84 Junin YES 24-09-1546
+892 uUmNUIVl rPLCMNQlTohN Switzerland 99 Hepatitis-D YES 12-06-1135
 1082 CfHqTbY QdUFLjT Switzerland 50 Zika YES 16-11-0698
+166 nZjuGlU neMsSu Switzerland 14 Typhus YES 03-10-1758
 1255 iXH IVENSlYQr Switzerland 52 Junin NO
+926 yyzhEjRoIs sMvZKyGOFHL Switzerland 5 Zika YES 02-10-0442
 765 vaslOhLwCtav dhWOLWpBcG Switzerland 63 COVID-19 YES 13-11-1296
+104 dLjUSwHljRa oDXEjHuE Switzerland 115 Junin YES 28-07-1494
 521 WOIhO dViNRjQYmBqE Switzerland 74 Junin NO
+1459 UFB VfOLUp Switzerland 102 Rabies YES 27-03-1654
 119 VVVQrOzhO HfRdg Switzerland 117 Monkeypox YES 30-04-1786
+1339 ppN Hye Switzerland 18 Lassa YES 14-07-0696
 926 yyzhEjRoIs sMvZKyGOFHL Switzerland 5 Horsepox NO
+1370 OZFxE jIxytEeRX Switzerland 71 Rabies YES 24-03-1665
 534 OQkyWjUKYs aKOKzmyBqoj Switzerland 117 Flu YES 24-06-0694
+603 nIvCCR YyjASAyEOJmD Switzerland 80 Typhus NO
 632 EVIwHqFtYzW JwJWoHkDen Switzerland 19 Horsepox NO
+1691 drbdUwG Zwfsu Switzerland 79 Rabies NO
 1819 tPmbQNnIKc cNoAL Switzerland 47 Typhus YES 16-02-1184
+1773 oWlNtPJuL hKME Switzerland 110 Junin YES 26-03-1495
 1339 ppN Hye Switzerland 18 Hepatitis-E NO
+521 WOIhO dViNRjQYmBqE Switzerland 74 Typhus YES 01-10-1117
 477 fYRuxZEMB XjtRAhshdf Switzerland 81 Hepatitis-B NO
+489 jESWITTW IiqTGb Switzerland 10 Horsepox YES 30-09-0865
 1386 fGMVqR lijLbGcMFc Switzerland 84 Rabies YES 08-04-0605
+765 vaslOhLwCtav dhWOLWpBcG Switzerland 63 Typhus NO
 980 zwDs LKkC Switzerland 63 SARS-1 NO
+1924 EbRtLhOzNE YRq Switzerland 76 Hepatitis-B YES 12-01-0745
 1924 EbRtLhOzNE YRq Switzerland 76 COVID-19 NO
+92 ZnhBJqJ iFUqtcnbiX Switzerland 65 COVID-19 YES 17-09-0549
 423 WNqonr JpFbb Switzerland 101 Typhus YES 14-11-0766
+500 FBOYWLE yzxGduGfO Switzerland 27 Horsepox NO
 930 VLLdOaHiv NbnNy Switzerland 82 Rabies YES 15-07-0784
+1157 WYrJVDArkGVy LqJVfUwLVF Switzerland 79 COVID-19 NO
 1929 oGPs DjGcfdfGSB Switzerland 20 COVID-19 YES 20-06-1188
+930 VLLdOaHiv NbnNy Switzerland 82 Rabies YES 11-03-1855
 565 jpF bdSO Switzerland 35 Zika NO
+1903 IjgSVjcNDmgb xIzcfPrI Switzerland 80 Lassa YES 29-06-1438
 1865 abBeV THgqI Switzerland 37 Junin NO
+1489 iUjWDWeMaFF OEYdIoM Switzerland 86 Lassa YES 29-05-0677
 1303 bbnMdjr JxcUOTjEnaQ Switzerland 91 Horsepox YES 19-07-0781
+119 VVVQrOzhO HfRdg Switzerland 117 Lassa YES 26-05-1715
 1740 pZchw ljUeGHZmVs Switzerland 90 Hepatitis-B NO
+1992 HPQziAnh eylfhi Switzerland 74 Cowpox YES 09-06-1954
 1249 gCIIc UgeTljWkm Switzerland 62 Hepatitis-D YES 03-04-0896
+603 nIvCCR YyjASAyEOJmD Switzerland 80 Hepatitis-B YES 20-06-0115
 1581 BUpilVZKEdH Bkx Switzerland 4 Hepatitis-A NO
+1689 eSgF RQBNf Switzerland 83 Typhus YES 25-04-0615
 489 jESWITTW IiqTGb Switzerland 10 Zika YES 25-01-0607
+1992 HPQziAnh eylfhi Switzerland 74 SARS-1 NO
 500 FBOYWLE yzxGduGfO Switzerland 27 Ebola YES 07-11-1214
+1689 eSgF RQBNf Switzerland 83 Toscana YES 08-03-1441
 1691 drbdUwG Zwfsu Switzerland 79 Junin NO
+1773 oWlNtPJuL hKME Switzerland 110 Hepatitis-B NO
 1489 iUjWDWeMaFF OEYdIoM Switzerland 86 H1N1 NO
+1924 EbRtLhOzNE YRq Switzerland 76 Lassa YES 01-05-1075
 1799 LvMvVY RLUF Switzerland 83 Hepatitis-E YES 23-01-0120
+92 ZnhBJqJ iFUqtcnbiX Switzerland 65 Ebola NO
 1991 vKJdvKpS eKXxrbqkM Switzerland 119 Horsepox NO
+521 WOIhO dViNRjQYmBqE Switzerland 74 Lassa YES 11-06-0377
 1386 fGMVqR lijLbGcMFc Switzerland 84 COVID-19 NO
+1386 fGMVqR lijLbGcMFc Switzerland 84 Monkeypox YES 22-12-0414
 1427 hoDiQcFT CJBgixGDv Switzerland 46 Zika YES 04-03-1469
+1130 frDKqYEmOD azu Switzerland 35 Monkeypox YES 29-05-1502
 603 nIvCCR YyjASAyEOJmD Switzerland 80 Ebola NO
+500 FBOYWLE yzxGduGfO Switzerland 27 Hepatitis-C NO
 1303 bbnMdjr JxcUOTjEnaQ Switzerland 91 Monkeypox NO
+1082 CfHqTbY QdUFLjT Switzerland 50 Cowpox YES 18-08-0023
 944 EOUeXnNz udalGEK Switzerland 81 Hepatitis-B YES 27-08-0310
+1924 EbRtLhOzNE YRq Switzerland 76 Flu NO
 982 oOaZjinG dTnOruXr Switzerland 104 COVID-19 NO
+1773 oWlNtPJuL hKME Switzerland 110 Rabies YES 12-02-1064
 930 VLLdOaHiv NbnNy Switzerland 82 Lassa NO
+1440 NwMetvlbazBS OdQuocnc Switzerland 47 Lassa YES 18-06-1875
 1352 iTXtNcj rCnCd Switzerland 23 Hepatitis-D NO
+1159 niHrLp qzcSlsnC Switzerland 55 COVID-19 YES 07-11-1713
 944 EOUeXnNz udalGEK Switzerland 81 Hepatitis-A NO
+1070 OjziULaWKaMn dYuKthS Switzerland 19 Flu NO

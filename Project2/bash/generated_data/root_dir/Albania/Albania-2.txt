@@ -1,36 +1,72 @@
 924 Gvvh nVKkPUfvDhH Albania 26 COVID-19 YES 07-08-0209
+1822 zrPoghQE rIZl Albania 87 Flu NO
 1162 xCfJy AlOVZtTIjwy Albania 43 Cowpox NO
+1237 eteDE bleqftpDny Albania 97 Horsepox YES 07-09-0415
 800 GhCUGg FZoGILzX Albania 36 COVID-19 YES 03-12-1759
+794 NlRdgPKd AgTmPhYA Albania 89 Horsepox YES 04-07-1630
 1675 rnvhMiU WramjXP Albania 35 Ebola YES 14-05-0712
+1383 Vwpmqld RxybYshvYCa Albania 97 Hepatitis-A NO
 600 qizXFDTQoD IDyqVhlY Albania 68 Rabies YES 27-01-1359
+1519 lTELF ePBgQT Albania 31 Banna NO
 924 Gvvh nVKkPUfvDhH Albania 26 Hepatitis-C NO
+411 useNqg zAT Albania 111 Lassa NO
 539 zsWjLPmEehS MJCMfSo Albania 69 Hepatitis-A NO
+1832 SdmAjfbJqmt nrSdRIUQ Albania 39 Junin YES 21-12-0462
 531 kpxQ JeAcMeSLviQ Albania 53 Typhus NO
+539 zsWjLPmEehS MJCMfSo Albania 69 Flu NO
 1311 NeCrbCbcNNnp JZI Albania 115 Hepatitis-C YES 28-07-1462
+525 gfnkOSo GKfcgy Albania 90 Hepatitis-E YES 26-08-0775
 1083 rVxE pEVtSOWR Albania 41 SARS-1 YES 09-01-1778
+353 mHMRqqJJpt eis Albania 58 Monkeypox YES 20-10-0230
 1943 PLPPfXQzuNMJ fYkFwWFifnn Albania 2 Rabies NO
+41 MmDtxGodjuAb glpRdjZGeYVp Albania 58 Horsepox YES 03-06-1901
 70 cKLk JZuIoz Albania 58 Banna YES 14-04-0963
+1555 AKa RCMRl Albania 19 Lassa YES 07-12-0238
 1394 dnyFAg LVCxH Albania 85 Cowpox NO
+150 wqgNdXhlEX RDIOvneNN Albania 1 Rabies YES 08-05-1012
 513 uYkNpEMPntl dOf Albania 92 Hepatitis-A YES 22-11-1814
+109 fcYWfAUWYeC odbWsjqiWOf Albania 67 Hepatitis-B YES 20-07-1910
 256 UhyitJjv mBFa Albania 2 Monkeypox YES 17-05-0835
+339 KSpQRVDf ipTTVyo Albania 84 Lassa NO
 1394 dnyFAg LVCxH Albania 85 Banna YES 29-12-1265
+1946 kKDbYetdsR xJXpStahQuht Albania 33 Horsepox NO
 1943 PLPPfXQzuNMJ fYkFwWFifnn Albania 2 Lassa NO
+591 ufHxWPpYNHL XWSfZ Albania 85 Banna NO
 1458 QRLQRsDAq uLXzz Albania 30 Banna NO
+256 UhyitJjv mBFa Albania 2 Monkeypox YES 22-07-1217
 698 nzwKl uvJU Albania 8 Junin YES 05-10-1478
+1832 SdmAjfbJqmt nrSdRIUQ Albania 39 COVID-19 YES 05-08-1034
 1519 lTELF ePBgQT Albania 31 Hepatitis-D NO
+77 kRA Gvc Albania 15 H1N1 YES 09-12-1895
 1311 NeCrbCbcNNnp JZI Albania 115 Hepatitis-D NO
+883 KWYzqTEewZb SnjBfVynZIZm Albania 93 SARS-1 YES 25-07-0493
 317 Zbh UeAxPykEFVVw Albania 1 Horsepox YES 22-08-0530
+1990 VuZFAnoxXTHP fPXPauqU Albania 61 H1N1 YES 25-01-0807
 1263 dgsXSabXR pHbtLNtq Albania 71 Rabies YES 07-06-1862
+109 fcYWfAUWYeC odbWsjqiWOf Albania 67 Typhus YES 10-03-1315
 1394 dnyFAg LVCxH Albania 85 Horsepox NO
+1832 SdmAjfbJqmt nrSdRIUQ Albania 39 Ebola NO
 502 AtIbsTH YLqMcmcYSu Albania 107 Hepatitis-B NO
+1394 dnyFAg LVCxH Albania 85 H1N1 NO
 1593 nPK KTtRuVl Albania 31 Toscana YES 10-09-1366
+1735 QAXNvSfilW CBZCbwSEg Albania 13 Ebola YES 12-02-1816
 1311 NeCrbCbcNNnp JZI Albania 115 Monkeypox YES 26-06-1328
+1912 UUDlOB gHufSv Albania 24 SARS-1 NO
 883 KWYzqTEewZb SnjBfVynZIZm Albania 93 Ebola YES 18-12-0406
+1669 HWCvvVTxOi LOJfQgYXyT Albania 99 Typhus YES 10-04-0984
 411 useNqg zAT Albania 111 Rabies YES 22-10-0738
+800 GhCUGg FZoGILzX Albania 36 Zika YES 27-04-0057
 41 MmDtxGodjuAb glpRdjZGeYVp Albania 58 Ebola NO
+317 Zbh UeAxPykEFVVw Albania 1 H1N1 NO
 872 IPbn DtjdCy Albania 77 COVID-19 YES 09-03-0416
+1685 nxkpDGV brkeZkjvhH Albania 8 Ebola YES 23-04-1658
 1458 QRLQRsDAq uLXzz Albania 30 Flu NO
+70 cKLk JZuIoz Albania 58 Typhus YES 12-10-1388
 1311 NeCrbCbcNNnp JZI Albania 115 Banna NO
+1687 joVlBRtTBO aDuC Albania 111 Hepatitis-B NO
 1822 zrPoghQE rIZl Albania 87 COVID-19 YES 15-08-0756
+1237 eteDE bleqftpDny Albania 97 Banna YES 02-12-0749
 1735 QAXNvSfilW CBZCbwSEg Albania 13 Hepatitis-B YES 05-05-0593
+77 kRA Gvc Albania 15 Lassa NO
 339 KSpQRVDf ipTTVyo Albania 84 Rabies YES 09-05-1285
+317 Zbh UeAxPykEFVVw Albania 1 Flu NO

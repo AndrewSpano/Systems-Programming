@@ -1,38 +1,75 @@
 1400 GMu RwwyYLYAvVPk Mexico 32 Typhus NO
+666 HzpdPaqcYJAl AZDar Mexico 20 Toscana NO
 24 DGSycegaPiHh FysgEp Mexico 20 Lassa YES 10-01-0461
+262 BlNL XRjGaSqy Mexico 7 COVID-19 NO
 187 xJrabme QahxwxaGwr Mexico 87 Hepatitis-A NO
+666 HzpdPaqcYJAl AZDar Mexico 20 Cowpox NO
 1751 apprzB jiCR Mexico 16 Hepatitis-E YES 13-06-2021
+1571 fnHCEULZD iMOVZ Mexico 12 Hepatitis-E YES 10-12-0128
 1414 qyZslxH aYOmCQJ Mexico 53 Banna YES 12-12-0593
+1651 FohaugsHW plSNGNUSfMP Mexico 45 Hepatitis-A NO
 1095 rRfMEx mdwa Mexico 16 Flu NO
+1390 FTDolmRs rqdgjnGnUIx Mexico 30 Lassa NO
 1279 SGKAj WjznuyhjX Mexico 34 SARS-1 YES 12-10-0171
+659 edX cvHCoN Mexico 106 Hepatitis-A YES 04-02-1088
 1273 rcq EMWrwAcDj Mexico 18 Typhus NO
+1747 LyFIB ZDnFElRk Mexico 110 SARS-1 YES 22-06-0309
 1273 rcq EMWrwAcDj Mexico 18 H1N1 NO
+1541 ivBDrv YxKJiVtRrel Mexico 61 Flu NO
 1095 rRfMEx mdwa Mexico 16 Hepatitis-C NO
+1823 TPZoBAmTJo fpslGY Mexico 95 Lassa YES 27-07-0918
 1541 ivBDrv YxKJiVtRrel Mexico 61 Hepatitis-B YES 17-12-1764
+841 SNYGAErNA odRLyTuXBc Mexico 35 Ebola YES 15-10-1128
 593 QbnKhDtsKH lCW Mexico 116 Lassa YES 06-05-0675
+1027 fIStfYC ptekONDWCbth Mexico 82 Ebola YES 02-02-1547
 1073 LNOIiCdG kmbHT Mexico 107 Toscana YES 17-02-1283
+263 rHZkF PeSHrsBzjl Mexico 26 Toscana NO
 1557 sEoHJrwvm vxQKNKePlSr Mexico 71 Flu NO
+343 IFoGo hpuNx Mexico 52 COVID-19 YES 30-03-1233
 1279 SGKAj WjznuyhjX Mexico 34 Cowpox YES 03-10-0579
+442 OrEBou vzjE Mexico 46 Horsepox NO
 1336 YXWlHGSkhW RHf Mexico 2 Junin NO
+442 OrEBou vzjE Mexico 46 Hepatitis-C NO
 434 TMTc iOLN Mexico 81 Cowpox YES 08-01-0543
+1073 LNOIiCdG kmbHT Mexico 107 Hepatitis-E YES 03-12-1553
 1823 TPZoBAmTJo fpslGY Mexico 95 Lassa YES 10-05-0576
+84 XdOvpXWCSVT ETP Mexico 5 Flu NO
 530 KRFfeJUJd jFoos Mexico 55 H1N1 NO
+442 OrEBou vzjE Mexico 46 Typhus NO
 64 xqhwemdzH QeYgJi Mexico 88 Cowpox YES 24-04-1747
+1073 LNOIiCdG kmbHT Mexico 107 Monkeypox NO
 343 IFoGo hpuNx Mexico 52 Toscana NO
+1756 zAjAIuw BSUQRXnukTT Mexico 6 Hepatitis-B YES 09-08-1006
 1699 wbINhsVoB UeDXcjGdxexa Mexico 4 Horsepox YES 05-09-1042
+442 OrEBou vzjE Mexico 46 Horsepox YES 21-09-0421
 1429 eJQR bntdrL Mexico 115 Monkeypox YES 18-04-0993
+84 XdOvpXWCSVT ETP Mexico 5 Banna NO
 1027 fIStfYC ptekONDWCbth Mexico 82 Toscana NO
+787 tFjqhuecXi dvLhuV Mexico 95 Hepatitis-B YES 20-09-0091
 401 Lpbkxyacax WkvafbZUr Mexico 119 H1N1 NO
+612 ImXMBOeAieo nmzzQqcEXw Mexico 114 Hepatitis-E NO
 530 KRFfeJUJd jFoos Mexico 55 Hepatitis-D YES 28-06-1231
+828 QCwWcGkFl orRzNhLzsfnM Mexico 51 Lassa NO
 1597 UGRBdkijU Blly Mexico 53 SARS-1 YES 05-09-0745
+1589 SFPxeiSr GnuNRw Mexico 117 Banna NO
 1747 LyFIB ZDnFElRk Mexico 110 Flu NO
+1746 WuiJntXfSmZF EPGFGV Mexico 103 Monkeypox YES 04-01-1887
 1336 YXWlHGSkhW RHf Mexico 2 Hepatitis-E NO
+244 Unzbh khxGi Mexico 63 Hepatitis-E YES 09-01-0938
 1917 cazZbGE poFK Mexico 103 Hepatitis-B NO
+1027 fIStfYC ptekONDWCbth Mexico 82 Toscana NO
 1699 wbINhsVoB UeDXcjGdxexa Mexico 4 Hepatitis-A YES 10-12-1363
+612 ImXMBOeAieo nmzzQqcEXw Mexico 114 Rabies NO
 1027 fIStfYC ptekONDWCbth Mexico 82 Hepatitis-D YES 12-05-0388
+84 XdOvpXWCSVT ETP Mexico 5 Hepatitis-E YES 25-10-0403
 530 KRFfeJUJd jFoos Mexico 55 Rabies YES 02-07-0081
+1589 SFPxeiSr GnuNRw Mexico 117 Cowpox YES 19-07-0404
 1319 Uncfbt CQObEUT Mexico 83 Ebola YES 13-09-1840
+530 KRFfeJUJd jFoos Mexico 55 Typhus YES 09-04-0446
 947 cxcZceVTjnbT CEJNKc Mexico 3 H1N1 YES 22-01-0727
+1651 FohaugsHW plSNGNUSfMP Mexico 45 SARS-1 NO
 1699 wbINhsVoB UeDXcjGdxexa Mexico 4 Rabies YES 13-06-0523
+434 TMTc iOLN Mexico 81 Rabies NO
 593 QbnKhDtsKH lCW Mexico 116 Typhus NO
+1747 LyFIB ZDnFElRk Mexico 110 Ebola NO
 1751 apprzB jiCR Mexico 16 COVID-19 NO

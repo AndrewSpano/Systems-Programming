@@ -1,44 +1,88 @@
 328 IxoDuID cyUiV Slovenia 77 SARS-1 YES 18-09-0819
+1862 XGZQEuzPG aHM Slovenia 88 Rabies NO
 455 BKbsOQu FJicYMrVFwSl Slovenia 57 Lassa YES 29-07-1705
+678 vCVmuXZDVTH OuETWexTmcw Slovenia 81 Junin NO
 1761 CUkAc RgzuSSVI Slovenia 56 Hepatitis-E YES 22-05-1096
+918 DnfzvyHReSI YrjWP Slovenia 60 COVID-19 NO
 1523 JSsmipBPC SgeSE Slovenia 96 Zika NO
+796 feBptf yPa Slovenia 19 COVID-19 NO
 168 TlnDZadeIf OapDZizvXqp Slovenia 119 Zika NO
+1374 GLrJpl IrevMDoP Slovenia 54 Hepatitis-D YES 18-08-1214
 1595 mLiNYUh fNMkKplOm Slovenia 81 Lassa NO
+1122 AMPvGMMufMu ExQUEua Slovenia 82 Lassa YES 19-12-1000
 6 yNsMFIeoQI CUl Slovenia 113 Hepatitis-C NO
+1325 PJeYS XDHYIQ Slovenia 3 Junin YES 12-08-1887
 1408 SBF Uln Slovenia 96 Banna NO
+1164 QxOQCOaRta aaZaUmwmOdP Slovenia 30 Typhus YES 24-05-0294
 328 IxoDuID cyUiV Slovenia 77 SARS-1 NO
+861 VxTh iQeBSRGvCmVX Slovenia 43 COVID-19 NO
 1374 GLrJpl IrevMDoP Slovenia 54 Banna YES 17-01-0864
+906 Uta ZoKqvZBzUgJd Slovenia 54 SARS-1 NO
 1725 hOCZR TqWyLaUcTYc Slovenia 36 Cowpox YES 13-08-1576
+1725 hOCZR TqWyLaUcTYc Slovenia 36 SARS-1 YES 09-07-0673
 189 adRsUTVC ZTUZsArYg Slovenia 92 Cowpox YES 09-08-1872
+62 ixxoEdJx OKQTFGBwybsz Slovenia 22 Zika YES 12-12-0897
 1112 XscckF AdUkBvT Slovenia 109 Junin YES 02-03-0477
+1854 rYxNBOhjRqGR LyTKYeroZPK Slovenia 104 Typhus YES 07-11-1303
 1269 SFCN RcxJv Slovenia 52 H1N1 NO
+389 iPwJtYDJROD cpkVstVNmDKd Slovenia 43 Monkeypox YES 26-09-0339
 1236 WEbqJYJYMMo LwBJclncBBnu Slovenia 26 Flu YES 15-11-0755
+1312 UUsyCVX WHZdho Slovenia 119 Junin YES 15-06-2014
 1883 QAWvcZWs Oqb Slovenia 91 H1N1 NO
+167 YptP NWGXaEIQ Slovenia 2 SARS-1 NO
 1036 ohxODPKKWuJL EeCuL Slovenia 108 Zika YES 03-10-0048
+1874 AJGNT DhesxQMTNFaF Slovenia 77 Monkeypox NO
 397 RqFRQDBsrF TPkpJo Slovenia 33 Lassa YES 25-03-0642
+1716 pKWCumkeHIi dHbV Slovenia 29 Typhus YES 15-10-1112
 1408 SBF Uln Slovenia 96 Toscana NO
+280 KQBdu jVDtICSlHn Slovenia 44 SARS-1 NO
 671 qgfysbkPiukq MNKFLJ Slovenia 87 Rabies YES 14-01-2020
+231 nhqJWoGLC KUrJihGsL Slovenia 57 Hepatitis-C YES 11-09-0372
 393 sgpnKxqc siyRA Slovenia 10 Banna YES 23-06-0418
+599 UQUpbH NBXMecayWq Slovenia 8 Typhus YES 02-11-0642
 1988 EWX ZRLoHHl Slovenia 38 COVID-19 YES 15-11-0400
+1874 AJGNT DhesxQMTNFaF Slovenia 77 Lassa YES 10-05-0561
 1761 CUkAc RgzuSSVI Slovenia 56 Ebola YES 20-02-0215
+393 sgpnKxqc siyRA Slovenia 10 COVID-19 NO
 712 ErPiXG YSdbdy Slovenia 42 Hepatitis-A YES 18-02-0987
+490 RWK TEkeBwdCc Slovenia 100 Banna YES 22-07-0265
 189 adRsUTVC ZTUZsArYg Slovenia 92 Hepatitis-E NO
+967 GQiqqzLlFp KiszCILzL Slovenia 59 Typhus YES 30-11-1758
 490 RWK TEkeBwdCc Slovenia 100 Banna YES 28-12-1054
+1236 WEbqJYJYMMo LwBJclncBBnu Slovenia 26 Flu NO
 906 Uta ZoKqvZBzUgJd Slovenia 54 Typhus NO
+389 iPwJtYDJROD cpkVstVNmDKd Slovenia 43 Cowpox YES 27-12-0143
 918 DnfzvyHReSI YrjWP Slovenia 60 Toscana YES 29-02-1853
+191 xRcfiowG jBRhIQoCcPA Slovenia 44 COVID-19 YES 26-02-0753
 906 Uta ZoKqvZBzUgJd Slovenia 54 Cowpox YES 15-07-0217
+1230 wZS RnscfNkZxsWx Slovenia 30 Rabies YES 28-09-1314
 275 OIlzjY gEQPHZTCBj Slovenia 71 Hepatitis-D NO
+861 VxTh iQeBSRGvCmVX Slovenia 43 Ebola YES 09-08-1509
 6 yNsMFIeoQI CUl Slovenia 113 Banna NO
+826 dnYUmPQI MzzFEk Slovenia 100 Banna NO
 168 TlnDZadeIf OapDZizvXqp Slovenia 119 Hepatitis-B NO
+1312 UUsyCVX WHZdho Slovenia 119 Hepatitis-B NO
 1862 XGZQEuzPG aHM Slovenia 88 Monkeypox NO
+1212 zYdifXtwB tXi Slovenia 93 Hepatitis-C NO
 189 adRsUTVC ZTUZsArYg Slovenia 92 COVID-19 YES 02-03-1270
+1426 GfgAO ATfuNxzscs Slovenia 45 Hepatitis-C YES 07-09-0535
 1936 uzWpTqeXRSDK EZWFBQaasx Slovenia 109 Cowpox YES 17-11-0836
+918 DnfzvyHReSI YrjWP Slovenia 60 Hepatitis-D NO
 280 KQBdu jVDtICSlHn Slovenia 44 COVID-19 YES 09-01-1054
+393 sgpnKxqc siyRA Slovenia 10 Monkeypox YES 17-03-0483
 1194 NkdvjEoy OQPXdCKzx Slovenia 25 Typhus YES 20-10-0754
+1212 zYdifXtwB tXi Slovenia 93 Junin NO
 1112 XscckF AdUkBvT Slovenia 109 Monkeypox YES 10-09-1779
+1325 PJeYS XDHYIQ Slovenia 3 Typhus NO
 1446 Ygy TyMypqkkCj Slovenia 64 COVID-19 YES 22-09-0838
+1446 Ygy TyMypqkkCj Slovenia 64 Hepatitis-A YES 20-03-1928
 1122 AMPvGMMufMu ExQUEua Slovenia 82 Hepatitis-A NO
+366 dQPPawwI FJEGgPSFg Slovenia 22 Lassa NO
 914 hxCwJhdSYIrJ BFzSMlT Slovenia 53 H1N1 NO
+1081 xoRRLn Yhy Slovenia 73 Horsepox YES 01-08-0030
 6 yNsMFIeoQI CUl Slovenia 113 Horsepox NO
+1325 PJeYS XDHYIQ Slovenia 3 Hepatitis-C YES 24-08-1245
 191 xRcfiowG jBRhIQoCcPA Slovenia 44 Hepatitis-B YES 24-10-0113
+1227 uAnBmP jnbtHYQd Slovenia 107 Monkeypox YES 22-05-0658
 1725 hOCZR TqWyLaUcTYc Slovenia 36 Hepatitis-C NO
+1374 GLrJpl IrevMDoP Slovenia 54 Monkeypox NO

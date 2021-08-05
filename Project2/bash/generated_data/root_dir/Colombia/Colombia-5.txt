@@ -1,34 +1,67 @@
 564 pLyIFq ITXWMM Colombia 46 Typhus YES 09-06-1222
+1078 XrokjW gKLuOoj Colombia 26 Monkeypox NO
 1301 lyvARqo DgC Colombia 53 Typhus YES 27-02-1708
+990 apHouYW Qtdayn Colombia 80 Lassa NO
 338 bQhP OPxDY Colombia 110 Horsepox NO
+873 XkJMhiqjdGi QtigxEhDC Colombia 115 Hepatitis-D NO
 1016 GmqVP Jvujr Colombia 39 Hepatitis-C YES 24-12-0223
+727 AuSYkmC tJmD Colombia 40 Ebola YES 04-08-1505
 1050 lsfQnnC voXge Colombia 49 Typhus NO
+135 MmYpyzBRGugL TNBDmC Colombia 81 Junin NO
 727 AuSYkmC tJmD Colombia 40 Hepatitis-A YES 14-06-1978
+134 oXNbKKAUjSf OCCXBo Colombia 74 Cowpox NO
 1196 mMlPTFUrOJJ SGqeb Colombia 43 Typhus YES 03-11-0611
+1652 svtGVq YHHTBCBHO Colombia 64 Hepatitis-A YES 13-11-0987
 1934 JAqOUF FHOiPRmCc Colombia 27 Ebola YES 09-08-1691
+1682 TVsVVvn ShKGrhNj Colombia 44 Toscana NO
 873 XkJMhiqjdGi QtigxEhDC Colombia 115 Hepatitis-D YES 20-09-0874
+1652 svtGVq YHHTBCBHO Colombia 64 Hepatitis-C YES 28-07-1117
 1118 UMHjlbUve dUvArF Colombia 48 Lassa YES 22-06-0208
+135 MmYpyzBRGugL TNBDmC Colombia 81 Toscana NO
 1474 wqwv YYQramTZxU Colombia 27 Monkeypox YES 21-03-0728
+1302 QlggFHub eBpgEBVKJ Colombia 57 Horsepox YES 27-06-0198
 683 fWoeZR GbqFHqwTrmEn Colombia 114 Lassa NO
+1976 EyPAuDZBg Ssnbl Colombia 85 SARS-1 YES 20-08-0187
 1016 GmqVP Jvujr Colombia 39 Banna NO
+923 znSrCetbeSU OXsFdZB Colombia 9 Hepatitis-E NO
 1305 YfaSyaiQ mZUnTb Colombia 82 Monkeypox NO
+1500 PDSPjcQx PLHWPM Colombia 68 Hepatitis-B YES 19-09-1314
 581 ndrg tDR Colombia 64 H1N1 NO
+1018 yprXYYDm XBr Colombia 113 Toscana NO
 1674 EJieRoqiKuZ CDuBGP Colombia 73 Typhus YES 24-02-0400
+1050 lsfQnnC voXge Colombia 49 Ebola YES 14-01-0811
 737 FudPb AMrBq Colombia 41 Hepatitis-D NO
+135 MmYpyzBRGugL TNBDmC Colombia 81 Typhus NO
 338 bQhP OPxDY Colombia 110 Toscana NO
+35 qKcqx tdkrY Colombia 46 H1N1 YES 23-06-0371
 180 PIFtnyisMm XOHKLiFLgJGI Colombia 78 Hepatitis-B YES 23-01-1713
+646 Wah EZk Colombia 117 Monkeypox NO
 581 ndrg tDR Colombia 64 Hepatitis-C NO
+1137 gdjMQk ObyMSD Colombia 71 SARS-1 NO
 338 bQhP OPxDY Colombia 110 Lassa NO
+873 XkJMhiqjdGi QtigxEhDC Colombia 115 Cowpox NO
 1905 EYPc vtLA Colombia 27 Lassa NO
+1500 PDSPjcQx PLHWPM Colombia 68 Typhus YES 17-04-0179
 1646 dsoeFYhShhZc ynVTNlgD Colombia 68 Hepatitis-E NO
+927 MZNXxBCBnQK AWWvoCfdjIU Colombia 3 Lassa YES 23-12-1372
 581 ndrg tDR Colombia 64 Junin YES 10-11-0646
+920 UVX dpoStCwNeqo Colombia 18 Toscana YES 02-07-1547
 1697 Neux IfeFIM Colombia 19 Hepatitis-C YES 26-02-1398
+1050 lsfQnnC voXge Colombia 49 Rabies NO
 23 aQdfg YfjrCy Colombia 115 COVID-19 YES 29-11-0039
+1976 EyPAuDZBg Ssnbl Colombia 85 Typhus YES 26-06-1204
 1748 oSaeXfbMnAAC HTu Colombia 88 Rabies YES 20-11-1276
+1118 UMHjlbUve dUvArF Colombia 48 Banna YES 24-01-0360
 1016 GmqVP Jvujr Colombia 39 COVID-19 NO
+125 lLwldWdxArI NgxUYcz Colombia 109 Horsepox YES 25-07-1648
 236 RbqhLIUp WNWealxm Colombia 25 H1N1 YES 07-04-1415
+1372 cZUUwRC VAqurrnOzjm Colombia 14 Flu YES 11-05-1807
 1474 wqwv YYQramTZxU Colombia 27 Rabies YES 25-07-0483
+683 fWoeZR GbqFHqwTrmEn Colombia 114 Lassa NO
 1301 lyvARqo DgC Colombia 53 Hepatitis-D NO
+1646 dsoeFYhShhZc ynVTNlgD Colombia 68 SARS-1 YES 15-05-0137
 1712 MVH rhOLockhjqYJ Colombia 101 Cowpox NO
+742 sZC lWTYdO Colombia 87 Hepatitis-C NO
 134 oXNbKKAUjSf OCCXBo Colombia 74 Hepatitis-E YES 27-10-0652
+1050 lsfQnnC voXge Colombia 49 SARS-1 NO
 1118 UMHjlbUve dUvArF Colombia 48 Horsepox NO

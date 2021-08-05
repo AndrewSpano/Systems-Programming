@@ -1,40 +1,80 @@
 1268 CYQrFdZS bCbAoDpY Croatia 62 Rabies NO
+907 FJVnWnQ gfMapVm Croatia 52 Zika YES 21-07-0099
 1450 yVGpX LPzeKEchQD Croatia 59 Cowpox YES 04-12-1102
+414 PQoNOU FITSoFc Croatia 77 Lassa NO
 907 FJVnWnQ gfMapVm Croatia 52 COVID-19 YES 06-05-1353
+154 mUaad YrBzthGQd Croatia 35 Banna NO
 1770 vmHsdJfncj POqrLoJdADn Croatia 77 Zika NO
+1268 CYQrFdZS bCbAoDpY Croatia 62 Hepatitis-B NO
 485 FJEbOqmIYRJV jjrD Croatia 8 Hepatitis-E YES 18-10-1692
+1982 EKxHfJfPV piwSVQGhms Croatia 36 Cowpox YES 21-02-1610
 733 Jfcksobl jSTTzdLfXOeY Croatia 120 Cowpox YES 22-02-1655
+1155 AKyPdwbSnoHb UcfTt Croatia 120 Flu YES 13-04-0964
 815 gosuJ LvPCTyngta Croatia 112 Monkeypox NO
+1720 ZJetqJg DLggZSHlEqx Croatia 28 SARS-1 NO
 1450 yVGpX LPzeKEchQD Croatia 59 COVID-19 YES 23-09-1464
+1155 AKyPdwbSnoHb UcfTt Croatia 120 Toscana NO
 1314 nIXkGjmRAzr pkMHO Croatia 73 Ebola YES 16-07-1995
+907 FJVnWnQ gfMapVm Croatia 52 Junin YES 25-06-1131
 1087 EwJnyCX FrW Croatia 99 Cowpox NO
+1233 LeYy VUyWuvpE Croatia 43 Hepatitis-E YES 16-12-1684
 185 iLrKhpmOumiA XVvo Croatia 108 Hepatitis-A NO
+1417 jJYbYvmfz nxonwcjT Croatia 109 Cowpox YES 22-06-0482
 733 Jfcksobl jSTTzdLfXOeY Croatia 120 Zika YES 27-09-0869
+1150 gbvFRG PEb Croatia 76 H1N1 NO
 722 eLX llHwUDMz Croatia 23 Hepatitis-A YES 25-06-0476
+154 mUaad YrBzthGQd Croatia 35 Hepatitis-C NO
 1190 JYRMvGjtDKM ANTyjVsJj Croatia 100 SARS-1 YES 01-11-1922
+656 zxav VOfsELy Croatia 105 Lassa YES 19-11-1705
 1314 nIXkGjmRAzr pkMHO Croatia 73 Monkeypox YES 25-05-1651
+1577 oOw KBLxnL Croatia 99 Junin NO
 503 WrxOZu FRXK Croatia 8 Hepatitis-E NO
+242 DdBjL IaLuyZGPvfts Croatia 96 H1N1 NO
 1724 lwutBzKUWgzb sKGaMUcrnWGM Croatia 62 Hepatitis-C YES 13-10-0378
+1181 cMyOEX njUpvFO Croatia 12 Toscana NO
 988 vFqf fNHRceT Croatia 31 Monkeypox NO
+1977 ZOzXZMynFsCU sGD Croatia 112 Junin YES 09-02-1312
 988 vFqf fNHRceT Croatia 31 Hepatitis-E YES 17-12-1040
+1171 vWMBTWuDXYrr XlFud Croatia 14 H1N1 NO
 1770 vmHsdJfncj POqrLoJdADn Croatia 77 Typhus YES 22-08-0213
+656 zxav VOfsELy Croatia 105 Toscana NO
 1181 cMyOEX njUpvFO Croatia 12 Flu NO
+971 GyGrggmctiu pWKwV Croatia 99 Monkeypox NO
 971 GyGrggmctiu pWKwV Croatia 99 Rabies NO
+404 VBNMzgqXzX IcPR Croatia 44 Banna YES 09-10-0689
 141 WkXshWoKYT Xgry Croatia 2 H1N1 YES 29-02-0951
+1190 JYRMvGjtDKM ANTyjVsJj Croatia 100 SARS-1 YES 04-08-1426
 971 GyGrggmctiu pWKwV Croatia 99 Toscana YES 12-01-1564
+1380 lNp ooLXQC Croatia 49 H1N1 NO
 439 poSrinT ECN Croatia 104 Typhus NO
+755 GSKXWALthn dkKemJIFTV Croatia 56 Toscana YES 30-02-1289
 1380 lNp ooLXQC Croatia 49 H1N1 YES 23-05-0470
+722 eLX llHwUDMz Croatia 23 Hepatitis-B NO
 643 IYf PlWW Croatia 40 Monkeypox YES 05-05-0706
+376 VGsZE fStlcSlmocK Croatia 22 Toscana NO
 988 vFqf fNHRceT Croatia 31 Zika NO
+751 QlxzwWLbJhz oDwG Croatia 28 H1N1 YES 27-08-0702
 185 iLrKhpmOumiA XVvo Croatia 108 Monkeypox NO
+1042 XRhY FTICwnwU Croatia 2 Monkeypox YES 15-05-0452
 546 ypiDYWIqpDVp TZz Croatia 84 Hepatitis-E NO
+503 WrxOZu FRXK Croatia 8 Rabies YES 26-01-0447
 1142 cpjEisk EGDnahQaW Croatia 107 Monkeypox YES 16-06-0772
+1718 ufSQsAipRNP qsjMOaifrD Croatia 7 Zika NO
 1724 lwutBzKUWgzb sKGaMUcrnWGM Croatia 62 Rabies YES 10-05-0954
+774 PlGEnl emYuPabEkbUs Croatia 51 Banna NO
 971 GyGrggmctiu pWKwV Croatia 99 Junin YES 16-04-1887
+439 poSrinT ECN Croatia 104 Cowpox YES 27-01-1577
 1150 gbvFRG PEb Croatia 76 Zika NO
+414 PQoNOU FITSoFc Croatia 77 Lassa YES 21-01-0761
 1684 pIuqpHXq bVBJz Croatia 60 Cowpox YES 05-03-1212
+1718 ufSQsAipRNP qsjMOaifrD Croatia 7 Zika YES 26-05-1682
 1106 jYiEGU UYxRBLzZK Croatia 91 COVID-19 YES 01-04-1348
+1770 vmHsdJfncj POqrLoJdADn Croatia 77 Hepatitis-B NO
 1661 zznfKxTTWrV INgHLKsEUai Croatia 70 Banna NO
+1770 vmHsdJfncj POqrLoJdADn Croatia 77 Rabies NO
 464 dnq kmGDptoO Croatia 30 Monkeypox YES 24-04-0279
+1181 cMyOEX njUpvFO Croatia 12 Banna YES 12-12-1245
 1042 XRhY FTICwnwU Croatia 2 Monkeypox NO
+988 vFqf fNHRceT Croatia 31 Junin YES 08-06-0064
 722 eLX llHwUDMz Croatia 23 Hepatitis-E YES 02-11-1730
+185 iLrKhpmOumiA XVvo Croatia 108 Hepatitis-E YES 26-01-1227

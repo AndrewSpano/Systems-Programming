@@ -1,31 +1,62 @@
 1845 lglMT aWgDGJMo Brazil 13 Toscana YES 10-11-0003
+571 sojP SsfWlxYtKvn Brazil 25 Rabies YES 11-06-0603
 459 BpNwRLZZlkq aJFZTJCvKLD Brazil 18 Monkeypox YES 06-02-0301
+594 hnEp sDLuFX Brazil 31 Hepatitis-C NO
 89 PExDZBAchXja mGfRiE Brazil 61 Cowpox NO
+1267 BUuXQWhBKL Trt Brazil 26 Hepatitis-A NO
 1792 fLyNnFWN qUfeNtdC Brazil 31 Hepatitis-D YES 19-04-0100
+1644 deLmOuQy leWQCN Brazil 33 Hepatitis-D YES 17-04-0050
 1481 AqGc fYQt Brazil 90 Rabies NO
+445 sAIRSs ktnqOf Brazil 114 Banna YES 16-02-0126
 571 sojP SsfWlxYtKvn Brazil 25 Hepatitis-B YES 25-02-1802
+1845 lglMT aWgDGJMo Brazil 13 Zika NO
 33 LCtgd fWrWai Brazil 105 Lassa YES 01-04-0548
+33 LCtgd fWrWai Brazil 105 Horsepox YES 18-06-0243
 197 LZOYaXVaAwFR YuSEnOnqb Brazil 98 Hepatitis-E NO
+1877 ByptGSNOAhAx yYXBC Brazil 21 Banna NO
 1207 uErAVs WBZyHqr Brazil 88 SARS-1 YES 07-10-1641
+1038 qiQEJUYBEw TBQ Brazil 59 H1N1 YES 12-03-0665
 1792 fLyNnFWN qUfeNtdC Brazil 31 Hepatitis-B NO
+629 kLWgltACYv Zudh Brazil 51 Toscana NO
 396 oYyZbVF CJFVr Brazil 77 Lassa YES 03-12-0597
+113 aLgaEUfuoiwV lgKeU Brazil 64 Lassa YES 06-04-0693
 1038 qiQEJUYBEw TBQ Brazil 59 Horsepox YES 15-08-0927
+1792 fLyNnFWN qUfeNtdC Brazil 31 Flu NO
 1418 CHAZBJNF CbjItafb Brazil 66 Zika YES 20-01-1672
+88 wQtYxrW FFF Brazil 103 Hepatitis-C YES 03-10-1828
 3 uTKNRLW IYETNVDhgtE Brazil 13 Lassa YES 01-10-1521
+1481 AqGc fYQt Brazil 90 Junin YES 30-01-0779
 1698 RbdwQGqqu anovKGGQ Brazil 81 Horsepox NO
+1481 AqGc fYQt Brazil 90 SARS-1 NO
 29 CGQdejmN pVrQS Brazil 115 Hepatitis-D YES 13-02-0861
+588 ENimvrnRDo Bsono Brazil 87 Hepatitis-B YES 16-04-1197
 237 qRj ptsfBWF Brazil 86 Junin NO
+1481 AqGc fYQt Brazil 90 Ebola NO
 1644 deLmOuQy leWQCN Brazil 33 Lassa NO
+445 sAIRSs ktnqOf Brazil 114 Hepatitis-D YES 08-03-0354
 571 sojP SsfWlxYtKvn Brazil 25 Hepatitis-D NO
+459 BpNwRLZZlkq aJFZTJCvKLD Brazil 18 Typhus NO
 576 JpmukLLQZC QLf Brazil 73 Horsepox YES 08-12-1464
+588 ENimvrnRDo Bsono Brazil 87 SARS-1 YES 04-07-0673
 1919 qJeugFopWgTb WJmTgjh Brazil 11 Hepatitis-B NO
+1919 qJeugFopWgTb WJmTgjh Brazil 11 H1N1 NO
 1506 qumKiFZcd eeW Brazil 101 Monkeypox NO
+708 aTYYvY gsrEAFLpH Brazil 82 SARS-1 NO
 396 oYyZbVF CJFVr Brazil 77 Zika NO
+1644 deLmOuQy leWQCN Brazil 33 Zika NO
 1392 ErvrWdSowRoo cpdSrpF Brazil 55 Typhus NO
+237 qRj ptsfBWF Brazil 86 Ebola YES 16-02-1300
 1062 WbHkmAuj NVI Brazil 82 Banna YES 24-11-1507
+708 aTYYvY gsrEAFLpH Brazil 82 Toscana YES 14-12-0281
 1512 hVNrckY rrLjURtELG Brazil 87 Junin NO
+89 PExDZBAchXja mGfRiE Brazil 61 Hepatitis-C YES 03-09-0079
 69 XXgTfE pVJbd Brazil 113 H1N1 YES 28-01-0187
+1792 fLyNnFWN qUfeNtdC Brazil 31 Monkeypox NO
 1845 lglMT aWgDGJMo Brazil 13 COVID-19 YES 17-12-1113
+237 qRj ptsfBWF Brazil 86 Lassa NO
 218 fBhApW PbGx Brazil 110 Monkeypox NO
+88 wQtYxrW FFF Brazil 103 Hepatitis-A YES 09-03-1452
 49 HPfPe BTjARpTjT Brazil 60 Hepatitis-D NO
+1481 AqGc fYQt Brazil 90 Rabies NO
 479 XlcLi fynu Brazil 10 Flu NO
+1062 WbHkmAuj NVI Brazil 82 Ebola NO

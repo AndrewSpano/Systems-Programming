@@ -1,37 +1,73 @@
 1711 UclgghQSEoc AkG Greece 58 Hepatitis-B NO
+1941 TJiCwtgzm SlVGSUw Greece 5 Lassa NO
 1711 UclgghQSEoc AkG Greece 58 Hepatitis-C NO
+498 ujs yEPPH Greece 39 Zika YES 24-06-0255
 790 OVoqB yaqCCVD Greece 11 Hepatitis-E YES 19-09-0550
+1649 DIBu CzNRgFjHexih Greece 103 Hepatitis-D NO
 1858 MKq JZYFAgeJFh Greece 48 Hepatitis-D YES 23-08-1438
+672 cWCnpA djbig Greece 10 Junin YES 01-08-0564
 905 RzA eCyWfr Greece 114 Rabies YES 19-05-0565
+1460 iNE vdbVfdukg Greece 35 Rabies NO
 1434 IyHnldQ gjA Greece 73 Ebola NO
+1562 QPTCuaNr DtAqDrYey Greece 43 Hepatitis-B YES 11-05-1421
 1454 YDlvU RtZvsY Greece 64 SARS-1 NO
+705 bcuwQT cQbGdvCzdKGQ Greece 102 Banna NO
 1858 MKq JZYFAgeJFh Greece 48 Hepatitis-A NO
+1454 YDlvU RtZvsY Greece 64 Flu NO
 702 jNbrqYv uHFPAgUMy Greece 113 H1N1 YES 30-01-0053
+1460 iNE vdbVfdukg Greece 35 Banna NO
 1941 TJiCwtgzm SlVGSUw Greece 5 Hepatitis-D NO
+582 weJvDYqDih QselWzK Greece 94 H1N1 NO
 1553 WUdUYzJyZM BgPpuFa Greece 10 Hepatitis-E YES 05-06-2012
+1717 baKMhAj pWpLO Greece 100 Lassa NO
 1562 QPTCuaNr DtAqDrYey Greece 43 Cowpox YES 07-01-0518
+589 Oex oPx Greece 62 Hepatitis-A NO
 705 bcuwQT cQbGdvCzdKGQ Greece 102 Zika YES 05-02-1783
+1412 kfpjsAlKhNo yHhHP Greece 4 Ebola NO
 85 WuSIJVd gdneMlK Greece 27 Hepatitis-A NO
+1105 PUxPCvwVjykq CKkeUZvQMroj Greece 42 COVID-19 YES 30-10-1491
 1895 UEfbqJn jGaFgGkJjw Greece 82 Monkeypox NO
+811 sKsdFVf BLU Greece 81 Horsepox NO
 560 YFIrcAyhGWSA dwMSIYXX Greece 117 Zika NO
+1105 PUxPCvwVjykq CKkeUZvQMroj Greece 42 COVID-19 YES 23-04-1561
 1711 UclgghQSEoc AkG Greece 58 Toscana NO
+1335 EdmHWEUPnYH wCgRWCpGO Greece 103 Horsepox YES 21-10-1693
 1895 UEfbqJn jGaFgGkJjw Greece 82 COVID-19 NO
+1707 toTETR glfuJHnFy Greece 111 Hepatitis-C YES 29-11-0394
 702 jNbrqYv uHFPAgUMy Greece 113 Ebola NO
+318 evFr rczvjXBnTfEb Greece 110 Hepatitis-E YES 29-09-0963
 1335 EdmHWEUPnYH wCgRWCpGO Greece 103 H1N1 NO
+1105 PUxPCvwVjykq CKkeUZvQMroj Greece 42 Hepatitis-B NO
 1460 iNE vdbVfdukg Greece 35 Horsepox NO
+1562 QPTCuaNr DtAqDrYey Greece 43 COVID-19 YES 17-09-2003
 1827 LibJ FTtMZXDsrsY Greece 63 Hepatitis-D NO
+1702 FyxRnLmOjL nTrBJ Greece 12 Hepatitis-C YES 10-04-1366
 286 KJO Kooi Greece 76 Hepatitis-E NO
+790 OVoqB yaqCCVD Greece 11 SARS-1 NO
 1177 lhI jCHlN Greece 37 Hepatitis-D YES 21-02-0630
+754 PMLufpjzb OVTYgYpop Greece 35 Typhus YES 18-04-0939
 1177 lhI jCHlN Greece 37 SARS-1 YES 15-09-1714
+1365 oTAKUnE KVlJfHHROz Greece 40 Zika NO
 345 IKAbNJGB LyGjUtvMzjFc Greece 60 Flu NO
+902 KbNcZfK fjwGRVn Greece 92 Banna NO
 550 PAH ApYFOyTGuce Greece 55 Hepatitis-B NO
+1715 Hbu pisJDabOGMTs Greece 20 Junin YES 06-11-0281
 342 HkzFmui UYPHYANUBou Greece 41 Flu NO
+582 weJvDYqDih QselWzK Greece 94 SARS-1 YES 26-12-1360
 405 xkxHGIeOARRJ YEuICBT Greece 3 Banna YES 28-11-0627
+1702 FyxRnLmOjL nTrBJ Greece 12 Lassa YES 11-09-1336
 1365 oTAKUnE KVlJfHHROz Greece 40 Hepatitis-A NO
+345 IKAbNJGB LyGjUtvMzjFc Greece 60 H1N1 NO
 1447 EsIh GIAjniayYp Greece 70 SARS-1 YES 16-09-1322
+403 xjGdIl ktgyBDCpY Greece 11 Flu YES 14-05-1312
 1412 kfpjsAlKhNo yHhHP Greece 4 Junin NO
+345 IKAbNJGB LyGjUtvMzjFc Greece 60 Hepatitis-A NO
 702 jNbrqYv uHFPAgUMy Greece 113 Ebola NO
+1794 AAa mZLzL Greece 118 Zika NO
 1460 iNE vdbVfdukg Greece 35 Junin NO
+1434 IyHnldQ gjA Greece 73 Hepatitis-A NO
 1412 kfpjsAlKhNo yHhHP Greece 4 Typhus NO
+575 eXDJp fBnpHbqz Greece 48 Hepatitis-A NO
 844 upIU SDfKdBz Greece 8 Monkeypox NO
+1488 PWp IXppcdPjURKl Greece 28 Rabies NO
 718 dKDhWcxVRs XqKDI Greece 106 Typhus NO

@@ -1,34 +1,67 @@
 1782 axpIwAT cFRZSnw Serbia 74 Hepatitis-C NO
+471 bzfSyQGbDl UbYs Serbia 37 Hepatitis-A NO
 1853 KQSVzTlITdpf ncDFqXhyyEn Serbia 71 Hepatitis-E NO
+517 aLEVPAUTNmHx fgHLgBzZQR Serbia 59 H1N1 YES 27-11-1462
 680 MEp OiQBOxMNI Serbia 92 SARS-1 NO
+1633 aOB XkJUakBbaK Serbia 112 Hepatitis-E NO
 298 gSDW ZaeDnbMCHk Serbia 79 COVID-19 YES 18-04-0152
+81 vZnVtkVDNjWz yJlBKfX Serbia 13 Monkeypox YES 08-09-0228
 897 WrxZoFlPhb RVugGekpiKos Serbia 30 Rabies NO
+847 daHWLreV CWzmkltduV Serbia 118 Rabies YES 06-08-1259
 1011 DsOkPRTFf SMtQRDdso Serbia 67 Hepatitis-B NO
+186 EyXYQmKJYUJ uekNjmAQ Serbia 32 Rabies NO
 471 bzfSyQGbDl UbYs Serbia 37 Monkeypox YES 12-02-0879
+551 qMTmIra UXqekL Serbia 13 Lassa NO
 1025 tqSwBpOYnXvE jlpyefBhGi Serbia 59 Cowpox YES 11-08-1964
+680 MEp OiQBOxMNI Serbia 92 Monkeypox NO
 1633 aOB XkJUakBbaK Serbia 112 Lassa NO
+1343 ICTIfsLnUL vgjgV Serbia 10 Hepatitis-A YES 16-10-1569
 368 iSDGmEgdD PHBgCW Serbia 41 Rabies YES 02-12-0033
+1292 uAjnBEYSv ByFjOrsz Serbia 73 Monkeypox YES 14-05-0514
 1086 dgH NGwoPI Serbia 15 SARS-1 YES 09-08-0225
+1782 axpIwAT cFRZSnw Serbia 74 Hepatitis-B YES 03-10-0975
 471 bzfSyQGbDl UbYs Serbia 37 COVID-19 NO
+725 BNTR EVIhhfw Serbia 89 Ebola YES 22-04-0471
 1767 ZyXclocKg dUwOE Serbia 23 Hepatitis-B NO
+1221 YDlttkClc MWfoB Serbia 81 Hepatitis-B NO
 1007 TrL vTkXeo Serbia 69 Monkeypox NO
+725 BNTR EVIhhfw Serbia 89 Cowpox YES 13-03-0123
 952 aqPtjOLCqBU xloY Serbia 49 Hepatitis-A NO
+1964 rvRUwD raYtYLx Serbia 114 Hepatitis-D NO
 1007 TrL vTkXeo Serbia 69 Hepatitis-C YES 08-04-1466
+79 vYja lTEKzaruZe Serbia 58 Flu NO
 234 Pfd GCnQ Serbia 8 H1N1 YES 27-04-1757
+1353 knzPNoUcgU oTDisFAsIuHk Serbia 114 Flu NO
 788 rqfhlZUBQXcx dsgi Serbia 17 Zika NO
+1741 fxpZoO cLztvhvXVlrX Serbia 54 Cowpox YES 16-07-0585
 1025 tqSwBpOYnXvE jlpyefBhGi Serbia 59 Flu NO
+1025 tqSwBpOYnXvE jlpyefBhGi Serbia 59 H1N1 NO
 1324 LDSPVyliPJ bpCeaznrWo Serbia 15 Monkeypox NO
+437 iZUE HLawAtfyjg Serbia 65 Monkeypox NO
 1025 tqSwBpOYnXvE jlpyefBhGi Serbia 59 Hepatitis-C NO
+1330 duyVMWY PdXX Serbia 109 Cowpox NO
 81 vZnVtkVDNjWz yJlBKfX Serbia 13 Ebola YES 14-12-1989
+1007 TrL vTkXeo Serbia 69 Flu YES 05-04-0423
 824 Usx Xeuv Serbia 83 H1N1 YES 30-03-0438
+1353 knzPNoUcgU oTDisFAsIuHk Serbia 114 Hepatitis-A NO
 824 Usx Xeuv Serbia 83 Typhus YES 22-06-0808
+1443 evRVPHVw vCDKLECjwexK Serbia 120 H1N1 NO
 1019 yJCfDE cRwWqsXw Serbia 10 Flu YES 07-04-0607
+1782 axpIwAT cFRZSnw Serbia 74 Hepatitis-E YES 15-04-0343
 379 mPUKBkxWrok bVNovNPXTbxG Serbia 66 Junin NO
+1741 fxpZoO cLztvhvXVlrX Serbia 54 SARS-1 NO
 1353 knzPNoUcgU oTDisFAsIuHk Serbia 114 Banna NO
+1839 GQejm ZOiD Serbia 31 Rabies NO
 44 mrjaZYx OcJTFL Serbia 88 Banna YES 24-06-0499
+298 gSDW ZaeDnbMCHk Serbia 79 Flu NO
 788 rqfhlZUBQXcx dsgi Serbia 17 Monkeypox NO
+1853 KQSVzTlITdpf ncDFqXhyyEn Serbia 71 Cowpox YES 26-03-1243
 540 rDhst NKJ Serbia 47 Hepatitis-C NO
+1470 oZWmUQKBX MhcsZqH Serbia 41 Ebola NO
 1086 dgH NGwoPI Serbia 15 Hepatitis-D YES 22-06-0846
+1126 dikm GAPTFa Serbia 87 Hepatitis-A YES 30-08-0676
 1389 rjn wirOycfpulG Serbia 84 H1N1 NO
+1025 tqSwBpOYnXvE jlpyefBhGi Serbia 59 Lassa NO
 1839 GQejm ZOiD Serbia 31 H1N1 NO
+1839 GQejm ZOiD Serbia 31 Ebola YES 17-05-0483
 1853 KQSVzTlITdpf ncDFqXhyyEn Serbia 71 Cowpox YES 21-02-0713

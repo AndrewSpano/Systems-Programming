@@ -1,33 +1,66 @@
 602 fddXkh sZYrZYO Spain 51 Flu NO
+741 qZcYJdihA Dtj Spain 2 SARS-1 NO
 1072 mifcWibOMjn QTMAZ Spain 118 Lassa NO
+1938 uSVzSrQlzEuq Hbkonv Spain 15 Hepatitis-C YES 04-03-0225
 1639 veJAbO ZVgsHvN Spain 49 Flu NO
+1004 FVGObehzcOrO ACvAokyLSdY Spain 64 Toscana YES 07-03-0612
 1784 QZrjrp pII Spain 66 Hepatitis-C YES 15-12-0977
+1873 vjuUTF YbQwIVzzIA Spain 56 Hepatitis-E YES 05-12-1678
 1135 mWpMCeu wloVJQZEjP Spain 24 Toscana NO
+95 RTXfbdTe BfVMgzMELyNV Spain 113 Typhus NO
 1591 ZkR mGWXMxZ Spain 51 Horsepox YES 04-12-0308
+864 HfNFPCr xTYyIWXs Spain 48 Zika NO
 769 BRrdDX ffyWald Spain 115 Hepatitis-A YES 16-09-1365
+1637 YCKP MHd Spain 25 Ebola YES 20-12-1470
 1591 ZkR mGWXMxZ Spain 51 Hepatitis-E NO
+1591 ZkR mGWXMxZ Spain 51 Flu YES 30-03-1951
 1254 QZo uaGtaapkDH Spain 114 Hepatitis-E NO
+115 XtmbGdHeJkO MKIVUOTkVqR Spain 113 Hepatitis-A NO
 297 HuHjfkyql ejkTXcDJsjr Spain 72 Horsepox NO
+819 RgH hxg Spain 42 Hepatitis-A NO
 115 XtmbGdHeJkO MKIVUOTkVqR Spain 113 Hepatitis-E YES 02-12-1948
+570 tSpZ LnOU Spain 53 Hepatitis-E NO
 1591 ZkR mGWXMxZ Spain 51 Monkeypox YES 20-03-0773
+735 Wlq hzvseoo Spain 79 Horsepox NO
 1580 XBXFELkB XiMZeeTqz Spain 98 H1N1 YES 03-06-0052
+1072 mifcWibOMjn QTMAZ Spain 118 Zika YES 12-09-1722
 1607 IYVkdAxnxSAB BotqUPezk Spain 82 Ebola NO
+1024 cZbXKiyHmSKW juUzHISiXFvb Spain 49 Junin YES 01-06-1610
 1295 TiGfKjgEkhmg QXnkv Spain 50 Horsepox YES 25-10-0199
+297 HuHjfkyql ejkTXcDJsjr Spain 72 Banna YES 14-10-1497
 1942 MaXBQctrSI iReL Spain 57 SARS-1 YES 20-11-0079
+101 qOxABuLpJFt toIOzVGq Spain 76 Cowpox YES 05-05-0422
 1808 UMQWTFPsLSa zdJ Spain 107 Flu NO
+819 RgH hxg Spain 42 Lassa YES 05-05-0764
 611 etVYUFE IbseFcYuXwT Spain 71 Zika YES 12-01-1153
+1967 mMrFCmtLXrIZ XkSIFhoVYd Spain 5 Banna NO
 821 bAJowyflavb yeqv Spain 86 Flu YES 18-05-0818
+821 bAJowyflavb yeqv Spain 86 COVID-19 YES 26-10-1453
 1949 xTBSPCeXjD tDLCYj Spain 91 Hepatitis-D NO
+1967 mMrFCmtLXrIZ XkSIFhoVYd Spain 5 Rabies YES 24-03-1622
 1733 snFSbE xZd Spain 99 Hepatitis-C NO
+94 OFzHhdo TNGcGvx Spain 96 Typhus NO
 1607 IYVkdAxnxSAB BotqUPezk Spain 82 Banna YES 23-04-1844
+1180 AZWPVAu aDZ Spain 56 Horsepox NO
 1733 snFSbE xZd Spain 99 Hepatitis-E NO
+887 GlCMpG QparfNw Spain 51 Hepatitis-E YES 24-10-0288
 1295 TiGfKjgEkhmg QXnkv Spain 50 Hepatitis-D NO
+1607 IYVkdAxnxSAB BotqUPezk Spain 82 Toscana YES 13-02-0830
 1808 UMQWTFPsLSa zdJ Spain 107 Hepatitis-A YES 03-01-0315
+1295 TiGfKjgEkhmg QXnkv Spain 50 Hepatitis-D YES 27-05-1415
 1495 mnG ISjMvfoeEO Spain 41 Typhus NO
+660 Zqu PtLqXhOrQ Spain 2 Junin YES 13-08-0364
 1939 rukG QTRnoVgAq Spain 24 Flu YES 10-07-0238
+107 QWMSAq bkwPQqSBJybf Spain 59 Hepatitis-D NO
 821 bAJowyflavb yeqv Spain 86 Junin YES 27-12-1581
+486 jyhbQ iYWjHYizfgRr Spain 43 Ebola YES 30-09-1522
 1495 mnG ISjMvfoeEO Spain 41 Hepatitis-A YES 24-03-0225
+602 fddXkh sZYrZYO Spain 51 Junin NO
 1931 yOEeBnl vnSojfO Spain 17 Hepatitis-D YES 24-08-0109
+107 QWMSAq bkwPQqSBJybf Spain 59 Hepatitis-B YES 02-05-0431
 769 BRrdDX ffyWald Spain 115 Zika NO
+1808 UMQWTFPsLSa zdJ Spain 107 Flu YES 28-04-0473
 1784 QZrjrp pII Spain 66 Horsepox NO
+115 XtmbGdHeJkO MKIVUOTkVqR Spain 113 Zika YES 14-04-1713
 1214 sYgqjU zVOxvpkrNQ Spain 25 Lassa NO
+570 tSpZ LnOU Spain 53 Flu YES 23-11-0334

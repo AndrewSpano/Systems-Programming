@@ -1,35 +1,70 @@
 196 dPM KcD Australia 100 Horsepox NO
+128 syKjDbp JJXbDmAwXeKe Australia 114 Cowpox NO
 770 jGAvvia PJiuit Australia 104 Rabies YES 06-08-0110
+728 cHM cHdsArLjk Australia 73 H1N1 YES 23-12-1603
 1850 AZFCLUn pTEOzi Australia 41 Hepatitis-B NO
+355 xUfJB DKQWiCHiJ Australia 24 Zika YES 15-03-1193
 1484 IQXN gZiGxqsd Australia 17 Banna YES 09-02-0744
+1668 iTvTd GSuWjTaP Australia 54 Hepatitis-E NO
 1726 AWMNjyuQ VHTiggRxs Australia 31 Zika NO
+58 pwcC NiMlGy Australia 29 Banna NO
 99 JmtUKYi mnh Australia 23 Junin YES 26-04-0944
+1952 QzcBORPg dhPEZkCtEOKL Australia 68 Hepatitis-C YES 11-10-1058
 1850 AZFCLUn pTEOzi Australia 41 Rabies YES 24-01-0397
+484 JkVsecdcQtx koQiFpdCGF Australia 24 Horsepox NO
 1046 DlLo PiMxy Australia 73 Ebola YES 04-12-1980
+1210 sarA AkQxAqTh Australia 68 Rabies NO
 58 pwcC NiMlGy Australia 29 Hepatitis-B YES 30-01-0460
+1477 HLp yZQ Australia 69 Junin NO
 265 CCjdkxqGdN JKsxvVA Australia 101 SARS-1 YES 14-09-1681
+196 dPM KcD Australia 100 Lassa YES 02-06-0470
 196 dPM KcD Australia 100 Cowpox YES 26-05-1294
+1210 sarA AkQxAqTh Australia 68 Monkeypox NO
 143 AoEWxm EiVfFDmOaP Australia 8 SARS-1 YES 04-11-1782
+128 syKjDbp JJXbDmAwXeKe Australia 114 Hepatitis-B NO
 196 dPM KcD Australia 100 Flu YES 17-12-0889
+965 gHidmqvKwar uLO Australia 119 Hepatitis-E NO
 1477 HLp yZQ Australia 69 SARS-1 YES 15-04-0321
+1965 jCUpDEKg tQrm Australia 43 Lassa NO
 1455 TbMMWXnkyqq wgiLHfjIYl Australia 2 Ebola YES 15-02-0337
+1046 DlLo PiMxy Australia 73 Hepatitis-C NO
 1182 KAQc erD Australia 49 Toscana YES 25-05-0900
+1110 MzCqtyYZHBJ aPlnpT Australia 107 Lassa YES 11-11-0981
 355 xUfJB DKQWiCHiJ Australia 24 Lassa NO
+99 JmtUKYi mnh Australia 23 Typhus YES 20-05-1994
 1726 AWMNjyuQ VHTiggRxs Australia 31 Monkeypox YES 11-08-0090
+1734 uQgkUFBAbhnq NtvichjbgCL Australia 64 SARS-1 YES 18-05-1286
 1998 vhysUxDLiv GKXevLE Australia 120 Toscana YES 19-12-1038
+252 wLsLvdK WQecjjZLQ Australia 43 Horsepox YES 25-07-0356
 1182 KAQc erD Australia 49 Zika YES 03-09-0505
+196 dPM KcD Australia 100 Hepatitis-D NO
 1261 dGpNtcNt DblKCSYLGFiX Australia 114 Rabies YES 04-02-0846
+1281 wBgMOLCkC bIUjZGU Australia 100 Hepatitis-A NO
 1373 mqlry oWhhcXlXZeEJ Australia 116 Monkeypox YES 24-11-0943
+1455 TbMMWXnkyqq wgiLHfjIYl Australia 2 Flu NO
 270 fxBNYHMk qcqsPzpE Australia 61 Flu YES 22-04-0439
+1734 uQgkUFBAbhnq NtvichjbgCL Australia 64 H1N1 NO
 418 RYFH cxlbXTT Australia 108 COVID-19 YES 30-10-1949
+1107 hMIR zgaKtiZmeY Australia 106 Lassa NO
 484 JkVsecdcQtx koQiFpdCGF Australia 24 Banna YES 15-08-1090
+949 FfBCvnnxBxwG MGx Australia 23 Typhus YES 02-04-0796
 1543 SIIRquslTLH uCK Australia 2 Ebola NO
+507 igXoK jaodIaHVgO Australia 43 Hepatitis-E NO
 1182 KAQc erD Australia 49 Cowpox NO
+355 xUfJB DKQWiCHiJ Australia 24 Hepatitis-A NO
 1107 hMIR zgaKtiZmeY Australia 106 Toscana YES 18-02-1551
+196 dPM KcD Australia 100 Zika NO
 1796 UvYZwu ZigZf Australia 14 Horsepox YES 03-05-1684
+1850 AZFCLUn pTEOzi Australia 41 Rabies YES 16-02-1502
 956 ntGqAhQmcnA qxoQnZx Australia 113 Banna YES 28-09-1224
+1010 hxM UnVzJQ Australia 86 Banna YES 11-12-1195
 46 ELkFHsSRhy vOnnoZL Australia 113 Junin YES 09-05-0277
+1726 AWMNjyuQ VHTiggRxs Australia 31 Horsepox YES 29-01-0411
 1415 VfVGFWspBx tSAVUwMNHF Australia 73 Hepatitis-E NO
+1046 DlLo PiMxy Australia 73 Hepatitis-D YES 02-04-1347
 956 ntGqAhQmcnA qxoQnZx Australia 113 Lassa YES 14-04-1952
+1998 vhysUxDLiv GKXevLE Australia 120 Hepatitis-B NO
 1668 iTvTd GSuWjTaP Australia 54 H1N1 YES 19-06-1124
+1261 dGpNtcNt DblKCSYLGFiX Australia 114 Rabies YES 15-04-1690
 1107 hMIR zgaKtiZmeY Australia 106 Banna NO
+1753 KeHouWtJinBV FLx Australia 33 SARS-1 NO

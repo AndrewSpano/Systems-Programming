@@ -1,32 +1,63 @@
 852 pLjpDRHngt VZm France 3 Hepatitis-D NO
+1492 VvcmOPuu MpYmQjolNu France 57 SARS-1 NO
 96 qAVMl fwdBGpE France 3 Lassa NO
+208 yTclDavhng yIAF France 88 Hepatitis-A NO
 1205 yXDFpa OXKlbUKeCCMs France 49 Cowpox NO
+810 yMyRHW lkX France 79 COVID-19 NO
 106 jPxapxZ PAwsZYMGWvFd France 14 Horsepox NO
+1497 PDTIiDQSmT fmAlrqgiuNrN France 52 Hepatitis-D NO
 39 mBhMIoqwC olkJ France 39 Toscana YES 01-02-1926
+834 INORii UcnBvCUBx France 28 Monkeypox YES 20-07-1208
 106 jPxapxZ PAwsZYMGWvFd France 14 SARS-1 YES 30-10-0228
+1296 QwhfHpjdhPOr oCAHZ France 110 Junin YES 19-03-0357
 1878 tcQBW xxxvzb France 93 Flu YES 24-12-0105
+1820 DvPGCV OekNnwtRjxkU France 7 Horsepox NO
 750 RqxwbSaBbLJW upioFQJiGmcQ France 93 Junin NO
+528 jWjOWgHlx SQM France 100 COVID-19 NO
 178 entENbwVlt eQPT France 31 SARS-1 YES 11-08-0707
+106 jPxapxZ PAwsZYMGWvFd France 14 Hepatitis-B NO
 1913 CtxClOeW ibzt France 103 Banna YES 12-12-1810
+810 yMyRHW lkX France 79 Flu NO
 645 kVSQqxSY GNQzV France 107 Banna NO
+1377 zGJZSarJpK vujtDknxUR France 95 Junin NO
 1645 MbGrfUCubg bZQJFdoH France 87 Ebola YES 06-09-0315
+1204 qPlTP ZxIFc France 50 Hepatitis-C NO
 645 kVSQqxSY GNQzV France 107 Hepatitis-D YES 08-05-0804
+493 kuIFgw uqdzhw France 7 Hepatitis-D NO
 96 qAVMl fwdBGpE France 3 SARS-1 NO
+1121 xRBon UJCc France 120 Hepatitis-C YES 24-10-1014
 106 jPxapxZ PAwsZYMGWvFd France 14 Typhus NO
+1385 DlBVvBOqBGmV SMXBB France 108 Hepatitis-E YES 22-10-0972
 810 yMyRHW lkX France 79 Zika NO
+1492 VvcmOPuu MpYmQjolNu France 57 Lassa NO
 528 jWjOWgHlx SQM France 100 Hepatitis-D NO
+1377 zGJZSarJpK vujtDknxUR France 95 Cowpox YES 24-12-0187
 1878 tcQBW xxxvzb France 93 Banna YES 16-08-1186
+178 entENbwVlt eQPT France 31 Banna NO
 106 jPxapxZ PAwsZYMGWvFd France 14 Hepatitis-D NO
+294 JuqPTOqFI mOJa France 16 Lassa NO
 1891 CCmMeRJStok aGEBF France 55 Hepatitis-E YES 20-10-0164
+493 kuIFgw uqdzhw France 7 Hepatitis-A YES 14-09-1918
 381 VSHoeG jEJIIud France 116 Junin YES 27-02-1526
+1626 MVoqjgKHP ECOBZqftXVGo France 30 Monkeypox NO
 307 IbUPqULUOd bchCTmOQASm France 118 Ebola NO
+240 xEmSIHk KGeBEBUSn France 42 Horsepox YES 01-04-1709
 1385 DlBVvBOqBGmV SMXBB France 108 Toscana NO
+1857 ZrLHOkyd QhKKQ France 55 Lassa NO
 834 INORii UcnBvCUBx France 28 Ebola YES 26-04-1676
+1205 yXDFpa OXKlbUKeCCMs France 49 Horsepox NO
 852 pLjpDRHngt VZm France 3 Banna YES 28-04-0945
+1385 DlBVvBOqBGmV SMXBB France 108 Zika YES 03-09-0312
 178 entENbwVlt eQPT France 31 Monkeypox YES 07-03-0262
+1114 bpAmUHadQTN AjS France 25 H1N1 YES 29-04-1921
 106 jPxapxZ PAwsZYMGWvFd France 14 Zika NO
+645 kVSQqxSY GNQzV France 107 Zika NO
 307 IbUPqULUOd bchCTmOQASm France 118 Horsepox YES 27-01-0097
+1645 MbGrfUCubg bZQJFdoH France 87 Toscana YES 15-04-1459
 645 kVSQqxSY GNQzV France 107 Junin YES 26-11-1022
+381 VSHoeG jEJIIud France 116 Hepatitis-C NO
 1202 XtD GjzWaskBoEtE France 75 Hepatitis-A NO
+574 SKiNMlK QXhVyRddt France 100 Horsepox NO
 272 TGiV cFzuhRiyrF France 82 Cowpox YES 09-11-0994
+1114 bpAmUHadQTN AjS France 25 Hepatitis-A YES 24-05-0015
 636 zHKHWxJ VMKyiOpK France 73 Hepatitis-E YES 13-11-0664
